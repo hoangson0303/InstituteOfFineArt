@@ -4,418 +4,638 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <title>Funder &mdash; Colorlib Website Template</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Consulting | Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="~/User/site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="~/User/assets/img/favicon.ico">
 
-    <link href="https://fonts.googleapis.com/css?family=Oswald:400,700|Work+Sans:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="~/User/fonts/icomoon/style.css">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="~/User/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/User/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/User/assets/css/slicknav.css">
+    <link rel="stylesheet" href="~/User/assets/css/flaticon.css">
+    <link rel="stylesheet" href="~/User/assets/css/progressbar_barfiller.css">
+    <link rel="stylesheet" href="~/User/assets/css/gijgo.css">
+    <link rel="stylesheet" href="~/User/assets/css/animate.min.css">
+    <link rel="stylesheet" href="~/User/assets/css/animated-headline.css">
+    <link rel="stylesheet" href="~/User/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/User/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/User/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="~/User/assets/css/slick.css">
+    <link rel="stylesheet" href="~/User/assets/css/nice-select.css">
+    <link rel="stylesheet" href="~/User/assets/css/style.css">
 
-    <link rel="stylesheet" href="~/User/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/User/css/magnific-popup.css">
-    <link rel="stylesheet" href="~/User/css/jquery-ui.css">
-    <link rel="stylesheet" href="~/User/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="~/User/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="~/User/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="~/User/css/animate.css">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
-
-    
-
-    <link rel="stylesheet" href="~/User/fonts/flaticon/font/flaticon.css">
-
-    <link rel="stylesheet" href="~/User/css/aos.css">
-
-    <link rel="stylesheet" href="~/User/css/style.css">
-   
 </head>
-<body  style="background-image: url('../../wwwroot/User/images/bg.jpg');">
+<body>
     <div>
         @RenderBody()
     </div>
-
-    <!--<div class="site-wrap">
-
-        
-
-        <div class="site-mobile-menu">
-            <div class="site-mobile-menu-header">
-                <div class="site-mobile-menu-close mt-3">
-                    <span class="icon-close2 js-menu-toggle"></span>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="~/User/assets/img/logo/loder.png" alt="">
                 </div>
             </div>
-            <div class="site-mobile-menu-body"></div>
-        </div>--> <!-- .site-mobile-menu -->
-
-
-        <!--<div class="site-navbar-wrap js-site-navbar bg-white">
-
-            <div class="container">
-                <div class="site-navbar bg-light">
-                    <div class="row align-items-center">
-                        <div class="col-2">
-                            <h2 class="mb-0 site-logo"><a href="index.html" class="font-weight-bold">FUNDER</a></h2>
-                        </div>
-                        <div class="col-10">
-                            <nav class="site-navigation text-right" role="navigation">
-                                <div class="container">
-                                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-
-                                    <ul class="site-menu js-clone-nav d-none d-lg-block">
-                                        <li class="active"><a href="index.html">Home</a></li>
-                                        <li class="has-children">
-                                            <a href="insurance.html">Insurance</a>
-                                            <ul class="dropdown arrow-top">
-                                                <li><a href="#">Home Insurance</a></li>
-                                                <li><a href="#">Auto Insurance</a></li>
-                                                <li><a href="#">Travel Insurance</a></li>
-                                                <li class="has-children">
-                                                    <a href="#">Sub Menus</a>
-                                                    <ul class="dropdown">
-                                                        <li><a href="insurance.html">Home Insurance</a></li>
-                                                        <li><a href="insurance.html">Auto Insurance</a></li>
-                                                        <li><a href="insurance.html">Travel Insurance</a></li>
+        </div>
+    </div>
+    <!-- Preloader Start-->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header_area">
+            <div class="main-header">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo">
+                                    <a href="index.html"><img src="~/User/assets/img/logo/logo.png" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-8">
+                                <div class="header-left  d-flex f-right align-items-center">
+                                    <!-- Main-menu -->
+                                    <div class="main-menu f-right d-none d-lg-block">
+                                        <nav>
+                                            <ul id="navigation">
+                                                <li><a href="index.html">Home</a></li>
+                                                <li>
+                                                    <a href="#">Pages</a>
+                                                    <ul class="submenu">
+                                                        <li><a asp-controller="about" asp-action="about">about</a></li>
+                                                        <li><a href="elements.html">Element</a></li>
                                                     </ul>
                                                 </li>
+                                                <li><a href="services.html">Services</a></li>
+                                                <li>
+                                                    <a href="blog.html">Blog</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="blog.html">Blog</a></li>
+                                                        <li><a href="blog_details.html">Blog Details</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="contact.html">Contact</a></li>
                                             </ul>
-                                        </li>
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a asp-action="about" asp-controller="about">About</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="contact.html"><span class="d-inline-block p-3 bg-primary text-white btn btn-primary">Get A Quote</span></a></li>
+                                        </nav>
+                                    </div>
+                                    <!-- left Btn -->
+                                    <div class="header-right-btn f-right d-none d-lg-block  ml-30">
+                                        <a href="#" class="header-btn">Make an Appointment</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!--? slider Area Start-->
+        <div class="slider-area  slider-height position-relative" data-background="~/User/assets/img/hero/h1_hero.png">
+            <div class="slider-active">
+                <!-- Single Slider -->
+                <div class="single-slider">
+                    <div class="slider-cap-wrapper">
+                        <div class="hero-caption">
+                            <span>Best Service</span>
+                            <h1 data-animation="fadeInLeft" data-delay=".4s">Business  Consulting</h1>
+                            <p data-animation="fadeInLeft" data-delay=".6s">
+                                The automated process starts as soon as
+                                your clothes go into the machine.
+                            </p>
+                            <!-- Hero Btn -->
+                            <a href="#" class="btn" data-animation="fadeInLeft" data-delay=".9s">Explore Services</a>
+                        </div>
+                        <div class="hero-img">
+                            <img src="~/User/assets/img/hero/h1_hero1.png" alt="" data-animation="fadeInRight" data-transition-duration="5s">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Video icon -->
+            <div class="video-icon">
+                <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0"><i class="fas fa-play"></i></a>
+            </div>
+        </div>
+        <!-- slider Area End-->
+        <!--? Services Area Start -->
+        <section class="services-section section-padding30 fix">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-10 col-lg-10 col-md-12">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle text-center mb-70">
+                            <span>Our Service</span>
+                            <h2>We bring ideas to life by combining years of experiences of our very talented team.</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="services-active">
+                    <div class="single-services section-over1 text-center">
+                        <div class="services-img">
+                            <img src="~/User/assets/img/gallery/team1.png" alt="">
+                            <div class="services-caption">
+                                <h3><a href="#">Business consulting</a></h3>
+                                <p>The automated process starts as soon <br>as your clothes go into the machine.</p>
+                                <a href="#" class="btn btn3">Make Appointment</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-services section-over1 text-center">
+                        <div class="services-img">
+                            <img src="~/User/assets/img/gallery/team2.png" alt="">
+                            <div class="services-caption">
+                                <h3><a href="#">Media planing</a></h3>
+                                <p>The automated process starts as soon <br>as your clothes go into the machine.</p>
+                                <a href="#" class="btn btn3">Make Appointment</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-services section-over1 text-center">
+                        <div class="services-img">
+                            <img src="~/User/assets/img/gallery/team3.png" alt="">
+                            <div class="services-caption">
+                                <h3><a href="#">Professional HR</a></h3>
+                                <p>The automated process starts as soon <br>as your clothes go into the machine.</p>
+                                <a href="#" class="btn btn3">Make Appointment</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-services section-over1 text-center">
+                        <div class="services-img">
+                            <img src="~/User/assets/img/gallery/team2.png" alt="">
+                            <div class="services-caption">
+                                <h3><a href="#">Media planing</a></h3>
+                                <p>The automated process starts as soon <br>as your clothes go into the machine.</p>
+                                <a href="#" class="btn btn3">Make Appointment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Services Area End -->
+        <!--! About Area Start 01 -->
+        <section class="about-area fix">
+            <!--Right Contents  -->
+            <div class="about-img">
+
+            </div>
+            <!-- left Contents -->
+            <div class="about-details">
+                <div class="right-caption">
+                    <!-- Section Tittle -->
+                    <div class="section-tittle mb-50">
+                        <h2>Our<br>Philosophy</h2>
+                    </div>
+                    <div class="about-more">
+                        <p>
+                            The automated process starts as soon as
+                            your clothes go into the machine. Duis cursus, mi quis
+                            viverra ornare, eros dolor interdum nulla, ut commodo
+                            diam libero vitae erat. Aenean faucibus nibh et justo
+                            cursus id rutrum lorem imperdiet. Nunc ut sem vitae
+                            risus tristique posuere.
+                        </p>
+                        <p class="pera-bottom">
+                            Interdum nulla, ut commodo diam libero vitae erat.
+                            Aenean faucibus nibh et justo cursus id rutrum lorem
+                            imperdiet. Nunc ut sem vitae risus tristique posuere.
+                        </p>
+                        <div class="footer-tittles">
+                            <p>CEO, Consulto</p>
+                            <h2>Capcilena Hanry</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Area End-->
+        <!--! About Area Start 02-->
+        <div class="about-area2">
+            <!-- left Contents -->
+            <div class="about-details2">
+                <div class="right-caption2">
+                    <!-- Section Tittle -->
+                    <div class="section-tittle mb-50">
+                        <h2>Creative solutions<br>from experts</h2>
+                    </div>
+                    <!-- collapse-wrapper -->
+                    <div class="collapse-wrapper">
+                        <div class="accordion" id="accordionExample">
+                            <!-- single-one -->
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h2 class="mb-0">
+                                        <a href="#" class="btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Starts the automated process.</a>
+                                    </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        The automated process starts as soon as
+                                        your clothes go into the machine. Duis cursus, mi
+                                        quis viverra ornare.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-two -->
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">The automated process starts.</a>
+                                    </h2>
+                                </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        The automated process starts as soon as
+                                        your clothes go into the machine. Duis cursus, mi
+                                        quis viverra ornare.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-three -->
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h2 class="mb-0">
+                                        <a href="#" class="btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Automated process starts.</a>
+                                    </h2>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        The automated process starts as soon as
+                                        your clothes go into the machine. Duis cursus, mi
+                                        quis viverra ornare.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-four -->
+                            <div class="card">
+                                <div class="card-header" id="headingfouree">
+                                    <h2 class="mb-0">
+                                        <a href="#" class="btn-link collapsed" data-toggle="collapse" data-target="#collapseFoure" aria-expanded="false" aria-controls="collapseFoure">Process the automated magic.</a>
+                                    </h2>
+                                </div>
+                                <div id="collapseFoure" class="collapse" aria-labelledby="headingfouree" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        The automated process starts as soon as
+                                        your clothes go into the machine. Duis cursus, mi
+                                        quis viverra ornare.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Right Contents  -->
+            <div class="about-img2">
+                <div class="info-man2">
+                    <div class="head-cap2">
+                        <img src="~/User/assets/img/icon/quality.svg" alt="">
+                        <h3>900+</h3>
+                    </div>
+                    <p>Interdum nulla, ut commodo<br>diam libero vitae erat.</p>
+                </div>
+                <div class="info-man2 info-man3">
+                    <div class="head-cap2">
+                        <img src="~/User/assets/img/icon/heart.svg" alt="">
+                        <h3>95%</h3>
+                    </div>
+                    <p>Interdum nulla, ut commodo<br> diam libero vitae erat.</p>
+                </div>
+            </div>
+        </div>
+        <!-- About Area End-->
+        <!--? Testimonial Area Start -->
+        <section class="testimonial-area testimonial-padding fix" data-background="~/User/assets/img/gallery/section_bg03.png">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class=" col-lg-9">
+                        <div class="about-caption">
+                            <!-- Testimonial Start -->
+                            <div class="h1-testimonial-active dot-style">
+                                <!-- Single Testimonial -->
+                                <div class="single-testimonial position-relative">
+                                    <div class="testimonial-caption">
+                                        <img src="~/User/assets/img/icon/quotes-sign.png" alt="" class="quotes-sign">
+                                        <p>Brook presents your services with flexible, convenient and cdpose layouts. You can select your favorite layouts & elements for cular ts with unlimited ustomization possibilities. Pixel-perfect replica;ition of thei designers ijtls intended csents your se.</p>
+                                    </div>
+                                    <!-- founder -->
+                                    <div class="testimonial-founder d-flex align-items-center">
+                                        <div class="founder-img">
+                                            <img src="~/User/assets/img/icon/testimonial.png" alt="">
+                                        </div>
+                                        <div class="founder-text">
+                                            <span>Robart Brown</span>
+                                            <p>Creative designer at Colorlib</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Testimonial -->
+                                <div class="single-testimonial position-relative">
+                                    <div class="testimonial-caption">
+                                        <img src="~/User/assets/img/icon/quotes-sign.png" alt="" class="quotes-sign">
+                                        <p>Brook presents your services with flexible, convenient and cdpose layouts. You can select your favorite layouts & elements for cular ts with unlimited ustomization possibilities. Pixel-perfect replica;ition of thei designers ijtls intended csents your se.</p>
+                                    </div>
+                                    <!-- founder -->
+                                    <div class="testimonial-founder d-flex align-items-center">
+                                        <div class="founder-img">
+                                            <img src="~/User/assets/img/icon/testimonial.png" alt="">
+                                        </div>
+                                        <div class="founder-text">
+                                            <span>Robart Brown</span>
+                                            <p>Creative designer at Colorlib</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimonial End -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--? Testimonial Area End -->
+        <!-- Home Blog Start -->
+        <section class="home-blog section-padding40 fix">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="cl-xl-7 col-lg-8 col-md-10">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle text-center mb-70">
+                            <span>Case studies</span>
+                            <h2>Some great stuffs we have done</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-active">
+                    <!-- Single -->
+                    <div class="single-blogs">
+                        <div class="blog-img">
+                            <img src="~/User/assets/img/gallery/blogs1.png" alt="">
+                        </div>
+                        <div class="blogs-cap">
+                            <h5><a href="#">Starts the automated process.</a></h5>
+                            <p>The automated process starts as soon as your  clothes go into the machine.</p>
+                        </div>
+                        <div class="stickers">
+                            <span>Urban</span>
+                        </div>
+                    </div>
+                    <!-- Single -->
+                    <div class="single-blogs">
+                        <div class="blog-img">
+                            <img src="~/User/assets/img/gallery/blogs2.png" alt="">
+                        </div>
+                        <div class="blogs-cap">
+                            <h5><a href="#">Starts the automated process.</a></h5>
+                            <p>The automated process starts as soon as your  clothes go into the machine.</p>
+                        </div>
+                        <div class="stickers">
+                            <span>Urban</span>
+                        </div>
+                    </div>
+                    <!-- Single -->
+                    <div class="single-blogs">
+                        <div class="blog-img">
+                            <img src="~/User/assets/img/gallery/blogs3.png" alt="">
+                        </div>
+                        <div class="blogs-cap">
+                            <h5><a href="#">Starts the automated process.</a></h5>
+                            <p>The automated process starts as soon as your  clothes go into the machine.</p>
+                        </div>
+                        <div class="stickers">
+                            <span>Urban</span>
+                        </div>
+                    </div>
+                    <!-- Single -->
+                    <div class="single-blogs">
+                        <div class="blog-img">
+                            <img src="~/User/assets/img/gallery/blogs2.png" alt="">
+                        </div>
+                        <div class="blogs-cap">
+                            <h5><a href="#">Starts the automated process.</a></h5>
+                            <p>The automated process starts as soon as your  clothes go into the machine.</p>
+                        </div>
+                        <div class="stickers">
+                            <span>Urban</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Home Blog End -->
+        <!--? Office environment  Start-->
+        <section class="office-environments section-bg2 section-padding40" data-background="assets/img/gallery/section_bg02.png">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-7 col-lg-8">
+                        <div class="office-pera">
+                            <div class="section-tittle">
+                                <h2 class="mb-30">Office <br>Environment</h2>
+                                <p>
+                                    The automated process starts as soon as
+                                    your clothes go into the machine. Duis cursus, mi quis
+                                    viverra ornare, eros dolor interdum nulla, ut commodo
+                                    diam libero vitae erat. Aenean faucibus nibh et justo
+                                    cursus id rutrum lorem imperdiet. Nunc ut sem vitae
+                                    risus tristique posuere.
+                                </p>
+
+                                <p>
+                                    Interdum nulla, ut commodo diam libero vitae erat.
+                                    Aenean faucibus nibh et justo cursus id rutrum lorem
+                                    imperdiet. Nunc ut sem vitae risus tristique posuere.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Office environment  End-->
+        <!--? Team Ara Start -->
+        <section class="team-area section-padding40">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="cl-xl-7 col-lg-8 col-md-10">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle text-center mb-70">
+                            <span>Experts</span>
+                            <h2>Our consultents</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-team mb-30">
+                            <div class="team-img">
+                                <img src="~/User/assets/img/gallery/team1.png" alt="">
+                                <div class="team-social">
+                                    <ul>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-globe"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
-                            </nav>
+                            </div>
+                            <div class="team-caption">
+                                <h3><a href="#">Jacika Chouhan</a></h3>
+                                <p>Senior business consultant</p>
+                            </div>
+                            <!-- Blog Social -->
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="slide-one-item home-slider owl-carousel">
-
-            <div class="site-blocks-cover inner-page overlay" style="background-image: url(../../wwwroot/User/images/hero_bg_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-md-6" data-aos="fade">
-                            <h1 class="font-secondary font-weight-bold text-uppercase">Small Business Insurance Agency</h1>
-                            <span class="caption d-block text-white">An Insurance Company</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="site-blocks-cover inner-page overlay" style="background-image: url(../../wwwroot/User/images/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
-                <div class="container">
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-7 text-center" data-aos="fade">
-                            <h1 class="font-secondary font-weight-bold text-uppercase">Insurance Coverage To Meet Your Needs</h1>
-                            <span class="caption d-block text-white">You Will Love Our Services</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       
-        <div class="site-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <span class="caption d-block mb-2 font-secondary font-weight-bold">Products &amp; Services</span>
-                        <h2 class="site-section-heading text-uppercase text-center font-secondary">Insurance Coverage</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 block-13 nav-direction-white">
-                        <div class="nonloop-block-13 owl-carousel">
-                            <div class="media-image">
-                                <img src="~/User/images/img_1.jpg" alt="Image" class="img-fluid">
-                                <div class="media-image-body">
-                                    <h2 class="font-secondary text-uppercase">Home Insurance</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, voluptate.</p>
-                                    <p><a href="#" class="btn btn-primary text-white px-4"><span class="caption">Learn More</span></a></p>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-team mb-30">
+                            <div class="team-img">
+                                <img src="~/User/assets/img/gallery/team2.png" alt="">
+                                <div class="team-social">
+                                    <ul>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-globe"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="media-image">
-                                <img src="~/User/images/img_2.jpg" alt="Image" class="img-fluid">
-                                <div class="media-image-body">
-                                    <h2 class="font-secondary text-uppercase">Auto Insurance</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, voluptate.</p>
-                                    <p><a href="#" class="btn btn-primary text-white px-4"><span class="caption">Learn More</span></a></p>
+                            <div class="team-caption">
+                                <h3><a href="#">Dirluba Jahan</a></h3>
+                                <p>Senior business consultant</p>
+                            </div>
+                            <!-- Blog Social -->
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-team mb-30">
+                            <div class="team-img">
+                                <img src="~/User/assets/img/gallery/team3.png" alt="">
+                                <div class="team-social">
+                                    <ul>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-globe"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="media-image">
-                                <img src="~/User/images/img_3.jpg" alt="Image" class="img-fluid">
-                                <div class="media-image-body">
-                                    <h2 class="font-secondary text-uppercase">Travel Insurance</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, voluptate.</p>
-                                    <p><a href="#" class="btn btn-primary text-white px-4"><span class="caption">Learn More</span></a></p>
+                            <div class="team-caption">
+                                <h3><a href="#">Michel Frade</a></h3>
+                                <p>Senior business consultant</p>
+                            </div>
+                            <!-- Blog Social -->
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-team mb-30">
+                            <div class="team-img">
+                                <img src="~/User/assets/img/gallery/team4.png" alt="">
+                                <div class="team-social">
+                                    <ul>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-globe"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="media-image">
-                                <img src="~/User/images/img_1.jpg" alt="Image" class="img-fluid">
-                                <div class="media-image-body">
-                                    <h2 class="font-secondary text-uppercase">Home Insurance</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, voluptate.</p>
-                                    <p><a href="#" class="btn btn-primary text-white px-4"><span class="caption">Learn More</span></a></p>
-                                </div>
+                            <div class="team-caption">
+                                <h3><a href="#">Kalisha Milano</a></h3>
+                                <p>Senior business consultant</p>
                             </div>
-                            <div class="media-image">
-                                <img src="~/User/images/img_2.jpg" alt="Image" class="img-fluid">
-                                <div class="media-image-body">
-                                    <h2 class="font-secondary text-uppercase">Auto Insurance</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, voluptate.</p>
-                                    <p><a href="#" class="btn btn-primary text-white px-4"><span class="caption">Learn More</span></a></p>
-                                </div>
-                            </div>
-                            <div class="media-image">
-                                <img src="~/User/images/img_3.jpg" alt="Image" class="img-fluid">
-                                <div class="media-image-body">
-                                    <h2 class="font-secondary text-uppercase">Travel Insurance</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, voluptate.</p>
-                                    <p><a href="#" class="btn btn-primary text-white px-4"><span class="caption">Learn More</span></a></p>
-                                </div>
-                            </div>
+                            <!-- Blog Social -->
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-
-        <div class="site-section">
+        </section>
+        <!-- Team Ara End -->
+        <!--? Want To work -->
+        <section class="wantToWork-area section-bg2" data-background="~/User/assets/img/gallery/section_bg01.png">
             <div class="container">
-                <div class="row mb-5">
-                    <div class="col-12"><h2 class="text-uppercase">We Are Trusted Agency Company</h2></div>
-                </div>
-                <div class="row mb-5">
-                    <div class="col-md-12">
-                        <img src="~/User/images/about_1.jpg" alt="image" class="img-fluid">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 ml-auto">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus aliquid eius facilis voluptatem eligendi magnam accusamus vel commodi asperiores sint rem reprehenderit nobis nesciunt veniam qui fugit doloremque numquam quod.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur tempora distinctio ipsam nesciunt recusandae repellendus asperiores amet.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="site-half">
-            <div class="img-bg-1" style="background-image: url('../../wwwroot/User/images/hero_bg_2.jpg');"></div>
-            <div class="container">
-                <div class="row no-gutters align-items-stretch">
-                    <div class="col-md-5 ml-md-auto py-5">
-                        <span class="caption d-block mb-2 font-secondary font-weight-bold">Outstanding Services</span>
-                        <h2 class="site-section-heading text-uppercase font-secondary mb-5">Why Choose Us</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus aliquid eius facilis voluptatem eligendi magnam accusamus vel commodi asperiores sint rem reprehenderit nobis nesciunt veniam qui fugit doloremque numquam quod.</p>
-
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur tempora distinctio ipsam nesciunt recusandae repellendus asperiores amet.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="site-half">
-            <div class="img-bg-1 right" style="background-image: url('../../wwwroot/User/images/hero_bg_1.jpg');"></div>
-            <div class="container">
-                <div class="row no-gutters align-items-stretch">
-                    <div class="col-md-5 mr-md-auto py-5">
-                        <span class="caption d-block mb-2 font-secondary font-weight-bold">Outstanding Services</span>
-                        <h2 class="site-section-heading text-uppercase font-secondary mb-5">Why Choose Us</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus aliquid eius facilis voluptatem eligendi magnam accusamus vel commodi asperiores sint rem reprehenderit nobis nesciunt veniam qui fugit doloremque numquam quod.</p>
-
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur tempora distinctio ipsam nesciunt recusandae repellendus asperiores amet.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="site-section">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-md-12 text-center">
-                        <span class="caption d-block mb-2 font-secondary font-weight-bold">Outstanding Services</span>
-                        <h2 class="site-section-heading text-uppercase text-center font-secondary">Why Choose Us</h2>
-                    </div>
-                </div>
-                <div class="row border-responsive">
-                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 border-right">
-                        <div class="text-center">
-                            <span class="flaticon-customer-service display-4 d-block mb-3 text-primary"></span>
-                            <h3 class="text-uppercase h4 mb-3">24/7 Support</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nobis?</p>
+                <div class="wants-wrapper w-padding2">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-xl-7 col-lg-7 col-md-12">
+                            <div class="wantToWork-caption wantToWork-caption2">
+                                <h2>Need a consulting services?</h2>
+                                <p>The automated process starts as soon as your clothes go into the machine. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 border-right">
-                        <div class="text-center">
-                            <span class="flaticon-group display-4 d-block mb-3 text-primary"></span>
-                            <h3 class="text-uppercase h4 mb-3">Trusted People</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nobis?</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 border-right">
-                        <div class="text-center">
-                            <span class="flaticon-medal display-4 d-block mb-3 text-primary"></span>
-                            <h3 class="text-uppercase h4 mb-3">12 Years Experience</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nobis?</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-                        <div class="text-center">
-                            <span class="flaticon-agreement display-4 d-block mb-3 text-primary"></span>
-                            <h3 class="text-uppercase h4 mb-3">Join With Us</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nobis?</p>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <a href="#" class="btn w-btn wantToWork-btn mr-20">Make an Appointment</a>
+                            <a href="#" class="btn2 w-btn wantToWork-btn"><i class="fas fa-phone"></i> (89) 673 378-309</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+        <!-- Want To work End -->
+    </main>
+    @RenderBody()
+    <!-- Footer -->
+    <partial name="_Footer" />
+    <!-- Footer -->
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
 
-        <div class="site-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <p class="mb-5"><img src="~/User/images/img_1.jpg" alt="Image" class="img-fluid"></p>
-                    </div>
-                    <div class="col-lg-5 ml-auto">
-                        <h2 class="site-section-heading mb-3 font-secondary text-uppercase">Thousands of Houses Damage Each Year</h2>
-                        <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim ad, tempora incidunt accusantium. Similique magni quaerat beatae illo aliquid. Libero non ipsa nisi, corporis architecto incidunt rem repellendus asperiores numquam!</p>
-                        <p><a href="#" class="btn btn-outline-primary py-2 px-4">Insured Yours Now</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- JS here -->
 
-        <div class="site-section" style="background-image: url('../../wwwroot/User/images/topography.png');
-        background-attachment: fixed">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-md-12">
-                        <h2 class="site-section-heading text-center text-uppercase">Our Founders</h2>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-6 text-center">
-                        <img src="~/User/images/person_2.jpg" alt="Image" class="img-fluid rounded-circle w-25 mb-4">
-                        <h2 class="h5 ">Alex Peters</h2>
-                        <span class="d-block mb-4">CEO, Co-Founder</span>
-                        <p class="font-weig mb-5 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita et aliquam fuga dicta amet ad laborum error recusandae, voluptatibus quam minima sed, saepe odio voluptatem. Sed unde hic, vitae fugiat.</p>
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <img src="~/User/images/person_3.jpg" alt="Image" class="img-fluid rounded-circle w-25 mb-4">
-                        <h2 class="h5">Shane Cripton</h2>
-                        <span class="d-block mb-4">President, Co-Founder</span>
-                        <p class="font-weig mb-5 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita et aliquam fuga dicta amet ad laborum error recusandae, voluptatibus quam minima sed, saepe odio voluptatem. Sed unde hic, vitae fugiat.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <script src="~/User/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="~/User/assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="~/User/assets/js/popper.min.js"></script>
+    <script src="~/User/assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="~/User/assets/js/jquery.slicknav.min.js"></script>
 
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="~/User/assets/js/owl.carousel.min.js"></script>
+    <script src="~/User/assets/js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="~/User/assets/js/wow.min.js"></script>
+    <script src="~/User/assets/js/animated.headline.js"></script>
+    <script src="~/User/assets/js/jquery.magnific-popup.js"></script>
 
+    <!-- Date Picker -->
+    <script src="~/User/assets/js/gijgo.min.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="~/User/assets/js/jquery.nice-select.min.js"></script>
+    <script src="~/User/assets/js/jquery.sticky.js"></script>
+    <!-- Progress -->
+    <script src="~/User/assets/js/jquery.barfiller.js"></script>
 
-        <div class="site-section block-14 bg-light nav-direction-white">
+    <!-- counter , waypoint,Hover Direction -->
+    <script src="~/User/assets/js/jquery.counterup.min.js"></script>
+    <script src="~/User/assets/js/waypoints.min.js"></script>
+    <script src="~/User/assets/js/jquery.countdown.min.js"></script>
+    <script src="~/User/assets/js/hover-direction-snake.min.js"></script>
 
-            <div class="container">
+    <!-- contact js -->
+    <script src="~/User/assets/js/contact.js"></script>
+    <script src="~/User/assets/js/jquery.form.js"></script>
+    <script src="~/User/assets/js/jquery.validate.min.js"></script>
+    <script src="~/User/assets/js/mail-script.js"></script>
+    <script src="~/User/assets/js/jquery.ajaxchimp.min.js"></script>
 
-                <div class="row mb-5">
-                    <div class="col-md-12">
-                        <h2 class="site-section-heading text-center text-uppercase">Testimonies</h2>
-                    </div>
-                </div>
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="~/User/assets/js/plugins.js"></script>
+    <script src="~/User/assets/js/main.js"></script>
 
-                <div class="nonloop-block-14 owl-carousel">
-
-                    <div class="p-5">
-                        <div class="d-block block-testimony w-75 mx-auto text-center">
-                            <div class="person w-25 mx-auto mb-4">
-                                <img src="~/User/images/person_1.jpg" alt="Image" class="img-fluid rounded-circle">
-                            </div>
-                            <div>
-                                <h2 class="h5 mb-4">Katie Johnson</h2>
-                                <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora ipsam!&rdquo;</blockquote>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <div class="d-block block-testimony w-75 mx-auto text-center">
-                            <div class="person w-25 mx-auto mb-4">
-                                <img src="~/User/images/person_2.jpg" alt="Image" class="img-fluid rounded-circle">
-                            </div>
-                            <div>
-                                <h2 class="h5 mb-4">Jun Mars</h2>
-                                <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora ipsam!&rdquo;</blockquote>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <div class="d-block block-testimony w-75 mx-auto text-center">
-                            <div class="person w-25 mx-auto mb-4">
-                                <img src="~/User/images/person_3.jpg" alt="Image" class="img-fluid rounded-circle">
-                            </div>
-                            <div>
-                                <h2 class="h5 mb-4">Shane Holmes</h2>
-                                <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora ipsam!&rdquo;</blockquote>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <div class="d-block block-testimony w-75 mx-auto text-center">
-                            <div class="person w-25 mx-auto mb-4">
-                                <img src="~/User/images/person_4.jpg" alt="Image" class="img-fluid rounded-circle">
-                            </div>
-                            <div>
-                                <h2 class="h5 mb-4">Mark Johnson</h2>
-                                <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora ipsam!&rdquo;</blockquote>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="py-5 bg-primary">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
-                        <h2 class="text-uppercase text-white mb-0">Small Business Insurance Company</h2>
-                    </div>
-                    <div class="col-md-3 ml-auto text-center text-md-left">
-                        <a href="#" class="btn btn-bg-primary d-inline-block d-md-block font-secondary text-uppercase">Contact Us</a>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-        @RenderBody()
-        <footer class="site-footer">
-            <partial name="_Footer" />
-        </footer>
-  
-
-    <script src="~/User/js/jquery-3.3.1.min.js"></script>
-    <script src="~/User/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="~/User/js/jquery-ui.js"></script>
-    <script src="~/User/js/popper.min.js"></script>
-    <script src="~/User/js/bootstrap.min.js"></script>
-    <script src="~/User/js/owl.carousel.min.js"></script>
-    <script src="~/User/js/jquery.stellar.min.js"></script>
-    <script src="~/User/js/jquery.countdown.min.js"></script>
-    <script src="~/User/js/jquery.magnific-popup.min.js"></script>
-    <script src="~/User/js/bootstrap-datepicker.min.js"></script>
-    <script src="~/User/js/aos.js"></script>
-
-    <script src="~/User/js/main.js"></script>
 
 </body>
 </html>
