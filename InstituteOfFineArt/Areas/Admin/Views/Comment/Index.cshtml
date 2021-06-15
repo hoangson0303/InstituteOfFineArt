@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Comment";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>COMMENT</h1>
+<br />
+<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+    <div class="input-group">
+        <input type="text" class="form-control bg-white border-0 small" placeholder="Search for..."
+               aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="button">
+                <i class="fas fa-search fa-sm"></i>
+            </button>
+        </div>
+    </div>
+</form>
+<br />
+<table class="table table-success">
+
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">CONTENT</th>
+            <th scope="col">DATE COMMENT</th>
+            <th scope="col">STATUS</th>
+            <th scope="col">ID ACCOUNT</th>
+            <th scope="col">ID SUBMISSION</th>
+            <th scope="col">ACTION</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>Mark</td>
+            <td>
+                <a type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

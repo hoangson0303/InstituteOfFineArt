@@ -10,8 +10,8 @@ namespace InstituteOfFineArt.Controllers
     public class IndexController : Controller
     {
         [Route("index")]
-        [Route("~/")]
         [Route("")]
+        [Route("~/")]
         public IActionResult Index()
         {
             return View();
