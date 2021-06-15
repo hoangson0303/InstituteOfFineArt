@@ -8,7 +8,10 @@ section.office-environments.section-bg2.section-padding40 {
     background: #DCDCDC;
 }
 
-
 .slider-cap-wrapper {
     background-image: url(../img/gallery/section_bg01.png);
+}
+
+section.testimonial-area.testimonial-padding.fix {
+    background: #FEF2ED;
 }
