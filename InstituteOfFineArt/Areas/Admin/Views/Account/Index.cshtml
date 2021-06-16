@@ -5,21 +5,21 @@
 }
 <h1>USERS LIST</h1>
 <br />
-<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-    <div class="input-group">
-        <input type="text" class="form-control bg-white border-0 small" placeholder="Search for..."
-               aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
-                <i class="fas fa-search fa-sm"></i>
-            </button>
-        </div>
-    </div>
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
-</form>
+
 <br />
 <table class="table table-success">
-
+    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        <div class="input-group">
+            <input type="text" class="form-control bg-white border-0 small" placeholder="Search for..."
+                   aria-label="Search" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
+        </div>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-file-import">  ADD</i></button>
+    </form>
     <thead>
         <tr>
             <th scope="col">ID</th>
@@ -57,7 +57,7 @@
             <td>@account.ContestsParticipated</td>
             <td>
                 <a type="button" class="btn btn-success" asp-controller="account" asp-action="update" asp-route-id="@account.IdAcc"><i class="fas fa-edit"></i></a>
-                <a type="button" class="btn btn-danger" asp-controller="account" asp-action="delete" asp-route-id="@account.IdAcc" onclick="return confirm('Are you sure?')"><i class="far fa-trash-alt"></i></a>
+                <a type="button" class="btn btn-danger" asp-controller="account" asp-action="delete" asp-route-id="@account.IdAcc"><i class="far fa-trash-alt"></i></a>
             </td>
         </tr>
         }
