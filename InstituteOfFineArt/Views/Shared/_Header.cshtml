@@ -1,67 +1,154 @@
-﻿  <header>
-        <!-- Header Start -->
-        <div class="header-area header_area">
-            <div class="main-header">
-                <div class="header-bottom  header-sticky">
-                    <div class="container-fluid">
-                        <div class="row align-items-center">
-                            <!-- Logo -->
-                            <div class="col-xl-2 col-lg-2 col-md-1">
-                                <div class="logo">
-                                    <a href="index.html"><img src="~/User/assets/img/logo/logo.png" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="col-xl-10 col-lg-10 col-md-8">
-                                <div class="header-left  d-flex f-right align-items-center">
-                                    <!-- Main-menu -->
-                                    <div class="main-menu f-right d-none d-lg-block">
-                                        <nav>
-                                            <ul id="navigation">
-                                                <li><a asp-controller="index" asp-action="index">Home</a></li>
-                                                <li>
-                                                    <a href="#">Pages</a>
-                                                    <ul class="submenu">
-                                                        <li><a asp-controller="about" asp-action="about">About</a></li>
-                                                        <li><a href="elements.html">Element</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="services.html">Services</a></li>
-                                                <li>
-                                                    <a asp-controller="blog" asp-action="blog">Blog</a>
-                                                    <ul class="submenu">
-                                                        <li><a href="blog.html">Blog</a></li>
-                                                        <li><a href="blog_details.html">Blog Details</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a asp-controller="contact" asp-action="contact">Contant</a></li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                    <!-- left Btn -->
-                                    <div class="header-right-btn f-right d-none d-lg-block  ml-30">
-                                        <a href="#" class="header-btn">Make an Appointment</a>
-                                    </div>
-                                    <div class="main-menu f-right d-none d-lg-block">
-                                        <nav>
-                                            <ul id="navigation">
+﻿
 
-                                                <li><a asp-controller="school" asp-action="school">Login</a></li>
-                                                <li><a @*asp-controller="contact" asp-action="contact"*@>/</a></li>
-                                                <li><a @*asp-controller="contact" asp-action="contact"*@>Sinup</a></li>
-                                            </ul>
-                                        </nav>
-                                    </div>
+<header>
+    <!-- Header Start -->
+    <div class="header-area header_area">
+        <div class="main-header">
+            <div class="header-bottom  header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2 col-md-1">
+                            <div class="logo">
+                                <a href="index.html"><img src="~/User/assets/img/logo/logo.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-8">
+                            <div class="header-left  d-flex f-right align-items-center">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a asp-controller="index" asp-action="index">Home</a></li>
+                                            <li>
+                                                <a href="#">Pages</a>
+                                                <ul class="submenu">
+                                                    <li><a asp-controller="about" asp-action="about">About</a></li>
+                                                    <li><a href="elements.html">Element</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="services.html">Services</a></li>
+                                            <li>
+                                                <a asp-controller="blog" asp-action="blog">Blog</a>
+                                                <ul class="submenu">
+                                                    <li><a href="blog.html">Blog</a></li>
+                                                    <li><a href="blog_details.html">Blog Details</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a asp-controller="contact" asp-action="contact">Contant</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- left Btn -->
+                                <div class="header-right-btn f-right d-none d-lg-block  ml-30">
+                                    <a href="#" class="header-btn">Make an Appointment</a>
+                                </div>
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            
+                                            <li>
+                                                <a></a>
+                                                <ul class="submenu">
+                                                    <li></li>
+                                                    <li></li>
+                                                </ul>
+                                            </li>
+                                         
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li></li>
+                                            <li><a  class="btn btn-success" asp-controller="login" asp-action="login">Login</a></li>
+                                            
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
-                            <!-- Mobile Menu -->
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
-                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Header End -->
-    </header>
+    </div>
+    <!-- Header End -->
+</header>
 
+
+
+@*<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel">Login</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="login-wrap">
+                        <div class="login-html">
+                            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+                            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                            <div class="login-form">
+                                <div class="sign-in-htm">
+                                    <div class="group">
+                                        <label for="user" class="label">Username</label>
+                                        <input id="user" type="text" class="input">
+                                    </div>
+                                    <div class="group">
+                                        <label for="pass" class="label">Password</label>
+                                        <input id="pass" type="password" class="input" data-type="password">
+                                    </div>
+                                    <div class="group">
+                                        <input id="check" type="checkbox" class="check" checked>
+                                        <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                                    </div>
+                                    <div class="group">
+                                        <input type="submit" class="button" value="Sign In">
+                                    </div>
+                                    <div class="hr"></div>
+                                    <div class="foot-lnk">
+                                        <a href="#forgot">Forgot Password?</a>
+                                    </div>
+                                </div>
+                                <div class="sign-up-htm">
+                                    <div class="group">
+                                        <label for="user" class="label">Username</label>
+                                        <input id="user" type="text" class="input">
+                                    </div>
+                                    <div class="group">
+                                        <label for="pass" class="label">Password</label>
+                                        <input id="pass" type="password" class="input" data-type="password">
+                                    </div>
+                                    <div class="group">
+                                        <label for="pass" class="label">Repeat Password</label>
+                                        <input id="pass" type="password" class="input" data-type="password">
+                                    </div>
+                                    <div class="group">
+                                        <label for="pass" class="label">Email Address</label>
+                                        <input id="pass" type="text" class="input">
+                                    </div>
+                                    <div class="group">
+                                        <input type="submit" class="button" value="Sign Up">
+                                    </div>
+                                    <div class="hr"></div>
+                                    <div class="foot-lnk">
+                                        <label for="tab-1">Already Member?</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>*@
