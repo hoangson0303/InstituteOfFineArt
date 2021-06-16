@@ -88,9 +88,19 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
         [Route("delete/{idAcc}")]
         public IActionResult Delete(string idAcc)
         {
-            AccountService.FindById(idAcc);
+            return View("delete", AccountService.FindById(idAcc));
+        }
+
+        [HttpPost]
+        [Route("delete/{idAcc}")]
+        public IActionResult Delete(Account account)
+        {
+            var currentAccount = AccountService.FindById(account.IdAcc);
+            currentAccount.Stat = false;
+            AccountService.Update(currentAccount);
             return RedirectToAction("index");
         }
+
 
         [HttpGet]
         [Route("update/{id}")]

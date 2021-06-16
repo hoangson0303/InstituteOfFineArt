@@ -6,6 +6,10 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\User\Models\" />
+    <Folder Include="Areas\User\Controllers\" />
+    <Folder Include="Areas\User\Services\" />
+    <Folder Include="Areas\User\Views\" />
   </ItemGroup>
 
   <ItemGroup>
