@@ -1,4 +1,5 @@
 using InstituteOfFineArt.Areas.Admin.Services;
+using InstituteOfFineArt.Areas.User.Services;
 using InstituteOfFineArt.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,6 +33,9 @@ namespace InstituteOfFineArt
 
             services.AddScoped<AccountService, AccountServiceImpl>();
             services.AddScoped<RoleService, RoleServiceImpl>();
+            services.AddScoped<LoginService, LoginServiceImpl>();
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +55,7 @@ namespace InstituteOfFineArt
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

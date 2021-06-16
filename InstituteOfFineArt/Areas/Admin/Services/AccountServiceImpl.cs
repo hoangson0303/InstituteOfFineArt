@@ -52,7 +52,7 @@ namespace InstituteOfFineArt.Areas.Admin.Services
 
         public List<Role> GetAllRole()
         {
-            return db.Roles.ToList();
+                return db.Roles.ToList();
         }
 
         public string GetIdRoleByNameRol(string nameRole)
