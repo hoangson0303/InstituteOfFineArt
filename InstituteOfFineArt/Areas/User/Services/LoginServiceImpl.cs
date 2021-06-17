@@ -23,22 +23,25 @@ namespace InstituteOfFineArt.Areas.User.Services
             return db.Accounts.SingleOrDefault(a => a.Username == username);
         }
 
-        public Account FindIdByUsername(string username)
+        public string FindIdByUsername(string username)
         {
-            return db.Accounts.SingleOrDefault(a => a.IdAcc == username);
+            return db.Accounts.Where(a => a.Username == username).Select(x => x.IdAcc).FirstOrDefault();
         }
 
-        public Role FindRole(string idAcc)
+        public string FindIdRole(string idAcc)
         {
-            return db.Roles.SingleOrDefault(r => r.IdRole == idAcc);
+            return db.UserRoles.Where(r => r.IdAcc == idAcc).Select(x => x.IdRole).FirstOrDefault();
+        }
+
+        public string FindNameRole(string idRole)
+        {
+            return db.Roles.Where(n => n.IdRole == idRole).Select(x => x.NameRole).FirstOrDefault();
         }
 
         public Account Login(string username, string password )
         {
             var account = Find(username);
-            string idAcc = FindIdByUsername(username).ToString();
-            var idRole = FindRole(idAcc);
-            if (account != null && )
+            if (account != null )
             {
                 if (BCrypt.Net.BCrypt.Verify(password, account.Pass))
                 {
@@ -49,9 +52,5 @@ namespace InstituteOfFineArt.Areas.User.Services
             return null;
         }
 
- 
-
-
-        
     }
 }

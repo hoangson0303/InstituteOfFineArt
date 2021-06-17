@@ -13,9 +13,11 @@ namespace InstituteOfFineArt.Areas.User.Services
 
         Account Find(string username);
 
-        Role FindRole(string idAcc);
+        string FindIdRole(string idAcc);
 
-        Account FindIdByUsername(string username);
+        string FindNameRole(string idRole);
+
+        string FindIdByUsername(string username);
 
 
 

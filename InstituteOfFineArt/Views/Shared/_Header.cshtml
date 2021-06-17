@@ -46,7 +46,7 @@
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            
+
                                             <li>
                                                 <a></a>
                                                 <ul class="submenu">
@@ -54,19 +54,35 @@
                                                     <li></li>
                                                 </ul>
                                             </li>
-                                         
+
                                         </ul>
                                     </nav>
                                 </div>
-                                <div class="main-menu f-right d-none d-lg-block">
-                                    <nav>
-                                        <ul id="navigation">
-                                            <li></li>
-                                            <li><a  class="btn btn-success" asp-controller="login" asp-action="login">Login</a></li>
-                                            
-                                        </ul>
-                                    </nav>
-                                </div>
+                                @if (@ViewBag.username != null)
+                                {
+                                    <div class="main-menu f-right d-none d-lg-block">
+                                        <nav>
+                                            <ul id="navigation">
+                                                <li></li>
+                                                <li><a class="btn btn-success">WelCome | @ViewBag.username</a></li>
+
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="main-menu f-right d-none d-lg-block">
+                                        <nav>
+                                            <ul id="navigation">
+                                                <li></li>
+                                                <li><a class="btn btn-success" asp-controller="login" asp-action="login">Login</a></li>
+
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                }
+
                             </div>
                         </div>
                         <!-- Mobile Menu -->
