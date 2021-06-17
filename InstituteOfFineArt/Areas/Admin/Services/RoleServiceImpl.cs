@@ -40,7 +40,7 @@ namespace InstituteOfFineArt.Areas.Admin.Services
 
         public List<UserRole> FindAllRoleUser()
         {
-            return db.UserRoles.ToList();
+            return db.UserRoles.ToList();   
         }
 
         public Role FindById(string idRole)
