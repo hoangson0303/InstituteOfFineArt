@@ -18,7 +18,8 @@
                 </button>
             </div>
         </div>
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-file-import">  ADD</i></button>
+        @*<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-file-import">  ADD</i></button>*@
+        <a class="btn btn-success" asp-action="add" asp-controller="account">ADD<i class="btn btn-success"></i></a>
     </form>
     <thead>
         <tr>
@@ -65,7 +66,7 @@
     </tbody>
 </table>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+@*<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -109,5 +110,5 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 
