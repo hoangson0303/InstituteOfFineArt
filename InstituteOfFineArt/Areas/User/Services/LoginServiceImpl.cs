@@ -36,9 +36,9 @@ namespace InstituteOfFineArt.Areas.User.Services
         public Account Login(string username, string password )
         {
             var account = Find(username);
-            string idAcc = FindIdByUsername(username).ToString();
-            var idRole = FindRole(idAcc);
-            if (account != null && )
+           // string idAcc = FindIdByUsername(username).ToString();
+           // var idRole = FindRole(idAcc);
+            if (account != null)
             {
                 if (BCrypt.Net.BCrypt.Verify(password, account.Pass))
                 {
@@ -49,9 +49,25 @@ namespace InstituteOfFineArt.Areas.User.Services
             return null;
         }
 
- 
+        public Account Create(Account account)
+        {
+            db.Accounts.Add(account);
+            db.SaveChanges();
+            return account;
+        }
+        public Account Signup(string username, string password)
+        {
+            var account = db.Accounts.SingleOrDefault(a => a.Username == username);
+            if (account != null)
+            {
+                if (BCrypt.Net.BCrypt.Verify(password, account.Pass))
+                {
+                    return account;
+                }
+            }
+            return null;
+        }
 
 
-        
     }
 }

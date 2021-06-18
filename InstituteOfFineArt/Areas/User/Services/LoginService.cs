@@ -17,7 +17,9 @@ namespace InstituteOfFineArt.Areas.User.Services
 
         Account FindIdByUsername(string username);
 
+        Account Create(Account account);
 
+        Account Signup(string username, string password);
 
     }
 }

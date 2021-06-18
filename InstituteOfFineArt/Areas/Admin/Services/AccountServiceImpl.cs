@@ -76,5 +76,24 @@ namespace InstituteOfFineArt.Areas.Admin.Services
             db.SaveChanges();
             return account;
         }
+
+        //public Account Create(Account account)
+        //{
+        //    db.Accounts.Add(account);
+        //    db.SaveChanges();
+        //    return account;
+        //}
+        //public Account Signup(string username, string password)
+        //{
+        //    var account = db.Accounts.SingleOrDefault(a => a.Username == username);
+        //    if (account != null)
+        //    {
+        //        if (BCrypt.Net.BCrypt.Verify(password, account.Pass))
+        //        {
+        //            return account;
+        //        }
+        //    }
+        //    return null;
+        //}
     }
 }

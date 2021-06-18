@@ -33,57 +33,114 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
             return View();
 
         }
+        [Route("add")]
+        [HttpGet]
+        public IActionResult Add()
+        {
+            ViewBag.accounts = AccountService.FindAll();
+            ViewBag.listRoles = AccountService.GetAllRole();
+            return View("Add", new Account());
 
+        }
         [HttpPost]
-        [Route("add")]  
+        [Route("add")]
         public IActionResult Add(Account account)
         {
-            string nameRole = Request.Form["selectRole"];
-            string idRole = AccountService.GetIdRoleByNameRol(nameRole);
-            var numAlpha = new Regex("(?<Alpha>[a-zA-Z]*)(?<Numeric>[0-9]*)");
-            int num = 0;
-            if (AccountService.GetNewestId(nameRole) != null)
-            {
-                var match = numAlpha.Match(AccountService.GetNewestId(nameRole));
-                //var alpha = match.Groups["Alpha"].Value;
-                num = Int32.Parse(match.Groups["Numeric"].Value);
+            //string nameRole = Request.Form["selectRole"];
+            //string idRole = AccountService.GetIdRoleByNameRol(nameRole);
+            //var numAlpha = new Regex("(?<Alpha>[a-zA-Z]*)(?<Numeric>[0-9]*)");
+            //int num = 0;
+            //if (AccountService.GetNewestId(nameRole) != null)
+            //{
+            //    var match = numAlpha.Match(AccountService.GetNewestId(nameRole));
+            //    //var alpha = match.Groups["Alpha"].Value;
+            //    num = Int32.Parse(match.Groups["Numeric"].Value);
 
-            }
+            //}
 
+            //account.Datecreated = DateTime.Now;
+            //account.Dateupdated = DateTime.Now;
+            //account.Pass = BCrypt.Net.BCrypt.HashString(account.Pass);
+            //account.Stat = true;
+
+
+            //if (AccountService.CountIdById(nameRole) != 0)
+            //{
+            //    account.IdAcc = nameRole + (num + 1);
+            //    string idAcc = AccountService.CreateAccount(account).IdAcc;
+
+            //    var userRole = new UserRole();
+            //    userRole.IdAcc = idAcc;
+            //    userRole.IdRole = idRole;
+            //    userRole.Datecreated = DateTime.Now;
+            //    userRole.Dateupdated = DateTime.Now;
+
+            //    AccountService.CreateUserRole(userRole);
+            //}
+            //else
+            //{
+            //    account.IdAcc = nameRole + 1;
+            //    string idAcc = AccountService.CreateAccount(account).IdAcc;
+            //    var userRole = new UserRole();
+            //    userRole.IdAcc = idAcc;
+            //    userRole.IdRole = idRole;
+            //    userRole.Datecreated = DateTime.Now;
+            //    userRole.Dateupdated = DateTime.Now;
+            //    AccountService.CreateUserRole(userRole);
+
+
+            //}
+            //return RedirectToAction("index", account);
+            ViewBag.accounts = AccountService.FindAll();
+            ViewBag.listRoles = AccountService.GetAllRole();
+            //if (ModelState.IsValid)
+            //{
+                string nameRole = Request.Form["selectRole"];
+                string idRole = AccountService.GetIdRoleByNameRol(nameRole);
+                var numAlpha = new Regex("(?<Alpha>[a-zA-Z]*)(?<Numeric>[0-9]*)");
+                int num = 0;
+                if (AccountService.GetNewestId(nameRole) != null)
+                {
+                    var match = numAlpha.Match(AccountService.GetNewestId(nameRole));
+                    //var alpha = match.Groups["Alpha"].Value;
+                    num = Int32.Parse(match.Groups["Numeric"].Value);
+
+                }
+            //if (ModelState.IsValid)
+            //{
             account.Datecreated = DateTime.Now;
-            account.Dateupdated = DateTime.Now;
-            account.Pass = BCrypt.Net.BCrypt.HashString(account.Pass);
-            account.Stat = true;
+                account.Dateupdated = DateTime.Now;
+                account.Pass = BCrypt.Net.BCrypt.HashString(account.Pass);
+                account.Stat = true;
+                if (AccountService.CountIdById(nameRole) != 0)
+                {
+                    account.IdAcc = nameRole + (num + 1);
+                    string idAcc = AccountService.CreateAccount(account).IdAcc;
 
+                    var userRole = new UserRole();
+                    userRole.IdAcc = idAcc;
+                    userRole.IdRole = idRole;
+                    userRole.Datecreated = DateTime.Now;
+                    userRole.Dateupdated = DateTime.Now;
 
-            if (AccountService.CountIdById(nameRole) != 0)
-            {
-                account.IdAcc = nameRole + (num + 1);
-                string idAcc = AccountService.CreateAccount(account).IdAcc;
-
-                var userRole = new UserRole();
-                userRole.IdAcc = idAcc;
-                userRole.IdRole = idRole;
-                userRole.Datecreated = DateTime.Now;
-                userRole.Dateupdated = DateTime.Now;
-
-                AccountService.CreateUserRole(userRole);
-            }
-            else
-            {
-                account.IdAcc = nameRole + 1;
-                string idAcc = AccountService.CreateAccount(account).IdAcc;
-                var userRole = new UserRole();
-                userRole.IdAcc = idAcc;
-                userRole.IdRole = idRole;
-                userRole.Datecreated = DateTime.Now;
-                userRole.Dateupdated = DateTime.Now;
-                AccountService.CreateUserRole(userRole);
-            }
-
-
-            return RedirectToAction("index");
+                    AccountService.CreateUserRole(userRole);
+                }
+                else
+                {
+                    account.IdAcc = nameRole + 1;
+                    string idAcc = AccountService.CreateAccount(account).IdAcc;
+                    var userRole = new UserRole();
+                    userRole.IdAcc = idAcc;
+                    userRole.IdRole = idRole;
+                    userRole.Datecreated = DateTime.Now;
+                    userRole.Dateupdated = DateTime.Now;
+                    AccountService.CreateUserRole(userRole);
+                }
+                return RedirectToAction("index", account);
+            //}
+            //return View("Add");
         }
+
 
         [HttpGet]
         [Route("delete/{idAcc}")]
@@ -115,7 +172,7 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
         [Route("update/{id}")]
         public IActionResult Update(Account account)
         {
-            var currentAccount = AccountService.FindById(account.IdAcc);
+             var currentAccount = AccountService.FindById(account.IdAcc);
             currentAccount.Email = account.Email;
             currentAccount.Fullname = account.Fullname;
             currentAccount.Dob = account.Dob;
@@ -129,6 +186,27 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
             currentAccount.IdRole = "stu";
             AccountService.Update(currentAccount);
             return RedirectToAction("index");
+            //if (ModelState.IsValid)
+            //{
+            //    var currentAccount = AccountService.FindById(account.IdAcc);
+            //currentAccount.Email = account.Email;
+            //currentAccount.Fullname = account.Fullname;
+            //currentAccount.Dob = account.Dob;
+            //currentAccount.Gender = account.Gender;
+            //currentAccount.Avatar = account.Avatar;
+            //currentAccount.PhoneNumber = account.PhoneNumber;
+            //currentAccount.Addr = account.Addr;
+            //currentAccount.ContestsParticipated = null;
+            //currentAccount.Dateupdated = DateTime.Now;
+            //currentAccount.Stat = true;
+            //currentAccount.IdRole = "stu";
+            //AccountService.Update(currentAccount);
+            //return RedirectToAction("index");
+            //}
+            //return View("update");
+
         }
+
+
     }
 }

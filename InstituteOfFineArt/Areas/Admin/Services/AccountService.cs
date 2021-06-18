@@ -22,5 +22,9 @@ namespace InstituteOfFineArt.Areas.Admin.Services
         Account FindById(string idAcc);
         Account Update(Account account);
         Account Delete(Account account);
+
+        //Account Create(Account account);
+
+        //Account Signup(string username, string password);
     }
 }

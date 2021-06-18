@@ -7,6 +7,7 @@
 <br />
 
 <br />
+
 <table class="table table-success">
     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         <div class="input-group">
@@ -18,7 +19,8 @@
                 </button>
             </div>
         </div>
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-file-import">  ADD</i></button>
+        @*<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-file-import">  ADD</i></button>*@
+        <a class="btn btn-success" asp-action="add" asp-controller="account">ADD<i class="btn btn-success"></i></a>
     </form>
     <thead>
         <tr>
@@ -41,31 +43,31 @@
     <tbody>
         @foreach (var account in ViewBag.accounts)
         {
-        <tr>
-            <td>@account.IdAcc</td>
-            <td>@account.Username</td>
-            <td>@account.Fullname</td>
-            <td>@account.Email</td>
-            <td>@account.Dob</td>
-            <td>@account.PhoneNumber</td>
-            <td>@account.Addr</td>
-            <td>@account.IdRole</td>
-            <td>@account.Gender</td>
-            <td>@account.Stat</td>
-            <td>@account.Datecreated</td>
-            <td>@account.Dateupdated</td>
-            <td>@account.ContestsParticipated</td>
-            <td>
-                <a type="button" class="btn btn-success" asp-controller="account" asp-action="update" asp-route-id="@account.IdAcc"><i class="fas fa-edit"></i></a>
-                <a type="button" class="btn btn-danger" asp-controller="account" asp-action="delete" asp-route-id="@account.IdAcc"><i class="far fa-trash-alt"></i></a>
-            </td>
-        </tr>
+            <tr>
+                <td>@account.IdAcc</td>
+                <td>@account.Username</td>
+                <td>@account.Fullname</td>
+                <td>@account.Email</td>
+                <td>@account.Dob</td>
+                <td>@account.PhoneNumber</td>
+                <td>@account.Addr</td>
+                <td>@account.IdRole</td>
+                <td>@account.Gender</td>
+                <td>@account.Stat</td>
+                <td>@account.Datecreated</td>
+                <td>@account.Dateupdated</td>
+                <td>@account.ContestsParticipated</td>
+                <td>
+                    <a type="button" class="btn btn-success" asp-controller="account" asp-action="update" asp-route-id="@account.IdAcc"><i class="fas fa-edit"></i></a>
+                    <a type="button" class="btn btn-danger" asp-controller="account" asp-action="delete" asp-route-id="@account.IdAcc"><i class="far fa-trash-alt"></i></a>
+                </td>
+            </tr>
         }
-        
+
     </tbody>
 </table>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+@*<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -78,14 +80,18 @@
                     <div class="form-group">
                         <label for="Name">Username</label>
                         <input type="text" class="form-control" asp-for="Username" id="Username" placeholder="Username" />
+                        <span asp-validation-for="Username"></span>
                     </div>
                     <div class="form-group">
                         <label for="Name">Password</label>
                         <input type="password" class="form-control" asp-for="Pass" id="Password" placeholder="Password" />
+                        <span asp-validation-for="Pass"></span>
                     </div>
                     <div class="form-group">
                         <label for="Name">Email</label>
                         <input type="text" class="form-control" asp-for="Email" id="Email" placeholder="Email" />
+                        <span asp-validation-for="Email"></span>
+
                     </div>
 
                     <div class="form-group">
@@ -109,5 +115,5 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 

@@ -43,6 +43,7 @@ namespace InstituteOfFineArt.Controllers
                 HttpContext.Session.SetString("username", username);
                 return RedirectToAction("school");
             }
+
         }
     
         [Route("school")]
@@ -51,6 +52,38 @@ namespace InstituteOfFineArt.Controllers
              ViewBag.username = HttpContext.Session.GetString("username"); // lấy tên người đăng nhập 
            
             return View("school");
+        }
+
+        [Route("add")]
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View("Add", new Account());
+
+        }
+        [Route("add")]
+        [HttpPost]
+        public IActionResult Add(Account account)
+        {
+            //if (accountService.Signup(username, password) == null)
+            //{
+            //    ViewBag.msg = "Invalid";
+            //    return View("Add");
+            //}
+            //else
+            //{
+            //    account.PassWord = BCrypt.Net.BCrypt.HashString(account.PassWord);
+            //    accountService.Create(account);
+            //    return RedirectToAction("index");
+            //}
+            if (ModelState.IsValid)
+            {
+                account.Pass = BCrypt.Net.BCrypt.HashString(account.Pass);
+                loginService.Create(account);
+                return RedirectToAction("login");
+            }
+            return View("Add");
+
         }
     }
 }
