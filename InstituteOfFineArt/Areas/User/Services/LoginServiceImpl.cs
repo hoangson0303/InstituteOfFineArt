@@ -18,9 +18,9 @@ namespace InstituteOfFineArt.Areas.User.Services
 
   
 
-        public Account Find(string username)
+        public string Find(string username)
         {
-            return db.Accounts.SingleOrDefault(a => a.Username == username);
+            return db.Accounts.Where(u => u.Username == username).Select(x => x.Username).FirstOrDefault();
         }
 
         public string FindIdByUsername(string username)
@@ -38,19 +38,9 @@ namespace InstituteOfFineArt.Areas.User.Services
             return db.Roles.Where(n => n.IdRole == idRole).Select(x => x.NameRole).FirstOrDefault();
         }
 
-        public Account Login(string username, string password )
+        public string Pass(string username)
         {
-            var account = Find(username);
-            if (account != null )
-            {
-                if (BCrypt.Net.BCrypt.Verify(password, account.Pass))
-                {
-                    return account;
-                }
-                return account;
-            }
-            return null;
+            return db.Accounts.Where(u => u.Username == username).Select(x => x.Pass).FirstOrDefault();
         }
-
     }
 }

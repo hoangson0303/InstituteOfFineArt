@@ -18,69 +18,71 @@ namespace InstituteOfFineArt.Controllers
     {
         private LoginService loginService;
         private IWebHostEnvironment webHostEnvironment;
-        public LoginController(LoginService _loginService, IWebHostEnvironment _webHostEnvironment)
+        private DatabaseContext db;
+
+        public LoginController(LoginService _loginService, IWebHostEnvironment _webHostEnvironment, DatabaseContext db)
         {
             loginService = _loginService;
             webHostEnvironment = _webHostEnvironment;
+            this.db = db;
         }
 
-        [Route("login")]
         [HttpGet]
+        [Route("login")]
         public IActionResult Login()
         {
             return View();
         }
+        [HttpPost]
         [Route("login")]
-        
         public IActionResult Login(string username, string password)
         {
-            var account = loginService.Find(username);
+            string account = loginService.Find(username);
+            string pass = loginService.Pass(username);
+            bool thispass = BCrypt.Net.BCrypt.Verify(password, pass);
             string idAcc = loginService.FindIdByUsername(username).ToString();
             string idRole = loginService.FindIdRole(idAcc).ToString();
             string nameRole = loginService.FindNameRole(idRole).ToString();
 
-            if (loginService.Login(username, password) != null)
+            if (account.Equals(username) && thispass.Equals(true))
             {
                 if (nameRole == "admin")
                 {
-                    
+
                     HttpContext.Session.SetString("username", username);
+                    HttpContext.Session.SetString("idAcc", idAcc);
                     return RedirectToAction("admin");
-                }if (nameRole == "student")
-                {
-                    HttpContext.Session.SetString("username", username);
-                    return RedirectToAction("student");
-                }if (nameRole == "school")
-                {
-                    HttpContext.Session.SetString("username", username);
-                    return RedirectToAction("school");
                 }
-                else
+                if (nameRole == "student")
                 {
                     HttpContext.Session.SetString("username", username);
-                    return View("login");
+                    HttpContext.Session.SetString("idAcc", idAcc);
+                    return RedirectToAction("student");
+                }
+                if (nameRole == "school")
+                {
+                    HttpContext.Session.SetString("username", username);
+                    HttpContext.Session.SetString("idAcc", idAcc);
+                    return RedirectToAction("school");
                 }
 
             }
             else
             {
-
-                ViewBag.msg = "Invalid";
-                return View("login");
+                ViewBag.error = "Login Failed";
+                return RedirectToAction("Login");
             }
 
-            //if (loginService.Login(username, password) == null)
-            //{
-            //    ViewBag.msg = "Invalid";
-            //    return View("Login");
-            //}
-            //else
-            //{   
-            //    Debug.WriteLine("username :" + username);
-            //    HttpContext.Session.SetString("username", username);
-            //    return RedirectToAction("school");
-            //}
+            return View();
         }
+
+        public ActionResult Logout()
+        {
+            HttpContext.Session.Clear();//remove session
+            return RedirectToAction("Login");
+        }
+
+
 
         [Route("student")]
         public IActionResult Student()

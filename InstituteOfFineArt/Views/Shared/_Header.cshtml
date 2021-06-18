@@ -63,23 +63,26 @@
                                     <div class="main-menu f-right d-none d-lg-block">
                                         <nav>
                                             <ul id="navigation">
-                                                <li></li>
-                                                <li><a class="btn btn-success">WelCome | @ViewBag.username</a></li>
 
+                                                <li>
+                                                    <a>WelCome | @ViewBag.username<img src="#" /></a>
+                                                    <ul class="submenu">
+                                                        <li><a asp-controller="profile" asp-action="userprofile">Profile</a></li>
+                                                        <li><a href="blog_details.html">Create Event</a></li>
+                                                        <li><a href="blog_details.html">Settings</a></li>
+                                                        <li><a href="blog_details.html">Activity Log</a></li>
+                                                        <li><a href="blog_details.html"></a></li>
+                                                        <li><a asp-controller="login" asp-action="logout">Logout</a></li>
+                                                    </ul>
+                                                </li>
                                             </ul>
                                         </nav>
                                     </div>
                                 }
                                 else
                                 {
-                                    <div class="main-menu f-right d-none d-lg-block">
-                                        <nav>
-                                            <ul id="navigation">
-                                                <li></li>
-                                                <li><a class="btn btn-success" asp-controller="login" asp-action="login">Login</a></li>
-
-                                            </ul>
-                                        </nav>
+                                    <div class="main-menu f-right d-none d-lg-block ">
+                                                <a class="btn btn-success" asp-controller="login" asp-action="login">Login</a>
                                     </div>
                                 }
 

@@ -9,9 +9,10 @@ namespace InstituteOfFineArt.Areas.User.Services
 {
     public interface LoginService
     {
-        Account Login(string username, string password);
 
-        Account Find(string username);
+        string Find(string username);
+
+        string Pass(string username);
 
         string FindIdRole(string idAcc);
 
