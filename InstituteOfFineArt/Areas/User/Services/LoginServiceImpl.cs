@@ -55,18 +55,20 @@ namespace InstituteOfFineArt.Areas.User.Services
             db.SaveChanges();
             return account;
         }
-        public Account Signup(string username, string password)
-        {
-            var account = db.Accounts.SingleOrDefault(a => a.Username == username);
-            if (account != null)
-            {
-                if (BCrypt.Net.BCrypt.Verify(password, account.Pass))
-                {
-                    return account;
-                }
-            }
-            return null;
-        }
+        //public Account GetAccount(string email)
+        //{
+        //    return db.Accounts.SingleOrDefault(p => p.Email == email);
+        //}
+
+        //public string GetRole(string idRole)
+        //{
+        //    return (from roles in db.Roles
+        //            where
+        //              roles.IdRole == idRole
+        //            select
+        //                roles.NameRole
+        //           ).Take(1).SingleOrDefault();
+        //}
 
 
     }

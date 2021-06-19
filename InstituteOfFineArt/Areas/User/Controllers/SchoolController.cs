@@ -15,6 +15,7 @@ namespace InstituteOfFineArt.Controllers
         [Route("school")]
         public IActionResult School()
         {
+            //string cookieIdacc = Request.Cookies["Idacc"];
             ViewBag.username = HttpContext.Session.GetString("username"); // lấy tên người đăng nhập 
             return View("school");
         }

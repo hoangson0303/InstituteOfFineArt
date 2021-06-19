@@ -19,7 +19,10 @@ namespace InstituteOfFineArt.Areas.User.Services
 
         Account Create(Account account);
 
-        Account Signup(string username, string password);
+        //public Account GetAccount(string email);
+        //public string GetRole(string idRole);
+
+
 
     }
 }
