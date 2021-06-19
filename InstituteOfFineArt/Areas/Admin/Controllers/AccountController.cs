@@ -34,6 +34,16 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
 
         }
 
+        [Route("add")]
+        [HttpGet]
+        public IActionResult Add()
+        {
+            ViewBag.accounts = AccountService.FindAll();
+            ViewBag.listRoles = AccountService.GetAllRole();
+            return View("Add", new Account());
+
+        }
+
         [HttpPost]
         [Route("add")]  
         public IActionResult Add(Account account)

@@ -34,6 +34,7 @@ namespace InstituteOfFineArt
             services.AddScoped<AccountService, AccountServiceImpl>();
             services.AddScoped<RoleService, RoleServiceImpl>();
             services.AddScoped<LoginService, LoginServiceImpl>();
+            services.AddScoped<ProfileService, ProfileServiceImpl>();
 
             services.AddSession();
         }
