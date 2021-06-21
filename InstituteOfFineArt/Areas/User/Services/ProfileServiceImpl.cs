@@ -16,14 +16,14 @@ namespace InstituteOfFineArt.Areas.User.Services
             this.db = _db;
         }
 
-        public Account FindById(string idAcc)
-        {
-            return db.Accounts.SingleOrDefault(p => p.IdAcc == idAcc);
-        }
-
         public List<Account> FindUserById(string idAcc)
         {
             return db.Accounts.Where(x => x.IdAcc == idAcc).ToList();
+        }
+
+        public Account FindById(string idAcc)
+        {
+            return db.Accounts.FirstOrDefault(x => x.IdAcc == idAcc);
         }
 
         public Account Update(Account account)

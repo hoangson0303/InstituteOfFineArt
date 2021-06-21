@@ -8,9 +8,11 @@ namespace InstituteOfFineArt.Areas.User.Services
 {
     public interface ProfileService
     {
+
+
+         Account FindById(string idAcc);
         public List<Account> FindUserById(string idAcc);
 
-        Account FindById(string idAcc);
         Account Update(Account account);
     }
 }

@@ -1,6 +1,7 @@
 using InstituteOfFineArt.Areas.Admin.Services;
 using InstituteOfFineArt.Areas.User.Services;
 using InstituteOfFineArt.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,9 +36,13 @@ namespace InstituteOfFineArt
             services.AddScoped<RoleService, RoleServiceImpl>();
             services.AddScoped<LoginService, LoginServiceImpl>();
             services.AddScoped<ProfileService, ProfileServiceImpl>();
-            services.AddScoped<CreateService, CreateServiceImpl>();
 
             services.AddSession();
+
+            services.AddMvc();
+            services.AddAuthentication
+            (CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +62,11 @@ namespace InstituteOfFineArt
             app.UseStaticFiles();
 
             app.UseRouting();
+            
+            app.UseAuthentication();
+            app.UseAuthorization();
+            app.UseCookiePolicy();
+
             app.UseSession();
             app.UseAuthorization();
 

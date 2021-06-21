@@ -1,5 +1,8 @@
 ﻿using InstituteOfFineArt.Areas.User.Services;
 using InstituteOfFineArt.Models;
+using InstituteOfFineArt.ViewModels;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace InstituteOfFineArt.Controllers
@@ -35,60 +39,110 @@ namespace InstituteOfFineArt.Controllers
         }
         [HttpPost]
         [Route("login")]
-        public IActionResult Login(string username, string password)
+        public IActionResult Login(SigninViewModels signin)
         {
-            string account = loginService.Find(username);
-            string pass = loginService.Pass(username);
-            bool thispass = BCrypt.Net.BCrypt.Verify(password, pass);
-            string idAcc = loginService.FindIdByUsername(username).ToString();
+            bool isUserValid = false;
+            bool isUserRoleValid = false;
+
+            var account = loginService.Find(signin.Username);
+            string pass = loginService.Pass(signin.Username);
+            bool thispass = BCrypt.Net.BCrypt.Verify(signin.Password, pass);
+            string idAcc = loginService.FindIdByUsername(signin.Username).ToString();
             string idRole = loginService.FindIdRole(idAcc).ToString();
             string nameRole = loginService.FindNameRole(idRole).ToString();
 
-            if (account.Equals(username) && thispass.Equals(true))
+            if (account.Equals(signin.Username) && thispass.Equals(true))
             {
+                isUserValid = true;
+                isUserRoleValid = true;
+
+
+            }
+            if (ModelState.IsValid && isUserValid && isUserRoleValid)
+            {
+
+                string key = "Idacc";
+                string value = idAcc;
+                CookieOptions cookieOptions = new CookieOptions();
+                cookieOptions.Expires = DateTime.Now.AddDays(30);
+                Response.Cookies.Append(key, value, cookieOptions);
+
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, signin.Username), 
+                    new Claim(ClaimTypes.Role, nameRole),
+
+
+                };
+
+
+                var identity = new ClaimsIdentity(
+                    claims, CookieAuthenticationDefaults.
+        AuthenticationScheme);
+
+                var principal = new ClaimsPrincipal(identity);
+
+                
+
                 if (nameRole == "admin")
                 {
 
-                    HttpContext.Session.SetString("username", username);
                     HttpContext.Session.SetString("idAcc", idAcc);
                     return RedirectToAction("admin");
                 }
                 if (nameRole == "student")
                 {
-                    HttpContext.Session.SetString("username", username);
+                    HttpContext.Session.SetString("username", signin.Username);
                     HttpContext.Session.SetString("idAcc", idAcc);
                     return RedirectToAction("student");
                 }
                 if (nameRole == "school")
                 {
-                    HttpContext.Session.SetString("username", username);
+                    HttpContext.Session.SetString("username", signin.Username);
                     HttpContext.Session.SetString("idAcc", idAcc);
                     return RedirectToAction("school");
                 }
 
+                return RedirectToAction("index", "Index", new { area = "" });
             }
+
+
             else
             {
-                ViewBag.error = "Login Failed";
-                return RedirectToAction("Login");
+                ViewData["message"] = "Your username or password is wrong!";
+                return View("Login");
             }
 
-            return View();
+            return View("Login");
         }
 
-        public ActionResult Logout()
-        {
-            HttpContext.Session.Clear();//remove session
-            return RedirectToAction("Login");
-        }
+
 
 
 
         [Route("student")]
         public IActionResult Student()
         {
-            ViewBag.username = HttpContext.Session.GetString("username"); // lấy tên người đăng nhập 
+            string cookieIdacc = Request.Cookies["Idacc"];
+            Debug.WriteLine(cookieIdacc);
+            if (cookieIdacc == null)
+            {
+                ViewBag.loggedin = false;
 
+            }
+            if (HttpContext.User.IsInRole("admin"))
+            {
+                ViewBag.role = "admin";
+            }
+            if (HttpContext.User.IsInRole("student"))
+            {
+                ViewBag.role = "student";
+            }
+            if (HttpContext.User.IsInRole("school"))
+            {
+                ViewBag.role = "school";
+            }
+            ViewBag.username = HttpContext.Session.GetString("username"); 
             return View("student");
         }
 
@@ -103,7 +157,26 @@ namespace InstituteOfFineArt.Controllers
         [Route("school")]
         public IActionResult School()
         {
-             ViewBag.username = HttpContext.Session.GetString("username"); // lấy tên người đăng nhập 
+            string cookieIdacc = Request.Cookies["Idacc"];
+            Debug.WriteLine(cookieIdacc);
+            if (cookieIdacc == null)
+            {
+                ViewBag.loggedin = false;
+
+            }
+            if (HttpContext.User.IsInRole("admin"))
+            {
+                ViewBag.role = "admin";
+            }
+            if (HttpContext.User.IsInRole("student"))
+            {
+                ViewBag.role = "student";
+            }
+            if (HttpContext.User.IsInRole("school"))
+            {
+                ViewBag.role = "school";
+            }
+            ViewBag.username = HttpContext.Session.GetString("username"); // lấy tên người đăng nhập 
            
             return View("school");
         }

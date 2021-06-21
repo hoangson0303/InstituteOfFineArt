@@ -7,7 +7,7 @@
 <br />
 
 <br />
-<form><table class="table table-success">
+<table class="table table-success">
     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         <div class="input-group">
             <input type="text" class="form-control bg-white border-0 small" placeholder="Search for..."
@@ -42,30 +42,29 @@
     <tbody>
         @foreach (var account in ViewBag.accounts)
         {
-            <tr>
-                <td>@account.IdAcc</td>
-                <td>@account.Username</td>
-                <td>@account.Fullname</td>
-                <td>@account.Email</td>
-                <td>@account.Dob</td>
-                <td>@account.PhoneNumber</td>
-                <td>@account.Addr</td>
-                <td>@account.IdRole</td>
-                <td>@account.Gender</td>
-                <td>@account.Stat</td>
-                <td>@account.Datecreated</td>
-                <td>@account.Dateupdated</td>
-                <td>@account.ContestsParticipated</td>
-                <td>
-                    <a type="button" class="btn btn-success" asp-controller="account" asp-action="update" asp-route-id="@account.IdAcc"><i class="fas fa-edit"></i></a>
-                    <a type="button" class="btn btn-danger" asp-controller="account" asp-action="delete" asp-route-id="@account.IdAcc"><i class="far fa-trash-alt"></i></a>
-                </td>
-            </tr>
+        <tr>
+            <td>@account.IdAcc</td>
+            <td>@account.Username</td>
+            <td>@account.Fullname</td>
+            <td>@account.Email</td>
+            <td>@account.Dob</td>
+            <td>@account.PhoneNumber</td>
+            <td>@account.Addr</td>
+            <td>@account.IdRole</td>
+            <td>@account.Gender</td>
+            <td>@account.Stat</td>
+            <td>@account.Datecreated</td>
+            <td>@account.Dateupdated</td>
+            <td>@account.ContestsParticipated</td>
+            <td>
+                <a type="button" class="btn btn-success" asp-controller="account" asp-action="update" asp-route-id="@account.IdAcc"><i class="fas fa-edit"></i></a>
+                <a type="button" class="btn btn-danger" asp-controller="account" asp-action="delete" asp-route-id="@account.IdAcc"><i class="far fa-trash-alt"></i></a>
+            </td>
+        </tr>
         }
-
+        
     </tbody>
-</table></form>
-
+</table>
 
 @*<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

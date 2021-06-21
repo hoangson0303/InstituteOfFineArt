@@ -1,13 +1,16 @@
 ﻿
 using InstituteOfFineArt.Areas.User.Services;
 using InstituteOfFineArt.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace InstituteOfFineArt.Controllers
@@ -29,7 +32,10 @@ namespace InstituteOfFineArt.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            ViewBag.infouser = ProfileService.FindUserById("student1");
+            string cookieIdacc = Request.Cookies["Idacc"];
+
+            ViewBag.username = HttpContext.Session.GetString("username");
+            ViewBag.infouser = ProfileService.FindUserById(cookieIdacc);
             return View();  
         }
 
@@ -37,7 +43,8 @@ namespace InstituteOfFineArt.Controllers
         [Route("update/{id}")]
         public IActionResult Update()
         {
-            return View("profileupdate", ProfileService.FindById("student1"));
+            string cookieIdacc = Request.Cookies["Idacc"];
+            return View("profileupdate", ProfileService.FindById(cookieIdacc));
         }
 
         [HttpPost]
