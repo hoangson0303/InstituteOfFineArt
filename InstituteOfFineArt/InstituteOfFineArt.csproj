@@ -26,10 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\User\images\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\User\create\assets\images\big\Thumbs.db" />
     <None Include="wwwroot\User\create\assets\plugins\bootstrap\css\bootstrap-grid.css.map" />
     <None Include="wwwroot\User\create\assets\plugins\bootstrap\css\bootstrap-grid.min.css.map" />

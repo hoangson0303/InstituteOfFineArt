@@ -15,6 +15,11 @@ namespace InstituteOfFineArt.Areas.User.Services
             this.db = db;
         }
 
+        public int CountIdById(string id)
+        {
+            return db.Accounts.Where(p => p.IdAcc.Contains(id)).Count();
+        }
+
         public Competition Create(Competition competition)
         {
             db.Competitions.Add(competition);
@@ -22,16 +27,38 @@ namespace InstituteOfFineArt.Areas.User.Services
             return competition;
         }
 
+        public Account Createe(Account account)
+        {
+            db.Accounts.Add(account);
+            db.SaveChanges();
+            return account;
+        }
+
         public string Find(string username)
         {
             return db.Accounts.Where(u => u.Username == username).Select(x => x.Username).FirstOrDefault();
         }
+
+  
 
         public string FindByIdacc(string idacc)
         {
             return db.Accounts.Where(u => u.Username == idacc).Select(x => x.IdAcc).FirstOrDefault();
         }
 
-       
+        public List<Competition> FindAll()
+        {
+            return db.Competitions.ToList();
+        }
+
+        public string GetNewestId(string keyword)
+        {
+            return (from accounts in db.Accounts
+                    where
+                      accounts.IdAcc.Contains(keyword)
+                    orderby
+                      accounts.IdAcc descending
+                    select accounts.IdAcc).Take(1).SingleOrDefault();
+        }
     }
 }
