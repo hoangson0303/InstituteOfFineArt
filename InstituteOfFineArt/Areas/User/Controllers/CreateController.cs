@@ -39,7 +39,7 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         {
             ViewBag.username = HttpContext.Session.GetString("username");
 
-           
+
             return View("createadd");
 
         }
