@@ -9,7 +9,7 @@ namespace InstituteOfFineArt.Areas.User.Services
     public interface CreateService
     {
         string Find(string username);
-
+        public List<Account> FindUserById(string idAcc);
 
         Competition Create(Competition competition);
         Account Createe(Account account);

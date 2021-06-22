@@ -30,14 +30,18 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         [Route("")]
         public IActionResult Index()
         {
+            string cookieIdacc = Request.Cookies["Idacc"];
             ViewBag.username = HttpContext.Session.GetString("username");
+            ViewBag.acc = createService.FindUserById(cookieIdacc);
             return View();
         }
         [Route("createadd")]
         [HttpGet]
         public IActionResult CreateAdd()
         {
+            string cookieIdacc = Request.Cookies["Idacc"];
             ViewBag.username = HttpContext.Session.GetString("username");
+            ViewBag.acc = createService.FindUserById(cookieIdacc);
 
 
             return View("createadd");
@@ -112,7 +116,9 @@ namespace InstituteOfFineArt.Areas.User.Controllers
 
         public IActionResult Table()
         {
+            string cookieIdacc = Request.Cookies["Idacc"];
             ViewBag.username = HttpContext.Session.GetString("username");
+            ViewBag.acc = createService.FindUserById(cookieIdacc);
             ViewBag.compititions = createService.FindAll();
             return View("table");
         }

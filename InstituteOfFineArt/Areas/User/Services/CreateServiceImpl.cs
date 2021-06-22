@@ -60,5 +60,9 @@ namespace InstituteOfFineArt.Areas.User.Services
                       accounts.IdAcc descending
                     select accounts.IdAcc).Take(1).SingleOrDefault();
         }
+        public List<Account> FindUserById(string idAcc)
+        {
+            return db.Accounts.Where(x => x.IdAcc == idAcc).ToList();
+        }
     }
 }
