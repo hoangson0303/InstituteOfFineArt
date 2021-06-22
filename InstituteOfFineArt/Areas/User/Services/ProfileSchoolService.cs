@@ -15,7 +15,5 @@ namespace InstituteOfFineArt.Areas.User.Services
 
         string FindName(string username);
 
-
-
     }
 }
