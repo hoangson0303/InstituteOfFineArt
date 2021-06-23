@@ -14,7 +14,10 @@ namespace InstituteOfFineArt.Areas.User.Services
         {
             this.db = db;
         }
-
+       public Account FindById(string idAcc)
+        {
+            return db.Accounts.SingleOrDefault(p => p.IdAcc == idAcc);
+        }
         public int CountIdById(string id)
         {
             return db.Accounts.Where(p => p.IdAcc.Contains(id)).Count();
@@ -63,6 +66,23 @@ namespace InstituteOfFineArt.Areas.User.Services
         public List<Account> FindUserById(string idAcc)
         {
             return db.Accounts.Where(x => x.IdAcc == idAcc).ToList();
+        }
+
+        public Competition Update(Competition competition)
+        {
+            db.Entry(competition).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return competition;
+        }
+
+        public Competition FindByIdcom(string idAcc)
+        {
+            return db.Competitions.SingleOrDefault(p => p.IdAcc == idAcc);
+        }
+
+        public Competition FindCom(string id)
+        {
+            return db.Competitions.Find(id);
         }
     }
 }

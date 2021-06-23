@@ -1,32 +1,38 @@
-﻿@model InstituteOfFineArt.Models.Account
+﻿@model InstituteOfFineArt.Models.Competition
 @{
-    ViewData["Title"] = "ProfileSchoolUpdate";
+    ViewData["Title"] = "Update";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<form asp-controller="profileschool" asp-action="update" method="post" enctype="multipart/form-data">
+<form asp-controller="create" asp-action="update" method="post" enctype="multipart/form-data">
     <div class="wrapper bg-white mt-sm-5">
-        <h4 class="pb-4 border-bottom">Account settings</h4>
+        <h4 class="pb-4 border-bottom">Compitition settings</h4>
         <div class="d-flex align-items-start py-3 border-bottom">
-            @*<img id="user_img" src="~/User/images/@Model.Avatar" class="img" alt="">*@
+            <img id="user_img" src="~/User/images/@Model.ImgOfCom" class="img" alt="">
             <div class="pl-sm-4 pl-2" id="img-section">
-                <b>Profile Photo</b>
+                <b>ImageCom Photo</b>
                 <p>Accepted file type .png. Less than 1MB</p> <input type="file" name="file" value="Upload" class="btn button border" onchange="show(this)">
             </div>
         </div>
         <div class="py-2">
             <div class="row py-2">
-                <div class="col-md-6"> <label for="firstname">Fullname</label> <input type="text" class="bg-light form-control" asp-for="Fullname" placeholder="Your Name"> </div>
-                <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname">Date Of Birth</label> <input asp-for="Dob" type="datetime" class="bg-light form-control"> </div>
+                <div class="col-md-6"> <label for="firstname">Name_Com</label> <input type="text" class="bg-light form-control" asp-for="NameCom" placeholder="Your Name"> </div>
+             
             </div>
             <div class="row py-2">
-                <div class="col-md-6"> <label for="email">Email Address</label> <input type="text" class="bg-light form-control" asp-for="Email" placeholder="@*steve_@email.com*@"> </div>
-                <div class="col-md-6 pt-md-0 pt-3"> <label for="phone">Phone Number</label> <input type="tel" class="bg-light form-control" asp-for="PhoneNumber" placeholder="+1 213-548-6015"> </div>
+                <div class="col-md-6"> <label for="firstname">Desc</label><textarea rows="5" asp-for="Desc" class="form-control form-control-line"></textarea> </div>
+
             </div>
             <div class="row py-2">
-                <div class="col-md-6 pt-md-0 pt-3"> <label for="phone">Address</label> <input type="text" class="bg-light form-control" asp-for="Addr"> </div>
+                <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname">Date_Start</label> <input asp-for="DateStart" type="datetime" class="bg-light form-control"> </div>
+
             </div>
-            <input type="hidden" asp-for="IdAcc" />
+            <div class="row py-2">
+                <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname">Date_end</label> <input asp-for="DateEnd" type="datetime" class="bg-light form-control"> </div>
+
+            </div>
+            
+            <input type="hidden" asp-for="IdCom" />
             <div class="py-3 pb-4 border-bottom"> <input type="submit" value="Save Changes" class="btn btn-primary mr-3"> <button class="btn border button">Cancel</button> </div>
             <div class="d-sm-flex align-items-center pt-3" id="deactivate">
                 <div>

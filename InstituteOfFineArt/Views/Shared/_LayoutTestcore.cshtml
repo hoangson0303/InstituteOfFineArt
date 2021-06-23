@@ -98,10 +98,10 @@
                         @foreach (var useracc in ViewBag.acc)
                         {
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="~/User/images/@useracc.Avatar" alt="user" class="profile-pic m-r-10" />@useracc.Username</a>
+                                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" asp-action="school" asp-controller="login"><img src="~/User/images/@useracc.Avatar" alt="user" class="profile-pic m-r-10" />@useracc.Username</a>
                             </li>
                         }
-                        </ul>
+                    </ul>
                 </div>
             </nav>
         </header>
@@ -116,29 +116,7 @@
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li>
-                            <a class="waves-effect waves-dark" asp-action="index" asp-controller="create" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" asp-action="createadd" asp-controller="create" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Create</span></a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark"asp-action="table" asp-controller="create" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Basic Table</span></a>
-                        </li>
-                        @*<li>
-                            <a class="waves-effect waves-dark" href="icon-material.html" aria-expanded="false"><i class="mdi mdi-emoticon"></i><span class="hide-menu">Icons</span></a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="mdi mdi-earth"></i><span class="hide-menu">Google Map</span></a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">Blank Page</span></a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i class="mdi mdi-help-circle"></i><span class="hide-menu">Error 404</span></a>
-                        </li>*@
-                    </ul>
+                   
                     <div class="text-center m-t-30">
                         <a href="https://themewagon.com/themes/bootstrap-4-responsive-admin-template/" class="btn waves-effect waves-light btn-warning hidden-md-down">Download Now</a>
                     </div>
@@ -150,7 +128,7 @@
             <div class="sidebar-footer">
                 <!-- item--><a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
                 <!-- item--><a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
-                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
+                <!-- item--><a asp-controller="Index" asp-action="logout" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
             </div>
             <!-- End Bottom points-->
         </aside>
@@ -160,9 +138,9 @@
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
-<div>
-    @RenderBody()
-</div>
+        <div>
+            @RenderBody()
+        </div>
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->

@@ -1,6 +1,7 @@
 using InstituteOfFineArt.Areas.Admin.Services;
 using InstituteOfFineArt.Areas.User.Services;
 using InstituteOfFineArt.Models;
+using InstituteOfFineArt.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,6 +39,9 @@ namespace InstituteOfFineArt
             services.AddScoped<ProfileService, ProfileServiceImpl>();
             services.AddScoped<CreateService, CreateServiceImpl>();
             services.AddScoped<ProfileSchoolService, ProfileSchoolServiceImpl>();
+            services.AddScoped<IndexService, IndexServiceImpl>();
+            services.AddScoped<SchoolService, SchoolServiceImpl>();
+            services.AddScoped<TestcoreService, TestcoreServiceImpl>();
             services.AddSession();
 
             services.AddMvc();

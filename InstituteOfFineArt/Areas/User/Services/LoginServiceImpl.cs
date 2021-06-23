@@ -16,8 +16,11 @@ namespace InstituteOfFineArt.Areas.User.Services
             this.db = db;
         }
 
-  
 
+        public List<Competition> FindAll()
+        {
+            return db.Competitions.ToList();
+        }
         public string Find(string username)
         {
             return db.Accounts.Where(u => u.Username == username).Select(x => x.Username).FirstOrDefault();

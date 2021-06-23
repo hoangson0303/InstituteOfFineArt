@@ -123,6 +123,7 @@ namespace InstituteOfFineArt.Controllers
         [Route("student")]
         public IActionResult Student()
         {
+            ViewBag.compititions = loginService.FindAll();
             string cookieIdacc = Request.Cookies["Idacc"];
             Debug.WriteLine(cookieIdacc);
             if (cookieIdacc == null)
@@ -157,7 +158,10 @@ namespace InstituteOfFineArt.Controllers
         [Route("school")]
         public IActionResult School()
         {
+          
+            ViewBag.compititions = loginService.FindAll();
             string cookieIdacc = Request.Cookies["Idacc"];
+
             Debug.WriteLine(cookieIdacc);
             if (cookieIdacc == null)
             {
@@ -171,10 +175,12 @@ namespace InstituteOfFineArt.Controllers
             if (HttpContext.User.IsInRole("student"))
             {
                 ViewBag.role = "student";
+          
             }
             if (HttpContext.User.IsInRole("school"))
             {
                 ViewBag.role = "school";
+               
             }
             ViewBag.username = HttpContext.Session.GetString("username"); // lấy tên người đăng nhập 
            

@@ -14,13 +14,22 @@ namespace InstituteOfFineArt.Areas.User.Services
         Competition Create(Competition competition);
         Account Createe(Account account);
 
+
+
+
         string FindByIdacc(string idacc);
 
 
         List<Competition> FindAll();
 
-
+        Account FindById(string idAcc);
         string GetNewestId(string keyword);
         int CountIdById(string id);
+
+        Competition Update(Competition competition);
+
+        Competition FindByIdcom(string idAcc);
+        Competition FindCom(string id);
+   
     }
 }

@@ -44,7 +44,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Account>(entity =>
             {
                 entity.HasKey(e => e.IdAcc)
-                    .HasName("PK__account__6BE8F064FA0A5F37");
+                    .HasName("PK__account__6BE8F064BBEB56DB");
 
                 entity.ToTable("account");
 
@@ -118,7 +118,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Bill>(entity =>
             {
                 entity.HasKey(e => e.IdOrder)
-                    .HasName("PK__bill__DD5B8F3F3632E2DC");
+                    .HasName("PK__bill__DD5B8F3FF9DB659A");
 
                 entity.ToTable("bill");
 
@@ -149,7 +149,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Comment>(entity =>
             {
                 entity.HasKey(e => e.IdComment)
-                    .HasName("PK__comment__7E14AC859290B6D1");
+                    .HasName("PK__comment__7E14AC85090D78E7");
 
                 entity.ToTable("comment");
 
@@ -192,7 +192,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Competition>(entity =>
             {
                 entity.HasKey(e => e.IdCom)
-                    .HasName("PK__competit__D6967171DEF433C9");
+                    .HasName("PK__competit__D69671710B8BB383");
 
                 entity.ToTable("competitions");
 
@@ -210,7 +210,7 @@ namespace InstituteOfFineArt.Models
                     .HasColumnName("date_start");
 
                 entity.Property(e => e.Desc)
-                    .HasMaxLength(1)
+                    .HasMaxLength(800)
                     .HasColumnName("desc");
 
                 entity.Property(e => e.IdAcc)
@@ -239,7 +239,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Feedback>(entity =>
             {
                 entity.HasKey(e => e.IdFeedback)
-                    .HasName("PK__feedback__36BC86300675595C");
+                    .HasName("PK__feedback__36BC86305CCD56AA");
 
                 entity.ToTable("feedback");
 
@@ -288,7 +288,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<OrderDetail>(entity =>
             {
                 entity.HasKey(e => new { e.IdOrder, e.IdTest })
-                    .HasName("PK__orderDet__7136BDBB2430E0FA");
+                    .HasName("PK__orderDet__7136BDBB782AB8FB");
 
                 entity.ToTable("orderDetail");
 
@@ -335,7 +335,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.HasKey(e => e.IdRole)
-                    .HasName("PK__roles__3D48441D410032D9");
+                    .HasName("PK__roles__3D48441D69A2ED78");
 
                 entity.ToTable("roles");
 
@@ -363,7 +363,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Test>(entity =>
             {
                 entity.HasKey(e => e.IdTest)
-                    .HasName("PK__test__C6D3284B4F8C26F8");
+                    .HasName("PK__test__C6D3284BFB36C6EA");
 
                 entity.ToTable("test");
 
@@ -418,7 +418,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<TestCore>(entity =>
             {
                 entity.HasKey(e => new { e.IdTest, e.IdCom })
-                    .HasName("PK__test_cor__CBBA4F5C419695DD");
+                    .HasName("PK__test_cor__CBBA4F5C64F9671A");
 
                 entity.ToTable("test_core");
 
@@ -464,7 +464,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<UserRole>(entity =>
             {
                 entity.HasKey(e => new { e.IdRole, e.IdAcc })
-                    .HasName("PK__user_rol__6BF6CB1BA68EB979");
+                    .HasName("PK__user_rol__6BF6CB1BF03389D7");
 
                 entity.ToTable("user_role");
 

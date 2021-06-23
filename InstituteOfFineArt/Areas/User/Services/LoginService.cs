@@ -21,6 +21,6 @@ namespace InstituteOfFineArt.Areas.User.Services
         string FindIdByUsername(string username);
 
 
-
+        List<Competition> FindAll();
     }
 }

@@ -40,8 +40,9 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         public IActionResult CreateAdd()
         {
             string cookieIdacc = Request.Cookies["Idacc"];
+                ViewBag.acc = createService.FindUserById(cookieIdacc);
             ViewBag.username = HttpContext.Session.GetString("username");
-            ViewBag.acc = createService.FindUserById(cookieIdacc);
+        
 
 
             return View("createadd");
@@ -52,6 +53,8 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         public IActionResult CreateAdd(Competition competition, IFormFile file)
         {
 
+            string cookieIdacc = Request.Cookies["Idacc"];
+            ViewBag.acc = createService.FindUserById(cookieIdacc);
 
             var numAlpha = new Regex("(?<Alpha>[a-zA-Z]*)(?<Numeric>[0-9]*)");
             int num = 0;
@@ -78,20 +81,24 @@ namespace InstituteOfFineArt.Areas.User.Controllers
                 competition.ImgOfCom = "aaa.png";
             }
             competition.Stat = true;
-            var account = new Account();
+            competition.IdAcc = cookieIdacc;
+            //var account = new Account();
 
-            if (createService.CountIdById(competition.NameCom) != 0)
-            {
-                account.IdAcc = competition.NameCom + (num + 1);
-                string idAcc = createService.Createe(account).IdAcc;
-                competition.IdAcc = idAcc;
-            }
-            else
-            {
-                account.IdAcc = competition.NameCom + 1;
-                string idAcc = createService.Createe(account).IdAcc;
-                competition.IdAcc = idAcc;
-            }
+            //if (createService.CountIdById(competition.NameCom) != 0)
+            //{
+            //    account.IdAcc = competition.NameCom + (num + 1);
+            //    string idAcc = createService.Create(competition).IdAcc;
+            //    competition.IdAcc = idAcc;
+            //}
+            //else
+            //{
+            //    account.IdAcc = competition.NameCom + 1;
+            //    string idAcc = createService.Create(competition).IdAcc;
+            //    competition.IdAcc = idAcc;
+            //}
+
+
+
 
 
             if (createService.CountIdById(competition.NameCom) != 0)
@@ -121,6 +128,43 @@ namespace InstituteOfFineArt.Areas.User.Controllers
             ViewBag.acc = createService.FindUserById(cookieIdacc);
             ViewBag.compititions = createService.FindAll();
             return View("table");
+        }
+
+        [HttpGet]
+        [Route("update/{id}")]
+        public IActionResult Update(string id)
+        {
+            //string cookieIdacc = Request.Cookies["Idacc"];
+            //ViewBag.username = HttpContext.Session.GetString("username");
+            //return View("update", createService.FindByIdcom(cookieIdacc));
+            return View("update", createService.FindCom(id));
+        }
+
+        [HttpPost]
+        [Route("update/{id}")]
+        public IActionResult Update(Competition competition, IFormFile file)
+        {
+            var compi = createService.FindCom(competition.IdCom);
+           
+            if (file != null)
+            {
+                string fileName = Guid.NewGuid().ToString();
+                var ext = file.ContentType.Split(new char[] { '/' })[1];
+                var path = Path.Combine(webHostEnvironment.WebRootPath, "user/images", fileName + "." + ext);
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    file.CopyTo(fileStream);
+                }
+                compi.ImgOfCom = fileName + "." + ext;
+
+            }
+            compi.Stat = false;
+            compi.Desc = competition.Desc;
+            compi.NameCom = competition.NameCom;
+            compi.DateStart = competition.DateStart;
+            compi.DateEnd = competition.DateEnd;
+            createService.Update(compi);
+            return RedirectToAction("table");
         }
     }
 }

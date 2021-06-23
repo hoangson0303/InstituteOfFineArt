@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using InstituteOfFineArt.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,11 +15,20 @@ namespace InstituteOfFineArt.Controllers
     [Route("index")]
     public class IndexController : Controller
     {
+        private IndexService indexService;
+        private IWebHostEnvironment webHostEnvironment;
+
+        public IndexController(IndexService _indexService, IWebHostEnvironment _webHostEnvironment)
+        {
+            indexService = _indexService;
+            this.webHostEnvironment = _webHostEnvironment;
+        }
         [Route("index")]
         [Route("")]
         [Route("~/")]
         public IActionResult Index()
         {
+            ViewBag.compititions = indexService.FindAll();
             string cookieIdacc = Request.Cookies["Idacc"];
             Debug.WriteLine(cookieIdacc);
             if (cookieIdacc == null )
