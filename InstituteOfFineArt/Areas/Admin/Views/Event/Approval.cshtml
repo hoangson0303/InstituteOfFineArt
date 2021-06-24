@@ -37,20 +37,21 @@
     <tbody>
         @foreach (var com in ViewBag.competition)
         {
-            <tr>
-                <td>@com.IdCom</td>
-                <td>@com.IdAcc</td>
-                <td>@com.NameCom</td>
-                <td>@com.Desc</td>
-                <td><img src="~/User/images/@com.ImgOfCom" width="100" alt="Alternate Text" /></td>
-                <td>@com.DateStart</td>
-                <td>@com.DateEnd</td>
-                <td>@com.Stat</td>
-                <td>
-                    <a type="button" class="btn btn-success" asp-controller="event" asp-action="accept" asp-route-id="@com.IdCom"><i class="fas fa-check-circle"></i></a>
-                    <a type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
-                </td>
-            </tr>
+        <tr>
+            <td>@com.IdCom</td>
+            <td>@com.IdAcc</td>
+            <td>@com.NameCom</td>
+            <td>@com.Desc</td>
+            <td><img src="~/User/images/@com.ImgOfCom" width="100" alt="Alternate Text" /></td>
+            <td>@com.DateStart</td>
+            <td>@com.DateEnd</td>
+            <td>@com.Stat</td>
+            <td>
+                @*<a type="button" class="btn btn-success" asp-controller="event" asp-action="accept" asp-route-id="@com.IdCom"><i class="fas fa-check-circle"></i></a>*@
+            <td> <a class="btn btn-primary" asp-action="accept" asp-controller="event" asp-route-id="@com.IdCom">Edit</a></td>
+            <a type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+            </td>
+        </tr>
         }
         </tbody>
     

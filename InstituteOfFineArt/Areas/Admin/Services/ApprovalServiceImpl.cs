@@ -14,6 +14,9 @@ namespace InstituteOfFineArt.Areas.Admin.Services
         {
             this.db = _db;
         }
+
+      
+
         public List<Competition> FindAll()
         {
             return db.Competitions.Where(p => p.Stat == false).ToList();

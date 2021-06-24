@@ -37,14 +37,14 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        [Route("accept/{idAcc}")]
-        public IActionResult Accept(string idCom)
+        [Route("accept/{id}")]
+        public IActionResult Accept(string id)
         {
-            return View("accept", ApprovalService.FindById(idCom));
+            return View("accept", ApprovalService.FindById(id));
         }
 
         [HttpPost]
-        [Route("accept/{idAcc}")]
+        [Route("accept/{id}")]
         public IActionResult Accept(Competition competition)
         {
             var currentAccount = ApprovalService.FindById(competition.IdCom);
