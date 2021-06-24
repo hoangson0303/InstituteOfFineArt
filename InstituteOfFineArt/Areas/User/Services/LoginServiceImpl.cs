@@ -15,7 +15,20 @@ namespace InstituteOfFineArt.Areas.User.Services
         {
             this.db = db;
         }
+        public Account Login(string username, string password)
+        {
+            var account = db.Accounts.SingleOrDefault(a => a.Username == username);
+            // var account = Find(username);
 
+            if (account != null)
+            {
+                if (BCrypt.Net.BCrypt.Verify(password, account.Pass))
+                {
+                    return account;
+                }
+            }
+            return null;
+        }
 
         public List<Competition> FindAll()
         {
