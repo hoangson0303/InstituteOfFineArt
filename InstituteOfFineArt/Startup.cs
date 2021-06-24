@@ -43,6 +43,7 @@ namespace InstituteOfFineArt
             services.AddScoped<SchoolService, SchoolServiceImpl>();
             services.AddScoped<TestcoreService, TestcoreServiceImpl>();
             services.AddScoped<ApprovalService, ApprovalServiceImpl>();
+            services.AddScoped<EventService, EventServiceImpl>();
             services.AddSession();
 
             services.AddMvc();

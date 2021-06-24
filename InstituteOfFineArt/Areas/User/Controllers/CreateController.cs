@@ -80,7 +80,7 @@ namespace InstituteOfFineArt.Areas.User.Controllers
             {
                 competition.ImgOfCom = "aaa.png";
             }
-            competition.Stat = true;
+            competition.Stat = false;
             competition.IdAcc = cookieIdacc;
             //var account = new Account();
 
@@ -126,7 +126,7 @@ namespace InstituteOfFineArt.Areas.User.Controllers
             string cookieIdacc = Request.Cookies["Idacc"];
             ViewBag.username = HttpContext.Session.GetString("username");
             ViewBag.acc = createService.FindUserById(cookieIdacc);
-            ViewBag.compititions = createService.FindAll();
+            ViewBag.compititions = createService.FindAllComById(cookieIdacc);
             return View("table");
         }
 
@@ -164,6 +164,13 @@ namespace InstituteOfFineArt.Areas.User.Controllers
             compi.DateStart = competition.DateStart;
             compi.DateEnd = competition.DateEnd;
             createService.Update(compi);
+            return RedirectToAction("table");
+        }
+
+        [Route("delete/{idCom}")]
+        public IActionResult Delete(string idCom)
+        {
+            createService.Delete(idCom);
             return RedirectToAction("table");
         }
     }

@@ -49,9 +49,9 @@ namespace InstituteOfFineArt.Areas.User.Services
             return db.Accounts.Where(u => u.Username == idacc).Select(x => x.IdAcc).FirstOrDefault();
         }
 
-        public List<Competition> FindAll()
+        public List<Competition> FindAllComById(string idAcc)
         {
-            return db.Competitions.ToList();
+            return db.Competitions.Where(x => x.IdAcc == idAcc).ToList();
         }
 
         public string GetNewestId(string keyword)
@@ -84,5 +84,12 @@ namespace InstituteOfFineArt.Areas.User.Services
         {
             return db.Competitions.Find(id);
         }
+
+        public void Delete(string idCom)
+        {
+            db.Competitions.Remove(db.Competitions.Find(idCom));
+            db.SaveChanges();
+        }
+
     }
 }

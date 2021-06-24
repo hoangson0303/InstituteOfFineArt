@@ -22,7 +22,7 @@
     <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">NAME SCHOOL</th>
+            <th scope="col">ID SCHOOL</th>
             <th scope="col">NAME COMPETITONS</th>
             <th scope="col">DESCRIPTION</th>
             <th scope="col">IMAGE</th>
@@ -33,20 +33,27 @@
         </tr>
     </thead>
     <tbody>
+        @foreach (var com in ViewBag.comhappening)
+        {
         <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Mark</td>
+            <td>@com.IdCom</td>
+            <td>@com.IdAcc</td>
+            <td>@com.NameCom</td>
+            <td>@com.Desc</td>
+            <td><img src="~/User/images/@com.ImgOfCom" width="100" alt="Alternate Text" /></td>
+            <td>@com.DateStart</td>
+            <td>@com.DateEnd</td>
+            @if (@com.Stat == true)
+            {
+                <td>HAPPENING</td>
+            }
+
             <td>
-                <a type="button" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                <a class="btn btn-success" asp-action="accept" asp-controller="event" asp-route-id="@com.IdCom"><i class="fas fa-edit"></i></a>
                 <a type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
             </td>
         </tr>
-    </tbody>
+        }
+        </tbody>
 </table>
 
