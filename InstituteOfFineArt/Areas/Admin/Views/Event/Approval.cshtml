@@ -22,8 +22,8 @@
 
     <thead>
         <tr>
-            <th scope="col">ID</th>
-            <th scope="col">NAME SCHOOL</th>
+            <th scope="col">ID COMPETITION</th>
+            <th scope="col">ID SCHOOL</th>
             <th scope="col">NAME COMPETITONS</th>
             <th scope="col">DESCRIPTION</th>
             <th scope="col">IMAGE</th>
@@ -33,21 +33,26 @@
             <th scope="col">ACTION</th>
         </tr>
     </thead>
+
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Mark</td>
-            <td>
-                <a type="button" class="btn btn-success"><i class="fas fa-check-circle"></i></a>
-                <a type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
-            </td>
-        </tr>
-    </tbody>
+        @foreach (var com in ViewBag.competition)
+        {
+            <tr>
+                <td>@com.IdCom</td>
+                <td>@com.IdAcc</td>
+                <td>@com.NameCom</td>
+                <td>@com.Desc</td>
+                <td><img src="~/User/images/@com.ImgOfCom" width="100" alt="Alternate Text" /></td>
+                <td>@com.DateStart</td>
+                <td>@com.DateEnd</td>
+                <td>@com.Stat</td>
+                <td>
+                    <a type="button" class="btn btn-success" asp-controller="event" asp-action="accept" asp-route-id="@com.IdCom"><i class="fas fa-check-circle"></i></a>
+                    <a type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    
 </table>
 

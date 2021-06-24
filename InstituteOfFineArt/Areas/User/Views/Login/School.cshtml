@@ -35,101 +35,68 @@
     </div>
     <!-- slider Area End-->
     <!--? Services Area Start -->
-    <section class="services-section section-padding30 fix">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-10 col-lg-10 col-md-12">
-                    <!-- Section Tittle -->
-                    <div class="section-tittle text-center mb-70">
-                        <span>Our Service</span>
-                        <h2>We bring ideas to life by combining years of experiences of our very talented team.</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="services-active">
-                <div class="single-services section-over1 text-center">
-                    <div class="services-img">
-                        <img src="~/User/assets/img/gallery/team1.png" alt="">
-                        <div class="services-caption">
-                            <h3><a href="#">Business consulting</a></h3>
-                            <p>The automated process starts as soon <br>as your clothes go into the machine.</p>
-                            <a href="#" class="btn btn3">Make Appointment</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-services section-over1 text-center">
-                    <div class="services-img">
-                        <img src="~/User/assets/img/gallery/team2.png" alt="">
-                        <div class="services-caption">
-                            <h3><a href="#">Media planing</a></h3>
-                            <p>The automated process starts as soon <br>as your clothes go into the machine.</p>
-                            <a href="#" class="btn btn3">Make Appointment</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-services section-over1 text-center">
-                    <div class="services-img">
-                        <img src="~/User/assets/img/gallery/team3.png" alt="">
-                        <div class="services-caption">
-                            <h3><a href="#">Professional HR</a></h3>
-                            <p>The automated process starts as soon <br>as your clothes go into the machine.</p>
-                            <a href="#" class="btn btn3">Make Appointment</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-services section-over1 text-center">
-                    <div class="services-img">
-                        <img src="~/User/assets/img/gallery/team2.png" alt="">
-                        <div class="services-caption">
-                            <h3><a href="#">Media planing</a></h3>
-                            <p>The automated process starts as soon <br>as your clothes go into the machine.</p>
-                            <a href="#" class="btn btn3">Make Appointment</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--Services Area End -->
-    <!--! About Area Start 01 -->
     @foreach (var compi in ViewBag.compititions)
     {
-<section class="about-area fix">
-    <!--Right Contents  -->
-    <div>
-        <img src="~/User/images/@compi.ImgOfCom" alt="Alternate Text" />
-    </div>
-    <!-- left Contents -->
+        <section class="services-section section-padding30 fix">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-10 col-lg-10 col-md-12">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle text-center mb-70">
+                            <span>Our Service</span>
+                            <h2>We bring ideas to life by combining years of experiences of our very talented team.</h2>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="about-details">
-        <div class="right-caption">
-            <!-- Section Tittle -->
-            <div class="section-tittle mb-50">
-                <h2>@compi.NameCom@*<br>Philosophy*@</h2>
-            </div>
-            <div class="about-more">
-                <p>
-                    @compi.Desc
-                </p>
-                @*<p class="pera-bottom">
-                        Interdum nulla, ut commodo diam libero vitae erat.
-                        Aenean faucibus nibh et justo cursus id rutrum lorem
-                        imperdiet. Nunc ut sem vitae risus tristique posuere.
-                    </p>*@
-                <div class="footer-tittles">
-                    <p>Date Start @compi.DateStart</p> <br />
-                    <p>Date End @compi.DateEnd</p>
-                    @*<h2>Capcilena Hanry</h2>*@
+                <div class="services-active">
+                    <div class="single-services section-over1 text-center">
+                        <div class="services-img">
+                            <img src="~/User/images/@compi.ImgOfCom" alt="Alternate Text" />
+                            <div class="services-caption">
+                                <h3><a asp-action="index" asp-controller="testcore">@compi.NameCom</a></h3>
+                                <h3><a asp-action="index" asp-controller="testcore">Date Start @compi.DateStart | Date End @compi.DateEnd</a></h3>
+                                <p>The automated process starts as soon <br>@compi.Desc</p>
+                                <a class="btn btn3" asp-action="index" asp-controller="testcore" >Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="single-services section-over1 text-center">
+                        <div class="services-img">
+                            <img src="~/User/images/@compi.ImgOfCom" alt="Alternate Text" />
+                            <div class="services-caption">
+                                <h3><a asp-action="index" asp-controller="testcore">@compi.NameCom</a></h3>
+                                <h3><a asp-action="index" asp-controller="testcore">Date Start @compi.DateStart | Date End @compi.DateEnd</a></h3>
+                                <p>The automated process starts as soon <br>@compi.Desc</p>
+                                <a class="btn btn3" asp-action="index" asp-controller="testcore">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-services section-over1 text-center">
+                        <div class="services-img">
+                            <img src="~/User/assets/img/gallery/team3.png" alt="">
+                            <div class="services-caption">
+                                <h3><a href="#">Professional HR</a></h3>
+                                <p>The automated process starts as soon <br>as your clothes go into the machine.</p>
+                                <a href="#" class="btn btn3">Make Appointment</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-services section-over1 text-center">
+                        <div class="services-img">
+                            <img src="~/User/assets/img/gallery/team2.png" alt="">
+                            <div class="services-caption">
+                                <h3><a href="#">Media planing</a></h3>
+                                <p>The automated process starts as soon <br>as your clothes go into the machine.</p>
+                                <a href="#" class="btn btn3">Make Appointment</a>
+                            </div>
+                        </div>
+                    </div>*@
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="col-xl-4 col-lg-4 col-md-6">
-        <a class="btn w-btn wantToWork-btn mr-20" asp-action="index" asp-controller="testcore">Test</a>
-
-    </div>
- 
-</section>
+        </section>
+        <!--Services Area End -->
+        <!--! About Area Start 01 -->
     }
     <!-- About Area End-->
     <!--! About Area Start 02-->

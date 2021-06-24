@@ -1,0 +1,39 @@
+﻿@model InstituteOfFineArt.Models.Competition
+@{
+    ViewData["Title"] = "Accept";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Accept</h1>
+<form asp-controller="event" asp-action="accept" method="post">
+    <div class="form-group">
+        <label>Id School</label>
+        <input type="text" class="form-control" asp-for="IdAcc" />
+    </div>
+
+    <div class="form-group">
+        <label>Name Competition</label>
+        <input type="text" class="form-control" asp-for="NameCom" />
+    </div>
+
+    @*<div class="form-group">
+        <label>Image Of Competition</label>
+        <input type="text" class="form-control" asp-for="ImgOfCom" />
+    </div>*@
+
+    <div class="form-group">
+        <label>Date Start</label>
+        <input type="text" class="form-control" asp-for="DateStart" />
+    </div>
+
+    <div class="form-group">
+        <label>Date End</label>
+        <input type="text" class="form-control" asp-for="DateEnd" />
+    </div>
+
+
+
+    <input type="hidden" asp-for="IdCom" />
+    <input type="submit" value="ACCEPT" class="btn btn-danger" onclick="return confirm('Are you sure?')" />
+</form>
+
