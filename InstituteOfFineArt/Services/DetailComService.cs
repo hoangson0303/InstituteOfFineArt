@@ -13,5 +13,10 @@ namespace InstituteOfFineArt.Services
         public List<Account> FindAccById(string idAcc);
 
         string GetIdAccByIdCom(string idCom);
+
+        Test Create(Test tes);
+        public List<Account> FindUserById(string idAcc);
+        string GetNewestId(string keyword);
+        int CountIdById(string id);
     }
 }

@@ -33,12 +33,6 @@ namespace InstituteOfFineArt.Models
         public bool? Stat { get; set; }
         public string IdRole { get; set; }
 
-
-
-
-       
-
-
         public virtual ICollection<Bill> Bills { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Competition> Competitions { get; set; }

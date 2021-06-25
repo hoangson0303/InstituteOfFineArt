@@ -28,7 +28,7 @@ namespace InstituteOfFineArt.Models
         public virtual DbSet<TestCore> TestCores { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
 
-      
+     
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -37,7 +37,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Account>(entity =>
             {
                 entity.HasKey(e => e.IdAcc)
-                    .HasName("PK__account__6BE8F064BBEB56DB");
+                    .HasName("PK__account__6BE8F06449A3C700");
 
                 entity.ToTable("account");
 
@@ -111,7 +111,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Bill>(entity =>
             {
                 entity.HasKey(e => e.IdOrder)
-                    .HasName("PK__bill__DD5B8F3FF9DB659A");
+                    .HasName("PK__bill__DD5B8F3FC2FEAE11");
 
                 entity.ToTable("bill");
 
@@ -142,7 +142,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Comment>(entity =>
             {
                 entity.HasKey(e => e.IdComment)
-                    .HasName("PK__comment__7E14AC85090D78E7");
+                    .HasName("PK__comment__7E14AC85E4BEEA80");
 
                 entity.ToTable("comment");
 
@@ -185,7 +185,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Competition>(entity =>
             {
                 entity.HasKey(e => e.IdCom)
-                    .HasName("PK__competit__D69671710B8BB383");
+                    .HasName("PK__competit__D696717144E6B787");
 
                 entity.ToTable("competitions");
 
@@ -232,7 +232,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Feedback>(entity =>
             {
                 entity.HasKey(e => e.IdFeedback)
-                    .HasName("PK__feedback__36BC86305CCD56AA");
+                    .HasName("PK__feedback__36BC8630EB64AB62");
 
                 entity.ToTable("feedback");
 
@@ -281,7 +281,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<OrderDetail>(entity =>
             {
                 entity.HasKey(e => new { e.IdOrder, e.IdTest })
-                    .HasName("PK__orderDet__7136BDBB782AB8FB");
+                    .HasName("PK__orderDet__7136BDBB927E8297");
 
                 entity.ToTable("orderDetail");
 
@@ -328,7 +328,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.HasKey(e => e.IdRole)
-                    .HasName("PK__roles__3D48441D69A2ED78");
+                    .HasName("PK__roles__3D48441DB0078642");
 
                 entity.ToTable("roles");
 
@@ -356,7 +356,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Test>(entity =>
             {
                 entity.HasKey(e => e.IdTest)
-                    .HasName("PK__test__C6D3284BFB36C6EA");
+                    .HasName("PK__test__C6D3284B93C6B270");
 
                 entity.ToTable("test");
 
@@ -379,7 +379,7 @@ namespace InstituteOfFineArt.Models
                     .HasColumnName("dateupdated");
 
                 entity.Property(e => e.Desc)
-                    .HasMaxLength(1)
+                    .HasMaxLength(800)
                     .HasColumnName("desc");
 
                 entity.Property(e => e.IdAcc)
@@ -411,7 +411,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<TestCore>(entity =>
             {
                 entity.HasKey(e => new { e.IdTest, e.IdCom })
-                    .HasName("PK__test_cor__CBBA4F5C64F9671A");
+                    .HasName("PK__test_cor__CBBA4F5CF3E4F098");
 
                 entity.ToTable("test_core");
 
@@ -457,7 +457,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<UserRole>(entity =>
             {
                 entity.HasKey(e => new { e.IdRole, e.IdAcc })
-                    .HasName("PK__user_rol__6BF6CB1BF03389D7");
+                    .HasName("PK__user_rol__6BF6CB1BFDC0FCFF");
 
                 entity.ToTable("user_role");
 
