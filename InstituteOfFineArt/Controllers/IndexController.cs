@@ -24,8 +24,8 @@ namespace InstituteOfFineArt.Controllers
             this.webHostEnvironment = _webHostEnvironment;
         }
         [Route("index")]
-        [Route("")]
-        [Route("~/")]
+        //[Route("")]
+        //[Route("~/")]
         public IActionResult Index()
         {
             ViewBag.compititions = indexService.FindAll();
