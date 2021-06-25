@@ -36,12 +36,12 @@ namespace InstituteOfFineArt.Controllers
 
 
 
-        
+
+
         [Route("add")]
         [HttpPost]
         public IActionResult Add(Test tes)
         {
-            
             string cookieIdacc = Request.Cookies["Idacc"];
                 ViewBag.acc = DetailComService.FindUserById(cookieIdacc);
 
@@ -73,7 +73,7 @@ namespace InstituteOfFineArt.Controllers
 
 
 
-                return RedirectToAction("Index");
+                return RedirectToAction("index");
         }
    
     }
