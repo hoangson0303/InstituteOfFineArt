@@ -62,6 +62,7 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
 
             account.Datecreated = DateTime.Now;
             account.Dateupdated = DateTime.Now;
+            account.IdRole = idRole;
             account.Pass = BCrypt.Net.BCrypt.HashString(account.Pass);
             account.Stat = true;
 

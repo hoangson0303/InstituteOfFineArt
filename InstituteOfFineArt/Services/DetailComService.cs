@@ -10,5 +10,8 @@ namespace InstituteOfFineArt.Services
     {
         Competition FindById(string idCom);
         public List<Competition> FindComById(string idCom);
+        public List<Account> FindAccById(string idAcc);
+
+        string GetIdAccByIdCom(string idCom);
     }
 }
