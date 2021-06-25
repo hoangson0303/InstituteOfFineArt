@@ -14,6 +14,12 @@ namespace InstituteOfFineArt.Services
         {
             this.db = _db;
         }
+
+        public List<Account> FindAccById(string idAcc)
+        {
+            return db.Accounts.Where(x => x.IdAcc == idAcc).ToList();
+        }
+
         public Competition FindById(string idCom)
         {
             return db.Competitions.SingleOrDefault(p => p.IdCom == idCom);
@@ -22,6 +28,13 @@ namespace InstituteOfFineArt.Services
         public List<Competition> FindComById(string idCom)
         {
             return db.Competitions.Where(x => x.IdCom == idCom).ToList();
+        }
+
+
+
+        public string GetIdAccByIdCom(string idCom)
+        {
+            return db.Competitions.Where(x => x.IdCom == idCom).Select(x => x.IdAcc).FirstOrDefault();
         }
     }
 }

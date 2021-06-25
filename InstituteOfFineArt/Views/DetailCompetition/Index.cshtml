@@ -8,33 +8,40 @@
         <div class="container px-5">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6">
-                    @foreach (var com in ViewBag.com)
+                    @foreach (var acc in ViewBag.account)
                     {
                         <!-- Mashead text and app badges-->
                         <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                            <h1 class="display-1 lh-1 mb-3">@com.NameCom</h1>
-                            <p class="lead fw-normal text-muted mb-5">@com.Desc</p>
+                            <h1 class="display-1 lh-1 mb-3" style="color:orange">@acc.Fullname</h1>
+                            <p class="lead fw-normal text-muted mb-5">If you hear a voice within you say <strong>"you cannot paint,"</strong> then by all mean paint, and that voice will be silenced !</p>
                             <div class="d-flex flex-column flex-lg-row align-items-center">
-                                <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="assets/img/google-play-badge.svg" alt="..." /></a>
-                                <a href="#!"><img class="app-badge" src="assets/img/app-store-badge.svg" alt="..." /></a>
+                                <p class="me-lg-3 mb-4 mb-lg-0" ><strong style="color:orange">Hotline</strong> : @acc.PhoneNumber</p> | 
+                                <p class="me-lg-3 mb-4 mb-lg-0"><strong style="color:orange"> Address</strong> : @acc.Addr</p>
                             </div>
                         </div>
                     }
                 </div>
 
                 <div class="col-lg-6">
-                    @foreach (var com in ViewBag.com)
+                    @foreach (var acc in ViewBag.account)
                     {
                         <!-- Masthead device mockup feature-->
                         <div class="masthead-device-mockup">
-                            <img src="~/User/images/@com.ImgOfCom" style="max-width: 100%; height: 100%" />
+                            @if (@acc.Avatar == null)
+                            {
+                                <img src="~/User/images/backupAvatarSchool.jpg" style="max-width: 100%; height: 100%" />
+                            }
+                            else
+                            {
+                                <img src="~/User/images/@acc.Avatar" style="max-width: 100%; height: 100%" />
+                            }
                         </div>
                     }
-            </div>
+                </div>
 
-        </div>
+            </div>
     
-    </header>
+        </header>
     <!-- Quote/testimonial aside-->
 <aside class="text-center bg-gradient-primary-to-secondary">
     @foreach (var com in ViewBag.com)
@@ -60,16 +67,16 @@
                                 <!-- Feature item-->
                                 <div class="text-center">
                                     <i class="bi-phone icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt">Device Mockups</h3>
-                                    <p class="text-muted mb-0">Ready to use HTML/CSS device mockups, no Photoshop required!</p>
+                                    <h3 class="font-alt">Profit</h3>
+                                    <p class="text-muted mb-0">You can make money directly from your entries, by selling them after the contest is approved</p>
                                 </div>
                             </div>
                             <div class="col-md-6 mb-5">
                                 <!-- Feature item-->
                                 <div class="text-center">
                                     <i class="bi-camera icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt">Flexible Use</h3>
-                                    <p class="text-muted mb-0">Put an image, video, animation, or anything else in the screen!</p>
+                                    <h3 class="font-alt">Simple registration form</h3>
+                                    <p class="text-muted mb-0">A photo of the test and the basic information the school gives</p>
                                 </div>
                             </div>
                         </div>
@@ -78,48 +85,30 @@
                                 <!-- Feature item-->
                                 <div class="text-center">
                                     <i class="bi-gift icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt">Free to Use</h3>
-                                    <p class="text-muted mb-0">As always, this theme is free to download and use for any purpose!</p>
+                                    <h3 class="font-alt">Benefits</h3>
+                                    <p class="text-muted mb-0">Accumulated experience , be recruited into the school and many other benefits ....</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <!-- Feature item-->
                                 <div class="text-center">
                                     <i class="bi-patch-check icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt">Open Source</h3>
-                                    <p class="text-muted mb-0">Since this theme is MIT licensed, you can use it commercially!</p>
+                                    <h3 class="font-alt">Fair and transparent</h3>
+                                    <p class="text-muted mb-0">Competitions are organized by prestigious universities, and entries are judged by highly qualified teachers.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 order-lg-0">
-                    <!-- Features section device mockup-->
-                    <div class="features-device-mockup">
-                        <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="circleGradient" gradientTransform="rotate(45)">
-                                    <stop class="gradient-start-color" offset="0%"></stop>
-                                    <stop class="gradient-end-color" offset="100%"></stop>
-                                </linearGradient>
-                            </defs>
-                            <circle cx="50" cy="50" r="50"></circle>
-                        </svg><svg class="shape-1 d-none d-sm-block" viewBox="0 0 240.83 240.83" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="-32.54" y="78.39" width="305.92" height="84.05" rx="42.03" transform="translate(120.42 -49.88) rotate(45)"></rect>
-                            <rect x="-32.54" y="78.39" width="305.92" height="84.05" rx="42.03" transform="translate(-49.88 120.42) rotate(-45)"></rect>
-                        </svg><svg class="shape-2 d-none d-sm-block" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"></circle></svg>
-                        <div class="device-wrapper">
-                            <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
-                                <div class="screen bg-black">
-                                    <!-- PUT CONTENTS HERE:-->
-                                    <!-- * * This can be a video, image, or just about anything else.-->
-                                    <!-- * * Set the max width of your media to 100% and the height to-->
-                                    <!-- * * 100% like the demo example below.-->
-                                    <video muted="muted" autoplay="" loop="" style="max-width: 100%; height: 100%"><source src="assets/img/demo-screen.mp4" type="video/mp4" /></video>
-                                </div>
-                            </div>
+                    @foreach (var com in ViewBag.com)
+                    {
+                        <div class="features-device-mockup">
+                            <img src="~/User/images/@com.ImgOfCom" style="max-width: 150%; height: 100%" />
                         </div>
-                    </div>
+                    }
+
+
                 </div>
             </div>
         </div>
@@ -127,15 +116,19 @@
     <!-- Basic features section-->
     <section class="bg-light">
         <div class="container px-5">
-            <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
-                <div class="col-12 col-lg-5">
-                    <h2 class="display-4 lh-1 mb-4">Enter a new age of web design</h2>
-                    <p class="lead fw-normal text-muted mb-5 mb-lg-0">This section is perfect for featuring some information about your application, why it was built, the problem it solves, or anything else! There's plenty of space for text here, so don't worry about writing too much.</p>
+            @foreach (var com in ViewBag.com)
+            {
+                <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+                    <div class="col-12 col-lg-5">
+                        <h2 class="display-4 lh-1 mb-4"> <strong style="color:orange">Competition's name</strong> : @com.NameCom</h2>
+                        <p class="lead fw-normal text-muted mb-5 mb-lg-0"><strong style="color:orange">Content</strong> : @com.Desc</p>
+                    </div>
+                    <div class="col-sm-8 col-md-6">
+                        <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="~/User/images/trangtri.jpg" /></div>
+                    </div>
                 </div>
-                <div class="col-sm-8 col-md-6">
-                    <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="https://source.unsplash.com/u8Jn2rzYIps/900x900" alt="..." /></div>
-                </div>
-            </div>
+            }
+
         </div>
     </section>
     <!-- Call to action section-->

@@ -23,6 +23,9 @@ namespace InstituteOfFineArt.Controllers
         [Route("index/{idCom}")]
         public IActionResult Index(string idCom)
         {
+
+            string idacc = DetailComService.GetIdAccByIdCom(idCom);
+            ViewBag.account = DetailComService.FindAccById(idacc);
             ViewBag.com = DetailComService.FindComById(idCom);
             return View();
         }
