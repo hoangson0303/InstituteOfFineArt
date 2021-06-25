@@ -40,52 +40,25 @@
                 <div class="col-xl-10 col-lg-10 col-md-12">
                     <!-- Section Tittle -->
                     <div class="section-tittle text-center mb-70">
-                        <span>Our Service</span>
-                        <h2>We bring ideas to life by combining years of experiences of our very talented team.</h2>
+                        <span>Contests Going On</span>
+                        <h2>Contests from universities for students</h2>
                     </div>
                 </div>
             </div>
             <div class="services-active">
-                <div class="single-services section-over1 text-center">
-                    <div class="services-img">
-                        <img src="~/User/assets/img/gallery/team1.png" alt="">
-                        <div class="services-caption">
-                            <h3><a href="#">Business consulting</a></h3>
-                            <p>The automated process starts as soon <br>as your clothes go into the machine.</p>
-                            <a href="#" class="btn btn3">Make Appointment</a>
+                @foreach (var compi in ViewBag.compititions)
+                {
+                    <div class="single-services section-over1 text-center">
+                        <div class="services-img">
+                            <img src="~/User/images/@compi.ImgOfCom" alt="">
+                            <div class="services-caption">
+                                <h3><a href="#">@compi.NameCom</a></h3>
+                                <p>Date Start @compi.DateStart | Date End @compi.DateEnd</p>
+                                <a class="btn btn3" asp-controller="detailcompetition" asp-action="index" asp-route-id="@compi.IdCom">APPLY NOW</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="single-services section-over1 text-center">
-                    <div class="services-img">
-                        <img src="~/User/assets/img/gallery/team2.png" alt="">
-                        <div class="services-caption">
-                            <h3><a href="#">Media planing</a></h3>
-                            <p>The automated process starts as soon <br>as your clothes go into the machine.</p>
-                            <a href="#" class="btn btn3">Make Appointment</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-services section-over1 text-center">
-                    <div class="services-img">
-                        <img src="~/User/assets/img/gallery/team3.png" alt="">
-                        <div class="services-caption">
-                            <h3><a href="#">Professional HR</a></h3>
-                            <p>The automated process starts as soon <br>as your clothes go into the machine.</p>
-                            <a href="#" class="btn btn3">Make Appointment</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-services section-over1 text-center">
-                    <div class="services-img">
-                        <img src="~/User/assets/img/gallery/team2.png" alt="">
-                        <div class="services-caption">
-                            <h3><a href="#">Media planing</a></h3>
-                            <p>The automated process starts as soon <br>as your clothes go into the machine.</p>
-                            <a href="#" class="btn btn3">Make Appointment</a>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </section>
@@ -104,7 +77,7 @@
                 <div class="right-caption">
                     <!-- Section Tittle -->
                     <div class="section-tittle mb-50">
-                        <h2>@compi.NameCom@*<br>Philosophy*@</h2>
+                        <h2>@compi.NameCom</h2>
                     </div>
                     <div class="about-more">
                         <p>

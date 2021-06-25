@@ -66,9 +66,19 @@
                                                 <td><img src="~/User/images/@compi.ImgOfCom" width="100" alt="Alternate Text" /></td>
                                                 <td>@compi.DateStart</td>
                                                 <td>@compi.DateEnd</td>
-                                                <td>@compi.Stat</td>
-                                                <td> <a class="btn btn-primary" asp-action="update" asp-controller="create" asp-route-id="@compi.IdCom">Edit</a></td>
+                                                @if (@compi.Stat == false)
+                                                {
+                                                    <td> Awaiting Approval</td>
+                                                }
+                                                else
+                                                {
+                                                    <td> HAPPENING </td>
+                                                }
+                                                <td>
+                                                    <a class="btn btn-primary" asp-action="update" asp-controller="create" asp-route-id="@compi.IdCom">Edit</a>
+                                                    <a class="btn btn-danger" asp-controller="create" asp-action="delete" asp-route-id="@compi.IdCom" onclick="return confirm('Are you sure?')">Delete</a>
 
+                                                </td>
                                             </tr>
 
                                             @*<tr>

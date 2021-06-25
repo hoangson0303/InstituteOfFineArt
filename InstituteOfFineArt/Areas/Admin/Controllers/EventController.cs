@@ -15,10 +15,12 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
     public class EventController : Controller
     {
         private ApprovalService ApprovalService;
+        private EventService EventService;
         private IWebHostEnvironment webHostEnvironment;
 
-        public EventController(ApprovalService _approvalService, IWebHostEnvironment _webHostEnvironment)
+        public EventController(ApprovalService _approvalService, EventService _eventService , IWebHostEnvironment _webHostEnvironment)
         {
+            EventService = _eventService;
             ApprovalService = _approvalService;
             this.webHostEnvironment = _webHostEnvironment;
         }
@@ -26,6 +28,7 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
         [Route("")]
         public IActionResult Index()
         {
+            ViewBag.comhappening = EventService.FindAll();
             return View();
         }
 
