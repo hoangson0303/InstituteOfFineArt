@@ -31,6 +31,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\DetailCom\assets\img\app-store-badge.svg" />
+    <None Include="wwwroot\DetailCom\assets\img\google-play-badge.svg" />
+    <None Include="wwwroot\DetailCom\assets\img\tnw-logo.svg" />
+    <None Include="wwwroot\DetailCom\js\scripts.js" />
     <None Include="wwwroot\User\SchoolFile\scss\prepros-6.config" />
     <None Include="wwwroot\User\SchoolFile\assets\images\background\profile-bg.jpg" />
     <None Include="wwwroot\User\SchoolFile\assets\images\big\img1.jpg" />

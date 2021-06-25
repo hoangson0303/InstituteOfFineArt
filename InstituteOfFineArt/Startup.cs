@@ -44,6 +44,7 @@ namespace InstituteOfFineArt
             services.AddScoped<TestcoreService, TestcoreServiceImpl>();
             services.AddScoped<ApprovalService, ApprovalServiceImpl>();
             services.AddScoped<EventService, EventServiceImpl>();
+            services.AddScoped<DetailComService, DetailComServiceImpl>();
             services.AddSession();
 
             services.AddMvc();
