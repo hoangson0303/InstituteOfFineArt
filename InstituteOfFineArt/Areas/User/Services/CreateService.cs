@@ -31,6 +31,10 @@ namespace InstituteOfFineArt.Areas.User.Services
 
         Competition FindByIdcom(string idAcc);
         Competition FindCom(string id);
+
+
+
+
    
     }
 }

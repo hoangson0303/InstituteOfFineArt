@@ -27,12 +27,6 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            string cookieIdacc = Request.Cookies["Idacc"];
-            ViewBag.username = HttpContext.Session.GetString("username");
-            ViewBag.acc = tescoretService.FindUserById(cookieIdacc);
-
-            //ViewBag.testcore = tescoretService.FindUserByIdCom( );
-
             return View();
         }
     }
