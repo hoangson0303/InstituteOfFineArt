@@ -22,5 +22,11 @@ namespace InstituteOfFineArt.Areas.User.Services
 
 
         List<Competition> FindAll();
+
+
+        Test Create(Test tes);
+        public List<Account> FindUserById(string idAcc);
+        string GetNewestId(string keyword);
+        int CountIdById(string id);
     }
 }

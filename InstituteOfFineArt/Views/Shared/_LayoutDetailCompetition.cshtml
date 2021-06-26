@@ -30,9 +30,12 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-gradient-primary-to-secondary p-4">
-                    <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">Send feedback</h5>
-                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+                   
+                        <h5 class="modal-title font-alt text-white" id="feedbackModalLabel" >Send feedback</h5>
+                       
+                    
+                        <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
                 <div class="modal-body border-0 p-4">
                     <!-- * * * * * * * * * * * * * * *-->
                     <!-- * * SB Forms Contact Form * *-->
@@ -41,54 +44,65 @@
                     <!-- To make this form functional, sign up at-->
                     <!-- https://startbootstrap.com/solution/contact-forms-->
                     <!-- to get an API token!-->
-                    <form id="contactForm" data-sb-form-api-token="API_TOKEN" asp-action="add" asp-controller="DetailCompetition">
-                        <!-- Name input-->
-                        <div class="form-floating mb-3">
-                            <input asp-for="NameTest" class="form-control" id="name" type="text" placeholder="Enter your name..." />
-                            <label for="name">Name</label>
-                            @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
-                        </div>
-                        <!-- Price -->
-                        <div class="form-floating mb-3">
-                            <input asp-for="Price" class="form-control" type="text" placeholder="Price" />
-                            <label for="price">Price</label>
-                            @*<div class="invalid-feedback" data-sb-feedback="email:required">Price</div>*@
-                            @*<div class="invalid-feedback" data-sb-feedback="email:email">Price is not valid.</div>*@
-                        </div>
-                        <div class="form-floating mb-3">
-                            <textarea asp-for="Desc" class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem"></textarea>
-                            <label for="message">Desc</label>
-                            @*<div class="invalid-feedback" data-sb-feedback="message:required">Desc  is required.</div>*@
-                        </div>
-                        <div class="form-floating mb-3">
-                            <textarea asp-for="Content" class="form-control" id="message" type="text" placeholder="Content..." style="height: 10rem"></textarea>
-                            <label for="message">Content</label>
-                            @*<div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>*@
-                        </div>
-                        <!-- Submit success message-->
-                        <!---->
-                        <!-- This is what your users will see when the form-->
-                        <!-- has successfully submitted-->
-                        <div class="d-none" id="submitSuccessMessage">
-                            <div class="text-center mb-3">
-                                <div class="fw-bolder">Form submission successful!</div>
-                                To activate this form, sign up at
-                                <br />
-                                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                   
+                        <form id="contactForm" data-sb-form-api-token="API_TOKEN" asp-action="add" asp-controller="login"  enctype="multipart/form-data">
+                            <!-- Name input-->
+                            <div class="form-floating mb-3">
+                                <input asp-for="NameTest" class="form-control" id="name" type="text" placeholder="Enter your name..." />
+                                <label for="name">Name</label>
+                                @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
                             </div>
-                        </div>
-                        <!-- Submit error message-->
-                        <!---->
-                        <!-- This is what your users will see when there is-->
-                        <!-- an error submitting the form-->
-                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                        <!-- Submit Button-->
-                        
-                            
-                            <div class="d-grid"> <input  type="submit" value="Submit" /></div>
-                        
+                            <!-- Price -->
+                            <div class="form-floating mb-3">
+                                <input asp-for="Price" class="form-control" type="text" placeholder="Price" />
+                                <label for="price">Price</label>
+                                @*<div class="invalid-feedback" data-sb-feedback="email:required">Price</div>*@
+                                @*<div class="invalid-feedback" data-sb-feedback="email:email">Price is not valid.</div>*@
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea asp-for="Desc" class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem"></textarea>
+                                <label for="message">Desc</label>
+                                @*<div class="invalid-feedback" data-sb-feedback="message:required">Desc  is required.</div>*@
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea asp-for="Content" class="form-control" id="message" type="text" placeholder="Content..." style="height: 10rem"></textarea>
+                                <label for="message">Content</label>
+                                @*<div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>*@
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <div class="pl-sm-4 pl-2" id="img-section">
+                                    <img src="~/User/images/imagesTest/" class="img" alt="">
+                                
+                                    <b>Image Of Test</b>
+                                    <p>Accepted file type .png. Less than 1MB</p> <input type="file" name="file" value="Add">
+                                </div>
+                            </div>
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+                            @*<div class="d-none" id="submitSuccessMessage">
+                    <div class="text-center mb-3">
+                        <div class="fw-bolder">Form submission successful!</div>
+                        To activate this form, sign up at
+                        <br />
+                        <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                    </div>
+                </div>*@
+                            <!-- Submit error message-->
+                            <!---->
+                            <!-- This is what your users will see when there is-->
+                            <!-- an error submitting the form-->
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                            <!-- Submit Button-->
+
+
+                            <div class="d-grid"> <input type="submit" value="Submit" /></div>
+
                         </form>
-                </div>
+                    
+                    </div>
             </div>
         </div>
     </div>

@@ -18,6 +18,7 @@ namespace InstituteOfFineArt.Models
         public string IdAcc { get; set; }
         public string IdComment { get; set; }
         public string Content { get; set; }
+        public string ImgOfTest { get; set; }
         public string NameTest { get; set; }
         public decimal? Price { get; set; }
         public string Desc { get; set; }

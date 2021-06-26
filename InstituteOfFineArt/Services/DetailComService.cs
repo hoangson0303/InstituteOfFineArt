@@ -18,5 +18,6 @@ namespace InstituteOfFineArt.Services
         public List<Account> FindUserById(string idAcc);
         string GetNewestId(string keyword);
         int CountIdById(string id);
+        List<Competition> FindAll();
     }
 }

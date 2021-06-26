@@ -58,5 +58,28 @@ namespace InstituteOfFineArt.Areas.User.Services
         {
             return db.Accounts.Where(u => u.Username == username).Select(x => x.Pass).FirstOrDefault();
         }
+        public Test Create(Test tes)
+        {
+            db.Tests.Add(tes);
+            db.SaveChanges();
+            return tes;
+        }
+        public List<Account> FindUserById(string idAcc)
+        {
+            return db.Accounts.Where(x => x.IdAcc == idAcc).ToList();
+        }
+        public string GetNewestId(string keyword)
+        {
+            return (from accounts in db.Accounts
+                    where
+                      accounts.IdAcc.Contains(keyword)
+                    orderby
+                      accounts.IdAcc descending
+                    select accounts.IdAcc).Take(1).SingleOrDefault();
+        }
+        public int CountIdById(string id)
+        {
+            return db.Accounts.Where(p => p.IdAcc.Contains(id)).Count();
+        }
     }
 }

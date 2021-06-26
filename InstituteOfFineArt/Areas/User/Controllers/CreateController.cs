@@ -52,6 +52,7 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         [HttpPost]
         public IActionResult CreateAdd(Competition competition, IFormFile file)
         {
+
             if (ModelState.IsValid)
             {
                 string cookieIdacc = Request.Cookies["Idacc"];
