@@ -78,8 +78,8 @@
                     <div class="form-group">
                         <label class="col-md-12">Image</label>
                         <div class="col-md-12">
-                            <input asp-for="ImgOfCom" type="file" name="file" value="Add" class="btn button border">
-                            @*<img src="~/User/images/@Model.ImgOfCom" alt="Alternate Text" />*@
+                            <input asp-for="ImgOfCom" type="file" name="file" value="Add" class="btn button border" onchange="show(this)">
+                            <img id = "user_img" src="" alt="Alternate Text" class="img" />
                         </div>
                     </div>
 
@@ -113,4 +113,18 @@
     <!-- End footer -->
     <!-- ============================================================== -->
 </div>
+
+
+<script type="text/javascript">
+
+   function show(input) {
+      if (input.files && input.files[0]) {
+          var filerdr = new FileReader();
+          filerdr.onload = function (e) {
+         $('#user_img').attr('src', e.target.result);
+      }
+      filerdr.readAsDataURL(input.files[0]);
+   }
+}
+</script>
 
