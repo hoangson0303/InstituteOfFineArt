@@ -48,7 +48,8 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
         [Route("add")]  
         public IActionResult Add(Account account)
         {
-            string nameRole = Request.Form["selectRole"];
+           
+                string nameRole = Request.Form["selectRole"];
             string idRole = AccountService.GetIdRoleByNameRol(nameRole);
             var numAlpha = new Regex("(?<Alpha>[a-zA-Z]*)(?<Numeric>[0-9]*)");
             int num = 0;
@@ -94,6 +95,7 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
 
 
             return RedirectToAction("index");
+          
         }
 
         [HttpGet]

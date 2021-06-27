@@ -7,22 +7,27 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-@foreach (var user in ViewBag.infouser)
-{
+
     <div class="container emp-profile">
         <form method="post">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="profile-img">
-                        <img src="~/User/images/@user.Avatar" alt="" />
-                        
-                    </div>
+                    @foreach (var user in ViewBag.infouser)
+                    {
+                        <div class="profile-img">
+                            <img src="~/User/images/@user.Avatar" alt="" />
+
+                        </div>
+                    }
                 </div>
                 <div class="col-md-6">
                     <div class="profile-head">
-                        <h5>
-                            @user.Fullname
-                        </h5>
+                        @foreach (var user in ViewBag.infouser)
+                        {
+                            <h5>
+                                @user.Fullname
+                            </h5>
+                        }
                         <h6>
                             Personal Infomation
                         </h6>
@@ -36,10 +41,13 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <a class="profile-edit-btn" name="btnAddMore" asp-controller="profile" asp-action="update" asp-route-id="@user.IdAcc">Edit Profile</a>
+                @foreach (var user in ViewBag.infouser)
+                {
+                    <div class="col-md-2">
+                        <a class="profile-edit-btn" name="btnAddMore" asp-controller="profile" asp-action="update" asp-route-id="@user.IdAcc">Edit Profile</a>
+                    </div>
+                }
                 </div>
-            </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-work">
@@ -56,132 +64,171 @@
                     </div>
                 </div>
 
-
+             
                 <div class="col-md-8">
+                    
                     <div class="tab-content profile-tab" id="myTabContent">
+                        @foreach (var user in ViewBag.infouser)
+                        {
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>User Id</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>@user.IdAcc</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>@user.Fullname</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>@user.Email</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Phone</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>@user.PhoneNumber</p>
+                                    </div>
+                                </div>
 
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>User Id</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Address</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>@user.Addr</p>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <p>@user.IdAcc</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Date Of Birth</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>@user.Dob</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Name</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Gender</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        @if (@user.Gender == true)
+                                        {
+                                            <p>Male</p>
+                                        }
+                                        else
+                                        {
+                                            <p>Female</p>
+                                        }
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <p>@user.Fullname</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Email</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>@user.Email</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Phone</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>@user.PhoneNumber</p>
-                                </div>
-                            </div>
 
+                            </div>
+                        }
+
+                    
+
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        @foreach (var tes in ViewBag.test)
+                        {
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Address</label>
+                                    <label>Id_test</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>@user.Addr</p>
+                                    <p>@tes.IdTest</p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Date Of Birth</label>
+                                    <label>Id_acc</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>@user.Dob</p>
+                                    <p>@tes.IdAcc</p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Gender</label>
+                                    <label>Name_Test</label>
                                 </div>
                                 <div class="col-md-6">
-                                    @if (@user.Gender == true)
+                                    <p>@tes.NameTest</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Content</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>@tes.Content</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Desc</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>@tes.Desc</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Image_of_test</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="~/User/images/@tes.ImgOfTest" width="150" alt="Alternate Text" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Price</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>@tes.Price</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Stat</label>
+                                </div>
+                                <div class="col-md-6">
+                                    @if (tes.Stat != true)
                                     {
-                                        <p>Male</p>
+                                        <p>@tes.Stat</p>
+
+
+                                        <p>Waiting for school approval !</p>
+
                                     }
                                     else
                                     {
-                                        <p>Female</p>
+                                        <p>@tes.Stat</p>
+                                        <p>Has been approved by the school ! </p>
                                     }
-                                </div>
-                            </div>
-                        </div>
-                        
 
 
-
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Experience</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>Expert</p>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Hourly Rate</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>10$/hr</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Total Projects</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>230</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>English Level</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>Expert</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Availability</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>6 months</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label>Your Bio</label><br />
-                                    <p>Your detail description</p>
-                                </div>
-                            </div>
-                        </div>
+                        }
                     </div>
-                </div>
+                   
+                    </div>
+                    </div>
 
-            </div>
+                </div>
         </form>
     </div>
-}
+

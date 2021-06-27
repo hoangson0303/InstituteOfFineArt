@@ -13,6 +13,7 @@ namespace InstituteOfFineArt.Areas.User.Services
          Account FindById(string idAcc);
         public List<Account> FindUserById(string idAcc);
 
+        public List<Test> FindUserByIdtest(string idtest);
         Account Update(Account account);
     }
 }

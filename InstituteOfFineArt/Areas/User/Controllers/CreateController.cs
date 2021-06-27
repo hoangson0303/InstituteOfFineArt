@@ -149,7 +149,9 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         [Route("update/{id}")]
         public IActionResult Update(Competition competition, IFormFile file)
         {
-            var compi = createService.FindCom(competition.IdCom);
+            if (ModelState.IsValid)
+            {
+                var compi = createService.FindCom(competition.IdCom);
            
             if (file != null)
             {
@@ -170,6 +172,8 @@ namespace InstituteOfFineArt.Areas.User.Controllers
             compi.DateEnd = competition.DateEnd;
             createService.Update(compi);
             return RedirectToAction("table");
+            }
+            return RedirectToAction("update");
         }
 
         [Route("delete/{idCom}")]

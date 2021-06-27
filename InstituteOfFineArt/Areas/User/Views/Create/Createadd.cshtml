@@ -55,12 +55,14 @@
                                 <label class="col-md-12">date_start</label>
                                 <div class="col-md-12">
                                     <input type="datetime" asp-for="DateStart" placeholder="date_start" class="form-control form-control-line">
+                                    <span asp-validation-for="DateStart" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">date_end</label>
                                 <div class="col-md-12">
                                     <input type="datetime" asp-for="DateEnd" placeholder="date end" class="form-control form-control-line">
+                                    <span asp-validation-for="DateEnd" class="text-danger"></span>
                                 </div>
                             </div>
                            
@@ -70,6 +72,7 @@
                                 <label class="col-md-12">Desc</label>
                                 <div class="col-md-12">
                                     <textarea rows="5" asp-for="Desc" class="form-control form-control-line"></textarea>
+                                    <span asp-validation-for="Desc"></span>
                                 </div>
                             </div>
                     <div class="form-group">

@@ -30,12 +30,13 @@ namespace InstituteOfFineArt.Controllers
         }
         [Route("index")]
         [Route("")]
-        public IActionResult Index()
+        public IActionResult Index(string idtest)
         {
             string cookieIdacc = Request.Cookies["Idacc"];
 
             ViewBag.username = HttpContext.Session.GetString("username");
             ViewBag.infouser = ProfileService.FindUserById(cookieIdacc);
+            ViewBag.test = ProfileService.FindUserByIdtest(cookieIdacc);
             return View();  
         }
 
@@ -51,7 +52,9 @@ namespace InstituteOfFineArt.Controllers
         [Route("update/{id}")]
         public IActionResult Update(Account account, IFormFile file)
         {
-            var currentAccount = ProfileService.FindById(account.IdAcc);
+            //if (ModelState.IsValid)
+            //{
+                var currentAccount = ProfileService.FindById(account.IdAcc);
             if (file != null)
             {
                 string fileName = Guid.NewGuid().ToString();
@@ -75,6 +78,8 @@ namespace InstituteOfFineArt.Controllers
             currentAccount.IdRole = "stu";
             ProfileService.Update(currentAccount);
             return RedirectToAction("index");
+            //}
+            //return RedirectToAction("update");
         }
     }
 }
