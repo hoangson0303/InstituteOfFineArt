@@ -20,6 +20,11 @@ namespace InstituteOfFineArt.Areas.Admin.Services
             return db.Accounts.Where(p => p.IdAcc.Contains(id)).Count();
         }
 
+        public string FindByEmail(string email)
+        {
+            return db.Accounts.Where(x => x.Email == email).Select(x => x.Email).FirstOrDefault();
+        }
+
         public Account CreateAccount(Account account)
         {
             db.Accounts.Add(account);

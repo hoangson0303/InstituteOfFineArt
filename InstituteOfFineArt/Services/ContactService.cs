@@ -8,12 +8,10 @@ namespace InstituteOfFineArt.Services
 {
     public interface ContactService
     {
-        Account FindByEmail(string email);
-        Account FindByPass(string password);
         Feedback Create(Feedback feedback);
 
 
-        public List<Account> FindUserById(string idAcc);
+
 
         int CountIdById(string id);
 

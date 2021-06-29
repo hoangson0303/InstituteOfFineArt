@@ -22,17 +22,6 @@ namespace InstituteOfFineArt.Services
             return feedback;
         }
 
-        public Account FindByEmail(string email)
-        {
-            return db.Accounts.FirstOrDefault(x => x.Email == email);
-        }
-
-      
-
-        public List<Account> FindUserById(string idAcc)
-        {
-            return db.Accounts.Where(x => x.IdAcc == idAcc).ToList();
-        }
 
         public int CountIdById(string id)
         {
@@ -49,9 +38,5 @@ namespace InstituteOfFineArt.Services
                     select accounts.IdAcc).Take(1).SingleOrDefault();
         }
 
-        public Account FindByPass(string password)
-        {
-            return db.Accounts.FirstOrDefault(x => x.Pass == password);
-        }
     }
 }

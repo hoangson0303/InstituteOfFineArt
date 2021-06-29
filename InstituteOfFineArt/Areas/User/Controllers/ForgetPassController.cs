@@ -70,7 +70,6 @@ namespace InstituteOfFineArt.Areas.User.Controllers
                     }
 
                     currentAccount.Pass = BCrypt.Net.BCrypt.HashString(newPass);
-                    Debug.WriteLine(currentAccount.Pass);
                     forgetPassService.Update(currentAccount);
                     return RedirectToAction("index");
                 }

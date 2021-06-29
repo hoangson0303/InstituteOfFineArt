@@ -8,6 +8,7 @@ using InstituteOfFineArt.Areas.Admin.Services;
 
 using System.Text.RegularExpressions;
 using InstituteOfFineArt.Models;
+using System.Diagnostics;
 
 namespace InstituteOfFineArt.Areas.Admin.Controllers
 {
@@ -48,24 +49,27 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
         [Route("add")]  
         public IActionResult Add(Account account)
         {
-           
                 string nameRole = Request.Form["selectRole"];
             string idRole = AccountService.GetIdRoleByNameRol(nameRole);
             var numAlpha = new Regex("(?<Alpha>[a-zA-Z]*)(?<Numeric>[0-9]*)");
             int num = 0;
-            if (AccountService.GetNewestId(nameRole) != null)
-            {
-                var match = numAlpha.Match(AccountService.GetNewestId(nameRole));
-                //var alpha = match.Groups["Alpha"].Value;
-                num = Int32.Parse(match.Groups["Numeric"].Value);
 
-            }
 
-            account.Datecreated = DateTime.Now;
-            account.Dateupdated = DateTime.Now;
-            account.IdRole = idRole;
-            account.Pass = BCrypt.Net.BCrypt.HashString(account.Pass);
-            account.Stat = true;
+
+
+                if (AccountService.GetNewestId(nameRole) != null)
+                {
+                    var match = numAlpha.Match(AccountService.GetNewestId(nameRole));
+                    //var alpha = match.Groups["Alpha"].Value;
+                    num = Int32.Parse(match.Groups["Numeric"].Value);
+
+                }
+
+                account.Datecreated = DateTime.Now;
+                account.Dateupdated = DateTime.Now;
+                account.IdRole = idRole;
+                account.Pass = BCrypt.Net.BCrypt.HashString(account.Pass);
+                account.Stat = true;
 
 
             if (AccountService.CountIdById(nameRole) != 0)
@@ -92,6 +96,9 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
                 userRole.Dateupdated = DateTime.Now;
                 AccountService.CreateUserRole(userRole);
             }
+
+
+            
 
 
             return RedirectToAction("index");

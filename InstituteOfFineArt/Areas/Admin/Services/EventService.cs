@@ -9,5 +9,7 @@ namespace InstituteOfFineArt.Areas.Admin.Services
     public interface EventService
     {
         public List<Competition> FindAll();
+
+        
     }
 }

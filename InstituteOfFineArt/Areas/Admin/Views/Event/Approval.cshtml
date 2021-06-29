@@ -18,45 +18,96 @@
     </div>
 </form>
 <br />
-<table class="table table-success">
 
-    <thead>
-        <tr>
-            <th scope="col">ID COMPETITION</th>
-            <th scope="col">ID SCHOOL</th>
-            <th scope="col">NAME COMPETITONS</th>
-            <th scope="col">DESCRIPTION</th>
-            <th scope="col">IMAGE</th>
-            <th scope="col">DATE STARTING</th>
-            <th scope="col">DATE ENDING</th>
-            <th scope="col">STATUS</th>
-            <th scope="col">ACTION</th>
-        </tr>
-    </thead>
 
-    <tbody>
-        @foreach (var com in ViewBag.competition)
-        {
-        <tr>
-            <td>@com.IdCom</td>
-            <td>@com.IdAcc</td>
-            <td>@com.NameCom</td>
-            <td>@com.Desc</td>
-            <td><img src="~/User/images/@com.ImgOfCom" width="100" alt="Alternate Text" /></td>
-            <td>@com.DateStart</td>
-            <td>@com.DateEnd</td>
-            @if (@com.Stat == false)
-            {
-                <td>EVENT AWAITING APPROVAL</td>
-            }
+@foreach (var com in ViewBag.competition)
+{
+    <table class="table table-success">
 
-            <td>
-                <a class="btn btn-success" asp-action="accept" asp-controller="event" asp-route-id="@com.IdCom"><i class="fas fa-check-circle"></i></a>
-                <a type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
-            </td>
-        </tr>
-        }
+        <thead>
+            <tr>
+                <th scope="col">ID COMPETITION</th>
+                <th scope="col">ID SCHOOL</th>
+                <th scope="col">NAME COMPETITONS</th>
+                <th scope="col">DESCRIPTION</th>
+                <th scope="col">IMAGE</th>
+                <th scope="col">DATE STARTING</th>
+                <th scope="col">DATE ENDING</th>
+                <th scope="col">STATUS</th>
+                <th scope="col">ACTION</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>@com.IdCom</td>
+                <td>@com.IdAcc</td>
+                <td>@com.NameCom</td>
+                <td>@com.Desc</td>
+                <td><img src="~/User/images/@com.ImgOfCom" width="100" alt="Alternate Text" /></td>
+                <td>@com.DateStart</td>
+                <td>@com.DateEnd</td>
+                @if (@com.Stat == false)
+                {
+                    <td>EVENT AWAITING APPROVAL</td>
+                }
+
+                <td>
+                    <a class="btn btn-success" asp-action="accept" asp-controller="event" asp-route-id="@com.IdCom"><i class="fas fa-check-circle"></i></a>
+                    <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                        <span class="d-flex align-items-center">
+                            <i class="bi-chat-text-fill me-2"></i>
+                            <span class="small">Send Feedback</span>
+                        </span>
+                    </button>
+                </td>
+            </tr>
+
         </tbody>
-    
-</table>
+
+    </table>
+
+
+
+    <!-- Feedback Modal-->
+    <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary-to-secondary p-4">
+
+                    <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">Send feedback</h5>
+
+
+                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body border-0 p-4">
+
+                    <form asp-controller="event" asp-action="delete" asp-route-id="@com.IdCom" id="contactForm" data-sb-form-api-token="API_TOKEN" method="post">
+
+                        <div class="form-floating mb-3">
+                            <textarea name="desc" class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem"></textarea>
+                            <label for="message">Description</label>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">Desc  is required.</div>
+                        </div>
+                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                        <!-- Submit Button-->
+                        <div class="d-grid"> <input type="submit" value="Submit" /></div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+}
+
+
+
+
+
 

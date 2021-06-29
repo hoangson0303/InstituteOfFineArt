@@ -5,15 +5,12 @@
 }
 
 <main>
-    ? slider Area Start
     <div class="slider-area slider-area2 slider-height2 position-relative" data-background="~/User/assets/img/hero/hero2.png">
         <div class="slider-active">
-            Single Slider
             <div class="single-slider">
                 <div class="slider-cap-wrapper">
                     <div class="hero-caption">
                         <h1 data-animation="fadeInLeft" data-delay=".4s">Contact</h1>
-                        breadcrumb Start
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -21,7 +18,6 @@
                             </ol>
                         </nav>
                     </div>
-                    breadcrumb End
                     <div class="hero-img">
                         <img src="~/User/assets/img/hero/h1_hero2.png" alt="" data-animation="fadeInRight" data-transition-duration="5s">
                     </div>
@@ -30,8 +26,6 @@
         </div>
 
     </div>
-    slider Area End
-    ?  Contact Area start
     <section class="contact-section">
         <div class="container">
             <div class="d-none d-sm-block mb-5 pb-4">
@@ -61,14 +55,21 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input asp-for="Mail" class="form-control valid" name="REmail" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email To .......">
+                                        <input asp-for="Mail" class="form-control valid" name="REmail" id="mail" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email To .......">
                                     </div>
-                            </div>  
                                 </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="password" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your email password '" placeholder="Enter Your Email Password ....">
+                                    </div>
+                                </div>
+                            </div>
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input class="form-control valid" name="Pass" id="name" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter Your Email Password ....">
+                                            <input asp-for="Fullname" class="form-control valid" name="fullname" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name ....">
                                         </div>
                                     </div>
                                 </div>
@@ -76,12 +77,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             @*<textarea asp-for="Mess" class="form-control w-100" name="Body" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>*@
-                                            <textarea  asp-for="Mess"  rows="5" name="Body" class="form-control form-control-line" placeholder=" Enter Message"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <input asp-for="Fullname" class="form-control valid" name="Fullname" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                                            <textarea asp-for="Mess" id="mess" rows="5" name="Body" class="form-control form-control-line" placeholder=" Enter Message"></textarea>
                                         </div>
                                     </div>
                                     @*<div class="col-sm-6">
@@ -90,11 +86,7 @@
                     </div>
                 </div>*@
 
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <input class="form-control" name="Sub" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
-                                        </div>
-                                    </div>
+
 
                                 </div>
                                 <div class="form-group mt-3">
@@ -105,21 +97,21 @@
                     </div>
                     <div class="col-lg-3 offset-lg-1">
                         <div class="media contact-info">
-                            <span class="contact-info__icon"><i class="ti-home"></i></span>
+                            <span class="contact-info__icon"><i class="fas fa-home"></i></span>
                             <div class="media-body">
                                 <h3>Buttonwood, California.</h3>
                                 <p>Rosemead, CA 91770</p>
                             </div>
                         </div>
                         <div class="media contact-info">
-                            <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                            <span class="contact-info__icon"><i class="fas fa-tablet"></i></span>
                             <div class="media-body">
                                 <h3>+1 253 565 2365</h3>
                                 <p>Mon to Fri 9am to 6pm</p>
                             </div>
                         </div>
                         <div class="media contact-info">
-                            <span class="contact-info__icon"><i class="ti-email"></i></span>
+                            <span class="contact-info__icon"><i class="fas fa-address-book"></i></span>
                             <div class="media-body">
                                 <h3>support@colorlib.com</h3>
                                 <p>Send us your query anytime!</p>
@@ -130,6 +122,5 @@
             </div>
         </div>
     </section>
-    Contact Area End
 </main>
 
