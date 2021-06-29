@@ -10,8 +10,11 @@
 
 
 <div class="container emp-profile">
+    <div>
+        <a class="card-title" asp-controller="profile" asp-action="index" >Back</a>
+    </div>
     <form>
-    
+
         <h4 class="card-title">
             Institute of Fine Arts
 
@@ -19,64 +22,65 @@
 
 
 
-            <div class="tab-content profile-tab" id="myTabContent">
-                <table class="table">
-                    <thead>
+        <div class="tab-content profile-tab" id="myTabContent">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name Id</th>
+                        <th>Name School</th>
+                        <th>Full Name</th>
+                        <th>Content</th>
+                        <th>Describe</th>
+                        <th>Contest Photo</th>
+                        <th>Price</th>
+                        <th>Stat</th>
+                        <th></th>
+                        <th></th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                @foreach (var tes in ViewBag.test)
+                {
+                    <tbody>
                         <tr>
-                            <th>Name Id</th>
-                            <th>Name School</th>
-                            <th>Full Name</th>
-                            <th>Content</th>
-                            <th>Describe</th>
-                            <th>Contest Photo</th>
-                            <th>Price</th>
-                            <th>Stat</th>
-                            <th></th>
-                            <th></th>
-                            <th>School</th>
+                            <td>@tes.IdTest</td>
+                            <td>@tes.IdAcc</td>
+                            <td>@tes.NameTest</td>
+                            <td>@tes.Content</td>
+                            <td>@tes.Desc</td>
+                            <td> <img src="~/User/images/@tes.ImgOfTest" width="100" alt="Alternate Text" /></td>
+                            <td>@tes.Price</td>
+                            <td>@tes.Stat</td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                @if (tes.Stat != true)
+                                {
+                                    <p>Waiting for the school to approve the test !</p>
+                                }
+                                else
+                                {
+                                    <p>School has approved your post ! </p>
+                                }
+                            </td>
                         </tr>
-                    </thead>
-                    @foreach (var tes in ViewBag.test)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>@tes.IdTest</td>
-                                <td>>@tes.IdAcc</td>
-                                <td>@tes.NameTest</td>
-                                <td>@tes.Content</td>
-                                <td>@tes.Desc</td>
-                                <td> <img src="~/User/images/@tes.ImgOfTest" width="100" alt="Alternate Text" /></td>
-                                <td>@tes.Price</td>
-                                <td>@tes.Stat</td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    @if (tes.Stat != true)
-                                    {
-                                        <p>Waiting for the school to approve the test !</p>
-                                    }
-                                    else
-                                    {
-                                        <p>School has approved your post ! </p>
-                                    }
-                                </td>
-                            </tr>
 
 
-                        </tbody>
+                    </tbody>
 
-                    }
-                </table>
+                }
+            </table>
 
 
 
-</div>
-           
-        
+        </div>
 
-                @*</div>*@
 
-</form>
+
+        @*</div>*@
+
+    </form>
+
 </div>
 
 

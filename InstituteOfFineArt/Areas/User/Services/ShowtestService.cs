@@ -9,5 +9,6 @@ namespace InstituteOfFineArt.Areas.User.Services
     public interface ShowtestService
     {
         List<Test> FindAll();
+        public List<Account> FindUserById(string idAcc);
     }
 }

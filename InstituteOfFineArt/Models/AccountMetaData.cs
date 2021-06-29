@@ -9,41 +9,41 @@ namespace InstituteOfFineArt.Models
 {
     public class AccountMetaData
     {
-        [MinLength(3)]
-        [MaxLength(10)]
-        [Required]
-        public string Username { get; set; }
-        [Required]
-        [MinLength(3)]
-        [MaxLength(10)]
-        public string Pass { get; set; }
+        //[MinLength(3)]
+        //[MaxLength(10)]
+        //[Required]
+        //public string Username { get; set; }
+        //[Required]
+        //[MinLength(3)]
+        //[MaxLength(10)]
+        //public string Pass { get; set; }
 
         [Required]
         [MinLength(3)]
         [MaxLength(10)]
 
         public string Fullname { get; set; }
-        //[Required]
-        //[EmailAddress] // phải có  .......@.........
-        //public string Email { get; set; }
+        [Required]
+        [EmailAddress] // phải có  .......@.........
+        public string Email { get; set; }
 
-        //[Required]
-        //[MinLength(8)]
-        //[MaxLength(10)]
+        [Required]
+        [MinLength(8)]
+        [MaxLength(10)]
 
-        //public string PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
-        //[Required]
-        //[MinLength(3)]
-        //[MaxLength(10)]
+        [Required]
+        [MinLength(3)]
+        [MaxLength(10)]
 
-        //public string Addr { get; set; }
+        public string Addr { get; set; }
 
-        //[Required(ErrorMessage = "Date Required")]
-        //[DataType(DataType.Date, ErrorMessage = "Invalid Date Format")]
-        //[Display(Name = "Dob Date")]
-        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        //public DateTime Dob { get; set; }
+        [Required(ErrorMessage = "Date Required")]
+        [DataType(DataType.Date, ErrorMessage = "Invalid Date Format")]
+        [Display(Name = "Dob Date")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime Dob { get; set; }
     }
     [ModelMetadataType(typeof(AccountMetaData))]
     public partial class Account

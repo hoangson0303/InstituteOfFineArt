@@ -19,5 +19,9 @@ namespace InstituteOfFineArt.Areas.User.Services
         {
             return db.Tests.ToList();
         }
+        public List<Account> FindUserById(string idAcc)
+        {
+            return db.Accounts.Where(x => x.IdAcc == idAcc).ToList();
+        }
     }
 }

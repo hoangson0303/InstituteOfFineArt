@@ -46,8 +46,9 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         [Route("update/{id}")]
         public IActionResult Update(Account account, IFormFile file)
         {
-
-            var currentAccount = profileSchoolService.FindById(account.IdAcc);
+            if (ModelState.IsValid)
+            {
+                var currentAccount = profileSchoolService.FindById(account.IdAcc);
             if (file != null)
             {
                 string fileName = Guid.NewGuid().ToString();
@@ -75,6 +76,9 @@ namespace InstituteOfFineArt.Areas.User.Controllers
             currentAccount.IdRole = "stu";
             profileSchoolService.Update(currentAccount);
             return RedirectToAction("index");
+
+            }
+            return RedirectToAction("update");
         }
     }
 }

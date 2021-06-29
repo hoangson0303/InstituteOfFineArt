@@ -1,5 +1,6 @@
 ﻿using InstituteOfFineArt.Areas.User.Services;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,8 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         public IActionResult Index()
         {
             string cookieIdacc = Request.Cookies["Idacc"];
-            
+            ViewBag.username = HttpContext.Session.GetString("username");
+            ViewBag.infouser = showtestService.FindUserById(cookieIdacc);
             ViewBag.test = showtestService.FindAll();
             return View();
         }

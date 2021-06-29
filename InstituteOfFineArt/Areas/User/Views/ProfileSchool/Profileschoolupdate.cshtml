@@ -16,16 +16,35 @@
         </div>
         <div class="py-2">
             <div class="row py-2">
-                <div class="col-md-6"> <label for="firstname">Fullname</label> <input type="text" class="bg-light form-control" asp-for="Fullname" placeholder="Your Name"> </div>
+                <div class="col-md-6">
+                    <label for="firstname">Fullname</label> <input type="text" class="bg-light form-control" asp-for="Fullname" placeholder="Your Name">
 
-                <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname">Date Of Birth</label> <input asp-for="Dob" type="datetime" class="bg-light form-control"> </div>
+                </div>
+                <span asp-validation-for="Fullname"></span>
+                <div class="col-md-6 pt-md-0 pt-3">
+                    <label for="lastname">Date Of Birth</label> <input asp-for="Dob" type="datetime" class="bg-light form-control">
+
+                </div>
+                <span asp-validation-for="Dob"></span>
             </div>
             <div class="row py-2">
-                <div class="col-md-6"> <label for="email">Email Address</label> <input type="text" class="bg-light form-control" asp-for="Email" placeholder="@*steve_@email.com*@"> </div>
-                <div class="col-md-6 pt-md-0 pt-3"> <label for="phone">Phone Number</label> <input type="tel" class="bg-light form-control" asp-for="PhoneNumber" placeholder="+1 213-548-6015"> </div>
+                <div class="col-md-6">
+                    <label for="email">Email Address</label> <input type="text" class="bg-light form-control" asp-for="Email" placeholder="@*steve_@email.com*@">
+
+                </div>
+                <span asp-validation-for="Email"></span>
+                <div class="col-md-6 pt-md-0 pt-3">
+                    <label for="phone">Phone Number</label> <input type="tel" class="bg-light form-control" asp-for="PhoneNumber" placeholder="+1 213-548-6015">
+
+                </div>
+                <span asp-validation-for="PhoneNumber"></span>
             </div>
             <div class="row py-2">
-                <div class="col-md-6 pt-md-0 pt-3"> <label for="phone">Address</label> <input type="text" class="bg-light form-control" asp-for="Addr"> </div>
+                <div class="col-md-6 pt-md-0 pt-3">
+                    <label for="phone">Address</label> <input type="text" class="bg-light form-control" asp-for="Addr">
+
+                </div>
+                <span asp-validation-for="Addr"></span>
             </div>
             <input type="hidden" asp-for="IdAcc" />
             <div class="py-3 pb-4 border-bottom"> <input type="submit" value="Save Changes" class="btn btn-primary mr-3"> <button class="btn border button">Cancel</button> </div>
