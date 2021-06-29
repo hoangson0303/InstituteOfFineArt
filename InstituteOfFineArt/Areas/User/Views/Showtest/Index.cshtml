@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<div class="container emp-profile">
+    <form>
+    
+        <h4 class="card-title">
+            Institute of Fine Arts
+
+        </h4>
+
+
+
+            <div class="tab-content profile-tab" id="myTabContent">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name Id</th>
+                            <th>Name School</th>
+                            <th>Full Name</th>
+                            <th>Content</th>
+                            <th>Describe</th>
+                            <th>Contest Photo</th>
+                            <th>Price</th>
+                            <th>Stat</th>
+                            <th></th>
+                            <th></th>
+                            <th>School</th>
+                        </tr>
+                    </thead>
+                    @foreach (var tes in ViewBag.test)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>@tes.IdTest</td>
+                                <td>>@tes.IdAcc</td>
+                                <td>@tes.NameTest</td>
+                                <td>@tes.Content</td>
+                                <td>@tes.Desc</td>
+                                <td> <img src="~/User/images/@tes.ImgOfTest" width="100" alt="Alternate Text" /></td>
+                                <td>@tes.Price</td>
+                                <td>@tes.Stat</td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    @if (tes.Stat != true)
+                                    {
+                                        <p>Waiting for the school to approve the test !</p>
+                                    }
+                                    else
+                                    {
+                                        <p>School has approved your post ! </p>
+                                    }
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+
+                    }
+                </table>
+
+
+
+</div>
+           
+        
+
+                @*</div>*@
+
+</form>
+</div>
+
+

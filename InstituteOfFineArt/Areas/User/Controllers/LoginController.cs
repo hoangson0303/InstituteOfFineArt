@@ -19,7 +19,7 @@ namespace InstituteOfFineArt.Controllers
 {
     [Area("user")]
     [Route("login")]
-    [Route("user/login")]
+  // [Route("user/login")]
     public class LoginController : Controller
     {
         private LoginService loginService;
@@ -35,21 +35,22 @@ namespace InstituteOfFineArt.Controllers
 
         [HttpGet]
         [Route("login")]
+        [Route("")]
         public IActionResult Login()
         {
-            return View();
+            return View("login");
         }
         [HttpPost]
         [Route("login")]
+       
         public IActionResult Login(SigninViewModels signin , string username , string password)
         {
             if (loginService.Login(username, password) == null)
             {
 
-                return View("Login");
+                return View("login");
             }
-            else
-            {
+          
                 bool isUserValid = false;
                 bool isUserRoleValid = false;
 
@@ -64,8 +65,6 @@ namespace InstituteOfFineArt.Controllers
                 {
                     isUserValid = true;
                     isUserRoleValid = true;
-
-
                 }
                 if (ModelState.IsValid && isUserValid && isUserRoleValid)
                 {
@@ -122,8 +121,8 @@ namespace InstituteOfFineArt.Controllers
                     return View("Login");
                 }
 
-                //return View("Login");
-            }
+               
+            
            
         }
 

@@ -52,9 +52,15 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         [HttpPost]
         public IActionResult CreateAdd(Competition competition, IFormFile file)
         {
-
+         
             if (ModelState.IsValid)
             {
+
+                if (competition.DateStart >= competition.DateEnd)
+                {
+                    return RedirectToAction("createadd");
+                }
+
                 string cookieIdacc = Request.Cookies["Idacc"];
                 ViewBag.acc = createService.FindUserById(cookieIdacc);
 
@@ -82,6 +88,7 @@ namespace InstituteOfFineArt.Areas.User.Controllers
                 {
                     competition.ImgOfCom = "aaa.png";
                 }
+
                 competition.Stat = false;
                 competition.IdAcc = cookieIdacc;
                 //var account = new Account();
@@ -151,6 +158,10 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (competition.DateStart >= competition.DateEnd)
+                {
+                    return RedirectToAction("update");
+                }
                 var compi = createService.FindCom(competition.IdCom);
            
             if (file != null)

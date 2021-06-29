@@ -53,7 +53,7 @@
                     <div class="profile-work">
                         <p>SETTINGS</p>
                         <a asp-controller="changepass" asp-action="index">Change Password</a><br />
-                        <a href="">Bootsnipp Profile</a><br />
+                        <a asp-controller="showtest" asp-action="index">Test</a><br />
                         <a href="">Bootply Profile</a>
                         <p>SKILLS</p>
                         <a href="">Web Designer</a><br />
@@ -146,7 +146,7 @@
                         {
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Id_test</label>
+                                    <label>Name Id</label>
                                 </div>
                                 <div class="col-md-6">
                                     <p>@tes.IdTest</p>
@@ -154,7 +154,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Id_acc</label>
+                                    <label>Name School</label>
                                 </div>
                                 <div class="col-md-6">
                                     <p>@tes.IdAcc</p>
@@ -162,7 +162,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Name_Test</label>
+                                    <label>Full Name</label>
                                 </div>
                                 <div class="col-md-6">
                                     <p>@tes.NameTest</p>
@@ -170,7 +170,9 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Content</label>
+                                    <label>
+                                        Content
+                                    </label>
                                 </div>
                                 <div class="col-md-6">
                                     <p>@tes.Content</p>
@@ -178,7 +180,9 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Desc</label>
+                                    <label>
+                                        Describe
+                                    </label>
                                 </div>
                                 <div class="col-md-6">
                                     <p>@tes.Desc</p>
@@ -186,7 +190,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Image_of_test</label>
+                                    <label>Contest Photo</label>
                                 </div>
                                 <div class="col-md-6">
                                     <img src="~/User/images/@tes.ImgOfTest" width="150" alt="Alternate Text" />
@@ -210,13 +214,13 @@
                                         <p>@tes.Stat</p>
 
 
-                                        <p>Waiting for school approval !</p>
+                                        <p>Waiting for the school to approve the test !</p>
 
                                     }
                                     else
                                     {
                                         <p>@tes.Stat</p>
-                                        <p>Has been approved by the school ! </p>
+                                        <p>School has approved your post ! </p>
                                     }
 
 
