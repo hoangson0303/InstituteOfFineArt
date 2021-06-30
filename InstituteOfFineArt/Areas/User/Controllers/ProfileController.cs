@@ -75,7 +75,6 @@ namespace InstituteOfFineArt.Controllers
             currentAccount.Addr = account.Addr;
             currentAccount.Dateupdated = DateTime.Now;
             currentAccount.Stat = true;
-            currentAccount.IdRole = "stu";
             ProfileService.Update(currentAccount);
             return RedirectToAction("index");
             }

@@ -1,0 +1,60 @@
+﻿@model InstituteOfFineArt.Models.Test
+@{
+    ViewData["Title"] = "Accept";
+    Layout = "~/Views/Shared/_LayoutSchoolCreate.cshtml";
+}
+
+<h1>Accept</h1>
+<form class="col-md-6 float-right" asp-controller="submission" asp-action="accept" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Id Test</label>
+        <input type="text" class="form-control" asp-for="IdTest" />
+    </div>
+
+    <div class="form-group">
+        <label>Id Competition</label>
+        <input type="text" class="form-control" asp-for="IdCom" />
+    </div>
+    <div class="form-group">
+        <label>Id Account</label>
+        <input type="text" class="form-control" asp-for="IdAcc" />
+    </div>
+    <div class="form-group">
+        <label>Name Test</label>
+        <input type="text" class="form-control" asp-for="NameTest" />
+    </div>
+    <div class="form-group">
+        <label>Content</label>
+        <input type="text" class="form-control" asp-for="Content" />
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input type="text" class="form-control" asp-for="Price" />
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <input type="text" class="form-control" asp-for="Desc" />
+    </div>
+
+    @*<div class="form-group">
+            <label>Image Of Competition</label>
+            <input type="text" class="form-control" asp-for="ImgOfCom" />
+        </div>*@
+
+    <div class="form-group">
+        <label>Date Created</label>
+        <input type="text" class="form-control" asp-for="Datecreated" />
+    </div>
+
+    <div class="form-group">
+        <label>Date Updated</label>
+        <input type="text" class="form-control" asp-for="Dateupdated" />
+    </div>
+
+
+
+    <input type="hidden" asp-for="IdTest" />
+    <input type="submit" value="ACCEPT" class="btn btn-danger" onclick="return confirm('Are you sure?')" />
+</form>
+
+

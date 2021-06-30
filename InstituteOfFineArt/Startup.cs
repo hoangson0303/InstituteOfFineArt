@@ -49,6 +49,7 @@ namespace InstituteOfFineArt
             services.AddScoped<ChangePassService, ChangePassServiceImpl>();
             services.AddScoped<ContactService, ContactServiceImpl>();
             services.AddScoped<ShowtestService, ShowtestServiceImpl>();
+            services.AddScoped<SubmissionService, SubmissionServiceImpl>();
 
             services.AddSession();
 

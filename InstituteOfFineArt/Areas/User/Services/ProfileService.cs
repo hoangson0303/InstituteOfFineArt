@@ -9,8 +9,8 @@ namespace InstituteOfFineArt.Areas.User.Services
     public interface ProfileService
     {
 
-
-         Account FindById(string idAcc);
+        string GetIdRoleByNameRol(string nameRole);
+        Account FindById(string idAcc);
         public List<Account> FindUserById(string idAcc);
 
         public List<Test> FindUserByIdtest(string idtest);

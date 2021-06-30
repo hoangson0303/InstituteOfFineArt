@@ -25,6 +25,7 @@ namespace InstituteOfFineArt.Models
         public DateTime? Datecreated { get; set; }
         public DateTime? Dateupdated { get; set; }
         public bool? Stat { get; set; }
+        public string IdCom { get; set; }
 
         public virtual Account IdAccNavigation { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }

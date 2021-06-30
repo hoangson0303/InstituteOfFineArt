@@ -135,7 +135,6 @@ namespace InstituteOfFineArt.Controllers
         {
             ViewBag.compititions = loginService.FindAll();
             string cookieIdacc = Request.Cookies["Idacc"];
-            Debug.WriteLine(cookieIdacc);
             if (cookieIdacc == null)
             {
                 ViewBag.loggedin = false;
@@ -171,8 +170,6 @@ namespace InstituteOfFineArt.Controllers
           
             ViewBag.compititions = loginService.FindAll();
             string cookieIdacc = Request.Cookies["Idacc"];
-
-            Debug.WriteLine(cookieIdacc);
             if (cookieIdacc == null)
             {
                 ViewBag.loggedin = false;
@@ -198,61 +195,7 @@ namespace InstituteOfFineArt.Controllers
         }
 
 
-        [Route("add")]
-        [HttpPost]
-        public IActionResult Add(Test tes, IFormFile file)
-        {
 
-            string cookieIdacc = Request.Cookies["Idacc"];
-            ViewBag.acc = loginService.FindUserById(cookieIdacc);
-
-            var numAlpha = new Regex("(?<Alpha>[a-zA-Z]*)(?<Numeric>[0-9]*)");
-            int num = 0;
-            if (loginService.GetNewestId(tes.NameTest) != null)
-            {
-                var match = numAlpha.Match(loginService.GetNewestId(tes.NameTest));
-                //var alpha = match.Groups["Alpha"].Value;
-                num = Int32.Parse(match.Groups["Numeric"].Value);
-
-            }
-            if (file != null)
-            {
-                string fileName = Guid.NewGuid().ToString();
-                var ext = file.ContentType.Split(new char[] { '/' })[1];
-                var path = Path.Combine(webHostEnvironment.WebRootPath, "user/images", fileName + "." + ext);
-                using (var fileStream = new FileStream(path, FileMode.Create))
-                {
-                    file.CopyTo(fileStream);
-                }
-                tes.ImgOfTest = fileName + "." + ext;
-
-            }
-            else
-            {
-                tes.ImgOfTest = "aaa.png";
-            }
-
-            tes.Datecreated = DateTime.Now;
-            tes.Stat = false;
-            tes.IdAcc = cookieIdacc;
-
-            if (loginService.CountIdById(tes.NameTest) != 0)
-            {
-                tes.IdTest = tes.NameTest + (num + 1);
-
-                loginService.Create(tes);
-            }
-            else
-            {
-                tes.IdTest = tes.NameTest + 1;
-
-                loginService.Create(tes);
-            }
-
-
-
-            return RedirectToAction("student");
-        }
 
     }
 }

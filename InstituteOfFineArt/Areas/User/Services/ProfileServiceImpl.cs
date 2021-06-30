@@ -37,5 +37,10 @@ namespace InstituteOfFineArt.Areas.User.Services
         {
             return db.Tests.Where(x => x.IdAcc == idtest).ToList();
         }
+
+        public string GetIdRoleByNameRol(string nameRole)
+        {
+            return db.Roles.Where(p => p.NameRole == nameRole).Select(x => x.IdRole).FirstOrDefault();
+        }
     }
 }

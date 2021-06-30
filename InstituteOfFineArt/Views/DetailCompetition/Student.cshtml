@@ -64,34 +64,49 @@
     </section>
     <!--Services Area End -->
     <!--! About Area Start 01 -->
-    @*@foreach (var compi in ViewBag.compititions)
+    @foreach (var compi in ViewBag.compititions)
     {
 <section class="about-area fix">
+    <!--Right Contents  -->
     <div>
         <img src="~/User/images/@compi.ImgOfCom" alt="Alternate Text" />
     </div>
+    <!-- left Contents -->
 
     <div class="about-details">
         <div class="right-caption">
+            <!-- Section Tittle -->
             <div class="section-tittle mb-50">
-                <h2>@compi.NameCom</h2>
+                <h2>@compi.NameCom@*<br>Philosophy*@</h2>
             </div>
             <div class="about-more">
                 <p>
                     @compi.Desc
                 </p>
+                @*<p class="pera-bottom">
+                        Interdum nulla, ut commodo diam libero vitae erat.
+                        Aenean faucibus nibh et justo cursus id rutrum lorem
+                        imperdiet. Nunc ut sem vitae risus tristique posuere.
+                    </p>*@
                 <div class="footer-tittles">
                     <p>Date Start @compi.DateStart</p> <br />
                     <p>Date End @compi.DateEnd</p>
+                    @*<h2>Capcilena Hanry</h2>*@
                 </div>
             </div>
         </div>
     </div>
+    @*<div class="col-xl-4 col-lg-4 col-md-6">
+        <a class="btn w-btn wantToWork-btn mr-20" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">
+            <h2>Test</h2>
+        </a>
+
+    </div>*@
 
 
 </section>
 
-    }*@
+    }
  
 
 
