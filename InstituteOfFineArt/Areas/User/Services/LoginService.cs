@@ -28,5 +28,10 @@ namespace InstituteOfFineArt.Areas.User.Services
         public List<Account> FindUserById(string idAcc);
         string GetNewestId(string keyword);
         int CountIdById(string id);
+
+
+        List<Test> FindAllTest();
+
+        List<Account> FindAllSchool();
     }
 }

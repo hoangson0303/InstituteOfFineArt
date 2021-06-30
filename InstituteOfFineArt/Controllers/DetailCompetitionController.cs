@@ -94,6 +94,9 @@ namespace InstituteOfFineArt.Controllers
         [Route("student")]
         public IActionResult Student()
         {
+            ViewBag.school = DetailComService.FindAllSchool();
+
+            ViewBag.test = DetailComService.FindAllTest();
             ViewBag.compititions = DetailComService.FindAll();
             string cookieIdacc = Request.Cookies["Idacc"];
             if (cookieIdacc == null)

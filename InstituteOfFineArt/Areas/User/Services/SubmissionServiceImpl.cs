@@ -16,7 +16,7 @@ namespace InstituteOfFineArt.Areas.User.Services
         }
         public List<Test> FindAll(string idCom)
         {
-            return db.Tests.Where(x => x.IdCom == idCom && x.Stat == false).ToList();
+            return db.Tests.Where(x => x.IdCom == idCom && x.Stat == false).ToList(); 
         }
 
         public List<Account> FindUserById(string idAcc)

@@ -19,5 +19,9 @@ namespace InstituteOfFineArt.Services
         string GetNewestId(string keyword);
         int CountIdById(string id);
         List<Competition> FindAll();
+
+        List<Test> FindAllTest();
+
+        List<Account> FindAllSchool();
     }
 }

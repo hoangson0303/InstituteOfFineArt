@@ -28,7 +28,10 @@ namespace InstituteOfFineArt.Controllers
         [Route("~/")]
         public IActionResult Index()
         {
+            ViewBag.school = indexService.FindAllSchool();
             ViewBag.compititions = indexService.FindAll();
+            ViewBag.test = indexService.FindAllTest();
+
             string cookieIdacc = Request.Cookies["Idacc"];
             Debug.WriteLine(cookieIdacc);
             if (cookieIdacc == null )

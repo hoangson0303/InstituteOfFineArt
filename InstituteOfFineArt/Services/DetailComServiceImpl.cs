@@ -65,5 +65,14 @@ namespace InstituteOfFineArt.Services
         {
             return db.Competitions.ToList();
         }
+        public List<Test> FindAllTest()
+        {
+            return db.Tests.ToList();
+        }
+
+        public List<Account> FindAllSchool()
+        {
+            return db.Accounts.Where(p => p.IdRole == "school1").ToList();
+        }
     }
 }

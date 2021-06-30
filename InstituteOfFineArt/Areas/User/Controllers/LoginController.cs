@@ -133,7 +133,9 @@ namespace InstituteOfFineArt.Controllers
         [Route("student")]
         public IActionResult Student()
         {
+            ViewBag.school = loginService.FindAllSchool();
             ViewBag.compititions = loginService.FindAll();
+            ViewBag.test = loginService.FindAllTest();
             string cookieIdacc = Request.Cookies["Idacc"];
             if (cookieIdacc == null)
             {
@@ -167,8 +169,10 @@ namespace InstituteOfFineArt.Controllers
         [Route("school")]
         public IActionResult School()
         {
-          
+
+            ViewBag.school = loginService.FindAllSchool();
             ViewBag.compititions = loginService.FindAll();
+            ViewBag.test = loginService.FindAllTest();
             string cookieIdacc = Request.Cookies["Idacc"];
             if (cookieIdacc == null)
             {

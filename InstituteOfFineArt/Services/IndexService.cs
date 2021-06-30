@@ -9,5 +9,9 @@ namespace InstituteOfFineArt.Services
     public interface IndexService
     {
         List<Competition> FindAll();
+
+        List<Test> FindAllTest();
+
+        List<Account> FindAllSchool();
     }
 }

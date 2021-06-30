@@ -81,5 +81,15 @@ namespace InstituteOfFineArt.Areas.User.Services
         {
             return db.Accounts.Where(p => p.IdAcc.Contains(id)).Count();
         }
+
+        public List<Test> FindAllTest()
+        {
+            return db.Tests.ToList();
+        }
+
+        public List<Account> FindAllSchool()
+        {
+            return db.Accounts.Where(p => p.IdRole == "school1").ToList();
+        }
     }
 }
