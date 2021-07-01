@@ -31,10 +31,11 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         public IActionResult Index()
         {
             string cookieIdacc = Request.Cookies["Idacc"];
-            string idaccTest = submissionService.GetIdAcc();
-            string idCom = submissionService.FindIdComByIdAcc(cookieIdacc);
-            ViewBag.fullname = submissionService.GetFullnameByIdAcc(idaccTest);
             ViewBag.acc = submissionService.FindUserById(cookieIdacc);
+            string idCom = submissionService.FindIdComByIdAcc(cookieIdacc);
+            string idaccTest = submissionService.GetIdAcc();
+            ViewBag.fullname = submissionService.GetFullnameByIdAcc(idaccTest);
+            
             ViewBag.test = submissionService.FindAll(idCom);
             return View();
         }

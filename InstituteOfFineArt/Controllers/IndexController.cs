@@ -33,28 +33,44 @@ namespace InstituteOfFineArt.Controllers
             ViewBag.test = indexService.FindAllTest();
 
             string cookieIdacc = Request.Cookies["Idacc"];
-            Debug.WriteLine(cookieIdacc);
-            if (cookieIdacc == null )
+            if(cookieIdacc != null)
             {
-                ViewBag.loggedin = false;
+                string idRole = indexService.FindIdRole(cookieIdacc).ToString();
+                string nameRole = indexService.FindNameRole(idRole).ToString();
+                if (nameRole == "admin")
+                {
 
+                    ViewBag.acc = indexService.FindUserById(cookieIdacc);
+                    return RedirectToAction("admin");
+                }
+                if (nameRole == "student")
+                {
+                    ViewBag.acc = indexService.FindUserById(cookieIdacc);
+                    return RedirectToAction("student");
+                }
+                if (nameRole == "school")
+                {
+                    ViewBag.acc = indexService.FindUserById(cookieIdacc);
+                    return RedirectToAction("school");
+                }
             }
-            if (HttpContext.User.IsInRole("admin"))
+            else
             {
-                ViewBag.role = "admin";
+                ViewBag.acc = indexService.FindUserById(cookieIdacc);
+                Debug.WriteLine(cookieIdacc);
+                if (cookieIdacc == null)
+                {
+                    ViewBag.loggedin = false;
+
+                }
             }
-            if (HttpContext.User.IsInRole("student"))
-            {
-                ViewBag.role = "student";
-            }
-            if (HttpContext.User.IsInRole("school"))
-            {
-                ViewBag.role = "school";
-            }
+            
+            
+            
             return View();
         }
 
-        [Route("logout")]
+        [Route("login")]
         public IActionResult Logout()
         {
             HttpContext.SignOutAsync(
@@ -65,8 +81,51 @@ namespace InstituteOfFineArt.Controllers
             cookieOptions.Expires = DateTime.Now.AddDays(-1);
             Response.Cookies.Append(key, value, cookieOptions);
 
-            return RedirectToAction("index");
+            return View("login");
 
+        }
+
+        [Route("student")]
+        public IActionResult Student()
+        {
+            ViewBag.school = indexService.FindAllSchool();
+            ViewBag.compititions = indexService.FindAll();
+            ViewBag.test = indexService.FindAllTest();
+            string cookieIdacc = Request.Cookies["Idacc"];
+            if (cookieIdacc == null)
+            {
+                ViewBag.loggedin = false;
+
+            }
+            ViewBag.acc = indexService.FindUserById(cookieIdacc);
+            return View("student");
+        }
+
+        [Route("admin")]
+        public IActionResult Admin()
+        {
+            string cookieIdacc = Request.Cookies["Idacc"];
+            ViewBag.acc = indexService.FindUserById(cookieIdacc);
+
+            return View("admin");
+        }
+
+        [Route("school")]
+        public IActionResult School()
+        {
+
+            ViewBag.school = indexService.FindAllSchool();
+            ViewBag.compititions = indexService.FindAll();
+            ViewBag.test = indexService.FindAllTest();
+            string cookieIdacc = Request.Cookies["Idacc"];
+            ViewBag.acc = indexService.FindUserById(cookieIdacc);
+            if (cookieIdacc == null)
+            {
+                ViewBag.loggedin = false;
+
+            }
+
+            return View("school");
         }
     }
 

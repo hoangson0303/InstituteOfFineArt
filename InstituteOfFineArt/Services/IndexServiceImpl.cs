@@ -27,5 +27,20 @@ namespace InstituteOfFineArt.Services
         {
             return db.Accounts.Where(p => p.IdRole == "school1").ToList();
         }
+        public List<Account> FindUserById(string idAcc)
+        {
+            return db.Accounts.Where(x => x.IdAcc == idAcc).ToList();
+        }
+
+        public string FindIdRole(string idAcc)
+        {
+            return db.UserRoles.Where(r => r.IdAcc == idAcc).Select(x => x.IdRole).FirstOrDefault();
+        }
+
+        public string FindNameRole(string idRole)
+        {
+            return db.Roles.Where(n => n.IdRole == idRole).Select(x => x.NameRole).FirstOrDefault();
+        }
+
     }
 }

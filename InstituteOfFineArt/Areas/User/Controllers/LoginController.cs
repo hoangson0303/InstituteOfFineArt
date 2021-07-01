@@ -137,31 +137,20 @@ namespace InstituteOfFineArt.Controllers
             ViewBag.compititions = loginService.FindAll();
             ViewBag.test = loginService.FindAllTest();
             string cookieIdacc = Request.Cookies["Idacc"];
+            ViewBag.acc = loginService.FindUserById(cookieIdacc);
             if (cookieIdacc == null)
             {
                 ViewBag.loggedin = false;
 
             }
-            if (HttpContext.User.IsInRole("admin"))
-            {
-                ViewBag.role = "admin";
-            }
-            if (HttpContext.User.IsInRole("student"))
-            {
-                ViewBag.role = "student";
-            }
-            if (HttpContext.User.IsInRole("school"))
-            {
-                ViewBag.role = "school";
-            }
-            ViewBag.username = HttpContext.Session.GetString("username"); 
             return View("student");
         }
 
         [Route("admin")]
         public IActionResult Admin()
         {
-            ViewBag.username = HttpContext.Session.GetString("username"); // lấy tên người đăng nhập 
+            string cookieIdacc = Request.Cookies["Idacc"];
+            ViewBag.acc = loginService.FindUserById(cookieIdacc);
 
             return View("admin");
         }
@@ -174,26 +163,12 @@ namespace InstituteOfFineArt.Controllers
             ViewBag.compititions = loginService.FindAll();
             ViewBag.test = loginService.FindAllTest();
             string cookieIdacc = Request.Cookies["Idacc"];
+            ViewBag.acc = loginService.FindUserById(cookieIdacc);
             if (cookieIdacc == null)
             {
                 ViewBag.loggedin = false;
 
             }
-            if (HttpContext.User.IsInRole("admin"))
-            {
-                ViewBag.role = "admin";
-            }
-            if (HttpContext.User.IsInRole("student"))
-            {
-                ViewBag.role = "student";
-          
-            }
-            if (HttpContext.User.IsInRole("school"))
-            {
-                ViewBag.role = "school";
-               
-            }
-            ViewBag.username = HttpContext.Session.GetString("username"); // lấy tên người đăng nhập 
            
             return View("school");
         }

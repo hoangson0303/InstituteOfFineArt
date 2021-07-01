@@ -12,9 +12,9 @@ namespace InstituteOfFineArt.Areas.User.Services
         public List<Account> FindUserById(string idAcc);
 
         string  GetIdAcc();
+        string GetFullnameByIdAcc(string idAcc);
 
         string FindIdComByIdAcc(string idAcc);
-        string GetFullnameByIdAcc(string idAcc);
 
         Test FindById(string idTest);
 

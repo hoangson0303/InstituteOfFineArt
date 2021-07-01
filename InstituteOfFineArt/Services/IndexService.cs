@@ -13,5 +13,10 @@ namespace InstituteOfFineArt.Services
         List<Test> FindAllTest();
 
         List<Account> FindAllSchool();
+        public List<Account> FindUserById(string idAcc);
+
+        string FindIdRole(string idAcc);
+
+        string FindNameRole(string idRole);
     }
 }
