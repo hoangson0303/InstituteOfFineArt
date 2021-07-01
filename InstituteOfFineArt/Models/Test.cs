@@ -17,6 +17,7 @@ namespace InstituteOfFineArt.Models
         public string IdTest { get; set; }
         public string IdAcc { get; set; }
         public string IdComment { get; set; }
+        public string IdCom { get; set; }
         public string Content { get; set; }
         public string ImgOfTest { get; set; }
         public string NameTest { get; set; }
@@ -25,7 +26,6 @@ namespace InstituteOfFineArt.Models
         public DateTime? Datecreated { get; set; }
         public DateTime? Dateupdated { get; set; }
         public bool? Stat { get; set; }
-        public string IdCom { get; set; }
 
         public virtual Account IdAccNavigation { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }

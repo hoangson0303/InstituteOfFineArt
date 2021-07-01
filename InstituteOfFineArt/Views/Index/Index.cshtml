@@ -50,45 +50,19 @@
                 {
                     @if (compi.Stat != false)
                     {
-                        <div class="">
-
-                            <!--Card Regular-->
-                            <div class="card card-cascade narrower">
-
-                                <!--Card image-->
-                                <div class="view view-cascade overlay">
-                                    <img src="~/User/images/@compi.ImgOfCom" class="card-img-top" alt="">
-                                    <a>
-                                        <div class="mask rgba-white-slight"></div>
-                                    </a>
-                                </div>
-                                <!--/.Card image-->
-                                <!--Card content-->
-                                <div class="card-body card-body-cascade text-center">
-                                    <!--Title-->
-                                    <h4 class="card-title"><strong>@compi.NameCom</strong></h4>
-                                    @if (@compi.Stat == true)
+                        <div class="single-services section-over1 text-center">
+                            <div class="services-img">
+                                <img src="~/User/images/@compi.ImgOfCom" width="350" height="350" alt="">
+                                <div class="services-caption">
+                                    <h3><a href="#">@compi.NameCom</a></h3>
+                                    <p>Date Start @compi.DateStart | Date End @compi.DateEnd</p>
+                                    @if (ViewBag.loggedin == null)
                                     {
-                                        <h5 style="color:aquamarine">Active</h5>
+                                        <a class="btn btn3" asp-controller="detailcompetition" asp-action="index" asp-route-id="@compi.IdCom">APPLY NOW</a>
                                     }
-
-                                    <p class="card-text">
-                                        Date Start @compi.DateStart | Date End @compi.DateEnd
-                                    </p>
-
-                                    <a class="btn btn3" asp-controller="detailcompetition" asp-action="index" asp-route-id="@compi.IdCom">APPLY NOW</a>
-
-
                                 </div>
-                                <!--/.Card content-->
-
                             </div>
-                            <!--/.Card Regular-->
-
                         </div>
-
-
-                        
                     }
                 }
 

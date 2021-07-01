@@ -121,7 +121,7 @@
             <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
                 <div class="col-12 col-lg-5">
                     <h2 class="display-4 lh-1 mb-4"> <strong style="color:orange">@com.NameCom</strong></h2>
-                       
+
                     <p class="lead fw-normal text-muted mb-5 mb-lg-0"><strong style="color:orange">"Date Starting </strong> : @com.DateStart | <strong style="color:orange">Date Ending </strong>: @com.DateEnd"</p>
                     <p class="lead fw-normal text-muted mb-5 mb-lg-0"><strong style="color:orange">Content</strong> : @com.Desc</p>
                 </div>
@@ -149,99 +149,154 @@
 <!-- App badge section-->
 @foreach (var com in ViewBag.com)
 {
-    <section class="bg-gradient-primary-to-secondary" id="download">
-        <div class="container px-5">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header bg-gradient-primary-to-secondary p-4">
+    @foreach (var tes in ViewBag.test)
+    {
+        @if (com.IdCom != tes.IdCom)
+        {
+            <section class="bg-gradient-primary-to-secondary" id="download">
+                <div class="container px-5">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header bg-gradient-primary-to-secondary p-4">
 
-                        <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">Submit Test</h5>
-                    </div>
-                    <div class="modal-body border-0 p-4">
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
+                                <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">Submit Test</h5>
+                            </div>
+                            <div class="modal-body border-0 p-4">
+                                <!-- * * * * * * * * * * * * * * *-->
+                                <!-- * * SB Forms Contact Form * *-->
+                                <!-- * * * * * * * * * * * * * * *-->
+                                <!-- This form is pre-integrated with SB Forms.-->
+                                <!-- To make this form functional, sign up at-->
+                                <!-- https://startbootstrap.com/solution/contact-forms-->
+                                <!-- to get an API token!-->
 
-                        <form method="post" id="contactForm" data-sb-form-api-token="API_TOKEN" asp-action="index" asp-controller="detailcompetition" asp-route-id="@com.IdCom" enctype="multipart/form-data">
-                            <!-- Name input-->
-                            <div class="form-floating mb-3">
-                                <input asp-for="NameTest" class="form-control" id="name" type="text" placeholder="Enter your name's test..." />
-                                <label for="name">Name's Test</label>
-                                @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
-                            </div>
-                            <!-- Price -->
-                            <div class="form-floating mb-3">
-                                <input asp-for="Price" class="form-control" type="text" placeholder="Price" />
-                                <label for="price">Price</label>
-                                @*<div class="invalid-feedback" data-sb-feedback="email:required">Price</div>*@
-                                @*<div class="invalid-feedback" data-sb-feedback="email:email">Price is not valid.</div>*@
-                            </div>
-                            <div class="form-floating mb-3">
-                                <textarea asp-for="Desc" class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem"></textarea>
-                                <label for="message">Desc</label>
-                                @*<div class="invalid-feedback" data-sb-feedback="message:required">Desc  is required.</div>*@
-                            </div>
-                            <div class="form-floating mb-3">
-                                <textarea asp-for="Content" class="form-control" id="message" type="text" placeholder="Content..." style="height: 10rem"></textarea>
-                                <label for="message">Content</label>
-                                @*<div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>*@
-                            </div>
+                                <form method="post" id="contactForm" data-sb-form-api-token="API_TOKEN" asp-action="index" asp-controller="detailcompetition" asp-route-id="@com.IdCom" enctype="multipart/form-data">
 
-                            <div class="form-floating mb-3">
-                                <div class="pl-sm-4 pl-2" id="img-section">
+                                    <!-- Name input-->
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="NameTest" class="form-control" id="name" type="text" placeholder="Enter your name's test..." />
 
-                                    <b>Image Of Test</b>
-                                    <p>Accepted file type .png. Less than 1MB</p> <input asp-for="ImgOfTest" type="file" name="file" value="Add" onchange="show(this)">
-                                                                                  <img id="user_img" src="" alt="Alternate Text" class="img" />
-
-                                </div>
-                            </div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            @*<div class="d-none" id="submitSuccessMessage">
-                                    <div class="text-center mb-3">
-                                        <div class="fw-bolder">Form submission successful!</div>
-                                        To activate this form, sign up at
-                                        <br />
-                                        <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                        <label for="name">Name's Test  </label>
+                                        @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
                                     </div>
-                                </div>*@
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            <!-- Submit Button-->
+                                    <!-- Price -->
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="Price" class="form-control" type="text" placeholder="Price" />
+                                        <label for="price">Price</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <textarea asp-for="Desc" class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem"></textarea>
+                                        <label for="message">Desc</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <textarea asp-for="Content" class="form-control" id="message" type="text" placeholder="Content..." style="height: 10rem"></textarea>
+                                        <label for="message">Content</label>
+                                    </div>
 
-                            <div class="d-grid"> <input type="submit" value="Submit" /></div>
+                                    <div class="form-floating mb-3">
+                                        <div class="pl-sm-4 pl-2" id="img-section">
+
+                                            <b>Image Of Test</b>
+                                            <p>Accepted file type .png. Less than 1MB</p> <input asp-for="ImgOfTest" type="file" name="file" value="Add" onchange="show(this)">
+                                            <img id="user_img" src="" alt="Alternate Text" class="img" />
+
+                                        </div>
+                                    </div>
+
+                                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                                    <!-- Submit Button-->
+
+                                    <div class="d-grid btn btn-success"> <input  class="btn btn-success" type="submit" value="Submit" /></div>
 
 
-                        </form>
+                                </form>
 
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-}
+            </section>
+        }
+        else
+        {
+            <section class="bg-gradient-primary-to-secondary" id="download">
+                <div class="container px-5">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header bg-gradient-primary-to-secondary p-4">
 
-<script type="text/javascript">
+                                <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">Submit Test</h5>
+                            </div>
+                            <div class="modal-body border-0 p-4">
+                                <!-- * * * * * * * * * * * * * * *-->
+                                <!-- * * SB Forms Contact Form * *-->
+                                <!-- * * * * * * * * * * * * * * *-->
+                                <!-- This form is pre-integrated with SB Forms.-->
+                                <!-- To make this form functional, sign up at-->
+                                <!-- https://startbootstrap.com/solution/contact-forms-->
+                                <!-- to get an API token!-->
 
-    function show(input) {
-        if (input.files && input.files[0]) {
-            var filerdr = new FileReader();
-            filerdr.onload = function (e) {
-                $('#user_img').attr('src', e.target.result);
-            }
-            filerdr.readAsDataURL(input.files[0]);
+                                <form id="contactForm" data-sb-form-api-token="API_TOKEN" enctype="multipart/form-data">
+
+                                    <!-- Name input-->
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="NameTest" class="form-control" value="@tes.NameTest" id="name" type="text" placeholder="Enter your name's test..." disabled="disabled" />
+
+                                        <label for="name">Name's Test  </label>
+                                        @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
+                                    </div>
+                                    <!-- Price -->
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="Price" class="form-control" value="@tes.Price" type="text" placeholder="Price" disabled="disabled" />
+                                        <label for="price">Price</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="Desc" class="form-control" value="@tes.Desc" id="message" type="text" placeholder="desc..." style="height: 10rem" disabled="disabled" />
+                                        <label for="message">Desc</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="Content" class="form-control" value="@tes.Content" id="message" type="text" placeholder="Content..." style="height: 10rem" disabled="disabled" />
+                                        <label for="message">Content</label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <div class="pl-sm-4 pl-2" id="img-section">
+
+                                            <b>Image Of Test</b>
+                                            <p>Accepted file type .png. Less than 1MB</p> @*<input asp-for="ImgOfTest" type="file" name="file" value="Add" onchange="show(this)">*@
+                                            <img id="user_img" src="~/User/images/@tes.ImgOfTest" width="300" alt="Alternate Text" class="img" disabled="disabled" />
+
+                                        </div>
+                                    </div>
+
+                                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                                    <!-- Submit Button-->
+
+                                    <div class="d-grid"><a class="btn btn-success" asp-action="edit" asp-controller="detailcompetition" asp-route-id="@tes.IdTest"><i class="fas fa-check-circle"></i>Edit</a></div>
+
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
         }
     }
-</script>
+
+    <script type="text/javascript">
+
+        function show(input) {
+            if (input.files && input.files[0]) {
+                var filerdr = new FileReader();
+                filerdr.onload = function (e) {
+                    $('#user_img').attr('src', e.target.result);
+                }
+                filerdr.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 
 

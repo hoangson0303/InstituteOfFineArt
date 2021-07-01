@@ -25,5 +25,13 @@ namespace InstituteOfFineArt.Services
         List<Account> FindAllSchool();
 
         void CreateTestCore(TestCore testCore);
+
+        public List<Test> FindTestById(string idTest);
+
+        //public Test FindTestById(string idacc);
+
+        Test Find(string id);
+
+        Test Update(Test test);
     }
 }

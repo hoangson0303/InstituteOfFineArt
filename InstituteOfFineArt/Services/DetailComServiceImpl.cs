@@ -80,5 +80,31 @@ namespace InstituteOfFineArt.Services
             db.TestCores.Add(testCore);
             db.SaveChanges();
         }
+
+        public List<Test> FindTestById(string idTest)
+        {
+            return db.Tests.Where(x => x.IdAcc == idTest).ToList();
+        }
+
+        //public Test FindTestById(string idacc)
+        //{
+        //    return db.Tests.Where(x => x.IdAcc == idacc).SingleOrDefault(x => x.Stat == true);
+        //}
+
+        public Account FindByIdAcc(string idAcc)
+        {
+            return db.Accounts.FirstOrDefault(x => x.IdAcc == idAcc);
+        }
+        public Test Find(string id)
+        {
+            return db.Tests.Find(id);
+        }
+
+        public Test Update(Test test)
+        {
+            db.Entry(test).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return test;
+        }
     }
 }

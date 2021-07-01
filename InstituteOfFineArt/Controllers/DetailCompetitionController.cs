@@ -29,9 +29,11 @@ namespace InstituteOfFineArt.Controllers
         public IActionResult Index(string idCom)
         {
 
+            string cookieIdacc = Request.Cookies["Idacc"];
             string idacc = DetailComService.GetIdAccByIdCom(idCom);
             ViewBag.account = DetailComService.FindAccById(idacc);
             ViewBag.com = DetailComService.FindComById(idCom);
+            ViewBag.test = DetailComService.FindTestById(cookieIdacc);
             return View();
         }
 
@@ -115,6 +117,45 @@ namespace InstituteOfFineArt.Controllers
 
             }
             return View("student");
+        }
+
+
+        [HttpGet]
+        [Route("edit/{idtest}")]
+        public IActionResult Edit(string id)
+        {
+            string cookieIdacc = Request.Cookies["Idacc"];
+            ViewBag.test = DetailComService.FindTestById(cookieIdacc);
+            return View("edit", DetailComService.Find(id));
+        }
+        [Route("edit/{idtest}")]
+        [HttpPost]
+        public IActionResult Edit(Test test, IFormFile file)
+        {
+
+            var currentTest = DetailComService.Find(test.IdTest);
+            if (file != null)
+            {
+                string fileName = Guid.NewGuid().ToString();
+                var ext = file.ContentType.Split(new char[] { '/' })[1];
+                var path = Path.Combine(webHostEnvironment.WebRootPath, "user/images", fileName + "." + ext);
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    file.CopyTo(fileStream);
+                }
+                currentTest.ImgOfTest = fileName + "." + ext;
+            }
+            else
+            {
+                test.ImgOfTest = "aaa.png";
+            }
+            currentTest.NameTest = test.NameTest;
+            currentTest.Desc = test.Desc;
+            currentTest.Content = test.Content;
+            currentTest.Price = test.Price;
+            DetailComService.Update(currentTest);
+
+            return RedirectToAction("student");
         }
     }
 }

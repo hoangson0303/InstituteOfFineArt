@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+    <div class="input-group">
+        <input type="text" class="form-control bg-white border-0 small" placeholder="Search for..."
+               aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="button">
+                <i class="fas fa-search fa-sm"></i>
+            </button>
+        </div>
+    </div>
+</form>
+<br />
+@foreach (var tes in ViewBag.test)
+{
+    <table class="table table-success">
+
+        <thead>
+            <tr>
+                <th scope="col">ID Test</th>
+                <th scope="col">ID Acc</th>
+                <th scope="col">ID Comment</th>
+                <th scope="col">ID Com</th>
+                <th scope="col">Name Test</th>
+                <th scope="col">Content</th>
+                <th scope="col">Desc</th>
+                <th scope="col">Image</th>
+                <th scope="col">Price</th>
+                <th scope="col">Datecreated</th>
+                <th scope="col">Dateupdated</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>@tes.IdTest</td>
+                <td>@tes.IdAcc</td>
+                <td>@tes.IdComment</td>
+                <td>@tes.IdCom</td>
+                <td>@tes.NameTest</td>
+                <td>@tes.Content</td>
+                <td>@tes.Desc</td>
+                <td><img src="~/User/images/@tes.ImgOfTest" width="100" alt="Alternate Text" /></td>
+                <td>@tes.Price</td>
+
+                <td>@tes.Datecreated</td>
+                <td>@tes.Dateupdated</td>
+
+
+                <td>
+                    @*<a class="btn btn-success" asp-action="accept" asp-controller="event" asp-route-id="@tes.IdTest"><i class="fas fa-check-circle"></i></a>*@
+                    <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                        <span class="d-flex align-items-center">
+                            <i class="bi-chat-text-fill me-2"></i>
+                            <span class="small">Send Feedback</span>
+                        </span>
+                    </button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <!-- Feedback Modal-->
+    <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary-to-secondary p-4">
+
+                    <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">Send feedback</h5>
+
+
+                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body border-0 p-4">
+
+                    <form asp-controller="contest" asp-action="update" asp-route-id="@tes.IdTest" id="contactForm" data-sb-form-api-token="API_TOKEN" method="post">
+
+                        <div class="form-floating mb-3">
+                            <textarea name="desc" class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem"></textarea>
+                            <label for="message">Description</label>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">Desc  is required.</div>
+                        </div>
+
+                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                        <!-- Submit Button-->
+                        <div class="d-grid"> <input type="submit" value="Submit" /></div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
