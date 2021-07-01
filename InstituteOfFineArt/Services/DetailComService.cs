@@ -23,5 +23,7 @@ namespace InstituteOfFineArt.Services
         List<Test> FindAllTest();
 
         List<Account> FindAllSchool();
+
+        void CreateTestCore(TestCore testCore);
     }
 }

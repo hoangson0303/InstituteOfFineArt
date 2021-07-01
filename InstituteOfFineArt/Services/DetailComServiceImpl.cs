@@ -74,5 +74,11 @@ namespace InstituteOfFineArt.Services
         {
             return db.Accounts.Where(p => p.IdRole == "school1").ToList();
         }
+
+        public void CreateTestCore(TestCore testCore)
+        {
+            db.TestCores.Add(testCore);
+            db.SaveChanges();
+        }
     }
 }

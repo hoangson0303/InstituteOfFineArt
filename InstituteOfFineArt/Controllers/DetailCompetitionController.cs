@@ -71,19 +71,26 @@ namespace InstituteOfFineArt.Controllers
             tes.Datecreated = DateTime.Now;
             tes.Stat = false;
             tes.IdAcc = cookieIdacc;
-            tes.IdTest = IdCom;
+            tes.IdCom = IdCom;
 
             if (DetailComService.CountIdById(tes.NameTest) != 0)
             {
                 tes.IdTest = tes.NameTest + (num + 1);
+                string idTest = DetailComService.Create(tes).IdTest;
 
-                DetailComService.Create(tes);
+                var testCore = new TestCore();
+                testCore.IdTest = idTest;
+                testCore.IdCom = IdCom;
+                DetailComService.CreateTestCore(testCore);
             }
             else
             {
                 tes.IdTest = tes.NameTest + 1;
-
-                DetailComService.Create(tes);
+                string idTest = DetailComService.Create(tes).IdTest;
+                var testCore = new TestCore();
+                testCore.IdTest = idTest;
+                testCore.IdCom = IdCom;
+                DetailComService.CreateTestCore(testCore);
             }
 
 
