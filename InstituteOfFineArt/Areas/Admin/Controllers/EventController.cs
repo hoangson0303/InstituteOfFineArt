@@ -95,7 +95,7 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
                     }
 
                     ApprovalService.Delete(idCom);
-                    return RedirectToAction("approval");
+                    return RedirectToAction("index");
                 }
             }
             catch (Exception)
@@ -106,5 +106,7 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
 
 
         }
+
+
     }
 }

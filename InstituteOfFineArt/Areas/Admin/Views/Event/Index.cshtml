@@ -49,8 +49,7 @@
             }
 
             <td>
-                <a class="btn btn-success" asp-action="accept" asp-controller="event" asp-route-id="@com.IdCom"><i class="fas fa-edit"></i></a>
-                <a type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                <a asp-controller="event" asp-action="delete" asp-route-id="@com.IdCom" type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
             </td>
         </tr>
         }

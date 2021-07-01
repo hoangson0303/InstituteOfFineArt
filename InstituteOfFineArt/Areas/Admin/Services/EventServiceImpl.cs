@@ -18,5 +18,17 @@ namespace InstituteOfFineArt.Areas.Admin.Services
         {
             return db.Competitions.Where(p => p.Stat == true && p.DateEnd >= DateTime.Now).ToList();
         }
+
+        public Competition Update(Competition competition)
+        {
+            db.Entry(competition).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return competition;
+        }
+
+        public Competition FindById(string idCom)
+        {
+            return db.Competitions.SingleOrDefault(p => p.IdCom == idCom);
+        }
     }
 }

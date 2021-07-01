@@ -33,7 +33,7 @@ namespace InstituteOfFineArt.Controllers
         public IActionResult Index(string idtest)
         {
             string cookieIdacc = Request.Cookies["Idacc"];
-
+            ViewBag.acc = ProfileService.FindUserById(cookieIdacc);
             ViewBag.username = HttpContext.Session.GetString("username");
             ViewBag.infouser = ProfileService.FindUserById(cookieIdacc);
             ViewBag.test = ProfileService.FindUserByIdtest(cookieIdacc);
@@ -52,6 +52,7 @@ namespace InstituteOfFineArt.Controllers
         [Route("update/{id}")]
         public IActionResult Update(Account account, IFormFile file)
         {
+            bool gender = Boolean.Parse(Request.Form["selectGender"]);
             if (ModelState.IsValid)
             {
                 var currentAccount = ProfileService.FindById(account.IdAcc);
@@ -70,7 +71,7 @@ namespace InstituteOfFineArt.Controllers
             currentAccount.Fullname = account.Fullname;
             currentAccount.Email = account.Email;
             currentAccount.Dob = account.Dob;
-            currentAccount.Gender = account.Gender;
+            currentAccount.Gender = gender;
             currentAccount.PhoneNumber = account.PhoneNumber;
             currentAccount.Addr = account.Addr;
             currentAccount.Dateupdated = DateTime.Now;

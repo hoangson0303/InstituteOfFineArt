@@ -28,6 +28,7 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         public IActionResult Index()
         {
             string cookieIdacc = Request.Cookies["Idacc"];
+            ViewBag.acc = showtestService.FindUserById(cookieIdacc);
             ViewBag.username = HttpContext.Session.GetString("username");
             ViewBag.infouser = showtestService.FindUserById(cookieIdacc);
             ViewBag.test = showtestService.FindAll();

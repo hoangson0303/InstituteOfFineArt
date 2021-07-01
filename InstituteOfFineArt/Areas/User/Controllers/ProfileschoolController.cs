@@ -68,7 +68,6 @@ namespace InstituteOfFineArt.Areas.User.Controllers
             currentAccount.Fullname = account.Fullname;
             currentAccount.Email = account.Email;
             currentAccount.Dob = account.Dob;
-            currentAccount.Gender = account.Gender;
             currentAccount.PhoneNumber = account.PhoneNumber;
             currentAccount.Addr = account.Addr;
             currentAccount.Dateupdated = DateTime.Now;

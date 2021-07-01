@@ -94,29 +94,17 @@ namespace InstituteOfFineArt.Controllers
         [Route("student")]
         public IActionResult Student()
         {
+            string cookieIdacc = Request.Cookies["Idacc"];
+            ViewBag.acc = DetailComService.FindUserById(cookieIdacc);
             ViewBag.school = DetailComService.FindAllSchool();
 
             ViewBag.test = DetailComService.FindAllTest();
             ViewBag.compititions = DetailComService.FindAll();
-            string cookieIdacc = Request.Cookies["Idacc"];
             if (cookieIdacc == null)
             {
                 ViewBag.loggedin = false;
 
             }
-            if (HttpContext.User.IsInRole("admin"))
-            {
-                ViewBag.role = "admin";
-            }
-            if (HttpContext.User.IsInRole("student"))
-            {
-                ViewBag.role = "student";
-            }
-            if (HttpContext.User.IsInRole("school"))
-            {
-                ViewBag.role = "school";
-            }
-            ViewBag.username = HttpContext.Session.GetString("username");
             return View("student");
         }
     }

@@ -16,7 +16,7 @@
     <form>
 
         <h4 class="card-title">
-            Institute of Fine Arts
+            Registered Contests
 
         </h4>
 
@@ -24,7 +24,7 @@
 
         <div class="tab-content profile-tab" id="myTabContent">
             <table class="table">
-                <thead>
+                <thead class="thead-dark">
                     <tr>
                         <th>Name Id</th>
                         <th>Name School</th>
@@ -34,8 +34,6 @@
                         <th>Contest Photo</th>
                         <th>Price</th>
                         <th>Stat</th>
-                        <th></th>
-                        <th></th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -50,19 +48,17 @@
                             <td>@tes.Desc</td>
                             <td> <img src="~/User/images/@tes.ImgOfTest" width="100" alt="Alternate Text" /></td>
                             <td>@tes.Price</td>
-                            <td>@tes.Stat</td>
-                            <td></td>
-                            <td></td>
                             <td>
                                 @if (tes.Stat != true)
                                 {
-                                    <p>Waiting for the school to approve the test !</p>
+                                    <h6 style="color:lightsalmon">Waiting for the school to approve the test !</h6>
                                 }
                                 else
                                 {
-                                    <p>School has approved your post ! </p>
+                                    <h6 style="color:cornflowerblue">School has approved your post ! </h6>
                                 }
                             </td>
+                            <td>Action</td>
                         </tr>
 
 
