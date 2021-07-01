@@ -81,6 +81,7 @@ namespace InstituteOfFineArt.Controllers
                 var testCore = new TestCore();
                 testCore.IdTest = idTest;
                 testCore.IdCom = IdCom;
+                testCore.GradingDate = DateTime.Now;
                 DetailComService.CreateTestCore(testCore);
             }
             else
@@ -90,6 +91,7 @@ namespace InstituteOfFineArt.Controllers
                 var testCore = new TestCore();
                 testCore.IdTest = idTest;
                 testCore.IdCom = IdCom;
+                testCore.GradingDate = DateTime.Now;
                 DetailComService.CreateTestCore(testCore);
             }
 

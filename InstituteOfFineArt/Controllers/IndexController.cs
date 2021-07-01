@@ -33,7 +33,7 @@ namespace InstituteOfFineArt.Controllers
             ViewBag.test = indexService.FindAllTest();
 
             string cookieIdacc = Request.Cookies["Idacc"];
-            if(cookieIdacc != null)
+            if (cookieIdacc != null)
             {
                 string idRole = indexService.FindIdRole(cookieIdacc).ToString();
                 string nameRole = indexService.FindNameRole(idRole).ToString();
@@ -64,9 +64,9 @@ namespace InstituteOfFineArt.Controllers
 
                 }
             }
-            
-            
-            
+
+
+
             return View();
         }
 

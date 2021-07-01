@@ -38,5 +38,35 @@ namespace InstituteOfFineArt.Areas.User.Services
             db.Tests.Remove(db.Tests.Find(idTest));
             db.SaveChanges();
         }
+
+        public TestCore FindById(string idTest)
+        {
+            return db.TestCores.FirstOrDefault(x => x.IdTest == idTest);
+        }
+
+        public TestCore Update(TestCore testCore)
+        {
+            db.Entry(testCore).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return testCore;
+        }
+        public Test FindTest(string id)
+        {
+            return db.Tests.Find(id);
+        }
+
+        public string GetIdTest(string idAcc)
+        {
+            return db.Tests.Where(x => x.IdAcc == idAcc).Select(x => x.IdTest).FirstOrDefault();
+        }
+
+        public string GetScoreByIdTest(string idTest)
+        {
+            return  db.TestCores.Where(x => x.IdTest == idTest).Select(p => p.Scores).FirstOrDefault().ToString();
+        }
+
+
+
+
     }
 }

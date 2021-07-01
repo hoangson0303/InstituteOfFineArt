@@ -44,6 +44,7 @@
                                         <tr>
                                             <th>#ID Test</th>
                                             <th>Fullname Student</th>
+                                            <th>Score</th>
                                             <th>#ID Comment</th>
                                             <th>Content</th>
                                             <th>Images</th>
@@ -62,6 +63,7 @@
                                             <tr>
                                                 <td>@test.IdTest</td>
                                                 <td>@ViewBag.fullname</td>
+                                                <td>@ViewBag.score</td>
                                                 <td>@test.IdComment</td>
                                                 <td>@test.Content</td>
                                                 <td><img src="~/User/images/@test.ImgOfTest" width="100" alt="Alternate Text" /></td>
@@ -79,7 +81,7 @@
                                                     <td> HAPPENING </td>
                                                 }
                                                 <td>
-                                                    <a class="btn-floating btn-so"><i class="fab fa-stack-overflow"></i></a>
+                                                    <a class="btn btn-warning" asp-controller="contestgoingon" asp-action="mark" asp-route-id="@test.IdTest">Mark</a>
                                                     <a class="btn btn-danger" asp-controller="contestgoingon" asp-action="delete" asp-route-id="@test.IdTest" onclick="return confirm('Are you sure?')">Delete</a>
 
                                                 </td>

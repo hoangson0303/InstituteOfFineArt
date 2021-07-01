@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -29,10 +30,16 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         [Route("")]
         public IActionResult Index()
         {
+            string cookieIdacc = Request.Cookies["Idacc"];
+            
+            
+            
             string idaccTest = contestGoingOnService.GetIdAcc();
+            string idTest = contestGoingOnService.GetIdTest(idaccTest);
+            ViewBag.score = contestGoingOnService.GetScoreByIdTest(idTest);
             ViewBag.fullname = contestGoingOnService.GetFullnameByIdAcc(idaccTest);
             ViewBag.testTrue = contestGoingOnService.FindAllTestTrue();
-            string cookieIdacc = Request.Cookies["Idacc"];
+
             ViewBag.acc = contestGoingOnService.FindUserById(cookieIdacc);
             return View();
         }
@@ -41,6 +48,35 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         public IActionResult Delete(string idTest)
         {
             contestGoingOnService.Delete(idTest);
+            return RedirectToAction("index");
+        }
+
+        [HttpGet]
+        [Route("mark/{idTest}")]
+        public IActionResult Mark(string idTest)
+        {
+            string cookieIdacc = Request.Cookies["Idacc"];
+            ViewBag.acc = contestGoingOnService.FindUserById(cookieIdacc);
+            return View("mark" , contestGoingOnService.FindTest(idTest));
+        }
+
+        [HttpPost]
+        [Route("mark/{idTest}")]
+        public IActionResult Mark(TestCore testCore, string descSchool)
+        {
+            int mark = Int32.Parse(Request.Form["selectMark"]);
+            if (ModelState.IsValid)
+            {
+                var currentTestCore = contestGoingOnService.FindById(testCore.IdTest);
+
+
+                currentTestCore.Scores = mark;
+                currentTestCore.Stat = true;
+                currentTestCore.Desc = descSchool;
+                currentTestCore.GradingDate = DateTime.Now;
+                contestGoingOnService.Update(currentTestCore);
+                return RedirectToAction("index");
+            }
             return RedirectToAction("index");
         }
     }

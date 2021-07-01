@@ -33,18 +33,18 @@ namespace InstituteOfFineArt.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=LAPTOP-P32OP18P;Database=InstituteOfFineArt;user id=sa;password=1234567");
+                optionsBuilder.UseSqlServer("Server=LAPTOP-J31QKVVN\\HOANGSON;Database=InstituteOfFineArt;user id=sa;password=1234567");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+            modelBuilder.HasAnnotation("Relational:Collation", "Vietnamese_CI_AS");
 
             modelBuilder.Entity<Account>(entity =>
             {
                 entity.HasKey(e => e.IdAcc)
-                    .HasName("PK__account__6BE8F064840E1D61");
+                    .HasName("PK__account__6BE8F064D99FDBBB");
 
                 entity.ToTable("account");
 
@@ -118,7 +118,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Bill>(entity =>
             {
                 entity.HasKey(e => e.IdOrder)
-                    .HasName("PK__bill__DD5B8F3F50DF33CF");
+                    .HasName("PK__bill__DD5B8F3F3394C526");
 
                 entity.ToTable("bill");
 
@@ -149,7 +149,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Comment>(entity =>
             {
                 entity.HasKey(e => e.IdComment)
-                    .HasName("PK__comment__7E14AC85B76E4EF8");
+                    .HasName("PK__comment__7E14AC85A5096F46");
 
                 entity.ToTable("comment");
 
@@ -192,7 +192,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Competition>(entity =>
             {
                 entity.HasKey(e => e.IdCom)
-                    .HasName("PK__competit__D6967171808D51BA");
+                    .HasName("PK__competit__D696717107AF8B03");
 
                 entity.ToTable("competitions");
 
@@ -239,7 +239,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Feedback>(entity =>
             {
                 entity.HasKey(e => e.IdFeedback)
-                    .HasName("PK__feedback__36BC8630D83ED762");
+                    .HasName("PK__feedback__36BC863012F8E978");
 
                 entity.ToTable("feedback");
 
@@ -288,7 +288,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<OrderDetail>(entity =>
             {
                 entity.HasKey(e => new { e.IdOrder, e.IdTest })
-                    .HasName("PK__orderDet__7136BDBBC9315D85");
+                    .HasName("PK__orderDet__7136BDBBA8C7F079");
 
                 entity.ToTable("orderDetail");
 
@@ -335,7 +335,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.HasKey(e => e.IdRole)
-                    .HasName("PK__roles__3D48441D42D14EE4");
+                    .HasName("PK__roles__3D48441DE33C3B23");
 
                 entity.ToTable("roles");
 
@@ -363,7 +363,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<Test>(entity =>
             {
                 entity.HasKey(e => e.IdTest)
-                    .HasName("PK__test__C6D3284BF788DCFA");
+                    .HasName("PK__test__C6D3284B05C48987");
 
                 entity.ToTable("test");
 
@@ -428,7 +428,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<TestCore>(entity =>
             {
                 entity.HasKey(e => new { e.IdTest, e.IdCom })
-                    .HasName("PK__test_cor__CBBA4F5C9D71043D");
+                    .HasName("PK__test_cor__CBBA4F5CEC2169E3");
 
                 entity.ToTable("test_core");
 
@@ -474,7 +474,7 @@ namespace InstituteOfFineArt.Models
             modelBuilder.Entity<UserRole>(entity =>
             {
                 entity.HasKey(e => new { e.IdRole, e.IdAcc })
-                    .HasName("PK__user_rol__6BF6CB1B005389B2");
+                    .HasName("PK__user_rol__6BF6CB1B5C60970A");
 
                 entity.ToTable("user_role");
 

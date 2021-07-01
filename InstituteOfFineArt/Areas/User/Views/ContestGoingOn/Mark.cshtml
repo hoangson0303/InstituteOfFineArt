@@ -1,0 +1,163 @@
+﻿@model InstituteOfFineArt.Models.Test
+
+@{
+    ViewData["Title"] = "Mark";
+    Layout = "~/Views/Shared/_LayoutSchoolCreate.cshtml";
+}
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="row page-titles">
+            <div class="col-md-5 col-8 align-self-center">
+                <h3 class="text-themecolor m-b-0 m-t-0">Mark</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Mark</li>
+                </ol>
+            </div>
+            <div class="col-md-7 col-4 align-self-center">
+                <a href="https://themewagon.com/themes/material-bootstrap-4-free-admin-template/" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down">Download Now</a>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <!-- Row -->
+        <div class="row">
+            <!-- Column -->
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-8 col-xlg-9 col-md-7">
+                <div class="card">
+                    <div class="card-block">
+                        <form method="post" class="form-horizontal form-material col-md-12 float-right" asp-action="mark" asp-controller="contestgoingon" enctype="multipart/form-data">
+
+
+
+                            <div class="form-group">
+                                <label class="col-md-12">NAME'S TEST</label>
+                                <div class="col-md-12 ">
+                                    <input type="text" asp-for="NameTest" placeholder="Name" class="form-control form-control-line" readonly>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-12">CONTENT</label>
+                                <div class="col-md-12">
+                                    <input type="datetime" asp-for="Content" placeholder="date_start" class="form-control form-control-line" readonly>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">PRICE</label>
+                                <div class="col-md-12">
+                                    <input type="datetime" asp-for="Price" placeholder="date end" class="form-control form-control-line" readonly>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label class="col-md-12">DESCRIPTION</label>
+                                <div class="col-md-12">
+                                    <textarea readonly rows="5" asp-for="Desc" class="form-control form-control-line"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">IMAGE'S TEST</label>
+                                <div class="col-md-12">
+                                    <input asp-for="ImgOfTest" type="file" name="file" value="Add" class="btn button border" onchange="show(this)" readonly>
+                                    <img id="user_img" src=" " alt="Alternate Text" class="img" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-12">SUBMISSION DATE</label>
+                                <div class="col-md-12">
+                                    <input type="datetime" asp-for="Datecreated" placeholder="date end" class="form-control form-control-line" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label class="col-md-12">DESCRIPTION'S SCHOOL</label>
+                                <div class="col-md-12">
+                                    <textarea rows="5" name="descSchool" class="form-control form-control-line"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <label class="col-md-12">Mark for contest</label>
+                                <select id="selectMark" name="selectMark" class="col-md-12">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+
+                           
+
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="submit" class="btn btn-success" value="COMFIRM" />
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+        </div>
+        <!-- Row -->
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer">
+        © 2021 Institute Of Fine Art
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+
+
+<script type="text/javascript">
+
+    function show(input) {
+        if (input.files && input.files[0]) {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                $('#user_img').attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+
