@@ -84,7 +84,7 @@ namespace InstituteOfFineArt.Areas.User.Services
 
         public List<Test> FindAllTest()
         {
-            return db.Tests.ToList();
+            return db.Tests.Where(p => p.Stat == true).ToList();
         }
 
         public List<Account> FindAllSchool()
