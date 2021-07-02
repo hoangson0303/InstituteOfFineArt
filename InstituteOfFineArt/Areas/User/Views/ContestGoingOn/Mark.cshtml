@@ -46,7 +46,7 @@
                             <div class="form-group">
                                 <label class="col-md-12">NAME'S TEST</label>
                                 <div class="col-md-12 ">
-                                    <input type="text" asp-for="NameTest" placeholder="Name" class="form-control form-control-line" readonly>
+                                    <input type="text" asp-for="NameTest" name="NameTest" pattern="[a-z]{5,10}" title="NameTest must be at least 5 letters" placeholder="NameTest" required class="form-control form-control-line" readonly>
                                 </div>
                             </div>
 
@@ -54,14 +54,14 @@
                             <div class="form-group">
                                 <label class="col-md-12">CONTENT</label>
                                 <div class="col-md-12">
-                                    <input type="datetime" asp-for="Content" placeholder="date_start" class="form-control form-control-line" readonly>
+                                    <input type="datetime" asp-for="Content" name="Content" pattern="[a-z]{5,10}" title="Content must be at least 5 letters" placeholder="Content" required class="form-control form-control-line" readonly>
 
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">PRICE</label>
                                 <div class="col-md-12">
-                                    <input type="datetime" asp-for="Price" placeholder="date end" class="form-control form-control-line" readonly>
+                                    <input type="datetime" asp-for="Price" name="Price" required placeholder="date end" class="form-control form-control-line" readonly>
                                 </div>
                             </div>
 
@@ -70,7 +70,7 @@
 
                                 <label class="col-md-12">DESCRIPTION</label>
                                 <div class="col-md-12">
-                                    <textarea readonly rows="5" asp-for="Desc" class="form-control form-control-line"></textarea>
+                                    <textarea readonly rows="5" asp-for="Desc"   required class="form-control form-control-line"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -84,7 +84,7 @@
                             <div class="form-group">
                                 <label class="col-md-12">SUBMISSION DATE</label>
                                 <div class="col-md-12">
-                                    <input type="datetime" asp-for="Datecreated" placeholder="date end" class="form-control form-control-line" readonly>
+                                    <input type="datetime" asp-for="Datecreated" placeholder="date end" class="form-control form-control-line" required readonly>
                                 </div>
                             </div>
 

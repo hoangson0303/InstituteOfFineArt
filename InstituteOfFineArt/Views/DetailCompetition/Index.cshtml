@@ -169,22 +169,22 @@
 
                             <!-- Name input-->
                             <div class="form-floating mb-3">
-                                <input asp-for="NameTest" class="form-control" id="name" type="text" placeholder="Enter your name's test..." />
+                                <input asp-for="NameTest" name="NameTest" pattern="[a-z]{5,10}" title="NameTest must be at least 5 letters"  required  class="form-control" id="name" type="text" placeholder="Enter your name's test..." />
 
                                 <label for="name">Name's Test  </label>
                                 @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
                             </div>
                             <!-- Price -->
                             <div class="form-floating mb-3">
-                                <input asp-for="Price" class="form-control" type="text" placeholder="Price" />
+                                <input asp-for="Price" class="form-control" type="text" placeholder="Price" required />
                                 <label for="price">Price</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea asp-for="Desc" class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem"></textarea>
+                                <textarea asp-for="Desc" name="Desc" pattern="[a-z]{5,10}" title="Desc must be at least 5 letters"  required  class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem"></textarea>
                                 <label for="message">Desc</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea asp-for="Content" class="form-control" id="message" type="text" placeholder="Content..." style="height: 10rem"></textarea>
+                                <textarea asp-for="Content" name="Content" pattern="[a-z]{5,10}" title="Content must be at least 5 letters"  required  class="form-control" id="message" type="text" placeholder="Content..." style="height: 10rem"></textarea>
                                 <label for="message">Content</label>
                             </div>
 
@@ -193,7 +193,7 @@
 
                                     <b>Image Of Test</b>
                                     <p>Accepted file type .png. Less than 1MB</p> <input asp-for="ImgOfTest" type="file" name="file" value="Add" onchange="show(this)">
-                                    <img id="user_img" src="" alt="Alternate Text" class="img" />
+                                    <img id="user_img" src="" alt="Alternate Text" class="img" required />
 
                                 </div>
                             </div>
@@ -236,22 +236,22 @@
 
                                     <!-- Name input-->
                                     <div class="form-floating mb-3">
-                                        <input asp-for="NameTest" class="form-control" value="@tes.NameTest" id="name" type="text" placeholder="Enter your name's test..." disabled="disabled" />
+                                        <input asp-for="NameTest" class="form-control" value="@tes.NameTest" id="name" type="text" placeholder="Enter your name's test..." readonly />
 
                                         <label for="name">Name's Test  </label>
                                         @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
                                     </div>
                                     <!-- Price -->
                                     <div class="form-floating mb-3">
-                                        <input asp-for="Price" class="form-control" value="@tes.Price" type="text" placeholder="Price" disabled="disabled" />
+                                        <input asp-for="Price" class="form-control"  value="@tes.Price" type="text" placeholder="Price" readonly />
                                         <label for="price">Price</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input asp-for="Desc" class="form-control" value="@tes.Desc" id="message" type="text" placeholder="desc..." style="height: 10rem" disabled="disabled" />
+                                        <input asp-for="Desc" class="form-control"  value="@tes.Desc" id="message" type="text" placeholder="desc..." style="height: 10rem" readonly />
                                         <label for="message">Desc</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input asp-for="Content" class="form-control" value="@tes.Content" id="message" type="text" placeholder="Content..." style="height: 10rem" disabled="disabled" />
+                                        <input asp-for="Content" class="form-control" value="@tes.Content" id="message" type="text" placeholder="Content..." style="height: 10rem" readonly />
                                         <label for="message">Content</label>
                                     </div>
 
@@ -260,7 +260,7 @@
 
                                             <b>Image Of Test</b>
                                             <p>Accepted file type .png. Less than 1MB</p> @*<input asp-for="ImgOfTest" type="file" name="file" value="Add" onchange="show(this)">*@
-                                            <img id="user_img" src="~/User/images/@tes.ImgOfTest" width="300" alt="Alternate Text" class="img" disabled="disabled" />
+                                            <img id="user_img" src="~/User/images/@tes.ImgOfTest" width="300" alt="Alternate Text" class="img" readonly />
 
                                         </div>
                                     </div>

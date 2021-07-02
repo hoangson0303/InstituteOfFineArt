@@ -53,8 +53,8 @@ namespace InstituteOfFineArt.Controllers
         public IActionResult Update(Account account, IFormFile file)
         {
             bool gender = Boolean.Parse(Request.Form["selectGender"]);
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 var currentAccount = ProfileService.FindById(account.IdAcc);
             if (file != null)
             {
@@ -78,8 +78,8 @@ namespace InstituteOfFineArt.Controllers
             currentAccount.Stat = true;
             ProfileService.Update(currentAccount);
             return RedirectToAction("index");
-            }
-            return RedirectToAction("update");
+            //}
+            //return RedirectToAction("update");
         }
     }
 }

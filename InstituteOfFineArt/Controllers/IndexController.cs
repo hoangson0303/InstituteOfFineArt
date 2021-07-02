@@ -42,38 +42,38 @@ namespace InstituteOfFineArt.Controllers
             ViewBag.compititions = indexService.FindAll();
             ViewBag.test = indexService.FindAllTest();
 
-            //string cookieIdacc = Request.Cookies["Idacc"];
-            //if (cookieIdacc != null)
-            //{
-            //    string idRole = indexService.FindIdRole(cookieIdacc).ToString();
-            //    string nameRole = indexService.FindNameRole(idRole).ToString();
-            //    if (nameRole == "admin")
-            //    {
+            string cookieIdacc = Request.Cookies["Idacc"];
+            if (cookieIdacc != null)
+            {
+                string idRole = indexService.FindIdRole(cookieIdacc).ToString();
+                string nameRole = indexService.FindNameRole(idRole).ToString();
+                if (nameRole == "admin")
+                {
 
-            //        ViewBag.acc = indexService.FindUserById(cookieIdacc);
-            //        return RedirectToAction("admin");
-            //    }
-            //    if (nameRole == "student")
-            //    {
-            //        ViewBag.acc = indexService.FindUserById(cookieIdacc);
-            //        return RedirectToAction("student");
-            //    }
-            //    if (nameRole == "school")
-            //    {
-            //        ViewBag.acc = indexService.FindUserById(cookieIdacc);
-            //        return RedirectToAction("school");
-            //    }
-            //}
-            //else
-            //{
-            //    ViewBag.acc = indexService.FindUserById(cookieIdacc);
-            //    Debug.WriteLine(cookieIdacc);
-            //    if (cookieIdacc == null)
-            //    {
-            //        ViewBag.loggedin = false;
+                    ViewBag.acc = indexService.FindUserById(cookieIdacc);
+                    return RedirectToAction("admin");
+                }
+                if (nameRole == "student")
+                {
+                    ViewBag.acc = indexService.FindUserById(cookieIdacc);
+                    return RedirectToAction("student");
+                }
+                if (nameRole == "school")
+                {
+                    ViewBag.acc = indexService.FindUserById(cookieIdacc);
+                    return RedirectToAction("school");
+                }
+            }
+            else
+            {
+                ViewBag.acc = indexService.FindUserById(cookieIdacc);
+                Debug.WriteLine(cookieIdacc);
+                if (cookieIdacc == null)
+                {
+                    ViewBag.loggedin = false;
 
-            //    }
-            //}
+                }
+            }
 
 
 

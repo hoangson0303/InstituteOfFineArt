@@ -53,8 +53,8 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         public IActionResult CreateAdd(Competition competition, IFormFile file)
         {
          
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
 
                 if (competition.DateStart >= competition.DateEnd)
                 {
@@ -126,8 +126,8 @@ namespace InstituteOfFineArt.Areas.User.Controllers
 
 
                 return RedirectToAction("table");
-            }
-            return RedirectToAction("createadd");
+            //}
+            //return RedirectToAction("createadd");
          
         }
 
@@ -156,8 +156,8 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         [Route("update/{id}")]
         public IActionResult Update(Competition competition, IFormFile file)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 if (competition.DateStart >= competition.DateEnd)
                 {
                     return RedirectToAction("update");
@@ -184,8 +184,8 @@ namespace InstituteOfFineArt.Areas.User.Controllers
             createService.Update(compi);
             return RedirectToAction("table");
             }
-            return RedirectToAction("update");
-        }
+        //    return RedirectToAction("update");
+        //}
 
         [Route("delete/{idCom}")]
         public IActionResult Delete(string idCom)

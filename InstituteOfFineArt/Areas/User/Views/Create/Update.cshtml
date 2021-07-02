@@ -16,21 +16,21 @@
         </div>
         <div class="py-2">
             <div class="row py-2">
-                <div class="col-md-6"> <label for="firstname">Name_Com</label> <input type="text" class="bg-light form-control" asp-for="NameCom" placeholder="Your Name"> </div>
-                <span asp-validation-for="NameCom"></span>
+                <div class="col-md-6"> <label for="firstname">Name_Com</label> <input type="text" class="bg-light form-control" asp-for="NameCom" name="NameCom" pattern="[a-z]{3,10}" title="NameCom must be at least 3 letters" required placeholder="Your Name"> </div>
+                @*<span asp-validation-for="NameCom"></span>*@
             </div>
             <div class="row py-2">
-                <div class="col-md-6"> <label for="firstname">Desc</label><textarea rows="5" asp-for="Desc" class="form-control form-control-line"></textarea> </div>
-                <span asp-validation-for="Desc"></span>
+                <div class="col-md-6"> <label for="firstname">Desc</label><textarea rows="5" asp-for="Desc" required class="form-control form-control-line"></textarea> </div>
+                @*<span asp-validation-for="Desc"></span>*@
 
             </div>
             <div class="row py-2">
-                <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname">Date_Start</label> <input asp-for="DateStart" type="datetime" class="bg-light form-control"> </div>
-                <span asp-validation-for="DateStart" class="text-danger"></span>
+                <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname">Date_Start</label> <input asp-for="DateStart" required type="datetime" class="bg-light form-control"> </div>
+                @*<span asp-validation-for="DateStart" class="text-danger"></span>*@
             </div>
             <div class="row py-2">
-                <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname">Date_end</label> <input asp-for="DateEnd" type="datetime" class="bg-light form-control"> </div>
-                <span asp-validation-for="DateEnd" class="text-danger"></span>
+                <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname">Date_end</label> <input asp-for="DateEnd" required type="datetime" class="bg-light form-control"> </div>
+                @*<span asp-validation-for="DateEnd" class="text-danger"></span>*@
             </div>
             
             <input type="hidden" asp-for="IdCom" />
