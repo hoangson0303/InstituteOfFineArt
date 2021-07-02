@@ -14,7 +14,6 @@ namespace InstituteOfFineArt.Models
             Competitions = new HashSet<Competition>();
             Feedbacks = new HashSet<Feedback>();
             Tests = new HashSet<Test>();
-            UserRoles = new HashSet<UserRole>();
         }
 
         public string IdAcc { get; set; }
@@ -33,11 +32,11 @@ namespace InstituteOfFineArt.Models
         public bool? Stat { get; set; }
         public string IdRole { get; set; }
 
+        public virtual UserRole UserRole { get; set; }
         public virtual ICollection<Bill> Bills { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Competition> Competitions { get; set; }
         public virtual ICollection<Feedback> Feedbacks { get; set; }
         public virtual ICollection<Test> Tests { get; set; }
-        public virtual ICollection<UserRole> UserRoles { get; set; }
     }
 }

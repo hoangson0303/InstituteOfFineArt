@@ -103,7 +103,7 @@
 
                     <div class="form-group">
                         <label for="NameRole">NameRole</label>
-                        <input type="text" class="form-control" id="NameRole" placeholder="Role" asp-for="NameRole" />
+                        <input type="text" class="form-control" id="NameRole" placeholder="Role" asp-for="NameRole" name="NameRole" pattern="[a-z]{3,10}" title="NameRole must be at least 3 letters" placeholder="NameRole" required  />
                         <span asp-validation-for="NameRole"></span>
 
                     </div>
