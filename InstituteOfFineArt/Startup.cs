@@ -52,6 +52,7 @@ namespace InstituteOfFineArt
             services.AddScoped<SubmissionService, SubmissionServiceImpl>();
             services.AddScoped<ContestGoingOnService, ContestGoingOnServiceImpl>();
             services.AddScoped<ContestService, ContestServiceImpl>();
+            services.AddScoped<ReviewService, ReviewServiceImpl>();
 
             services.AddSession();
 
