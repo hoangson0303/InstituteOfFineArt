@@ -135,6 +135,8 @@
     <None Include="wwwroot\Review\scss\bootstrap\_utilities.scss" />
     <None Include="wwwroot\Review\scss\bootstrap\_variables.scss" />
     <None Include="wwwroot\Review\scss\style.scss" />
+    <None Include="wwwroot\Singin\js\jquery-2.1.4.min.js" />
+    <None Include="wwwroot\Singin\js\jquery.magnific-popup.js" />
     <None Include="wwwroot\User\SchoolFile\scss\prepros-6.config" />
     <None Include="wwwroot\User\SchoolFile\assets\images\background\profile-bg.jpg" />
     <None Include="wwwroot\User\SchoolFile\assets\images\big\img1.jpg" />
