@@ -91,5 +91,29 @@ namespace InstituteOfFineArt.Areas.User.Services
         {
             return db.Accounts.Where(p => p.IdRole == "school1").ToList();
         }
+
+        public Account Created(Account account)
+        {
+            db.Accounts.Add(account);
+            db.SaveChanges();
+            return account;
+        }
+
+        public Account FindByEmail(string email)
+        {
+            return db.Accounts.FirstOrDefault(x => x.Email == email);
+        }
+
+        public Role CreateRole(Role role)
+        {
+            db.Roles.Add(role);
+            db.SaveChanges();
+            return role;
+        }
+
+        public string GetIdRoleByNameRol(string nameRole)
+        {
+            return db.Roles.Where(p => p.NameRole == nameRole).Select(x => x.IdRole).FirstOrDefault();
+        }
     }
 }

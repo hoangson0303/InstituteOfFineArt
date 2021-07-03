@@ -1,4 +1,4 @@
-﻿@model InstituteOfFineArt.ViewModels.SigninViewModels
+﻿@model InstituteOfFineArt.Models.Account
 <!--<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -158,12 +158,12 @@
     <div class="w3layoutscontaineragileits">
         <h2>Login here</h2>
         <form method="post" asp-controller="login" asp-action="login">
-            <input type="text" name="Username" placeholder="Username" required="">
-            <input type="password" name="Password" placeholder="PASSWORD" required="">
+            <input type="text" name="Username" placeholder="Username" required="" title="not be empty">
+            <input type="password" name="Password" placeholder="PASSWORD" required="" title="not be empty">
             <ul class="agileinfotickwthree">
                 <li>
                     @*<input type="checkbox" asp-for="Rememberme" id="brand1" value="">
-                    <label for="brand1"><span></span>Remember me</label>*@
+                        <label for="brand1"><span></span>Remember me</label>*@
                     <a asp-controller="forgetpass" asp-action="index">Forgot password?</a>
                 </li>
             </ul>
@@ -182,36 +182,36 @@
         <div class="contact-form1">
             <div class="contact-w3-agileits">
                 <h3>Register Form</h3>
-                <form action="#" method="post">
+                <form asp-action="add" method="post" >
                     <div class="form-sub-w3ls">
-                        <input placeholder="User Name" type="text" required="">
+                        <input asp-for="Username" placeholder="User Name" type="text" required="" title="not be empty">
                         <div class="icon-agile">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="form-sub-w3ls">
-                        <input placeholder="Email" class="mail" type="email" required="">
+                        <input asp-for="Email" placeholder="Email" class="mail" type="email" required="" name="Email" pattern="^[a-zA-Z0-9._+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" title="Email must be string ^[a-zA-Z0-9._+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$">
                         <div class="icon-agile">
                             <i class="fa fa-envelope-o" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="form-sub-w3ls">
-                        <input placeholder="Password" type="password" required="">
+                        <input placeholder="Password" type="password" required="" asp-for="Pass" title="not be empty">
                         <div class="icon-agile">
                             <i class="fa fa-unlock-alt" aria-hidden="true"></i>
                         </div>
                     </div>
                     @*<div class="form-sub-w3ls">
-                        <input placeholder="Confirm Password" type="password" required="">
-                        <div class="icon-agile">
-                            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-                        </div>
-                    </div>*@
+                            <input placeholder="Confirm Password" type="password" required="">
+                            <div class="icon-agile">
+                                <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                            </div>
+                        </div>*@
                     <div class="login-check">
                         <label class="checkbox"><input type="checkbox" name="checkbox" checked="">I Accept Terms & Conditions</label>
                     </div>
                     <div class="submit-w3l">
-                        <input type="submit" value="Register">
+                        <input type="submit" value="Register" >
                     </div>
                 </form>
             </div>

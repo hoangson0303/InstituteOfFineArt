@@ -11,13 +11,13 @@
 
         <div class="form-group">
             <label for="Name">Username</label>
-            <input type="text" class="form-control" asp-for="Username" id="Username" name="Username" pattern="[a-z]{3,10}" title="Username must be at least 3 letters" placeholder="Username" required
+            <input type="text" class="form-control" asp-for="Username" id="Username" name="Username"  placeholder="Username" required=""
  />
         </div>
         <span asp-validation-for="Username"></span>
         <div class="form-group">
             <label for="Name">Password</label>
-            <input type="password" class="form-control" asp-for="Pass" id="Password" name="Pass" pattern="[a-z]{5,10}" title="Password must be at least 5 or more "  placeholder="Password" required />
+            <input type="password" class="form-control" asp-for="Pass" id="Password" name="Pass"   placeholder="Password" required />
         </div>
         <span asp-validation-for="Pass"></span>
         <div class="form-group">

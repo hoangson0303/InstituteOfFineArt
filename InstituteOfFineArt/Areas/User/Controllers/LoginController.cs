@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Security.Claims;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -174,7 +176,53 @@ namespace InstituteOfFineArt.Controllers
         }
 
 
+        [HttpPost]
+        [Route("add")]
+        public IActionResult Add(Account account )
+        {
 
+
+            //var currentAccount = loginService.FindByEmail(REmail);
+
+
+            var numAlpha = new Regex("(?<Alpha>[a-zA-Z]*)(?<Numeric>[0-9]*)");
+            int num = 0;
+            if (loginService.GetNewestId(account.Username) != null)
+            {
+                var match = numAlpha.Match(loginService.GetNewestId(account.Username));
+                //var alpha = match.Groups["Alpha"].Value;
+                num = Int32.Parse(match.Groups["Numeric"].Value);
+
+            }
+
+            account.Stat = true;
+            account.IdRole = "customer1";
+            account.Pass = BCrypt.Net.BCrypt.HashString(account.Pass);
+            account.Datecreated = DateTime.Now;
+
+
+            if (loginService.CountIdById(account.Username) != 0)
+            {
+                account.IdAcc = account.Username + (num + 1);
+
+                loginService.Created(account);
+            }
+            else
+            {
+                account.IdAcc = account.Username + 1;
+
+                loginService.Created(account);
+            }
+
+
+
+
+           // loginService.Created(account);
+                    return RedirectToAction("index");
+                }
+           
+           
+    
 
     }
 }

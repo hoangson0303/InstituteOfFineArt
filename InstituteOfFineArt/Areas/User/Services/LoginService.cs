@@ -33,5 +33,13 @@ namespace InstituteOfFineArt.Areas.User.Services
         List<Test> FindAllTest();
 
         List<Account> FindAllSchool();
+
+        Account Created(Account account);
+
+        Account FindByEmail(string email);
+
+        Role CreateRole(Role role);
+
+        string GetIdRoleByNameRol(string nameRole);
     }
 }

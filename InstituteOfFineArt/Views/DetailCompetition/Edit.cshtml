@@ -25,7 +25,7 @@
 
                         <!-- Name input-->
                         <div class="form-floating mb-3">
-                            <input asp-for="NameTest" class="form-control" id="name" type="text" placeholder="Enter your name's test..." name="NameTest" pattern="[a-z]{5,10}" title="NameTest must be at least 5 letters" required />
+                            <input asp-for="NameTest" class="form-control" id="name" type="text" placeholder="Enter your name's test..." name="NameTest" pattern="[A-z]{5,10}" title="NameTest must have at least 5 letters and the first must be capitalized" required />
 
                             <label for="name">Name's Test  </label>
 
@@ -36,11 +36,11 @@
                             <label for="price">Price</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <textarea asp-for="Desc" class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem" name="Desc" pattern="[a-z]{5,10}" title="Desc must be at least 5 letters" required></textarea>
+                            <textarea asp-for="Desc" class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem" name="Desc"  required></textarea>
                             <label for="message">Desc</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <textarea asp-for="Content" class="form-control" id="message" type="text" placeholder="Content..." style="height: 10rem" name="Content" pattern="[a-z]{5,10}" title="Content must be at least 5 letters" required></textarea>
+                            <textarea asp-for="Content" class="form-control" id="message" type="text" placeholder="Content..." style="height: 10rem" name="Content"  required></textarea>
                             <label for="message">Content</label>
                         </div>
 

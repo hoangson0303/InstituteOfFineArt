@@ -45,7 +45,7 @@
                             <div class="form-group">
                                 <label class="col-md-12">Name</label>
                                 <div class="col-md-12 ">
-                                    <input type="text" asp-for="NameCom" name="NameCom" pattern="[a-z]{3,10}" title="NameCom must be at least 3 letters" placeholder="NameCom" required class="form-control form-control-line">
+                                    <input type="text" asp-for="NameCom" name="NameCom" pattern="[A-z]{5,10}" title="NameCom must have at least 5 letters and the first must be capitalized" placeholder="NameCom" required class="form-control form-control-line">
                                     @*<span asp-validation-for="NameCom"></span>*@
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <input type="submit" class="btn btn-success" value="ADD Create" onclick="return confirm('Create successful')"/>
+                            <input type="submit" class="btn btn-success" value="ADD Create" />
                         </div>
 
                     </div>
