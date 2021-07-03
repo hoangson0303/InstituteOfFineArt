@@ -9,15 +9,15 @@ namespace InstituteOfFineArt.Models
     {
         public Bill()
         {
-            OrderDetails = new HashSet<OrderDetail>();
+            DetailBills = new HashSet<DetailBill>();
         }
 
-        public string IdOrder { get; set; }
+        public string IdBill { get; set; }
         public string IdAcc { get; set; }
         public DateTime? Created { get; set; }
         public decimal? Total { get; set; }
 
         public virtual Account IdAccNavigation { get; set; }
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<DetailBill> DetailBills { get; set; }
     }
 }

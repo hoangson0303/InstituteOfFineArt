@@ -55,21 +55,23 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input asp-for="Mail" class="form-control valid" name="REmail" id="mail" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email To .......">
+                                        <input asp-for="Mail" class="form-control valid" name="REmail" id="mail" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email To ......."
+                                               name="Email" pattern="^[a-zA-Z0-9._+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"title="Email must be string ^[a-zA-Z0-9._+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"  required >
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="password" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your email password '" placeholder="Enter Your Email Password ....">
+                                        <input class="form-control valid" name="password" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your email password '" placeholder="Enter Your Email Password ...." required>
                                     </div>
                                 </div>
                             </div>
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input asp-for="Fullname" class="form-control valid" name="fullname" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name ....">
+                                            <input asp-for="Fullname" class="form-control valid" name="fullname" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name ...."
+                                                   name="Fullname" pattern="[a-z]{5,10}" title="Fullname must be at least 5 letters" required>
                                         </div>
                                     </div>
                                 </div>
@@ -77,7 +79,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             @*<textarea asp-for="Mess" class="form-control w-100" name="Body" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>*@
-                                            <textarea asp-for="Mess" id="mess" rows="5" name="Body" class="form-control form-control-line" placeholder=" Enter Message"></textarea>
+                                            <textarea asp-for="Mess" required id="mess" rows="5" name="Body" class="form-control form-control-line" placeholder=" Enter Message"></textarea>
                                         </div>
                                     </div>
                                     @*<div class="col-sm-6">

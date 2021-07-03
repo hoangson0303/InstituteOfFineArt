@@ -10,7 +10,7 @@ namespace InstituteOfFineArt.Models
         public Test()
         {
             Comments = new HashSet<Comment>();
-            OrderDetails = new HashSet<OrderDetail>();
+            DetailBills = new HashSet<DetailBill>();
         }
 
         public string IdTest { get; set; }
@@ -29,6 +29,6 @@ namespace InstituteOfFineArt.Models
         public virtual Account IdAccNavigation { get; set; }
         public virtual TestCore TestCore { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<DetailBill> DetailBills { get; set; }
     }
 }
