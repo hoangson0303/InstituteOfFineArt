@@ -14,9 +14,9 @@ namespace InstituteOfFineArt.Areas.User.Services
         {
             this.db = db;
         }
-        public List<Test> FindAll(string idCom)
+        public List<Test> FindAll(string idAcc)
         {
-            return db.Tests.Where(x => x.IdCom == idCom && x.Stat == false).ToList(); 
+            return db.Tests.Where(x => x.IdSchool == idAcc && x.Stat == false).ToList();
         }
 
         public List<Account> FindUserById(string idAcc)
@@ -50,5 +50,6 @@ namespace InstituteOfFineArt.Areas.User.Services
         {
             return db.Competitions.Where(x => x.IdAcc == idAcc).Select(x => x.IdCom).FirstOrDefault();
         }
+
     }
 }

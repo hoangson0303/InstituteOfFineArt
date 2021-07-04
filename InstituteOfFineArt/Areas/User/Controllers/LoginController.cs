@@ -106,12 +106,18 @@ namespace InstituteOfFineArt.Controllers
                         HttpContext.Session.SetString("idAcc", idAcc);
                         return RedirectToAction("student");
                     }
-                    if (nameRole == "school")
+                    if (nameRole == "customer")
                     {
                         HttpContext.Session.SetString("username", signin.Username);
                         HttpContext.Session.SetString("idAcc", idAcc);
-                        return RedirectToAction("school");
+                        return RedirectToAction("customer");
                     }
+                    if (nameRole == "school")
+                        {
+                            HttpContext.Session.SetString("username", signin.Username);
+                            HttpContext.Session.SetString("idAcc", idAcc);
+                            return RedirectToAction("school");
+                        }
 
                     return RedirectToAction("index", "Index", new { area = "" });
                 }
@@ -148,6 +154,22 @@ namespace InstituteOfFineArt.Controllers
             return View("student");
         }
 
+        [Route("customer")]
+        public IActionResult Customer()
+        {
+            ViewBag.school = loginService.FindAllSchool();
+            ViewBag.compititions = loginService.FindAll();
+            ViewBag.test = loginService.FindAllTest();
+            string cookieIdacc = Request.Cookies["Idacc"];
+            ViewBag.acc = loginService.FindUserById(cookieIdacc);
+            if (cookieIdacc == null)
+            {
+                ViewBag.loggedin = false;
+
+            }
+            return View("customer");
+        }
+
         [Route("admin")]
         public IActionResult Admin()
         {
@@ -181,37 +203,54 @@ namespace InstituteOfFineArt.Controllers
         public IActionResult Add(Account account )
         {
 
-
-            //var currentAccount = loginService.FindByEmail(REmail);
+            string nameRole = "customer";
+            string idRole = loginService.GetIdRoleByNameRol(nameRole);
 
 
             var numAlpha = new Regex("(?<Alpha>[a-zA-Z]*)(?<Numeric>[0-9]*)");
             int num = 0;
-            if (loginService.GetNewestId(account.Username) != null)
+            if (loginService.GetNewestId(nameRole) != null)
             {
-                var match = numAlpha.Match(loginService.GetNewestId(account.Username));
+                var match = numAlpha.Match(loginService.GetNewestId(nameRole));
                 //var alpha = match.Groups["Alpha"].Value;
                 num = Int32.Parse(match.Groups["Numeric"].Value);
 
             }
 
             account.Stat = true;
-            account.IdRole = "customer1";
+            account.IdRole = idRole;
             account.Pass = BCrypt.Net.BCrypt.HashString(account.Pass);
             account.Datecreated = DateTime.Now;
 
 
-            if (loginService.CountIdById(account.Username) != 0)
+            if (loginService.CountIdById(nameRole) != 0)
             {
-                account.IdAcc = account.Username + (num + 1);
+                account.IdAcc = nameRole + (num + 1);
+                string idAcc = loginService.Created(account).IdAcc;
 
-                loginService.Created(account);
+                var userRole = new UserRole();
+                userRole.IdAcc = idAcc;
+                userRole.IdRole = idRole;
+                userRole.Datecreated = DateTime.Now;
+                userRole.Dateupdated = DateTime.Now;
+
+                loginService.CreateUserRole(userRole);
+
+
             }
             else
             {
-                account.IdAcc = account.Username + 1;
+                account.IdAcc = nameRole + 1;
 
-                loginService.Created(account);
+                string idAcc = loginService.Created(account).IdAcc;
+
+                var userRole = new UserRole();
+                userRole.IdAcc = idAcc;
+                userRole.IdRole = idRole;
+                userRole.Datecreated = DateTime.Now;
+                userRole.Dateupdated = DateTime.Now;
+
+                loginService.CreateUserRole(userRole);
             }
 
 

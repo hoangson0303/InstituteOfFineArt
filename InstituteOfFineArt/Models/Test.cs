@@ -25,6 +25,8 @@ namespace InstituteOfFineArt.Models
         public bool? Stat { get; set; }
         public string IdCom { get; set; }
         public string IdAcc { get; set; }
+        public string IdSchool { get; set; }
+        public bool? StatusQuo { get; set; }
 
         public virtual Account IdAccNavigation { get; set; }
         public virtual TestCore TestCore { get; set; }

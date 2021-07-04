@@ -44,6 +44,8 @@ namespace InstituteOfFineArt.Controllers
             string cookieIdacc = Request.Cookies["Idacc"];
             ViewBag.acc = DetailComService.FindUserById(cookieIdacc);
 
+            string idAccSchool = DetailComService.FindIdAccByIdCom(IdCom);
+
             var numAlpha = new Regex("(?<Alpha>[a-zA-Z]*)(?<Numeric>[0-9]*)");
             int num = 0;
             if (DetailComService.GetNewestId(tes.NameTest) != null)
@@ -74,6 +76,8 @@ namespace InstituteOfFineArt.Controllers
             tes.Stat = false;
             tes.IdAcc = cookieIdacc;
             tes.IdCom = IdCom;
+            tes.StatusQuo = false;
+            tes.IdSchool = idAccSchool;
 
             if (DetailComService.CountIdById(tes.NameTest) != 0)
             {
@@ -84,6 +88,7 @@ namespace InstituteOfFineArt.Controllers
                 testCore.IdTest = idTest;
                 testCore.IdCom = IdCom;
                 testCore.GradingDate = DateTime.Now;
+                testCore.IdSchool = idAccSchool;
                 DetailComService.CreateTestCore(testCore);
             }
             else
@@ -94,6 +99,7 @@ namespace InstituteOfFineArt.Controllers
                 testCore.IdTest = idTest;
                 testCore.IdCom = IdCom;
                 testCore.GradingDate = DateTime.Now;
+                testCore.IdSchool = idAccSchool;
                 DetailComService.CreateTestCore(testCore);
             }
 

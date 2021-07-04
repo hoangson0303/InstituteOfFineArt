@@ -14,6 +14,7 @@ namespace InstituteOfFineArt.Models
         public DateTime? GradingDate { get; set; }
         public DateTime? DateUpdate { get; set; }
         public string IdTest { get; set; }
+        public string IdSchool { get; set; }
 
         public virtual Competition IdComNavigation { get; set; }
         public virtual Test IdTestNavigation { get; set; }

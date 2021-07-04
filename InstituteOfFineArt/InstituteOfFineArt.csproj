@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\Invoice\" />
     <Folder Include="wwwroot\User\images\imagesUser\" />
     <Folder Include="wwwroot\User\images\imagesSchool\" />
     <Folder Include="wwwroot\User\images\imagesTest\" />

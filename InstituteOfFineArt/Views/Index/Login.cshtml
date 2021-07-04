@@ -1,40 +1,39 @@
-﻿@model InstituteOfFineArt.ViewModels.SigninViewModels
-<!DOCTYPE html>
+﻿@model InstituteOfFineArt.Models.Account
+<!--<!DOCTYPE html>
     <html lang="en">
     <head>
         <title>Login V18</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="icon" type="image/png" href="~/Login/images/icons/favicon.ico" />
-        <link rel="icon" type="image/png" href="~/Login/images/icons/favicon.ico" />
+<link rel="icon" type="image/png" href="~/Login/images/icons/favicon.ico" />
 
-        <link rel="stylesheet" type="text/css" href="~/Login/vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="~/Login/vendor/bootstrap/css/bootstrap.min.css">
 
-        <link rel="stylesheet" type="text/css" href="~/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="~/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 
-        <link rel="stylesheet" type="text/css" href="~/Login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<link rel="stylesheet" type="text/css" href="~/Login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 
-        <link rel="stylesheet" type="text/css" href="~/Login/vendor/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="~/Login/vendor/animate/animate.css">
 
-        <link rel="stylesheet" type="text/css" href="~/Login/vendor/css-hamburgers/hamburgers.min.css">
+<link rel="stylesheet" type="text/css" href="~/Login/vendor/css-hamburgers/hamburgers.min.css">
 
-        <link rel="stylesheet" type="text/css" href="~/Login/vendor/animsition/css/animsition.min.css">
+<link rel="stylesheet" type="text/css" href="~/Login/vendor/animsition/css/animsition.min.css">
 
-        <link rel="stylesheet" type="text/css" href="~/Login/vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="~/Login/vendor/select2/select2.min.css">
 
-        <link rel="stylesheet" type="text/css" href="~/Login/vendor/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" type="text/css" href="~/Login/vendor/daterangepicker/daterangepicker.css">
 
-        <link rel="stylesheet" type="text/css" href="~/Login/css/util.css">
-        <link rel="stylesheet" type="text/css" href="~/Login/css/main.css">
+<link rel="stylesheet" type="text/css" href="~/Login/css/util.css">
+<link rel="stylesheet" type="text/css" href="~/Login/css/main.css">
 
-    </head>
+</head>
 <body style="background-color: #666666;">
 
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form class="login100-form validate-form" method="post" asp-controller="login" asp-action="login">
+                <form class="login100-form validate-form" method="post" asp-controller="login" asp-action="login" >
                     <span class="login100-form-title p-b-43">
                         Login to continue
                     </span>
@@ -57,59 +56,59 @@
                         <span asp-validation-for="Password"></span>
                     </div>
 
-                    <div class="flex-sb-m w-full p-t-3 p-b-32">
-                        @*<div class="contact100-form-checkbox">
-                    <input class="input-checkbox100" id="chk1" type="checkbox" asp-for="Rememberme">
-                    <label class="label-checkbox100" for="chk1">
-                        Remember me
-                    </label>
-                </div>*@
+                    <div class="flex-sb-m w-full p-t-3 p-b-32">-->
+@*<div class="contact100-form-checkbox">
+        <input class="input-checkbox100" id="chk1" type="checkbox" asp-for="Rememberme">
+        <label class="label-checkbox100" for="chk1">
+            Remember me
+        </label>
+    </div>*@
 
-                        <div>
-                            <a asp-controller="forgetpass" asp-action="index" class="txt1">
-                                Forgot Password?
-                            </a>
-                        </div>
-                    </div>
+<!--<div>
+        <a asp-controller="forgetpass" asp-action="index" class="txt1">
+            Forgot Password?
+        </a>
+    </div>
+</div>
 
-                    <div class="container-login100-form-btn">
+<div class="container-login100-form-btn">
 
 
-                        <input class="login100-form-btn" type="submit" value="Login">
-                    </div>
-                    <div asp-validation-summary="All"></div>
-                    <span class="text-danger">@ViewData["message"]</span>
+    <input class="login100-form-btn" type="submit" value="Login">
+</div>
+<div asp-validation-summary="All"></div>
+<span class="text-danger">@ViewData["message"]</span>-->
+@*<div class="text-center p-t-46 p-b-20">
+        <span class="txt2">
+            or sign up using
+        </span>
+    </div>
 
-                    @*<div class="text-center p-t-46 p-b-20">
-                <span class="txt2">
-                    or sign up using
-                </span>
+    <div class="login100-form-social flex-c-m">
+        <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+            <i class="fa fa-facebook-f" aria-hidden="true"></i>
+        </a>
+
+        <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+    </div>*@
+<!--</form>
+
+            <div class="login100-more" style="background-image: url('images/bg-01.jpg');">
             </div>
-
-            <div class="login100-form-social flex-c-m">
-                <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
-                    <i class="fa fa-facebook-f" aria-hidden="true"></i>
-                </a>
-
-                <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-            </div>*@
-                </form>
-                <div class="login100-more" style="background-image: url('~/wwwroot/Login/images/bg-01.jpg');">
-                </div>
-            </div>
+        </div>
     </div>
 </div>
 
 
 <script src="~/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
-    
+
     <script src="~/Login/vendor/animsition/js/animsition.min.js"></script>
-    
+
     <script src="~/Login/vendor/bootstrap/js/popper.js"></script>
     <script src="~/Login/vendor/bootstrap/js/bootstrap.min.js"></script>
-    
+
     <script src="~/Login/vendor/select2/select2.min.js"></script>
 
     <script src="~/Login/vendor/daterangepicker/moment.min.js"></script>
@@ -121,3 +120,131 @@
 
     </body>
     </html>-->
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<!-- Head -->
+<head>
+
+    <title>Existing Login Form a Flat Responsive Widget Template :: W3layouts</title>
+
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="Existing Login Form Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //Meta-Tags -->
+
+    <link href="~/Singin/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+
+    <!-- Style -->
+    <link rel="stylesheet" href="~/Singin/css/style.css" type="text/css" media="all">
+
+    <!-- Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+    <!-- //Fonts -->
+
+</head>
+<!-- //Head -->
+<!-- Body -->
+<body>
+
+    <h1>INSTITUTE OF FINE ART</h1>
+
+    <div class="w3layoutscontaineragileits">
+        <h2>Login here</h2>
+        <form method="post" asp-controller="login" asp-action="login">
+            <input type="text" name="Username" placeholder="Username" required="" title="not be empty">
+            <input type="password" name="Password" placeholder="PASSWORD" required="" title="not be empty">
+            <ul class="agileinfotickwthree">
+                <li>
+                    <a asp-controller="forgetpass" asp-action="index">Forgot password?</a>
+                </li>
+            </ul>
+            <div class="aitssendbuttonw3ls">
+                <input type="submit" value="LOGIN"><br />
+                <span><a style="color:white" class="w3_play_icon1" href="#small-dialog1">You don't have a account ?</a></span>
+                <div class="clear"></div>
+            </div>
+            <div asp-validation-summary="All"></div>
+            <span class="text-danger">@ViewData["message"]</span>
+        </form>
+    </div>
+
+    <!-- for register popup -->
+    <div id="small-dialog1" class="mfp-hide">
+        <div class="contact-form1">
+            <div class="contact-w3-agileits">
+                <h3>Register Form</h3>
+                <form asp-action="add" method="post">
+                    <div class="form-sub-w3ls">
+                        <input asp-for="Username" placeholder="User Name" type="text" required="" title="not be empty">
+                        <div class="icon-agile">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="form-sub-w3ls">
+                        <input asp-for="Email" placeholder="Email" class="mail" type="email" required="" name="Email" pattern="^[a-zA-Z0-9._+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" title="Email must be string ^[a-zA-Z0-9._+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$">
+                        <div class="icon-agile">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="form-sub-w3ls">
+                        <input placeholder="Password" type="password" required="" asp-for="Pass" title="not be empty">
+                        <div class="icon-agile">
+                            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    @*<div class="form-sub-w3ls">
+                            <input placeholder="Confirm Password" type="password" required="">
+                            <div class="icon-agile">
+                                <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                            </div>
+                        </div>*@
+                    <div class="login-check">
+                        <label class="checkbox"><input type="checkbox" name="checkbox" checked="">I Accept Terms & Conditions</label>
+                    </div>
+                    <div class="submit-w3l">
+                        <input type="submit" value="Register">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- //for register popup -->
+
+    <div class="w3footeragile">
+        <p> &copy; 2017 Existing Login Form. All Rights Reserved | Design by <a href="http://w3layouts.com" target="_blank">W3layouts</a></p>
+    </div>
+
+
+    <script type="text/javascript" src="~/Singin/js/jquery-2.1.4.min.js"></script>
+
+    <!-- pop-up-box-js-file -->
+    <script src="~/Singin/js/jquery.magnific-popup.js" type="text/javascript"></script>
+    <!--//pop-up-box-js-file -->
+    <script>
+        $(document).ready(function () {
+            $('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+
+        });
+    </script>
+
+</body>
+<!-- //Body -->
+
+</html>

@@ -45,6 +45,7 @@
                                             <th>#ID Test</th>
                                             <th>Fullname Student</th>
                                             <th>#ID Comment</th>
+                                            <th>#ID Competition</th>
                                             <th>Content</th>
                                             <th>Images</th>
                                             <th>Name Test</th>
@@ -63,6 +64,7 @@
                                                     <td>@test.IdTest</td>
                                                     <td>@ViewBag.fullname</td>
                                                     <td>@test.IdComment</td>
+                                                    <td>@test.IdComment</td>
                                                     <td>@test.Content</td>
                                                     <td><img src="~/User/images/@test.ImgOfTest" width="100" alt="Alternate Text" /></td>
                                                     <td>@test.NameTest</td>
@@ -78,11 +80,11 @@
                                                     {
                                                         <td> HAPPENING </td>
                                                     }
-                                                <td>
-                                                    <a class="btn btn-success" asp-action="accept" asp-controller="submission" asp-route-id="@test.IdTest">Accept</a>
-                                                    <a class="btn btn-danger" asp-controller="create" asp-action="delete" asp-route-id="@test.IdTest" onclick="return confirm('Are you sure?')">Delete</a>
+                                                    <td>
+                                                        <a class="btn btn-success" asp-action="accept" asp-controller="submission" asp-route-id="@test.IdTest">Accept</a>
+                                                        <a class="btn btn-danger" asp-controller="create" asp-action="delete" asp-route-id="@test.IdTest" onclick="return confirm('Are you sure?')">Delete</a>
 
-                                                </td>
+                                                    </td>
                                                 </tr>
                                             </tbody>
 

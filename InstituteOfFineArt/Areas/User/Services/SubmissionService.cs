@@ -8,7 +8,7 @@ namespace InstituteOfFineArt.Areas.User.Services
 {
     public interface SubmissionService
     {
-        List<Test> FindAll(string idCom);
+        List<Test> FindAll(string idAcc);
         public List<Account> FindUserById(string idAcc);
 
         string  GetIdAcc();

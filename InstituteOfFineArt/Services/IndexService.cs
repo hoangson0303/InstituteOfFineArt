@@ -21,5 +21,19 @@ namespace InstituteOfFineArt.Services
 
         Bill CreateBill(Bill bill);
         DetailBill CreateDetailBill(DetailBill detailBill);
+
+        Test Update(Test test);
+
+        Test FindById(string idTest);
+
+        string FindIdComByIdTest(string idTest);
+
+        string FindIdAccByIdCom(string idCom);
+
+        string FindPhoneShippingTo(string idAccShippingTo);
+
+        List<Account> InfoFormTo(string idAcc);
+
+        List<DetailBill> InfoDetailBill(string idTest);
     }
 }

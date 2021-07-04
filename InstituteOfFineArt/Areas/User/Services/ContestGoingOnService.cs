@@ -12,7 +12,7 @@ namespace InstituteOfFineArt.Areas.User.Services
         string GetIdAcc();
         string GetFullnameByIdAcc(string idAcc);
 
-        string GetScoreByIdTest(string idTest);
+        List<TestCore> GetScore(string idSchool);
         public List<Account> FindUserById(string idAcc);
 
         public void Delete(string idTest);
@@ -24,6 +24,8 @@ namespace InstituteOfFineArt.Areas.User.Services
         Test FindTest(string id);
 
         string GetIdTest(string idAcc);
+
+        string FindIdAccByIdCom(string idCom);
 
     }
 }

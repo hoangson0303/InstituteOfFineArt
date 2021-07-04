@@ -4,116 +4,123 @@
     Layout = "~/Views/Shared/_LayoutSchoolCreate.cshtml";
 }
 
-<div class="page-wrapper">
-    <!-- ============================================================== -->
-    <!-- Container fluid  -->
-    <!-- ============================================================== -->
-    <div class="container-fluid">
-        <!-- ============================================================== -->
-        <!-- Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <div class="row page-titles">
-            <div class="col-md-5 col-8 align-self-center">
-                <h3 class="text-themecolor m-b-0 m-t-0">Table</h3>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                    <li class="breadcrumb-item active">Table</li>
-                </ol>
-            </div>
-            <div class="col-md-7 col-4 align-self-center">
-                <a href="https://themewagon.com/themes/material-bootstrap-4-free-admin-template/" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down">Download Now</a>
-            </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Start Page Content -->
-        <!-- ============================================================== -->
-        <div class="row">
-            <!-- column -->
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-block">
-                        <h4 class="card-title">Basic Table</h4>
-                        <h6 class="card-subtitle">Contests Going On<code>.table</code></h6>
-                        <div class="table-responsive">
-                            <form>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>#ID Test</th>
-                                            <th>Fullname Student</th>
-                                            <th>Score</th>
-                                            <th>#ID Comment</th>
-                                            <th>Content</th>
-                                            <th>Images</th>
-                                            <th>Name Test</th>
-                                            <th>Price</th>
-                                            <th>Description</th>
-                                            <th>Date Created</th>
-                                            <th>Date Updated</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    @foreach (var test in ViewBag.testTrue)
-                                    {
-                                        <tbody>
-                                            <tr>
-                                                <td>@test.IdTest</td>
-                                                <td>@ViewBag.fullname</td>
-                                                <td>@ViewBag.score</td>
-                                                <td>@test.IdComment</td>
-                                                <td>@test.Content</td>
-                                                <td><img src="~/User/images/@test.ImgOfTest" width="100" alt="Alternate Text" /></td>
-                                                <td>@test.NameTest</td>
-                                                <td>@test.Price $</td>
-                                                <td>@test.Desc</td>
-                                                <td>@test.Datecreated</td>
-                                                <td>@test.Dateupdated</td>
-                                                @if (@test.Stat == false)
+
+    @{ var core = ViewBag.score; }
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 col-8 align-self-center">
+                        <h3 class="text-themecolor m-b-0 m-t-0">Table</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item active">Table</li>
+                        </ol>
+                    </div>
+                    <div class="col-md-7 col-4 align-self-center">
+                        <a href="https://themewagon.com/themes/material-bootstrap-4-free-admin-template/" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down">Download Now</a>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-block">
+                                <h4 class="card-title">Basic Table</h4>
+                                <h6 class="card-subtitle">Contests Going On<code>.table</code></h6>
+                                <div class="table-responsive">
+                                    <form>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#ID Test</th>
+                                                    <th>Fullname Student</th>
+                                                    <th>Score</th>
+                                                    <th>#ID Comment</th>
+                                                    <th>Content</th>
+                                                    <th>Images</th>
+                                                    <th>Name Test</th>
+                                                    <th>Price</th>
+                                                    <th>Description</th>
+                                                    <th>Date Created</th>
+                                                    <th>Date Updated</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                
+                                                @foreach (var test in ViewBag.testTrue)
                                                 {
-                                                    <td> Awaiting Approval</td>
+                                                    
+                                                    <tr>
+                                                        <td>@test.IdTest</td>
+                                                        <td>@ViewBag.fullname</td>
+                                                        <td>@core[0].Scores</td>
+                                                        <td>@test.IdComment</td>
+                                                        <td>@test.Content</td>
+                                                        <td><img src="~/User/images/@test.ImgOfTest" width="100" alt="Alternate Text" /></td>
+                                                        <td>@test.NameTest</td>
+                                                        <td>@test.Price $</td>
+                                                        <td>@test.Desc</td>
+                                                        <td>@test.Datecreated</td>
+                                                        <td>@test.Dateupdated</td>
+                                                        @if (@test.Stat == false)
+                                                        {
+                                                            <td> Awaiting Approval</td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td> HAPPENING </td>
+                                                        }
+                                                        <td>
+                                                            <a class="btn btn-warning" asp-controller="contestgoingon" asp-action="mark" asp-route-id="@test.IdTest">Mark</a>
+                                                            <a class="btn btn-danger" asp-controller="contestgoingon" asp-action="delete" asp-route-id="@test.IdTest" onclick="return confirm('Are you sure?')">Delete</a>
+
+                                                        </td>
+                                                    </tr>
                                                 }
-                                                else
-                                                {
-                                                    <td> HAPPENING </td>
-                                                }
-                                                <td>
-                                                    <a class="btn btn-warning" asp-controller="contestgoingon" asp-action="mark" asp-route-id="@test.IdTest">Mark</a>
-                                                    <a class="btn btn-danger" asp-controller="contestgoingon" asp-action="delete" asp-route-id="@test.IdTest" onclick="return confirm('Are you sure?')">Delete</a>
 
-                                                </td>
-                                            </tr>
-                                        </tbody>
-
-                                    }
+                                                </tbody>
 
 
 
-                                </table>
-                            </form>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
             </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer">
+                © 2021 Institute Of Fine Art
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End PAge Content -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Container fluid  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- footer -->
-    <!-- ============================================================== -->
-    <footer class="footer">
-        © 2021 Institute Of Fine Art
-    </footer>
-    <!-- ============================================================== -->
-    <!-- End footer -->
-    <!-- ============================================================== -->
-</div>
+    
+
 

@@ -115,5 +115,11 @@ namespace InstituteOfFineArt.Areas.User.Services
         {
             return db.Roles.Where(p => p.NameRole == nameRole).Select(x => x.IdRole).FirstOrDefault();
         }
+
+        public void CreateUserRole(UserRole userRole)
+        {
+            db.UserRoles.Add(userRole);
+            db.SaveChanges();
+        }
     }
 }

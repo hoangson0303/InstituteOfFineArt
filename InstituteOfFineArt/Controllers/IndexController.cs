@@ -61,6 +61,12 @@ namespace InstituteOfFineArt.Controllers
                     ViewBag.acc = indexService.FindUserById(cookieIdacc);
                     return RedirectToAction("student");
                 }
+
+                if (nameRole == "customer")
+                {
+                    ViewBag.acc = indexService.FindUserById(cookieIdacc);
+                    return RedirectToAction("customer");
+                }
                 if (nameRole == "school")
                 {
                     ViewBag.acc = indexService.FindUserById(cookieIdacc);
@@ -141,6 +147,22 @@ namespace InstituteOfFineArt.Controllers
             return View("school");
         }
 
+        [Route("customer")]
+        public IActionResult Customer()
+        {
+            ViewBag.school = indexService.FindAllSchool();
+            ViewBag.compititions = indexService.FindAll();
+            ViewBag.test = indexService.FindAllTest();
+            string cookieIdacc = Request.Cookies["Idacc"];
+            ViewBag.acc = indexService.FindUserById(cookieIdacc);
+            if (cookieIdacc == null)
+            {
+                ViewBag.loggedin = false;
+
+            }
+            return View("customer");
+        }
+
 
         [Route("review/{idTest}")]
         public IActionResult Review(string idTest)
@@ -156,7 +178,10 @@ namespace InstituteOfFineArt.Controllers
         [Route("success")]
         public IActionResult Success(Bill bill, [FromQuery(Name = "tx")] string tx)
         {
+
+            
             string idTest = HttpContext.Session.GetString(IdTest);
+            var currentTest = indexService.FindById(idTest);
             string cookieIdacc = Request.Cookies["Idacc"];
             ViewBag.acc = indexService.FindUserById(cookieIdacc);
             var result = PDTHolder.Success(tx, configuration, Request);
@@ -171,9 +196,9 @@ namespace InstituteOfFineArt.Controllers
             detailBill.IdBill = result.TransactionId;
             detailBill.IdTest = idTest;
             detailBill.ProductName = result.ItemName;
-            detailBill.PayerName = result.PayerFirstName + " " + result.PayerLastName;
-            detailBill.PayerEmail = result.PayerEmail;
-            detailBill.PayerShippingAddr = "";
+            ViewBag.nameTo = detailBill.PayerName = result.PayerFirstName + " " + result.PayerLastName;
+            ViewBag.email = detailBill.PayerEmail = result.PayerEmail;
+            ViewBag.shippingTo = detailBill.PayerShippingAddr = "";
             detailBill.Type = "Payment form";
             detailBill.Payment = result.PaymentStatus;
             detailBill.Total = (decimal?)result.GrossTotal;
@@ -182,8 +207,17 @@ namespace InstituteOfFineArt.Controllers
             detailBill.Created = DateTime.Now;
             indexService.CreateDetailBill(detailBill);
 
+            currentTest.StatusQuo = true;
+            indexService.Update(currentTest);
 
-            
+            string idCom = indexService.FindIdComByIdTest(idTest);
+            string idAccFromTo = indexService.FindIdAccByIdCom(idCom);
+
+            ViewBag.phone = indexService.FindPhoneShippingTo(cookieIdacc);
+            ViewBag.infoFromto = indexService.InfoFormTo(idAccFromTo);
+
+            ViewBag.detailBill = indexService.InfoDetailBill(idTest);
+
             return  View("success");
         }
     }

@@ -55,6 +55,10 @@
                                 <img src="~/User/images/@compi.ImgOfCom" width="350" height="350" alt="">
                                 <div class="services-caption">
                                     <h3><a href="#">@compi.NameCom</a></h3>
+                                    @if (@compi.Stat == true)
+                                    {
+                                        <h5 style="color:aquamarine">Active</h5>
+                                    }
                                     <p>Date Start @compi.DateStart | Date End @compi.DateEnd</p>
                                     @if (ViewBag.loggedin == null)
                                     {
@@ -124,6 +128,24 @@
                                     </h2>
                                 </div>
                             </div>
+                            <div class="card">
+                                <div class="card-header" id="headingfouree">
+                                    @if (tes.StatusQuo == true)
+                                    {
+                                        <h2 class="mb-0" style="color:red">
+                                            <a class="btn-link collapsed" data-toggle="collapse" data-target="#collapseFoure" aria-expanded="false" aria-controls="collapseFoure">SOLD</a>
+
+                                        </h2>
+                                    }
+                                    else
+                                    {
+                                        <h2 class="mb-0" style="color: aquamarine">
+                                            <a class="btn-link collapsed" data-toggle="collapse" data-target="#collapseFoure" aria-expanded="false" aria-controls="collapseFoure">FOR SALE</a>
+
+                                        </h2>
+                                    }
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -136,7 +158,11 @@
                     <img class="img-thumbnail" src="~/User/images/@tes.ImgOfTest" width="90%" height="100%" alt="Alternate Text" />
                     <div class="services-caption text-center">
                         <br />
-                        <a asp-controller="index" asp-action="review" asp-route-id="@tes.IdTest" class="btn btn3">BUY NOW</a>
+                        @if (tes.StatusQuo == false)
+                        {
+                            <a asp-controller="index" asp-action="review" asp-route-id="@tes.IdTest" class="btn btn3">BUY NOW</a>
+                        }
+
 
                     </div>
                 </div>
