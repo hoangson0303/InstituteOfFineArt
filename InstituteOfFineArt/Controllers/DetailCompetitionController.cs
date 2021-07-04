@@ -163,5 +163,57 @@ namespace InstituteOfFineArt.Controllers
 
             return RedirectToAction("student");
         }
+
+       
+
+        [Route("schooldetail/{idCom}")]
+
+        public IActionResult Schooldetail(string idCom)
+        {
+
+            string cookieIdacc = Request.Cookies["Idacc"];
+            string idacc = DetailComService.GetIdAccByIdCom(idCom);
+            ViewBag.account = DetailComService.FindAccById(idacc);
+            ViewBag.com = DetailComService.FindComById(idCom);
+            ViewBag.test = DetailComService.FindTestById(cookieIdacc);
+            return View();
+        }
+
+       [Route("schooldetailinformation/{idCom}")]
+       public IActionResult Schooldetailinformation(string idCom)
+        {
+            string cookieIdacc = Request.Cookies["Idacc"];
+            string idacc = DetailComService.GetIdAccByIdCom(idCom);
+            ViewBag.account = DetailComService.FindAccById(idacc);
+            ViewBag.com = DetailComService.FindComById(idCom);
+            ViewBag.test = DetailComService.FindTest();
+            return View();
+        }
+
+
+
+        [Route("customerdetail/{idCom}")]
+
+        public IActionResult Customerdetail(string idCom)
+        {
+
+            string cookieIdacc = Request.Cookies["Idacc"];
+            string idacc = DetailComService.GetIdAccByIdCom(idCom);
+            ViewBag.account = DetailComService.FindAccById(idacc);
+            ViewBag.com = DetailComService.FindComById(idCom);
+            ViewBag.test = DetailComService.FindTestById(cookieIdacc);
+            return View();
+        }
+
+        [Route("cusdetailinformation/{idCom}")]
+        public IActionResult Cusdetailinformation(string idCom)
+        {
+            string cookieIdacc = Request.Cookies["Idacc"];
+            string idacc = DetailComService.GetIdAccByIdCom(idCom);
+            ViewBag.account = DetailComService.FindAccById(idacc);
+            ViewBag.com = DetailComService.FindComById(idCom);
+            ViewBag.test = DetailComService.FindTest();
+            return View();
+        }
     }
 }

@@ -36,5 +36,7 @@ namespace InstituteOfFineArt.Services
 
         string FindIdAccByIdCom(string idCom);
 
+
+        List<Test> FindTest();
     }
 }

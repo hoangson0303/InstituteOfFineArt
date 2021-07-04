@@ -1,0 +1,173 @@
+﻿
+@{
+    ViewData["Title"] = "Customerdetail";
+    Layout = "~/Views/Shared/_LayoutDetailCompetition.cshtml";
+}
+
+
+<header class="masthead">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6">
+                @foreach (var acc in ViewBag.account)
+                {
+                    <!-- Mashead text and app badges-->
+                    <div class="mb-5 mb-lg-0 text-center text-lg-start">
+                        <h1 class="display-1 lh-1 mb-3" style="color:orange">@acc.Fullname</h1>
+                        <p class="lead fw-normal text-muted mb-5">If you hear a voice within you say <strong>"you cannot paint,"</strong> then by all mean paint, and that voice will be silenced !</p>
+                        <div class="d-flex flex-column flex-lg-row align-items-center">
+                            <p class="me-lg-3 mb-4 mb-lg-0"><strong style="color:orange">Hotline</strong> : @acc.PhoneNumber</p> |
+                            <p class="me-lg-3 mb-4 mb-lg-0"><strong style="color:orange"> Address</strong> : @acc.Addr</p>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="col-lg-6">
+                @foreach (var acc in ViewBag.account)
+                {
+                    <!-- Masthead device mockup feature-->
+                    <div class="masthead-device-mockup">
+                        @if (@acc.Avatar == null)
+                        {
+                            <img class="img-thumbnail" src="~/User/images/backupAvatarSchool.jpg" style="max-width: 100%; height: 100%" />
+                        }
+                        else
+                        {
+                            <img class="img-thumbnail" src="~/User/images/@acc.Avatar" style="max-width: 100%; height: 100%" />
+                        }
+                    </div>
+                }
+            </div>
+
+        </div>
+
+</header>
+<!-- Quote/testimonial aside-->
+<aside class="text-center bg-gradient-primary-to-secondary">
+    @foreach (var com in ViewBag.com)
+    {
+        <div class="container px-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-xl-8">
+                    <div class="h2 fs-1 text-white mb-4">"Date Starting : @com.DateStart | Date Ending : @com.DateEnd"</div>
+                    <img src="~/User/images/logo.png" alt="..." style="height: 8rem" />
+                </div>
+            </div>
+        </div>
+
+    }
+</aside>
+<!-- App features section-->
+<section id="features">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0">
+                <div class="container-fluid px-5">
+                    <div class="row gx-5">
+                        <div class="col-md-6 mb-5">
+                            <!-- Feature item-->
+                            <div class="text-center">
+                                <i class="bi-phone icon-feature text-gradient d-block mb-3"></i>
+                                <h3 class="font-alt">Profit</h3>
+                                <p class="text-muted mb-0">You can make money directly from your entries, by selling them after the contest is approved</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-5">
+                            <!-- Feature item-->
+                            <div class="text-center">
+                                <i class="bi-camera icon-feature text-gradient d-block mb-3"></i>
+                                <h3 class="font-alt">Simple registration form</h3>
+                                <p class="text-muted mb-0">A photo of the test and the basic information the school gives</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-5 mb-md-0">
+                            <!-- Feature item-->
+                            <div class="text-center">
+                                <i class="bi-gift icon-feature text-gradient d-block mb-3"></i>
+                                <h3 class="font-alt">Benefits</h3>
+                                <p class="text-muted mb-0">Accumulated experience , be recruited into the school and many other benefits ....</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- Feature item-->
+                            <div class="text-center">
+                                <i class="bi-patch-check icon-feature text-gradient d-block mb-3"></i>
+                                <h3 class="font-alt">Fair and transparent</h3>
+                                <p class="text-muted mb-0">Competitions are organized by prestigious universities, and entries are judged by highly qualified teachers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 order-lg-0">
+                @foreach (var com in ViewBag.com)
+                {
+                    <div class="features-device-mockup">
+                        <img class="img-thumbnail" src="~/User/images/@com.ImgOfCom" style="max-width: 150%; height: 100%" />
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Basic features section-->
+<section class="bg-light">
+    <div class="container px-5">
+        @foreach (var com in ViewBag.com)
+        {
+            <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+                <div class="col-12 col-lg-5">
+                    <h2 class="display-4 lh-1 mb-4"> <strong style="color:orange">@com.NameCom</strong></h2>
+
+                    <p class="lead fw-normal text-muted mb-5 mb-lg-0"><strong style="color:orange">"Date Starting </strong> : @com.DateStart | <strong style="color:orange">Date Ending </strong>: @com.DateEnd"</p>
+                    <p class="lead fw-normal text-muted mb-5 mb-lg-0"><strong style="color:orange">Content</strong> : @com.Desc</p>
+                </div>
+                <div class="col-sm-8 col-md-6">
+                    <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="~/User/images/trangtri.jpg" /></div>
+                </div>
+            </div>
+
+        }
+
+    </div>
+</section>
+<!-- Call to action section-->
+<section class="cta">
+    <div class="cta-content">
+        <div class="container px-5">
+            <h2 class="text-white display-1 lh-1 mb-4">
+                Contest registrants
+                <br />
+
+            </h2>
+            @foreach (var com in ViewBag.com)
+            {
+                <a class="btn btn-outline-light py-3 px-4 rounded-pill" asp-action="cusdetailinformation" asp-controller="detailcompetition" asp-route-id="@com.IdCom">Information</a>
+            }
+        </div>
+    </div>
+</section>
+<!-- App badge section-->
+
+
+
+<script type="text/javascript">
+
+    function show(input) {
+        if (input.files && input.files[0]) {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                $('#user_img').attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+
+

@@ -111,5 +111,10 @@ namespace InstituteOfFineArt.Services
         {
             return db.Competitions.Where(x => x.IdCom == idCom).Select(x => x.IdAcc).FirstOrDefault();
         }
+
+        public List<Test> FindTest()
+        {
+            return db.Tests.ToList();
+        }
     }
 }

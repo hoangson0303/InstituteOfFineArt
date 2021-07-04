@@ -58,7 +58,7 @@
                                 <h3><a asp-action="index" asp-controller="testcore">@compi.NameCom</a></h3>
                                 <h3><a asp-action="index" asp-controller="testcore">Date Start @compi.DateStart | Date End @compi.DateEnd</a></h3>
                                 <p>The automated process starts as soon <br>@compi.Desc</p>
-                                <a class="btn btn3" asp-action="index" asp-controller="testcore">Detail</a>
+                                <a class="btn btn3" asp-action="schooldetail" asp-controller="detailcompetition" asp-route-id="@compi.IdCom" >Detail</a>
                             </div>
                         </div>
                     </div>

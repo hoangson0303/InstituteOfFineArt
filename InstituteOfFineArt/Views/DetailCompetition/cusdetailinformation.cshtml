@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewData["Title"] = "cusdetailinformation";
+    Layout = "~/Views/Shared/_LayoutDetailCompetition.cshtml";
+}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="container emp-profile">
+    <div>
+        @foreach (var compi in ViewBag.com)
+        {
+            <a class="card-title" asp-controller="detailcompetition" asp-action="schooldetail" asp-route-id="@compi.IdCom">Back</a>
+        }
+    </div>
+    <form>
+
+        <h4 class="card-title">
+            Registered Contests
+
+        </h4>
+
+
+
+        <div class="tab-content profile-tab" id="myTabContent">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Id Name</th>
+                        <th>School Name</th>
+                        <th>Compition Name </th>
+                        <th>Full Name</th>
+                        <th>Content</th>
+                        <th>Describe</th>
+                        <th>Contest Photo</th>
+                        <th>Price</th>
+
+                    </tr>
+                </thead>
+                @foreach (var compi in ViewBag.com)
+                {
+                    @foreach (var tes in ViewBag.test)
+                    {
+                        @if (compi.IdCom != tes.IdCom)
+                        {
+
+                        }
+                        else
+                        {
+                            <tbody>
+                                <tr>
+                                    <td>@tes.IdTest</td>
+                                    <td>@tes.IdAcc</td>
+                                    <td>@tes.IdCom</td>
+                                    <td>@tes.NameTest</td>
+                                    <td>@tes.Content</td>
+                                    <td>@tes.Desc</td>
+                                    <td> <img src="~/User/images/@tes.ImgOfTest" width="100" alt="Alternate Text" /></td>
+                                    <td>@tes.Price $</td>
+
+
+                                </tr>
+
+
+                            </tbody>
+                        }
+
+                    }
+                }
+            </table>
+
+
+
+        </div>
+
+
+
+        @*</div>*@
+
+    </form>
+
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+

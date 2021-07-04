@@ -9,5 +9,11 @@ namespace InstituteOfFineArt.Areas.User.Services
     public interface SchoolService
     {
         List<Competition> FindAll();
+        string GetIdAccByIdCom(string idCom);
+
+        public List<Account> FindAccById(string idAcc);
+
+        public List<Competition> FindComById(string idCom);
+        public List<Test> FindTestById(string idTest);
     }
 }

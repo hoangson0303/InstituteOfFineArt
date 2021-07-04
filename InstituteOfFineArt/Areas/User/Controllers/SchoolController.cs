@@ -24,11 +24,24 @@ namespace InstituteOfFineArt.Controllers
         }
 
         [Route("school")]
+        [Route("")]
         public IActionResult School()
         {
             ViewBag.compititions = schoolService.FindAll();
             ViewBag.username = HttpContext.Session.GetString("username"); // lấy tên người đăng nhập 
             return View("school");
+        }
+
+        [Route("index/{idCom}")]
+        public IActionResult Index(string idCom)
+        {
+
+            string cookieIdacc = Request.Cookies["Idacc"];
+            string idacc = schoolService.GetIdAccByIdCom(idCom);
+            ViewBag.account = schoolService.FindAccById(idacc);
+            ViewBag.com = schoolService.FindComById(idCom);
+            ViewBag.test = schoolService.FindTestById(cookieIdacc);
+            return View();
         }
     }
 }
