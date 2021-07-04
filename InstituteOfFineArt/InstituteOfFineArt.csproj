@@ -6,9 +6,13 @@
 
   <ItemGroup>
     <Compile Remove="Areas\Admin\Models\**" />
+    <Compile Remove="wwwroot\NewFolder1\**" />
     <Content Remove="Areas\Admin\Models\**" />
+    <Content Remove="wwwroot\NewFolder1\**" />
     <EmbeddedResource Remove="Areas\Admin\Models\**" />
+    <EmbeddedResource Remove="wwwroot\NewFolder1\**" />
     <None Remove="Areas\Admin\Models\**" />
+    <None Remove="wwwroot\NewFolder1\**" />
   </ItemGroup>
 
   <ItemGroup>
