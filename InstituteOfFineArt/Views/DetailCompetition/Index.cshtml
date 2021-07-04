@@ -169,7 +169,7 @@
 
                             <!-- Name input-->
                             <div class="form-floating mb-3">
-                                <input asp-for="NameTest" name="NameTest" pattern="[A-z]{5,10}" title="NameTest must have at least 5 letters and the first must be capitalized"  required  class="form-control" id="name" type="text" placeholder="Enter your name's test..." />
+                                <input asp-for="NameTest" name="NameTest" pattern="[A-z]{3,20}" title="NameTest must have at least 3 -> 20 letters"  required  class="form-control" id="name" type="text" placeholder="Enter your name's test..." />
 
                                 <label for="name">Name's Test  </label>
                                 @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
@@ -180,7 +180,7 @@
                                 <label for="price">Price</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea asp-for="Desc" name="Desc" pattern="[a-z]{5,10}" title="Desc must be at least 5 letters"  required  class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem"></textarea>
+                                <textarea asp-for="Desc" name="Desc" required  class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem"></textarea>
                                 <label for="message">Desc</label>
                             </div>
                             <div class="form-floating mb-3">
