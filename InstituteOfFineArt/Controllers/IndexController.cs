@@ -20,6 +20,9 @@ namespace InstituteOfFineArt.Controllers
     [Route("index")]
     public class IndexController : Controller
     {
+
+        const string IdTest = "";
+
         private IndexService indexService;
         private ReviewService reviewService;
         private IConfiguration configuration;
@@ -146,58 +149,42 @@ namespace InstituteOfFineArt.Controllers
             ViewBag.postUrl = configuration["Paypal:PostUrl"];
             ViewBag.business = configuration["Paypal:Business"];
             ViewBag.returnUrl = configuration["Paypal:ReturnUrl"];
+            HttpContext.Session.SetString(IdTest, idTest);
             return View("review");
         }
 
         [Route("success")]
         public IActionResult Success(Bill bill, [FromQuery(Name = "tx")] string tx)
         {
+            string idTest = HttpContext.Session.GetString(IdTest);
             string cookieIdacc = Request.Cookies["Idacc"];
             ViewBag.acc = indexService.FindUserById(cookieIdacc);
             var result = PDTHolder.Success(tx, configuration, Request);
+
+            bill.IdBill = result.TransactionId;
             bill.Created = DateTime.Now;
             bill.IdAcc = cookieIdacc;
-            //bill.Total = ;
-            //account.Dateupdated = DateTime.Now;
-            //account.IdRole = idRole;
-            //account.Pass = BCrypt.Net.BCrypt.HashString(account.Pass);
-            //account.Stat = true;
+            bill.Total = (decimal?)result.GrossTotal;
+            indexService.CreateBill(bill);
+
+            var detailBill = new DetailBill();
+            detailBill.IdBill = result.TransactionId;
+            detailBill.IdTest = idTest;
+            detailBill.ProductName = result.ItemName;
+            detailBill.PayerName = result.PayerFirstName + " " + result.PayerLastName;
+            detailBill.PayerEmail = result.PayerEmail;
+            detailBill.PayerShippingAddr = "";
+            detailBill.Type = "Payment form";
+            detailBill.Payment = result.PaymentStatus;
+            detailBill.Total = (decimal?)result.GrossTotal;
+            detailBill.Fee = (decimal?)result.PaymentFee;
+            detailBill.Net = (decimal?)result.GrossTotal - (decimal?)result.PaymentFee;
+            detailBill.Created = DateTime.Now;
+            indexService.CreateDetailBill(detailBill);
 
 
-            //if (AccountService.CountIdById(nameRole) != 0)
-            //{
-            //    account.IdAcc = nameRole + (num + 1);
-            //    string idAcc = AccountService.CreateAccount(account).IdAcc;
-
-            //    var userRole = new UserRole();
-            //    userRole.IdAcc = idAcc;
-            //    userRole.IdRole = idRole;
-            //    userRole.Datecreated = DateTime.Now;
-            //    userRole.Dateupdated = DateTime.Now;
-
-            //    AccountService.CreateUserRole(userRole);
-            //}
-            //else
-            //{
-            //    account.IdAcc = nameRole + 1;
-            //    string idAcc = AccountService.CreateAccount(account).IdAcc;
-            //    var userRole = new UserRole();
-            //    userRole.IdAcc = idAcc;
-            //    userRole.IdRole = idRole;
-            //    userRole.Datecreated = DateTime.Now;
-            //    userRole.Dateupdated = DateTime.Now;
-            //    AccountService.CreateUserRole(userRole);
-            //}
-
-            Debug.WriteLine("Customer Info");
-            Debug.WriteLine("First Name" + result.PayerFirstName);
-            Debug.WriteLine("Last Name" + result.PayerLastName);
-            Debug.WriteLine("Email" + result.PayerEmail);
-            Debug.WriteLine("Payment" + result.PaymentFee);
-            Debug.WriteLine("Payment" + result.PaymentStatus);
-            Debug.WriteLine("item name" + result.ItemName);
-            Debug.WriteLine("groos total" + result.GrossTotal);
-            return View("success");
+            
+            return  View("success");
         }
     }
 

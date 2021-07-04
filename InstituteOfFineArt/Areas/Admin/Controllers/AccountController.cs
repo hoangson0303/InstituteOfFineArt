@@ -130,7 +130,7 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
         [Route("update/{id}")]
         public IActionResult Update(string id)
         {
-
+            
             return View("update", AccountService.FindById(id));
         }
 

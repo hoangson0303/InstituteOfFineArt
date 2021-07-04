@@ -42,5 +42,18 @@ namespace InstituteOfFineArt.Services
             return db.Roles.Where(n => n.IdRole == idRole).Select(x => x.NameRole).FirstOrDefault();
         }
 
+        public Bill CreateBill(Bill bill)
+        {
+            db.Bills.Add(bill);
+            db.SaveChanges();
+            return bill;
+        }
+
+        public DetailBill CreateDetailBill(DetailBill detailBill)
+        {
+            db.DetailBills.Add(detailBill);
+            db.SaveChanges();
+            return detailBill;
+        }
     }
 }

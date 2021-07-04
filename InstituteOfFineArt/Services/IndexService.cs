@@ -18,5 +18,8 @@ namespace InstituteOfFineArt.Services
         string FindIdRole(string idAcc);
 
         string FindNameRole(string idRole);
+
+        Bill CreateBill(Bill bill);
+        DetailBill CreateDetailBill(DetailBill detailBill);
     }
 }
