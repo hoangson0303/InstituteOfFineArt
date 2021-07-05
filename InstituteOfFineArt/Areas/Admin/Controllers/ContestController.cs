@@ -87,11 +87,11 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
         }
 
         [Route("delete/{idTest}")]
-        public IActionResult Delete( Test test , TestCore testcore,string idTest, string desc )
+        public IActionResult Delete(string idtest, string desc)
         {
-            var idAcc = contestService.FindIdAccByIdTest(idTest);
+            var idAcc = contestService.FindIdAccByIdTest(idtest);
             var REmail = contestService.FindEmailByIdAcc(idAcc);
-            var curentTest = contestService.FindById(idTest);
+            var curentTest = contestService.FindById(idtest);
             try
             {
                 if (ModelState.IsValid)
@@ -100,7 +100,7 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
                     var recEmail = new MailAddress(REmail, REmail);
                     var password = "test03032001";
                     var sub = "EMAIL REJECTION";
-                    var body = "Competition : " + curentTest.NameTest + ". " + "Created from date : " + curentTest.Datecreated + ". " + "Was rejected . Reason is : " + desc + ". " + "Contact us here --> " + senderEmail.Address;
+                    var body = "Test : " + curentTest.NameTest + ". " + "Created from date : " + curentTest.Datecreated + ". " + "Was rejected . Reason is : " + desc + ". " + "Contact us here --> " + senderEmail.Address;
                     var smtp = new SmtpClient
                     {
                         Host = "smtp.gmail.com",
@@ -121,19 +121,17 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
                         smtp.Send(mess);
                         ViewBag.msg = "Email sending success";
                     }
-                    //IDcontest = testcore.IdTest;
-                    //contestService.DeleteContest(IDcontest);
 
-                    
-                    contestService.Delete(idTest);
-                    return RedirectToAction("index");
+                    contestService.Delete(idtest);
+                    return RedirectToAction("contest");
                 }
             }
             catch (Exception)
             {
                 ViewBag.Error = "Email sending failed";
             }
-            return RedirectToAction("index");
+            return RedirectToAction("contest");
+
         }
-    }
+        }
     }

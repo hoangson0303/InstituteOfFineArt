@@ -23,6 +23,6 @@ namespace InstituteOfFineArt.Areas.Admin.Services
         public List<Competition> FindCom();
 
         public void Delete(string idtest);
-        public void DeleteContest(string idcontest);
+        
     }
 }

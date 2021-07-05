@@ -54,10 +54,6 @@ namespace InstituteOfFineArt.Areas.Admin.Services
             db.Tests.Remove(db.Tests.Find(idtest));
             db.SaveChanges();
         }
-        public void DeleteContest(string idcontest)
-        {
-            db.TestCores.Remove(db.TestCores.Find(idcontest));
-            db.SaveChanges();
-        }
+     
     }
 }
