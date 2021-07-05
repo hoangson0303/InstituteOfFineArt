@@ -43,5 +43,21 @@ namespace InstituteOfFineArt.Areas.Admin.Services
             db.SaveChanges();
             return test;
         }
+
+        public List<Competition> FindCom()
+        {
+            return db.Competitions.Where(p => p.Stat == true && p.DateEnd >= DateTime.Now).ToList();
+        }
+
+        public void Delete(string idtest)
+        {
+            db.Tests.Remove(db.Tests.Find(idtest));
+            db.SaveChanges();
+        }
+        public void DeleteContest(string idcontest)
+        {
+            db.TestCores.Remove(db.TestCores.Find(idcontest));
+            db.SaveChanges();
+        }
     }
 }

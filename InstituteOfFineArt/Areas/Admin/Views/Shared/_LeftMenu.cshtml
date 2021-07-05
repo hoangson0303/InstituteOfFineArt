@@ -59,6 +59,20 @@
         </div>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitie"
+           aria-expanded="true" aria-controls="collapseUtilitie">
+            <i class="fas fa-fw fa-book"></i>
+            <span>The contest is on</span>
+        </a>
+        <div id="collapseUtilitie" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" asp-controller="contest" asp-action="contest">Contest</a>
+                <!--<a class="collapse-item"--> @*asp-controller="event" asp-action="approval"*@<!-->Event takes place</a>-->
+            </div>
+        </div>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 
