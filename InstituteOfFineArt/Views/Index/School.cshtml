@@ -51,17 +51,43 @@
             <div class="services-active">
                 @foreach (var compi in ViewBag.compititions)
                 {
-                    <div class="single-services section-over1 text-center">
-                        <div class="services-img">
-                            <img src="~/User/images/@compi.ImgOfCom" width="350" height="350" alt="Alternate Text" />
-                            <div class="services-caption">
-                                <h3><a asp-action="index" asp-controller="testcore">@compi.NameCom</a></h3>
-                                <h3><a asp-action="index" asp-controller="testcore">Date Start @compi.DateStart | Date End @compi.DateEnd</a></h3>
-                                <p>The automated process starts as soon <br>@compi.Desc</p>
-                                <a class="btn btn3" asp-action="schooldetail" asp-controller="detailcompetition" asp-route-id="@compi.IdCom">Detail</a>
+                    <div class="">
+
+                        <!--Card Regular-->
+                        <div class="card card-cascade narrower">
+
+                            <!--Card image-->
+                            <div class="view view-cascade overlay">
+                                <img src="~/User/images/@compi.ImgOfCom" class="card-img-top" alt="">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
                             </div>
+                            <!--/.Card image-->
+                            <!--Card content-->
+                            <div class="card-body card-body-cascade text-center">
+                                <!--Title-->
+                                <h4 class="card-title"><strong>@compi.NameCom</strong></h4>
+                                @if (@compi.Stat == true)
+                                {
+                                    <h5 style="color:aquamarine">Active</h5>
+                                }
+
+                                <p class="card-text">
+                                    Date Start @compi.DateStart | Date End @compi.DateEnd
+                                </p>
+
+                                <a class="btn btn3" asp-action="schooldetail" asp-controller="detailcompetition" asp-route-id="@compi.IdCom">Detail</a>
+
+
+                            </div>
+                            <!--/.Card content-->
+
                         </div>
+                        <!--/.Card Regular-->
+
                     </div>
+
 
                 }
             </div>
@@ -70,54 +96,11 @@
     </section>
     <!--Services Area End -->
     <!--! About Area Start 01 -->
-    @foreach (var compi in ViewBag.compititions)
-    {
-
-        <section class="about-area fix">
-            <!--Right Contents  -->
-            <div>
-                <img src="~/User/images/@compi.ImgOfCom" width="500" alt="Alternate Text" />
-            </div>
-            <!-- left Contents -->
-
-            <div class="about-details">
-                <div class="right-caption">
-                    <!-- Section Tittle -->
-                    <div class="section-tittle mb-50">
-                        <h2>@compi.NameCom@*<br>Philosophy*@</h2>
-                    </div>
-                    <div class="about-more">
-                        <p>
-                            @compi.Desc
-                        </p>
-                        @*<p class="pera-bottom">
-                                Interdum nulla, ut commodo diam libero vitae erat.
-                                Aenean faucibus nibh et justo cursus id rutrum lorem
-                                imperdiet. Nunc ut sem vitae risus tristique posuere.
-                            </p>*@
-                        <div class="footer-tittles">
-                            <p>Date Start @compi.DateStart</p> <br />
-                            <p>Date End @compi.DateEnd</p>
-                            @*<h2>Capcilena Hanry</h2>*@
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @*<div class="col-xl-4 col-lg-4 col-md-6">
-                    <a class="btn w-btn wantToWork-btn mr-20" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">
-                        <h2>Test</h2>
-                    </a>
-
-                </div>*@
-
-
-        </section>
-
-    }
-
     <!-- About Area End-->
     @foreach (var tes in ViewBag.test)
     {
+
+        <!-- About Area End-->
         <!--! About Area Start 02-->
         <div class="about-area2">
             <!-- left Contents -->
@@ -125,7 +108,7 @@
                 <div class="right-caption2">
                     <!-- Section Tittle -->
                     <div class="section-tittle mb-50">
-                        <h2>Creative solutions<br>from experts</h2>
+                        <h2>Name's test : @tes.NameTest</h2>
                     </div>
                     <!-- collapse-wrapper -->
                     <div class="collapse-wrapper">
@@ -134,33 +117,10 @@
                             <div class="card">
                                 <div class="card-header" id="headingTwo">
                                     <h2 class="mb-0">
-                                        <a href="#" class="btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Starts the automated process.</a>
+                                        <a class=" btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Content : @tes.Content</a>
                                     </h2>
                                 </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                    4
 
-                                    <div class="card-body">
-                                        <div class="tab-content profile-tab" id="myTabContent">
-                                            <table class="table">
-                                                <thead>
-                                                <th>Name Id</th>
-                                                <th>Name School</th>
-                                                <th>Full Name</th>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>@tes.IdTest</td>
-                                                        <td>@tes.IdAcc</td>
-                                                        <td>@tes.NameTest</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                        </div>
-                                    </div>
-
-                                </div>
                             </div>
 
 
@@ -168,39 +128,42 @@
                             <div class="card">
                                 <div class="card-header" id="headingOne">
                                     <h2 class="mb-0">
-                                        <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Contents of the Art Exhibition of Painting</a>
+                                        <a class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Description : @tes.Desc</a>
                                     </h2>
-                                </div>
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        @tes.Content
-                                    </div>
                                 </div>
                             </div>
                             <!-- single-three -->
                             <div class="card">
                                 <div class="card-header" id="headingThree">
                                     <h2 class="mb-0">
-                                        <a href="#" class="btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Description of the contestant's artwork</a>
+                                        <a class="btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Name's Competition : @tes.IdCom</a>
                                     </h2>
-                                </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        @tes.Desc
-                                    </div>
                                 </div>
                             </div>
                             <!-- single-four -->
                             <div class="card">
                                 <div class="card-header" id="headingfouree">
                                     <h2 class="mb-0">
-                                        <a href="#" class="btn-link collapsed" data-toggle="collapse" data-target="#collapseFoure" aria-expanded="false" aria-controls="collapseFoure">The painting is priced at...</a>
+                                        <a class="btn-link collapsed" data-toggle="collapse" data-target="#collapseFoure" aria-expanded="false" aria-controls="collapseFoure">Price : @tes.Price</a>
                                     </h2>
                                 </div>
-                                <div id="collapseFoure" class="collapse" aria-labelledby="headingfouree" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        @tes.Price
-                                    </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingfouree">
+                                    @if (tes.StatusQuo == true)
+                                    {
+                                        <h2 class="mb-0" style="color:red">
+                                            <a class="btn-link collapsed" data-toggle="collapse" data-target="#collapseFoure" aria-expanded="false" aria-controls="collapseFoure">SOLD</a>
+
+                                        </h2>
+                                    }
+                                    else
+                                    {
+                                        <h2 class="mb-0" style="color: aquamarine">
+                                            <a class="btn-link collapsed" data-toggle="collapse" data-target="#collapseFoure" aria-expanded="false" aria-controls="collapseFoure">FOR SALE</a>
+
+                                        </h2>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -210,9 +173,18 @@
             <!--Right Contents  -->
             @*}*@
 
-            <div>
-                @*<img src="~/User/images/08f8f808-f01e-4175-9cac-020d22852785.jpeg" style="" width="100%" height="100%" alt="" />*@
-                <img src="~/User/images/@tes.ImgOfTest" width="100%" height="100%" alt="Alternate Text" />
+            <div class="single-services">
+                <div class="services-img">
+                    <img class="img-thumbnail" src="~/User/images/@tes.ImgOfTest" width="90%" height="100%" alt="Alternate Text" />
+                    <div class="services-caption text-center">
+                        <br />
+                        @if (tes.StatusQuo == false)
+                        {
+                            <a asp-controller="index" asp-action="review" asp-route-id="@tes.IdTest" class="btn btn3">BUY NOW</a>
+                        }
+
+                    </div>
+                </div>
             </div>
 
         </div>

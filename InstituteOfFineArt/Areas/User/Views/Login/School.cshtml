@@ -51,17 +51,44 @@
             <div class="services-active">
                 @foreach (var compi in ViewBag.compititions)
                 {
-                    <div class="single-services section-over1 text-center">
-                        <div class="services-img">
-                            <img src="~/User/images/@compi.ImgOfCom" width="350" height="350" alt="Alternate Text" />
-                            <div class="services-caption">
-                                <h3><a asp-action="index" asp-controller="testcore">@compi.NameCom</a></h3>
-                                <h3><a asp-action="index" asp-controller="testcore">Date Start @compi.DateStart | Date End @compi.DateEnd</a></h3>
-                                <p>The automated process starts as soon <br>@compi.Desc</p>
-                                <a class="btn btn3" asp-action="schooldetail" asp-controller="detailcompetition" asp-route-id="@compi.IdCom" >Detail</a>
+
+                    <div class="">
+
+                        <!--Card Regular-->
+                        <div class="card card-cascade narrower">
+
+                            <!--Card image-->
+                            <div class="view view-cascade overlay">
+                                <img src="~/User/images/@compi.ImgOfCom" class="card-img-top" alt="">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
                             </div>
+                            <!--/.Card image-->
+                            <!--Card content-->
+                            <div class="card-body card-body-cascade text-center">
+                                <!--Title-->
+                                <h4 class="card-title"><strong>@compi.NameCom</strong></h4>
+                                @if (@compi.Stat == true)
+                                {
+                                    <h5 style="color:aquamarine">Active</h5>
+                                }
+
+                                <p class="card-text">
+                                    Date Start @compi.DateStart | Date End @compi.DateEnd
+                                </p>
+
+                                <a class="btn btn3" asp-action="schooldetail" asp-controller="detailcompetition" asp-route-id="@compi.IdCom">Detail</a>
+
+
+                            </div>
+                            <!--/.Card content-->
+
                         </div>
+                        <!--/.Card Regular-->
+
                     </div>
+
 
                 }
             </div>
@@ -116,8 +143,26 @@
                             <div class="card">
                                 <div class="card-header" id="headingfouree">
                                     <h2 class="mb-0">
-                                        <a class="btn-link collapsed" data-toggle="collapse" data-target="#collapseFoure" aria-expanded="false" aria-controls="collapseFoure">Price : @tes.Price đ</a>
+                                        <a class="btn-link collapsed" data-toggle="collapse" data-target="#collapseFoure" aria-expanded="false" aria-controls="collapseFoure">Price : @tes.Price</a>
                                     </h2>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingfouree">
+                                    @if (tes.StatusQuo == true)
+                                    {
+                                        <h2 class="mb-0" style="color:red">
+                                            <a class="btn-link collapsed" data-toggle="collapse" data-target="#collapseFoure" aria-expanded="false" aria-controls="collapseFoure">SOLD</a>
+
+                                        </h2>
+                                    }
+                                    else
+                                    {
+                                        <h2 class="mb-0" style="color: aquamarine">
+                                            <a class="btn-link collapsed" data-toggle="collapse" data-target="#collapseFoure" aria-expanded="false" aria-controls="collapseFoure">FOR SALE</a>
+
+                                        </h2>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -132,7 +177,10 @@
                     <img class="img-thumbnail" src="~/User/images/@tes.ImgOfTest" width="90%" height="100%" alt="Alternate Text" />
                     <div class="services-caption text-center">
                         <br />
-                        <a class="btn btn3">BUY NOW</a>
+                        @if (tes.StatusQuo == false)
+                        {
+                            <a asp-controller="index" asp-action="review" asp-route-id="@tes.IdTest" class="btn btn3">BUY NOW</a>
+                        }
 
                     </div>
                 </div>

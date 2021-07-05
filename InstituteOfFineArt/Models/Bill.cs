@@ -14,6 +14,7 @@ namespace InstituteOfFineArt.Models
 
         public string IdBill { get; set; }
         public string IdAcc { get; set; }
+        public string IdAccSeller { get; set; }
         public DateTime? Created { get; set; }
         public decimal? Total { get; set; }
 

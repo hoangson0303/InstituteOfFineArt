@@ -181,6 +181,8 @@ namespace InstituteOfFineArt.Controllers
 
             
             string idTest = HttpContext.Session.GetString(IdTest);
+            string nameTest = reviewService.FindNameTestByIdTest(idTest);
+            string idAccSeller = reviewService.FindIdAccByIdTest(idTest);
             var currentTest = indexService.FindById(idTest);
             string cookieIdacc = Request.Cookies["Idacc"];
             ViewBag.acc = indexService.FindUserById(cookieIdacc);
@@ -189,16 +191,19 @@ namespace InstituteOfFineArt.Controllers
             bill.IdBill = result.TransactionId;
             bill.Created = DateTime.Now;
             bill.IdAcc = cookieIdacc;
+            bill.IdAccSeller = idAccSeller;
             bill.Total = (decimal?)result.GrossTotal;
             indexService.CreateBill(bill);
 
             var detailBill = new DetailBill();
             detailBill.IdBill = result.TransactionId;
             detailBill.IdTest = idTest;
-            detailBill.ProductName = result.ItemName;
+            detailBill.IdAccSeller = idAccSeller;
+            detailBill.IdAccPayer = cookieIdacc;
+            detailBill.ProductName = nameTest;
+            detailBill.PayerPhoneNumber = indexService.FindPhoneByIdAcc(cookieIdacc);
             ViewBag.nameTo = detailBill.PayerName = result.PayerFirstName + " " + result.PayerLastName;
             ViewBag.email = detailBill.PayerEmail = result.PayerEmail;
-            ViewBag.shippingTo = detailBill.PayerShippingAddr = "";
             detailBill.Type = "Payment form";
             detailBill.Payment = result.PaymentStatus;
             detailBill.Total = (decimal?)result.GrossTotal;

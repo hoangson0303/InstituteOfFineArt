@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_LayoutSchool.cshtml";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
 }
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <a class="profile-edit-btn" name="btnAddMore" asp-controller="profileschool" asp-action="update" asp-route-id="@user.IdAcc">Edit Profile</a>
+                    <a class="profile-edit-btn" name="btnAddMore" asp-controller="profileCustomer" asp-action="update" asp-route-id="@user.IdAcc">Edit Profile</a>
                 </div>
             </div>
             <div class="row">
@@ -46,6 +46,7 @@
                     <div class="profile-work">
                         <p>Setting</p>
                         <a asp-controller="changepass" asp-action="index">Change Password</a><br />
+                        <a asp-controller="invoiceCustomer" asp-action="index">Invoice</a><br />
                         <a href="">Bootply Profile</a>
                         <p>SKILLS</p>
                         <a href="">Web Designer</a><br />
@@ -110,7 +111,22 @@
                                     <p>@user.Dob</p>
                                 </div>
                             </div>
-                           
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Gender</label>
+                                </div>
+                                <div class="col-md-6">
+                                    @if (@user.Gender == true)
+                                    {
+                                        <p>Male</p>
+                                    }
+                                    else
+                                    {
+                                        <p>Female</p>
+                                    }
+                                </div>
+                            </div>
+
                         </div>
 
 
@@ -171,7 +187,4 @@
         </form>
     </div>
 }
-
-
-
 

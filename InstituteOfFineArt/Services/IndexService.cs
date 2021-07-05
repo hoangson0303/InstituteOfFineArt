@@ -35,5 +35,7 @@ namespace InstituteOfFineArt.Services
         List<Account> InfoFormTo(string idAcc);
 
         List<DetailBill> InfoDetailBill(string idTest);
+
+        string FindPhoneByIdAcc(string idAcc);
     }
 }

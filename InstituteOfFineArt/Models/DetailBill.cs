@@ -9,10 +9,12 @@ namespace InstituteOfFineArt.Models
     {
         public string IdBill { get; set; }
         public string IdTest { get; set; }
+        public string IdAccPayer { get; set; }
+        public string IdAccSeller { get; set; }
         public string ProductName { get; set; }
         public string PayerName { get; set; }
         public string PayerEmail { get; set; }
-        public string PayerShippingAddr { get; set; }
+        public string PayerPhoneNumber { get; set; }
         public string Type { get; set; }
         public string Payment { get; set; }
         public decimal? Total { get; set; }

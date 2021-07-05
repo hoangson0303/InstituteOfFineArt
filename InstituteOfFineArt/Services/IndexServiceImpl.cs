@@ -92,5 +92,10 @@ namespace InstituteOfFineArt.Services
         {
             return db.DetailBills.Where(x => x.IdTest == idTest).ToList();
         }
+
+        public string FindPhoneByIdAcc(string idAcc)
+        {
+            return db.Accounts.Where(x => x.IdAcc == idAcc).Select(x => x.PhoneNumber).FirstOrDefault();
+        }
     }
 }

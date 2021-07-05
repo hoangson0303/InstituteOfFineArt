@@ -1,0 +1,124 @@
+﻿
+
+
+<header>
+    <!-- Header Start -->
+    <div class="header-area header_area">
+        <div class="main-header">
+            <div class="header-bottom  header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+
+                        <div class="col-xl-2 col-lg-2 col-md-1">
+                            <div class="logo">
+                                <a href="index.html"><img src="~/User/images/logo.png" alt="..." style="height: 10rem"></a>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-10 col-lg-10 col-md-8">
+                            <div class="header-left  d-flex f-right align-items-center">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a asp-controller="index" asp-action="index">Home</a></li>
+                                            <li>
+                                                <a href="#">Pages</a>
+                                                <ul class="submenu">
+                                                    <li><a asp-controller="about" asp-action="about">About</a></li>
+                                                    <li><a href="elements.html">Element</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="services.html">Services</a></li>
+                                            <li>
+                                                <a asp-controller="blog" asp-action="blog">Blog</a>
+                                                <ul class="submenu">
+                                                    <li><a href="blog.html">Blog</a></li>
+                                                    <li><a href="blog_details.html">Blog Details</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li><a asp-controller="contact" asp-action="contact">Contact</a></li>
+
+
+                                        </ul>
+
+                                    </nav>
+                                </div>
+                                <!-- left Btn -->
+                                <div class="header-right-btn f-right d-none d-lg-block  ml-30">
+                                    <a href="#" class="header-btn">Make an Appointment</a>
+                                </div>
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+
+                                            <li>
+                                                <a></a>
+                                                <ul class="submenu">
+                                                    <li></li>
+                                                    <li></li>
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                    </nav>
+                                </div>
+                                @if (ViewBag.acc != null)
+                                {
+                                    @foreach (var useracc in ViewBag.acc)
+                                    {
+                                        <div class="main-menu f-right d-none d-lg-block">
+                                            <nav>
+                                                <ul id="navigation">
+
+                                                    <li>
+                                                        <a><img src="~/User/images/@useracc.Avatar" class="rounded-circle" width="40px" />@useracc.Username</a>
+                                                        <ul class="submenu">
+                                                            <li><a asp-controller="profilecustomer" asp-action="index">Profile Customer</a></li>
+                                                            @*<li><a asp-controller="create" asp-action="index">Create Event</a></li>*@
+                                                            @*<li><a asp-controller="profileschool" asp-action="index">Profile School</a></li>*@
+                                                            <li><a href="blog_details.html">Activity Log</a></li>
+                                                            <li><a href="blog_details.html"></a></li>
+                                                            <li><a asp-controller="Index" asp-action="logout">Logout</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    }
+                                }
+                                @if (ViewBag.loggedin != null)
+                                {
+                                    <div class="main-menu f-right d-none d-lg-block ">
+
+                                        <button type="button" class="btn btn-warning btn-lg btn-rounded text-lg">
+                                            <a asp-controller="login" asp-action="login">
+                                                <i class="fab fa-google-wallet fa-2x pr-2"
+                                                   aria-hidden="true">Login</i>
+                                            </a>
+                                        </button>
+                                    </div>
+                                }
+
+
+
+
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+</header>
+
+
+
+

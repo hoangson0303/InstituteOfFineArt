@@ -1,0 +1,83 @@
+﻿@model InstituteOfFineArt.Models.Account
+@{
+    ViewData["Title"] = "ProfileCustomerUpdate";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+
+<form asp-controller="profilecustomer" asp-action="update" method="post" enctype="multipart/form-data">
+    <div class="wrapper bg-white mt-sm-5">
+        <h4 class="pb-4 border-bottom">Account settings</h4>
+        <div class="d-flex align-items-start py-3 border-bottom">
+            <img id="school_img" src="~/User/images/imagesSchool/@Model.Avatar" class="img" alt="">
+            <div class="pl-sm-4 pl-2" id="img-section">
+                <b>Profile Photo</b>
+                <p>Accepted file type .png. Less than 1MB</p> <input type="file" name="file" value="Upload" class="btn button border" onchange="show(this)">
+            </div>
+        </div>
+        <div class="py-2">
+            <div class="row py-2">
+                <div class="col-md-6">
+                    <label for="firstname">Fullname</label> <input type="text" class="bg-light form-control" asp-for="Fullname" name="Fullname" required placeholder="Your Name">
+
+                </div>
+                @*<span asp-validation-for="Fullname"></span>*@
+                <div class="col-md-6 pt-md-0 pt-3">
+                    <label for="lastname">Date Of Birth</label> <input asp-for="Dob" required type="datetime" class="bg-light form-control">
+
+                </div>
+                @*<span asp-validation-for="Dob"></span>*@
+            </div>
+            <div class="row py-2">
+                <div class="col-md-6">
+                    <label for="email">Email Address</label> <input type="text" class="bg-light form-control" asp-for="Email" name="Email" pattern="^[a-zA-Z0-9._+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" title="Email must be string ^[a-zA-Z0-9._+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" required>
+
+                </div>
+                @*<span asp-validation-for="Email"></span>*@
+                <div class="col-md-6 pt-md-0 pt-3">
+                    <label for="phone">Phone Number</label> <input type="tel" class="bg-light form-control" asp-for="PhoneNumber" placeholder="+1 213-548-6015" name="PhoneNumber" pattern="[0-9]{10}" title="Please Enter the correct phone number" required>
+
+                </div>
+                @*<span asp-validation-for="PhoneNumber"></span>*@
+            </div>
+            <div class="row py-2">
+                <div class="col-md-6 pt-md-0 pt-3">
+                    <label for="phone">Address</label> <input type="text" class="bg-light form-control" asp-for="Addr" name="Addr" placeholder="Addr" required>
+
+                </div>
+                <div class="col-md-6 pt-md-0 pt-3" id="lang">
+                    <label for="language">Gender</label>
+                    <div class="arrow">
+                        <select name="language" id="selectGender" name="selectGender" class="bg-light" asp-for="Gender">
+                            <option value="True" selected>Male</option>
+                            <option value="False">Female</option>
+                        </select>
+                    </div>
+                </div>
+                @*<span asp-validation-for="Addr"></span>*@
+            </div>
+            <input type="hidden" asp-for="IdAcc" />
+            <div class="py-3 pb-4 border-bottom"> <input type="submit" value="Save Changes" class="btn btn-primary mr-3"> <button class="btn border button">Cancel</button> </div>
+            <div class="d-sm-flex align-items-center pt-3" id="deactivate">
+                <div>
+                    <b>Deactivate your account</b>
+                    <p>Details about your company account and password</p>
+                </div>
+                <div class="ml-auto"> <button class="btn danger">Deactivate</button> </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+
+    function show(input) {
+        if (input.files && input.files[0]) {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                $('#school_img').attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+

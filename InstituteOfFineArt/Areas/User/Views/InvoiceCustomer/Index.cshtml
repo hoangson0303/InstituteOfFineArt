@@ -1,8 +1,9 @@
 ﻿
 @{
-    ViewData["Title"] = "Success";
+    ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LayoutSuccess.cshtml";
 }
+
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
 @foreach (var detail in ViewBag.detailBill)
 {
@@ -15,26 +16,18 @@
             </div>
             <div class="card-body">
                 <div class="row mb-4">
-                    @foreach (var info in ViewBag.infoFromto)
+                    @foreach (var from in ViewBag.from)
                     {
                         <div class="col-sm-6">
                             <h6 class="mb-3">From:</h6>
                             <div>
-                                <strong>TestStore</strong>
+                                <strong>@from.Fullname</strong>
                             </div>
-                            <div>Address : @info.Addr</div>
-                            <div>Email: @info.Email</div>
-                            <div>Phone: @info.PhoneNumber</div>
+                            <div>Email: @from.Email</div>
+                            <div>Phone: @from.PhoneNumber</div>
                         </div>
                     }
-                    <div class="col-sm-6">
-                        <h6 class="mb-3">To:</h6>
-                        <div>
-                            <strong>@ViewBag.nameTo</strong>
-                        </div>
-                        <div>Email: @ViewBag.email</div>
-                        <div>Phone: @ViewBag.phone</div>
-                    </div>
+
                 </div>
                 <div class="table-responsive-sm">
                     <table class="table table-striped">
@@ -67,11 +60,9 @@
                             <tbody>
                                 <tr>
                                     <td class="left">
-                                        <strong>Total</strong>
+                                        <strong>Subtotal</strong>
                                     </td>
-                                    <td class="right">
-                                        <strong>$@(detail.Total + 10)</strong>
-                                    </td>
+                                    <td class="right">$@detail.Total</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -81,16 +72,3 @@
         </div>
     </div>
 }
-
-
-
-
-
-
-
-
-
-
-
-
-w
