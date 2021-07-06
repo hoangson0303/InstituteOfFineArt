@@ -81,5 +81,9 @@ namespace InstituteOfFineArt.Areas.Admin.Services
             db.SaveChanges();
             return account;
         }
+        public List<Account> Search(string keyword)
+        {
+            return db.Accounts.Where(a => a.IdAcc.Contains(keyword)).ToList();
+        }
     }
 }

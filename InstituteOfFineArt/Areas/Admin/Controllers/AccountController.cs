@@ -153,5 +153,14 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
             AccountService.Update(currentAccount);
             return RedirectToAction("index");
         }
+
+
+        [Route("search")]
+
+        public IActionResult Search([FromQuery(Name = "keyword")] string keyword)
+        {
+            ViewBag.accounts = AccountService.Search(keyword);
+            return View("Index");
+        }
     }
 }

@@ -24,5 +24,7 @@ namespace InstituteOfFineArt.Areas.Admin.Services
         Account Delete(Account account);
 
         string FindByEmail(string email);
+
+        List<Account> Search(string keyword);
     }
 }
