@@ -106,7 +106,24 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
 
 
         }
+        [Route("search")]
 
+        public IActionResult Search([FromQuery(Name = "keyword")] string keyword)
+        {
+            ViewBag.comhappening = EventService.Search(keyword);
+         
+            return View("Index");
+        }
+
+
+        [Route("searchs")]
+
+        public IActionResult Searchs([FromQuery(Name = "keyword")] string keyword)
+        {
+            ViewBag.competition = ApprovalService.Searchs(keyword);
+           // ViewBag.comhappening = ApprovalService.Searchs(keyword);
+            return View("approval");
+        }
 
     }
 }

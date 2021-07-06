@@ -52,5 +52,10 @@ namespace InstituteOfFineArt.Areas.Admin.Services
             db.SaveChanges();
             return competition;
         }
+
+        public List<Competition> Searchs(string keyword)
+        {
+            return db.Competitions.Where(a => a.IdCom.Contains(keyword) && a.Stat == false).ToList();
+        }
     }
 }

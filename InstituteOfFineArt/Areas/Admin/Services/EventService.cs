@@ -13,5 +13,7 @@ namespace InstituteOfFineArt.Areas.Admin.Services
 
         Competition FindById(string idCom);
 
+        List<Competition> Search(string keyword);
+
     }
 }

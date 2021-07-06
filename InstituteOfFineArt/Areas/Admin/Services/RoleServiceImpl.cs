@@ -64,5 +64,15 @@ namespace InstituteOfFineArt.Areas.Admin.Services
             db.SaveChanges();
             return role;
         }
+
+        public List<Role> Search(string keyword)
+        {
+            return db.Roles.Where(a => a.IdRole.Contains(keyword)).ToList();
+        }
+
+        public List<Account> Searchs(string keyword)
+        {
+            return db.Accounts.Where(a => a.IdRole.Contains(keyword)).ToList();
+        }
     }
 }

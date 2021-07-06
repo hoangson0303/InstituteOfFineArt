@@ -17,5 +17,8 @@ namespace InstituteOfFineArt.Areas.Admin.Services
 
         int CountIdById(string id);
         Role Create(Role role);
+
+        List<Role> Search(string keyword);
+        List<Account> Searchs(string keyword);
     }
 }

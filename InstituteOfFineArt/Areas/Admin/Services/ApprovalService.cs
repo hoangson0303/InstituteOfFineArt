@@ -21,5 +21,7 @@ namespace InstituteOfFineArt.Areas.Admin.Services
 
         public string FindEmailByIdAcc(string idAcc);
 
+        List<Competition> Searchs(string keyword);
+
     }
 }

@@ -82,5 +82,14 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
 
             return View("update", Roleservice.FindById(id));
         }
+
+
+        [Route("search")]
+        public IActionResult Search([FromQuery(Name = "keyword")] string keyword)
+        {
+            ViewBag.roles = Roleservice.Search(keyword);
+            ViewBag.userRoles = Roleservice.Searchs(keyword);
+            return View("Index");
+        }
     }
 }
