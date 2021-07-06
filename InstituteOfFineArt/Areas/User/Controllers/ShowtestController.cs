@@ -34,5 +34,13 @@ namespace InstituteOfFineArt.Areas.User.Controllers
             ViewBag.test = showtestService.FindAll();
             return View();
         }
+
+        [Route("search")]
+
+        public IActionResult Search([FromQuery(Name = "keyword")] string keyword)
+        {
+            ViewBag.test = showtestService.Search(keyword);
+            return View("index");
+        }
     }
 }

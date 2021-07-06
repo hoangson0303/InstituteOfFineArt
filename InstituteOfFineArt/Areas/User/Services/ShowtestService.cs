@@ -10,5 +10,7 @@ namespace InstituteOfFineArt.Areas.User.Services
     {
         List<Test> FindAll();
         public List<Account> FindUserById(string idAcc);
+
+        List<Test> Search(string keyword);
     }
 }

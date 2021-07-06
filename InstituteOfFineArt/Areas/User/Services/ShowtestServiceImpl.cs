@@ -23,5 +23,10 @@ namespace InstituteOfFineArt.Areas.User.Services
         {
             return db.Accounts.Where(x => x.IdAcc == idAcc).ToList();
         }
+
+        public List<Test> Search(string keyword)
+        {
+            return db.Tests.Where(a => a.IdTest.Contains(keyword)).ToList();
+        }
     }
 }
