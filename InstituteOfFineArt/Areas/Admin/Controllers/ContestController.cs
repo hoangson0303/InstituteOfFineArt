@@ -133,5 +133,17 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
             return RedirectToAction("contest");
 
         }
+
+
+        [Route("search")]
+
+        public IActionResult Search([FromQuery(Name = "keyword")] string keyword)
+        {
+            ViewBag.test = contestService.Search(keyword);
+            return View("contest");
         }
+
+
+
+    }
     }

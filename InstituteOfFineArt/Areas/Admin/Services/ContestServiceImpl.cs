@@ -54,6 +54,13 @@ namespace InstituteOfFineArt.Areas.Admin.Services
             db.Tests.Remove(db.Tests.Find(idtest));
             db.SaveChanges();
         }
-     
+
+
+        public List<Test> Search(string keyword)
+        {
+            return db.Tests.Where(a => a.IdTest.Contains(keyword) && a.Stat == true).ToList();
+        }
+
+
     }
 }
