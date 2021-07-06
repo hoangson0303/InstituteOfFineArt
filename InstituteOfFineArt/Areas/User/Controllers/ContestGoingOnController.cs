@@ -78,5 +78,20 @@ namespace InstituteOfFineArt.Areas.User.Controllers
             }
             return RedirectToAction("index");
         }
+
+        [Route("search")]
+
+        public IActionResult Search([FromQuery(Name = "keyword")] string keyword)
+        {
+            ViewBag.testTrue = contestGoingOnService.Search(keyword);
+
+            string cookieIdacc = Request.Cookies["Idacc"];
+            string idaccTest = contestGoingOnService.GetIdAcc();
+            ViewBag.score = contestGoingOnService.GetScore(cookieIdacc);
+            ViewBag.fullname = contestGoingOnService.GetFullnameByIdAcc(idaccTest);
+
+            ViewBag.acc = contestGoingOnService.FindUserById(cookieIdacc);
+            return View("index");
+        }
     }
 }

@@ -69,5 +69,10 @@ namespace InstituteOfFineArt.Areas.User.Services
         {
             return db.Competitions.Where(x => x.IdCom == idCom).Select(x => x.IdAcc).FirstOrDefault();
         }
+
+        public List<Test> Search(string keyword)
+        {
+            return db.Tests.Where(a => a.IdTest.Contains(keyword) && a.Stat == true).ToList();
+        }
     }
 }

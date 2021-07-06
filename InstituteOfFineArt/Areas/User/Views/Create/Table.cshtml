@@ -39,6 +39,18 @@
                         <h4 class="card-title">Basic Table</h4>
                         <h6 class="card-subtitle">Compititions<code>.table</code></h6>
                         <div class="table-responsive">
+                            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" asp-action="search" asp-controller="create" method="get">
+                                <div class="input-group">
+                                    <input type="text" name="keyword" class="form-control bg-white border-0 small" placeholder="Search for..."
+                                           aria-label="Search" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        @*<button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                    </button>*@
+                                        <input class="btn btn-primary" type="submit" name="idcom" value="Search" />
+                                    </div>
+                                </div>
+                            </form>
                             <form>
                                 <table class="table">
                                     <thead>
@@ -82,35 +94,35 @@
                                             </tr>
 
                                             @*<tr>
-                                                    <td>2</td>
-                                                    <td>Deshmukh</td>
-                                                    <td>Gaylord</td>
+                            <td>2</td>
+                            <td>Deshmukh</td>
+                            <td>Gaylord</td>
 
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Sanghani</td>
-                                                    <td>Gusikowski</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Sanghani</td>
+                            <td>Gusikowski</td>
 
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td>Roshan</td>
-                                                    <td>Rogahn</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Roshan</td>
+                            <td>Rogahn</td>
 
-                                                </tr>
-                                                <tr>
-                                                    <td>5</td>
-                                                    <td>Joshi</td>
-                                                    <td>Hickle</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Joshi</td>
+                            <td>Hickle</td>
 
-                                                </tr>
-                                                <tr>
-                                                    <td>6</td>
-                                                    <td>Nigam</td>
-                                                    <td>Eichmann</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Nigam</td>
+                            <td>Eichmann</td>
 
-                                                </tr>*@
+                        </tr>*@
                                         </tbody>
 
                                     }

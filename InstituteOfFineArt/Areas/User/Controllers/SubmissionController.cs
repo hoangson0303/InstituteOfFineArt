@@ -60,5 +60,18 @@ namespace InstituteOfFineArt.Areas.User.Controllers
             submissionService.Update(currentAccount);
             return RedirectToAction("index");
         }
+
+        [Route("search")]
+
+        public IActionResult Search([FromQuery(Name = "keyword")] string keyword)
+        {
+            ViewBag.test = submissionService.Search(keyword);
+
+            string cookieIdacc = Request.Cookies["Idacc"];
+            ViewBag.acc = submissionService.FindUserById(cookieIdacc);
+            string idaccTest = submissionService.GetIdAcc();
+            ViewBag.fullname = submissionService.GetFullnameByIdAcc(idaccTest);
+            return View("index");
+        }
     }
 }

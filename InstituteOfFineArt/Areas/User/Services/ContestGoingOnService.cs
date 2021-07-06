@@ -27,5 +27,6 @@ namespace InstituteOfFineArt.Areas.User.Services
 
         string FindIdAccByIdCom(string idCom);
 
+        List<Test> Search(string keyword);
     }
 }

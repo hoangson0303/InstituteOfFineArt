@@ -19,5 +19,7 @@ namespace InstituteOfFineArt.Areas.User.Services
         Test FindById(string idTest);
 
         Test Update(Test test);
+
+        List<Test> Search(string keyword);
     }
 }

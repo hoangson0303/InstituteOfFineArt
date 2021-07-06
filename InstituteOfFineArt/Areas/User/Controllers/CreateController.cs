@@ -193,5 +193,18 @@ namespace InstituteOfFineArt.Areas.User.Controllers
             createService.Delete(idCom);
             return RedirectToAction("table");
         }
+
+
+        [Route("search")]
+
+        public IActionResult Search([FromQuery(Name = "keyword")] string keyword)
+        {
+            ViewBag.compititions = createService.Search(keyword);
+            string cookieIdacc = Request.Cookies["Idacc"];
+            ViewBag.username = HttpContext.Session.GetString("username");
+            ViewBag.acc = createService.FindUserById(cookieIdacc);
+            
+            return View("table");
+        }
     }
 }
