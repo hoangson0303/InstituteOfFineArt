@@ -50,18 +50,7 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         }
 
 
-<<<<<<< HEAD
-=======
 
-                currentTestCore.Scores = mark;
-                currentTestCore.Stat = true;
-                currentTestCore.Desc = descSchool;
-                currentTestCore.GradingDate = DateTime.Now;
-                contestGoingOnService.Update(currentTestCore);
-                return RedirectToAction("index");
-            }
-            return RedirectToAction("index");
-        }
 
         [Route("search")]
 
@@ -71,12 +60,10 @@ namespace InstituteOfFineArt.Areas.User.Controllers
 
             string cookieIdacc = Request.Cookies["Idacc"];
             string idaccTest = contestGoingOnService.GetIdAcc();
-            ViewBag.score = contestGoingOnService.GetScore(cookieIdacc);
             ViewBag.fullname = contestGoingOnService.GetFullnameByIdAcc(idaccTest);
 
             ViewBag.acc = contestGoingOnService.FindUserById(cookieIdacc);
             return View("index");
         }
->>>>>>> 5c8115ba34cef84574cf75c6ceb518f91354527a
     }
 }
