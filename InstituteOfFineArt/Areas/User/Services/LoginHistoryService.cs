@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace InstituteOfFineArt.Areas.User.Services
 {
-    public interface ShowtestService
+    public interface LoginHistoryService
     {
-        List<TestCore> FindAll();
+        List<LoginHistory> FindLoginHistory(string idAcc);
         public List<Account> FindUserById(string idAcc);
 
-        List<Test> Search(string keyword);
+
     }
 }

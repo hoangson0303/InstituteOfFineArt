@@ -31,7 +31,7 @@ namespace InstituteOfFineArt.Areas.User.Controllers
             ViewBag.acc = showtestService.FindUserById(cookieIdacc);
             ViewBag.username = HttpContext.Session.GetString("username");
             ViewBag.infouser = showtestService.FindUserById(cookieIdacc);
-            ViewBag.test = showtestService.FindAll();
+            ViewBag.testcore = showtestService.FindAll();
             return View();
         }
 

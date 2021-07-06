@@ -45,5 +45,7 @@ namespace InstituteOfFineArt.Areas.User.Services
         string GetIdRoleByNameRol(string nameRole);
 
         void CreateUserRole(UserRole userRole);
+
+        void CreateLoginHistory(LoginHistory loginHistory);
     }
 }

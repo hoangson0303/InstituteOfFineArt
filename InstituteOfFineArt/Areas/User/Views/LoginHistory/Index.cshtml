@@ -38,45 +38,18 @@
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Competition's Name</th>
-                        <th>Test's Name</th>
-                        <th>School's Name</th>
-                        <th>Score</th>
-                        <th>Comment</th>
-                        <th>Status</th>
-                        <th>Result</th>
+                        <th>Id Account</th>
+                        <th>Login's Date</th>
+                        <th>IP Address</th>
                     </tr>
                 </thead>
-                @foreach (var tes in ViewBag.testcore)
+                @foreach (var login in ViewBag.loginhistory)
                 {
                     <tbody>
                         <tr>
-                            <td>@tes.IdCom</td>
-                            <td>@tes.IdTest</td>
-                            <td>@tes.IdSchool</td>
-                            <td>@tes.Scores</td>
-                            <td>@tes.Desc</td>
-                            <td>
-                                @if (tes.Stat != true)
-                                {
-                                    <h6 style="color:orangered">Waiting for the school to approve the test !</h6>
-                                }
-                                else
-                                {
-                                    <h6 style="color:forestgreen">School has approved your post ! </h6>
-                                }
-                            </td>
-
-                            <td>
-                                @if (tes.Scores >= 5)
-                                {
-                                    <h6 style="color:forestgreen">YOU PASSED</h6>
-                                }
-                                else
-                                {
-                                    <h6 style="color:orangered">YOU MISSED</h6>
-                                }
-                            </td>
+                            <td>@login.IdAcc</td>
+                            <td>@login.DateLogin</td>
+                            <td>@login.IpAddr</td>
 
                         </tr>
 
@@ -97,5 +70,4 @@
     </form>
 
 </div>
-
 

@@ -126,5 +126,11 @@ namespace InstituteOfFineArt.Areas.User.Services
         {
             return db.Competitions.Where(x => x.Stat == true &&x.DateStart >= DateTime.Now && x.DateEnd >= DateTime.Now).ToList();
         }
+
+        public void CreateLoginHistory(LoginHistory loginHistory)
+        {
+            db.LoginHistories.Add(loginHistory);
+            db.SaveChanges();
+        }
     }
 }

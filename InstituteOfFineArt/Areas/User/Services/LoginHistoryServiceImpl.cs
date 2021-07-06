@@ -6,27 +6,21 @@ using System.Threading.Tasks;
 
 namespace InstituteOfFineArt.Areas.User.Services
 {
-    public class ShowtestServiceImpl : ShowtestService
+    public class LoginHistoryServiceImpl : LoginHistoryService
     {
         private DatabaseContext db;
 
-        public ShowtestServiceImpl(DatabaseContext db)
+        public LoginHistoryServiceImpl(DatabaseContext _db)
         {
-            this.db = db;
+            this.db = _db;
         }
-
-        public List<TestCore> FindAll()
+        public List<LoginHistory> FindLoginHistory(string idAcc)
         {
-            return db.TestCores.ToList();
+            return db.LoginHistories.Where(x => x.IdAcc == idAcc).ToList();
         }
         public List<Account> FindUserById(string idAcc)
         {
             return db.Accounts.Where(x => x.IdAcc == idAcc).ToList();
-        }
-
-        public List<Test> Search(string keyword)
-        {
-            return db.Tests.Where(a => a.IdTest.Contains(keyword)).ToList();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿
+using InstituteOfFineArt.Areas.User.Services;
 using InstituteOfFineArt.Models;
 using InstituteOfFineArt.Paypal;
 using InstituteOfFineArt.Services;
@@ -29,7 +30,7 @@ namespace InstituteOfFineArt.Controllers
         private IWebHostEnvironment webHostEnvironment;
         
 
-        public IndexController(IndexService _indexService, ReviewService _reviewService ,IWebHostEnvironment _webHostEnvironment, IConfiguration _configuration)
+        public IndexController(IndexService _indexService, ReviewService _reviewService, IWebHostEnvironment _webHostEnvironment, IConfiguration _configuration)
         {
             indexService = _indexService;
             reviewService = _reviewService;
@@ -92,6 +93,7 @@ namespace InstituteOfFineArt.Controllers
         [Route("login")]
         public IActionResult Logout()
         {
+            string cookieIdacc = Request.Cookies["Idacc"];
             HttpContext.SignOutAsync(
             CookieAuthenticationDefaults.AuthenticationScheme);
             string key = "Idacc";

@@ -13,6 +13,7 @@ namespace InstituteOfFineArt.Models
             Comments = new HashSet<Comment>();
             Competitions = new HashSet<Competition>();
             Feedbacks = new HashSet<Feedback>();
+            LoginHistories = new HashSet<LoginHistory>();
             Tests = new HashSet<Test>();
         }
 
@@ -37,6 +38,7 @@ namespace InstituteOfFineArt.Models
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Competition> Competitions { get; set; }
         public virtual ICollection<Feedback> Feedbacks { get; set; }
+        public virtual ICollection<LoginHistory> LoginHistories { get; set; }
         public virtual ICollection<Test> Tests { get; set; }
     }
 }

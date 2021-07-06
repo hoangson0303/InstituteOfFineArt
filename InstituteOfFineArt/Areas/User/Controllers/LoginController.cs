@@ -40,6 +40,7 @@ namespace InstituteOfFineArt.Controllers
         [Route("")]
         public IActionResult Login()
         {
+            
             return View("login");
         }
         [HttpPost]
@@ -96,12 +97,13 @@ namespace InstituteOfFineArt.Controllers
 
                     if (nameRole == "admin")
                     {
-
+                    
                         HttpContext.Session.SetString("idAcc", idAcc);
                         return RedirectToAction("admin");
                     }
                     if (nameRole == "student")
                     {
+
                         HttpContext.Session.SetString("username", signin.Username);
                         HttpContext.Session.SetString("idAcc", idAcc);
                         return RedirectToAction("student");
@@ -147,6 +149,15 @@ namespace InstituteOfFineArt.Controllers
             ViewBag.test = loginService.FindAllTest();
             string cookieIdacc = Request.Cookies["Idacc"];
             ViewBag.acc = loginService.FindUserById(cookieIdacc);
+
+            string ip = Request.HttpContext.Connection.RemoteIpAddress.ToString();
+
+
+            var loginhistory = new LoginHistory();
+            loginhistory.IdAcc = cookieIdacc;
+            loginhistory.DateLogin = DateTime.Now;
+            loginhistory.IpAddr = ip;
+            loginService.CreateLoginHistory(loginhistory);
             if (cookieIdacc == null)
             {
                 ViewBag.loggedin = false;
@@ -164,6 +175,15 @@ namespace InstituteOfFineArt.Controllers
             ViewBag.test = loginService.FindAllTest();
             string cookieIdacc = Request.Cookies["Idacc"];
             ViewBag.acc = loginService.FindUserById(cookieIdacc);
+
+            string ip = Request.HttpContext.Connection.RemoteIpAddress.ToString();
+
+
+            var loginhistory = new LoginHistory();
+            loginhistory.IdAcc = cookieIdacc;
+            loginhistory.DateLogin = DateTime.Now;
+            loginhistory.IpAddr = ip;
+            loginService.CreateLoginHistory(loginhistory);
             if (cookieIdacc == null)
             {
                 ViewBag.loggedin = false;
@@ -178,6 +198,15 @@ namespace InstituteOfFineArt.Controllers
             string cookieIdacc = Request.Cookies["Idacc"];
             ViewBag.acc = loginService.FindUserById(cookieIdacc);
 
+            string ip = Request.HttpContext.Connection.RemoteIpAddress.ToString();
+
+
+            var loginhistory = new LoginHistory();
+            loginhistory.IdAcc = cookieIdacc;
+            loginhistory.DateLogin = DateTime.Now;
+            loginhistory.IpAddr = ip;
+            loginService.CreateLoginHistory(loginhistory);
+
             return View("admin");
         }
 
@@ -191,6 +220,16 @@ namespace InstituteOfFineArt.Controllers
             ViewBag.test = loginService.FindAllTest();
             string cookieIdacc = Request.Cookies["Idacc"];
             ViewBag.acc = loginService.FindUserById(cookieIdacc);
+
+
+            string ip = Request.HttpContext.Connection.RemoteIpAddress.ToString();
+
+
+            var loginhistory = new LoginHistory();
+            loginhistory.IdAcc = cookieIdacc;
+            loginhistory.DateLogin = DateTime.Now;
+            loginhistory.IpAddr = ip;
+            loginService.CreateLoginHistory(loginhistory);
             if (cookieIdacc == null)
             {
                 ViewBag.loggedin = false;
