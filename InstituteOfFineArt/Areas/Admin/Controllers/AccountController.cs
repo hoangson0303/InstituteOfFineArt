@@ -159,7 +159,12 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
 
         public IActionResult Search([FromQuery(Name = "keyword")] string keyword)
         {
+
+           
+
             ViewBag.accounts = AccountService.Search(keyword);
+
+
             return View("Index");
         }
     }

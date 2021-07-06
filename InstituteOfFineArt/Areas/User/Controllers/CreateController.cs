@@ -197,9 +197,9 @@ namespace InstituteOfFineArt.Areas.User.Controllers
 
         [Route("search")]
 
-        public IActionResult Search([FromQuery(Name = "keyword")] string keyword)
+        public IActionResult Search([FromQuery(Name = "keyword")] DateTime keyword, DateTime keywordend)
         {
-            ViewBag.compititions = createService.Search(keyword);
+            ViewBag.compititions = createService.Search(keyword , keywordend);
             string cookieIdacc = Request.Cookies["Idacc"];
             ViewBag.username = HttpContext.Session.GetString("username");
             ViewBag.acc = createService.FindUserById(cookieIdacc);

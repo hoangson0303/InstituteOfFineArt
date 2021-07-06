@@ -34,7 +34,7 @@ namespace InstituteOfFineArt.Areas.User.Services
 
 
 
-        List<Competition> Search(string keyword);
-
+        List<Competition> Search(DateTime keyword , DateTime keywordend);
+        List<Competition> FindAll();
     }
 }

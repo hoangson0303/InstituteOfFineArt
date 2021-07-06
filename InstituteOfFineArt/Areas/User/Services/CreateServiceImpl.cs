@@ -90,9 +90,13 @@ namespace InstituteOfFineArt.Areas.User.Services
             db.Competitions.Remove(db.Competitions.Find(idCom));
             db.SaveChanges();
         }
-        public List<Competition> Search(string keyword)
+        public List<Competition> Search(DateTime keyword , DateTime keywordend)
         {
-            return db.Competitions.Where(a => a.IdCom.Contains(keyword)).ToList();
+            return FindAll().Where(a => a.DateStart == keyword && a.DateEnd == keywordend).ToList();
+        }
+        public List<Competition> FindAll()
+        {
+            return db.Competitions.ToList();
         }
     }
 }

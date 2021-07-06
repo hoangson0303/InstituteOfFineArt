@@ -39,7 +39,8 @@ namespace InstituteOfFineArt.Areas.User.Controllers
 
         public IActionResult Search([FromQuery(Name = "keyword")] string keyword)
         {
-            ViewBag.test = showtestService.Search(keyword);
+            
+            ViewBag.testcore = showtestService.Search(keyword);
             return View("index");
         }
     }
