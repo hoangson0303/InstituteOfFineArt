@@ -32,7 +32,7 @@ namespace InstituteOfFineArt.Areas.User.Services
 
         public List<Competition> FindAll()
         {
-            return db.Competitions.ToList();
+            return db.Competitions.Where(x => x.Stat == true  && x.DateEnd >= DateTime.Now && x.DateStart <= DateTime.Now).ToList();
         }
         public string Find(string username)
         {
@@ -120,6 +120,11 @@ namespace InstituteOfFineArt.Areas.User.Services
         {
             db.UserRoles.Add(userRole);
             db.SaveChanges();
+        }
+
+        public List<Competition> FindAllNextCom()
+        {
+            return db.Competitions.Where(x => x.Stat == true &&x.DateStart >= DateTime.Now && x.DateEnd >= DateTime.Now).ToList();
         }
     }
 }

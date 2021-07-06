@@ -59,12 +59,6 @@ namespace InstituteOfFineArt.Areas.User.Services
         {
             return db.Tests.Where(x => x.IdAcc == idAcc).Select(x => x.IdTest).FirstOrDefault();
         }
-
-        public List<TestCore> GetScore(string idSchool)
-        {
-            return db.TestCores.Where(x => x.IdSchool == idSchool).ToList();
-        }
-
         public string FindIdAccByIdCom(string idCom)
         {
             return db.Competitions.Where(x => x.IdCom == idCom).Select(x => x.IdAcc).FirstOrDefault();

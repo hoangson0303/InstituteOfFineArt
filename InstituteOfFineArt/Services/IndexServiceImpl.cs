@@ -16,8 +16,15 @@ namespace InstituteOfFineArt.Services
         }
         public List<Competition> FindAll()
         {
-            return db.Competitions.Where(x => x.DateEnd >= DateTime.Now).ToList();
+            return db.Competitions.Where(x => x.Stat == true && x.DateEnd >= DateTime.Now && x.DateStart <= DateTime.Now).ToList();
         }
+
+
+        public List<Competition> FindAllNextCom()
+        {
+            return db.Competitions.Where(x => x.Stat == true && x.DateStart >= DateTime.Now && x.DateEnd >= DateTime.Now).ToList();
+        }
+
         public List<Test> FindAllTest()
         {
             return db.Tests.Where(p => p.Stat == true).ToList();

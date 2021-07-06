@@ -30,15 +30,14 @@ namespace InstituteOfFineArt.Areas.User.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            string cookieIdacc = Request.Cookies["Idacc"];
+            
 
             
 
             string idaccTest = contestGoingOnService.GetIdAcc();
-            ViewBag.score = contestGoingOnService.GetScore(cookieIdacc);
             ViewBag.fullname = contestGoingOnService.GetFullnameByIdAcc(idaccTest);
             ViewBag.testTrue = contestGoingOnService.FindAllTestTrue();
-
+            string cookieIdacc = Request.Cookies["Idacc"];
             ViewBag.acc = contestGoingOnService.FindUserById(cookieIdacc);
             return View();
         }
@@ -50,24 +49,9 @@ namespace InstituteOfFineArt.Areas.User.Controllers
             return RedirectToAction("index");
         }
 
-        [HttpGet]
-        [Route("mark/{idTest}")]
-        public IActionResult Mark(string idTest)
-        {
-            string cookieIdacc = Request.Cookies["Idacc"];
-            ViewBag.acc = contestGoingOnService.FindUserById(cookieIdacc);
-            return View("mark" , contestGoingOnService.FindTest(idTest));
-        }
 
-        [HttpPost]
-        [Route("mark/{idTest}")]
-        public IActionResult Mark(TestCore testCore, string descSchool)
-        {
-            int mark = Int32.Parse(Request.Form["selectMark"]);
-            if (ModelState.IsValid)
-            {
-                var currentTestCore = contestGoingOnService.FindById(testCore.IdTest);
-
+<<<<<<< HEAD
+=======
 
                 currentTestCore.Scores = mark;
                 currentTestCore.Stat = true;
@@ -93,5 +77,6 @@ namespace InstituteOfFineArt.Areas.User.Controllers
             ViewBag.acc = contestGoingOnService.FindUserById(cookieIdacc);
             return View("index");
         }
+>>>>>>> 5c8115ba34cef84574cf75c6ceb518f91354527a
     }
 }

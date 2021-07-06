@@ -5,7 +5,7 @@
 }
 
 
-    @{ var core = ViewBag.score; }
+
         <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Container fluid  -->
@@ -57,9 +57,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>#ID Test</th>
-                                                    <th>Fullname Student</th>
                                                     <th>Score</th>
-                                                    <th>#ID Comment</th>
                                                     <th>Content</th>
                                                     <th>Images</th>
                                                     <th>Name Test</th>
@@ -76,6 +74,34 @@
 
                                                 @foreach (var test in ViewBag.testTrue)
                                                 {
+<<<<<<< HEAD
+                                                    
+                                                        <tr>
+                                                            <td>@test.IdTest</td>
+                                                            <td>@test.Content</td>
+                                                            <td><img src="~/User/images/@test.ImgOfTest" width="100" alt="Alternate Text" /></td>
+                                                            <td>@test.NameTest</td>
+                                                            <td>$@test.Price</td>
+                                                            <td>@test.Desc</td>
+                                                            <td>@test.Datecreated</td>
+                                                            <td>@test.Dateupdated</td>
+                                                            @if (@test.Stat == false)
+                                                            {
+                                                                <td> Awaiting Approval</td>
+                                                            }
+                                                            else
+                                                            {
+                                                                <td> HAPPENING </td>
+                                                            }
+                                                            <td>
+                                                                <a class="btn btn-danger" asp-controller="contestgoingon" asp-action="delete" asp-route-id="@test.IdTest" onclick="return confirm('Are you sure?')">Delete</a>
+
+                                                            </td>
+                                                        </tr>
+                                                     
+                                                 }
+
+=======
 
                                                     <tr>
                                                         <td>@test.IdTest</td>
@@ -100,10 +126,8 @@
                                                         <td>
                                                             <a class="btn btn-warning" asp-controller="contestgoingon" asp-action="mark" asp-route-id="@test.IdTest">Mark</a>
                                                             <a class="btn btn-danger" asp-controller="contestgoingon" asp-action="delete" asp-route-id="@test.IdTest" onclick="return confirm('Are you sure?')">Delete</a>
+>>>>>>> 5c8115ba34cef84574cf75c6ceb518f91354527a
 
-                                                        </td>
-                                                    </tr>
-                                                }
 
                                             </tbody>
 

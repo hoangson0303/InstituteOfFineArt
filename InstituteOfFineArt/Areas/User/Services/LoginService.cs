@@ -23,6 +23,8 @@ namespace InstituteOfFineArt.Areas.User.Services
 
         List<Competition> FindAll();
 
+        List<Competition> FindAllNextCom();
+
 
         Test Create(Test tes);
         public List<Account> FindUserById(string idAcc);

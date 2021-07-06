@@ -109,6 +109,7 @@ namespace InstituteOfFineArt.Controllers
         {
             ViewBag.school = indexService.FindAllSchool();
             ViewBag.compititions = indexService.FindAll();
+            ViewBag.competitionsNex = indexService.FindAllNextCom();
             ViewBag.test = indexService.FindAllTest();
             string cookieIdacc = Request.Cookies["Idacc"];
             if (cookieIdacc == null)
@@ -135,6 +136,7 @@ namespace InstituteOfFineArt.Controllers
 
             ViewBag.school = indexService.FindAllSchool();
             ViewBag.compititions = indexService.FindAll();
+            ViewBag.competitionsNex = indexService.FindAllNextCom();
             ViewBag.test = indexService.FindAllTest();
             string cookieIdacc = Request.Cookies["Idacc"];
             ViewBag.acc = indexService.FindUserById(cookieIdacc);
@@ -152,6 +154,7 @@ namespace InstituteOfFineArt.Controllers
         {
             ViewBag.school = indexService.FindAllSchool();
             ViewBag.compititions = indexService.FindAll();
+            ViewBag.competitionsNex = indexService.FindAllNextCom();
             ViewBag.test = indexService.FindAllTest();
             string cookieIdacc = Request.Cookies["Idacc"];
             ViewBag.acc = indexService.FindUserById(cookieIdacc);

@@ -10,6 +10,8 @@ namespace InstituteOfFineArt.Services
     {
         List<Competition> FindAll();
 
+        List<Competition> FindAllNextCom();
+
         List<Test> FindAllTest();
 
         List<Account> FindAllSchool();

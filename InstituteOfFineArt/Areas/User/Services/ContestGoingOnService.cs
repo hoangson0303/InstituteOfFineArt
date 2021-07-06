@@ -12,7 +12,6 @@ namespace InstituteOfFineArt.Areas.User.Services
         string GetIdAcc();
         string GetFullnameByIdAcc(string idAcc);
 
-        List<TestCore> GetScore(string idSchool);
         public List<Account> FindUserById(string idAcc);
 
         public void Delete(string idTest);

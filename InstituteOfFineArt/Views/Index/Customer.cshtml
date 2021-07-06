@@ -41,15 +41,13 @@
                     <!-- Section Tittle -->
                     <div class="section-tittle text-center mb-70">
                         <span>Contests Going On</span>
-                        <h2>Contests from universities for students</h2>
+                        <h2 style="color:chartreuse">Contests from universities for students</h2>
                     </div>
                 </div>
             </div>
             <div class="services-active">
                 @foreach (var compi in ViewBag.compititions)
                 {
-                    @if (compi.Stat != false)
-                    {
                         <div class="">
 
                             <!--Card Regular-->
@@ -86,7 +84,7 @@
                             <!--/.Card Regular-->
 
                         </div>
-                    }
+                    
                 }
 
             </div>
@@ -246,34 +244,56 @@
                 <div class="cl-xl-7 col-lg-8 col-md-10">
                     <!-- Section Tittle -->
                     <div class="section-tittle text-center mb-70">
-                        <span>Conversation of the young generations</span>
-                        <h2>Institute of Fine Arts</h2>
+                        <span>CONTEST</span>
+                        <h2 style="color:crimson">COMMING SOON</h2>
                     </div>
                 </div>
             </div>
 
 
-            <div class="blog-active">
-                @foreach (var compi in ViewBag.compititions)
+            <div class="services-active">
+                @foreach (var compi in ViewBag.competitionsNex)
                 {
-                    <!-- Single -->
-                    <div class="single-blogs">
-                        <div class="blog-img">
-                            <img src="~/User/images/@compi.ImgOfCom" width="350" height="350" alt="">
+                    
+                        <div class="">
+
+                            <!--Card Regular-->
+                            <div class="card card-cascade narrower">
+
+                                <!--Card image-->
+                                <div class="view view-cascade overlay">
+                                    <img src="~/User/images/@compi.ImgOfCom" class="card-img-top" alt="">
+                                    <a>
+                                        <div class="mask rgba-white-slight"></div>
+                                    </a>
+                                </div>
+                                <!--/.Card image-->
+                                <!--Card content-->
+                                <div class="card-body card-body-cascade text-center">
+                                    <!--Title-->
+                                    <h4 class="card-title"><strong>@compi.NameCom</strong></h4>
+                                    @if (@compi.DateStart > DateTime.Now)
+                                    {
+                                        <h5 style="color:crimson">COMING SOON</h5>
+                                    }
+
+                                    <p class="card-text">
+                                        Date Start @compi.DateStart | Date End @compi.DateEnd
+                                    </p>
+
+                                    <a class="btn btn3" asp-controller="detailcompetition" asp-action="customerdetail" asp-route-id="@compi.IdCom">Detail</a>
+
+
+                                </div>
+                                <!--/.Card content-->
+
+                            </div>
+                            <!--/.Card Regular-->
+
                         </div>
-                        <div class="blogs-cap">
-                            <h5><a>Name contest:  @compi.NameCom</a></h5>
-
-                            <h4>Describe: @compi.Desc</h4>
-                            <br />
-                            <p>Start time: @compi.DateStart</p>
-                            <br />
-                            <p>End time: @compi.DateEnd</p>
-                        </div>
-                    </div>
-
-
+                    
                 }
+
             </div>
 
         </div>
