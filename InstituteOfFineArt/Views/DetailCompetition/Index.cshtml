@@ -169,7 +169,7 @@
 
                             <!-- Name input-->
                             <div class="form-floating mb-3">
-                                <input asp-for="NameTest" name="NameTest" pattern="[A-z]{3,20}" title="NameTest must have at least 3 -> 20 letters"  required  class="form-control" id="name" type="text" placeholder="Enter your name's test..." />
+                                <input asp-for="NameTest" name="NameTest" pattern="[A-z]{3,20}" title="NameTest must have at least 3 -> 20 letters" required class="form-control" id="name" type="text" placeholder="Enter your name's test..." />
 
                                 <label for="name">Name's Test  </label>
                                 @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
@@ -180,11 +180,11 @@
                                 <label for="price">Price</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea asp-for="Desc" name="Desc" required  class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem"></textarea>
+                                <textarea asp-for="Desc" name="Desc" required class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem"></textarea>
                                 <label for="message">Desc</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea asp-for="Content" name="Content"  required  class="form-control" id="message" type="text" placeholder="Content..." style="height: 10rem"></textarea>
+                                <textarea asp-for="Content" name="Content" required class="form-control" id="message" type="text" placeholder="Content..." style="height: 10rem"></textarea>
                                 <label for="message">Content</label>
                             </div>
 
@@ -243,11 +243,11 @@
                                     </div>
                                     <!-- Price -->
                                     <div class="form-floating mb-3">
-                                        <input asp-for="Price" class="form-control"  value="@tes.Price" type="text" placeholder="Price" readonly />
+                                        <input asp-for="Price" class="form-control" value="@tes.Price" type="text" placeholder="Price" readonly />
                                         <label for="price">Price</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input asp-for="Desc" class="form-control"  value="@tes.Desc" id="message" type="text" placeholder="desc..." style="height: 10rem" readonly />
+                                        <input asp-for="Desc" class="form-control" value="@tes.Desc" id="message" type="text" placeholder="desc..." style="height: 10rem" readonly />
                                         <label for="message">Desc</label>
                                     </div>
                                     <div class="form-floating mb-3">
