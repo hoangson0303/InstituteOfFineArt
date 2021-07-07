@@ -34,6 +34,7 @@ namespace InstituteOfFineArt.Controllers
             ViewBag.account = DetailComService.FindAccById(idacc);
             ViewBag.com = DetailComService.FindComById(idCom);
             ViewBag.test = DetailComService.FindTestById(cookieIdacc);
+            ViewBag.idCom = idCom;
             return View();
         }
 
@@ -162,6 +163,7 @@ namespace InstituteOfFineArt.Controllers
             currentTest.Desc = test.Desc;
             currentTest.Content = test.Content;
             currentTest.Price = test.Price;
+            currentTest.Dateupdated = DateTime.Now;
             DetailComService.Update(currentTest);
 
             return RedirectToAction("student");

@@ -25,22 +25,22 @@
 
                         <!-- Name input-->
                         <div class="form-floating mb-3">
-                            <input asp-for="NameTest" class="form-control" id="name" type="text" placeholder="Enter your name's test..." name="NameTest" pattern="[A-z]{3,20}" title="NameTest must have at least 3 -> 20 letters" required />
+                            <input asp-for="NameTest" class="form-control" id="name" type="text" placeholder="Enter your name's test..." name="NameTest" pattern="[A-z]{3,20}" title="NameTest must have at least 3 -> 20 letters"  />
 
                             <label for="name">Name's Test  </label>
 
                         </div>
                         <!-- Price -->
                         <div class="form-floating mb-3">
-                            <input asp-for="Price" class="form-control" required type="text" placeholder="Price" />
+                            <input asp-for="Price" class="form-control"  type="text" placeholder="Price" />
                             <label for="price">Price</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <textarea asp-for="Desc" class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem" name="Desc" required></textarea>
+                            <textarea asp-for="Desc" class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem" name="Desc" ></textarea>
                             <label for="message">Desc</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <textarea asp-for="Content" class="form-control" id="message" type="text" placeholder="Content..." style="height: 10rem" name="Content" required></textarea>
+                            <textarea asp-for="Content" class="form-control" id="message" type="text" placeholder="Content..." style="height: 10rem" name="Content" ></textarea>
                             <label for="message">Content</label>
                         </div>
 

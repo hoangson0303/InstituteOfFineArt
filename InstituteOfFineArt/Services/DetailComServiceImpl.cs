@@ -81,9 +81,9 @@ namespace InstituteOfFineArt.Services
             db.SaveChanges();
         }
 
-        public List<Test> FindTestById(string idTest)
+        public List<Test> FindTestById(string idAcc)
         {
-            return db.Tests.Where(x => x.IdAcc == idTest).ToList();
+            return db.Tests.Where(x => x.IdAcc == idAcc).ToList();
         }
 
         //public Test FindTestById(string idacc)

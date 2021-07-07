@@ -27,7 +27,7 @@ namespace InstituteOfFineArt.Services
 
         void CreateTestCore(TestCore testCore);
 
-        public List<Test> FindTestById(string idTest);
+        public List<Test> FindTestById(string IdAcc);
 
         //public Test FindTestById(string idacc);
 
