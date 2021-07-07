@@ -40,5 +40,25 @@ namespace InstituteOfFineArt.Areas.User.Services
         {
             return db.TestCores.ToList();
         }
+
+        public string FindIdAcc(string idTest)
+        {
+            return db.Tests.Where(x => x.IdTest == idTest).Select(x => x.IdAcc).FirstOrDefault();
+        }
+
+        public string EmailByIdAcc(string idAcc)
+        {
+            return db.Accounts.Where(x => x.IdAcc == idAcc).Select(x => x.Email).FirstOrDefault();
+        }
+
+        public string FindIdSchool(string idTest)
+        {
+            return db.TestCores.Where(x => x.IdTest == idTest).Select(x => x.IdSchool).FirstOrDefault();
+        }
+
+        public string FindFullnameSchool(string idSchool)
+        {
+            return db.Accounts.Where(x => x.IdAcc == idSchool).Select(x => x.Fullname).FirstOrDefault();
+        }
     }
 }

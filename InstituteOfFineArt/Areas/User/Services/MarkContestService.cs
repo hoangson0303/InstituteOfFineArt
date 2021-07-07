@@ -16,5 +16,12 @@ namespace InstituteOfFineArt.Areas.User.Services
         TestCore Update(TestCore testCore);
 
         List<TestCore> FindAllTestCore();
+
+        string FindIdAcc(string idTest);
+
+        string EmailByIdAcc(string idAcc);
+
+        string FindIdSchool(string idTest);
+        string FindFullnameSchool(string idSchool);
     }
 }
