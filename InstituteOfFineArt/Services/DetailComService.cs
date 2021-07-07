@@ -8,6 +8,7 @@ namespace InstituteOfFineArt.Services
 {
     public interface DetailComService
     {
+        List<Competition> FindAllNextCom();
         Competition FindById(string idCom);
         public List<Competition> FindComById(string idCom);
         public List<Account> FindAccById(string idAcc);

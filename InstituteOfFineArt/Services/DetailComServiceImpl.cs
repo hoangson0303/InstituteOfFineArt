@@ -63,7 +63,7 @@ namespace InstituteOfFineArt.Services
      
         public List<Competition> FindAll()
         {
-            return db.Competitions.ToList();
+            return db.Competitions.Where(x => x.Stat == true && x.DateEnd >= DateTime.Now && x.DateStart <= DateTime.Now).ToList();
         }
         public List<Test> FindAllTest()
         {
@@ -115,6 +115,11 @@ namespace InstituteOfFineArt.Services
         public List<Test> FindTest()
         {
             return db.Tests.ToList();
+        }
+
+        public List<Competition> FindAllNextCom()
+        {
+            return db.Competitions.Where(x => x.Stat == true && x.DateStart >= DateTime.Now && x.DateEnd >= DateTime.Now).ToList();
         }
     }
 }

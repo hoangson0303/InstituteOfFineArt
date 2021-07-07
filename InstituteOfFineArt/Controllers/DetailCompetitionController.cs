@@ -119,6 +119,7 @@ namespace InstituteOfFineArt.Controllers
 
             ViewBag.test = DetailComService.FindAllTest();
             ViewBag.compititions = DetailComService.FindAll();
+            ViewBag.competitionsNex = DetailComService.FindAllNextCom();
             if (cookieIdacc == null)
             {
                 ViewBag.loggedin = false;
