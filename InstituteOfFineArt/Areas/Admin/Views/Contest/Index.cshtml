@@ -11,35 +11,35 @@
                aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             @*<button class="btn btn-primary" type="button">
-                <i class="fas fa-search fa-sm"></i>
-            </button>*@
-              <input class="btn btn-primary" type="submit" name="idtes" value="Search" />
+                    <i class="fas fa-search fa-sm"></i>
+                </button>*@
+            <input class="btn btn-primary" type="submit" name="idtes" value="Search" />
         </div>
     </div>
 </form>
 <br />
-@foreach (var tes in ViewBag.test)
-{
-    <table class="table table-success">
 
-        <thead>
-            <tr>
-                <th scope="col">ID Test</th>
-                <th scope="col">ID Acc</th>
-                <th scope="col">ID Comment</th>
-                <th scope="col">ID Com</th>
-                <th scope="col">Name Test</th>
-                <th scope="col">Content</th>
-                <th scope="col">Desc</th>
-                <th scope="col">Image</th>
-                <th scope="col">Price</th>
-                <th scope="col">Datecreated</th>
-                <th scope="col">Dateupdated</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
+<table class="table table-success">
 
+    <thead>
+        <tr>
+            <th scope="col">ID Test</th>
+            <th scope="col">ID Acc</th>
+            <th scope="col">ID Comment</th>
+            <th scope="col">ID Com</th>
+            <th scope="col">Name Test</th>
+            <th scope="col">Content</th>
+            <th scope="col">Desc</th>
+            <th scope="col">Image</th>
+            <th scope="col">Price</th>
+            <th scope="col">Datecreated</th>
+            <th scope="col">Dateupdated</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tes in ViewBag.test)
+        {
             <tr>
                 <td>@tes.IdTest</td>
                 <td>@tes.IdAcc</td>
@@ -65,11 +65,13 @@
                     </button>
                 </td>
             </tr>
+        }
+    </tbody>
+</table>
 
-        </tbody>
-    </table>
-
-    <!-- Feedback Modal-->
+<!-- Feedback Modal-->
+@foreach (var tes in ViewBag.test)
+{
     <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -100,6 +102,6 @@
             </div>
         </div>
     </div>
-
 }
+
 

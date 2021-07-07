@@ -12,33 +12,32 @@ using System.Threading.Tasks;
 namespace InstituteOfFineArt.Areas.Admin.Controllers
 {
     [Area("admin")]
-    [Route("contest")]
-    [Route("admin/contest")]
-    public class ContestController : Controller
+    [Route("feedback")]
+    [Route("admin/feedback")]
+    public class FeedBackController : Controller
     {
-        private ContestService contestService;
+        private FeedBackService feedBackService;
         private IWebHostEnvironment webHostEnvironment;
 
-        public ContestController(ContestService _contestService, IWebHostEnvironment _webHostEnvironment)
+        public FeedBackController(FeedBackService _feedBackService, IWebHostEnvironment _webHostEnvironment)
         {
-            contestService = _contestService;
+            feedBackService = _feedBackService;
             this.webHostEnvironment = _webHostEnvironment;
         }
-
-
-        [Route("contest")]
-        public IActionResult Contest()
+        [Route("index")]
+        [Route("")]
+        public IActionResult Index()
         {
-            ViewBag.test = contestService.FindAll();
+            ViewBag.feedback = feedBackService.FindALlFeedBack();
             return View();
         }
 
-        [Route("delete/{idTest}")]
-        public IActionResult Delete(string idtest, string desc)
+        [Route("reply/{idfeed}")]
+        public IActionResult Reply( string idfeed, string desc)
         {
-            var idAcc = contestService.FindIdAccByIdTest(idtest);
-            var REmail = contestService.FindEmailByIdAcc(idAcc);
-            var curentTest = contestService.FindById(idtest);
+            var idAcc = feedBackService.FindIdAccByIdFeed(idfeed);
+            var REmail = feedBackService.FindEmailByIdAcc(idAcc);
+            var curentFeed = feedBackService.FindById(idfeed);
             try
             {
                 if (ModelState.IsValid)
@@ -46,8 +45,8 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
                     var senderEmail = new MailAddress("instituteoffineart2001@gmail.com", "Institute Of Fine Art");
                     var recEmail = new MailAddress(REmail, REmail);
                     var password = "test03032001";
-                    var sub = "EMAIL REJECTION";
-                    var body = "Test : " + curentTest.NameTest + ". " + "Created from date : " + curentTest.Datecreated + ". " + "Was rejected . Reason is : " + desc + ". " + "Contact us here --> " + senderEmail.Address;
+                    var sub = "REPLY EMAIL";
+                    var body = "Your Message : " + curentFeed.Mess + ". " + "A reply is : " + desc + ". " + "Date send is :" + curentFeed.Datereply + " " + "Contact us here --> " + senderEmail.Address;
                     var smtp = new SmtpClient
                     {
                         Host = "smtp.gmail.com",
@@ -69,28 +68,27 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
                         ViewBag.msg = "Email sending success";
                     }
 
-                    contestService.Delete(idtest);
-                    return RedirectToAction("contest");
+                    curentFeed.ReplyMail = desc;
+                    curentFeed.Datereply = DateTime.Now;
+                    feedBackService.Update(curentFeed);
+                    return RedirectToAction("index");
                 }
             }
             catch (Exception)
             {
                 ViewBag.Error = "Email sending failed";
             }
-            return RedirectToAction("contest");
-
+            return RedirectToAction("index");
         }
-
 
         [Route("search")]
 
         public IActionResult Search([FromQuery(Name = "keyword")] string keyword)
         {
-            ViewBag.test = contestService.Search(keyword);
-            return View("contest");
+            ViewBag.feedback = feedBackService.Search(keyword);
+            return View("index");
         }
 
 
-
     }
-    }
+}
