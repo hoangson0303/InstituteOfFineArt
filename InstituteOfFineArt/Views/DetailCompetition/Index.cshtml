@@ -152,7 +152,6 @@
 {
     @if (ViewBag.idCom == tes.IdCom)
     {
-        
         <section class="bg-gradient-primary-to-secondary" id="download">
             <div class="container px-5">
                 <div class="modal-dialog modal-dialog-centered">
@@ -172,7 +171,7 @@
 
                             <form method="post" asp-action="edit" asp-controller="detailcompetition" id="contactForm" data-sb-form-api-token="API_TOKEN" enctype="multipart/form-data">
                                 <div class="form-floating mb-3">
-                                    <input asp-for="IdTest" class="form-control" value="@tes.IdTest" id="name" type="text" placeholder="Enter your name's test..."  readonly/>
+                                    <input asp-for="IdTest" class="form-control" value="@tes.IdTest" id="name" type="text" placeholder="Enter your name's test..." readonly />
 
                                     <label for="name">Name's Test  </label>
                                     @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
@@ -222,77 +221,81 @@
             </div>
         </section>
     }
-    else
+
+
+}
+
+@if (ViewBag.checkIdacc == null)
+{
+    @foreach (var com in ViewBag.com)
     {
-        @foreach (var com in ViewBag.com)
-        {
-            <section class="bg-gradient-primary-to-secondary" id="download">
-                <div class="container px-5">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header bg-gradient-primary-to-secondary p-4">
+        <section class="bg-gradient-primary-to-secondary" id="download">
+            <div class="container px-5">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-gradient-primary-to-secondary p-4">
 
-                                <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">Submit Test</h5>
-                            </div>
-                            <div class="modal-body border-0 p-4">
-                                <!-- * * * * * * * * * * * * * * *-->
-                                <!-- * * SB Forms Contact Form * *-->
-                                <!-- * * * * * * * * * * * * * * *-->
-                                <!-- This form is pre-integrated with SB Forms.-->
-                                <!-- To make this form functional, sign up at-->
-                                <!-- https://startbootstrap.com/solution/contact-forms-->
-                                <!-- to get an API token!-->
+                            <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">Submit Test</h5>
+                        </div>
+                        <div class="modal-body border-0 p-4">
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- * * SB Forms Contact Form * *-->
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- This form is pre-integrated with SB Forms.-->
+                            <!-- To make this form functional, sign up at-->
+                            <!-- https://startbootstrap.com/solution/contact-forms-->
+                            <!-- to get an API token!-->
 
-                                <form method="post" id="contactForm" data-sb-form-api-token="API_TOKEN" asp-action="index" asp-controller="detailcompetition" asp-route-id="@com.IdCom" enctype="multipart/form-data">
+                            <form method="post" id="contactForm" data-sb-form-api-token="API_TOKEN" asp-action="index" asp-controller="detailcompetition" asp-route-id="@com.IdCom" enctype="multipart/form-data">
 
-                                    <!-- Name input-->
-                                    <div class="form-floating mb-3">
-                                        <input asp-for="NameTest" name="NameTest" pattern="[A-z]{3,20}" title="NameTest must have at least 3 -> 20 letters" required class="form-control" id="name" type="text" placeholder="Enter your name's test..." />
+                                <!-- Name input-->
+                                <div class="form-floating mb-3">
+                                    <input asp-for="NameTest" name="NameTest" pattern="[A-z]{3,20}" title="NameTest must have at least 3 -> 20 letters" required class="form-control" id="name" type="text" placeholder="Enter your name's test..." />
 
-                                        <label for="name">Name's Test  </label>
-                                        @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
+                                    <label for="name">Name's Test  </label>
+                                    @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
+                                </div>
+                                <!-- Price -->
+                                <div class="form-floating mb-3">
+                                    <input asp-for="Price" class="form-control" type="text" placeholder="Price" required />
+                                    <label for="price">Price</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <textarea asp-for="Desc" name="Desc" required class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem"></textarea>
+                                    <label for="message">Desc</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <textarea asp-for="Content" name="Content" required class="form-control" id="message" type="text" placeholder="Content..." style="height: 10rem"></textarea>
+                                    <label for="message">Content</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <div class="pl-sm-4 pl-2" id="img-section">
+
+                                        <b>Image Of Test</b>
+                                        <p>Accepted file type .png. Less than 1MB</p> <input asp-for="ImgOfTest" type="file" name="file" value="Add" onchange="show(this)">
+                                        <img id="user_img" src="" alt="Alternate Text" class="img" required />
+
                                     </div>
-                                    <!-- Price -->
-                                    <div class="form-floating mb-3">
-                                        <input asp-for="Price" class="form-control" type="text" placeholder="Price" required />
-                                        <label for="price">Price</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <textarea asp-for="Desc" name="Desc" required class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem"></textarea>
-                                        <label for="message">Desc</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <textarea asp-for="Content" name="Content" required class="form-control" id="message" type="text" placeholder="Content..." style="height: 10rem"></textarea>
-                                        <label for="message">Content</label>
-                                    </div>
+                                </div>
 
-                                    <div class="form-floating mb-3">
-                                        <div class="pl-sm-4 pl-2" id="img-section">
+                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                                <!-- Submit Button-->
 
-                                            <b>Image Of Test</b>
-                                            <p>Accepted file type .png. Less than 1MB</p> <input asp-for="ImgOfTest" type="file" name="file" value="Add" onchange="show(this)">
-                                            <img id="user_img" src="" alt="Alternate Text" class="img" required />
-
-                                        </div>
-                                    </div>
-
-                                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                                    <!-- Submit Button-->
-
-                                    <div class="d-grid btn btn-success"> <input class="btn btn-success" type="submit" value="Submit" /></div>
+                                <div class="d-grid btn btn-success"> <input class="btn btn-success" type="submit" value="Submit" /></div>
 
 
-                                </form>
+                            </form>
 
-                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        }
+            </div>
+        </section>
     }
-
 }
+
+
 
 
 

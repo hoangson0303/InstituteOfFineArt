@@ -14,7 +14,6 @@ using System.Threading.Tasks;
 namespace InstituteOfFineArt.Controllers
 {
     [Route("DetailCompetition")]
-    
     public class DetailCompetitionController : Controller
     {
         private DetailComService DetailComService;
@@ -36,6 +35,10 @@ namespace InstituteOfFineArt.Controllers
             ViewBag.com = DetailComService.FindComById(idCom);
             ViewBag.test = DetailComService.FindTestById(cookieIdacc);
             ViewBag.idCom = idCom;
+
+
+
+            ViewBag.checkIdacc = DetailComService.FindIdAcc(cookieIdacc);
             return View();
         }
 
@@ -139,6 +142,7 @@ namespace InstituteOfFineArt.Controllers
         //    ViewBag.test = DetailComService.FindTestById(cookieIdacc);
         //    return View("edit", DetailComService.Find(id));
         //}
+
         [Route("edit")]
         [HttpPost]
         public IActionResult Edit(Test test, IFormFile file)

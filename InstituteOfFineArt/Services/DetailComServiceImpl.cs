@@ -121,5 +121,10 @@ namespace InstituteOfFineArt.Services
         {
             return db.Competitions.Where(x => x.Stat == true && x.DateStart >= DateTime.Now && x.DateEnd >= DateTime.Now).ToList();
         }
+
+        public string FindIdAcc(string idAcc)
+        {
+            return db.Tests.Where(x => x.IdAcc == idAcc).Select(x => x.IdAcc).FirstOrDefault();
+        }
     }
 }

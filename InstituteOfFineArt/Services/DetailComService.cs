@@ -39,5 +39,7 @@ namespace InstituteOfFineArt.Services
 
 
         List<Test> FindTest();
+
+        string FindIdAcc(string idAcc);
     }
 }
