@@ -152,6 +152,7 @@
 {
     @if (ViewBag.idCom == tes.IdCom)
     {
+        
         <section class="bg-gradient-primary-to-secondary" id="download">
             <div class="container px-5">
                 <div class="modal-dialog modal-dialog-centered">
@@ -169,26 +170,31 @@
                             <!-- https://startbootstrap.com/solution/contact-forms-->
                             <!-- to get an API token!-->
 
-                            <form id="contactForm" data-sb-form-api-token="API_TOKEN" enctype="multipart/form-data">
+                            <form method="post" asp-action="edit" asp-controller="detailcompetition" id="contactForm" data-sb-form-api-token="API_TOKEN" enctype="multipart/form-data">
+                                <div class="form-floating mb-3">
+                                    <input asp-for="IdTest" class="form-control" value="@tes.IdTest" id="name" type="text" placeholder="Enter your name's test..."  readonly/>
 
+                                    <label for="name">Name's Test  </label>
+                                    @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
+                                </div>
                                 <!-- Name input-->
                                 <div class="form-floating mb-3">
-                                    <input asp-for="NameTest" class="form-control" value="@tes.NameTest" id="name" type="text" placeholder="Enter your name's test..." readonly />
+                                    <input asp-for="NameTest" class="form-control" value="@tes.NameTest" id="name" type="text" placeholder="Enter your name's test..." />
 
                                     <label for="name">Name's Test  </label>
                                     @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
                                 </div>
                                 <!-- Price -->
                                 <div class="form-floating mb-3">
-                                    <input asp-for="Price" class="form-control" value="@tes.Price" type="text" placeholder="Price" readonly />
+                                    <input asp-for="Price" class="form-control" value="@tes.Price" type="text" placeholder="Price" />
                                     <label for="price">Price</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input asp-for="Desc" class="form-control" value="@tes.Desc" id="message" type="text" placeholder="desc..." style="height: 10rem" readonly />
+                                    <input asp-for="Desc" class="form-control" value="@tes.Desc" id="message" type="text" placeholder="desc..." style="height: 10rem" />
                                     <label for="message">Desc</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input asp-for="Content" class="form-control" value="@tes.Content" id="message" type="text" placeholder="Content..." style="height: 10rem" readonly />
+                                    <input asp-for="Content" class="form-control" value="@tes.Content" id="message" type="text" placeholder="Content..." style="height: 10rem" />
                                     <label for="message">Content</label>
                                 </div>
 
@@ -196,7 +202,7 @@
                                     <div class="pl-sm-4 pl-2" id="img-section">
 
                                         <b>Image Of Test</b>
-                                        <p>Accepted file type .png. Less than 1MB</p> @*<input asp-for="ImgOfTest" type="file" name="file" value="Add" onchange="show(this)">*@
+                                        <p>Accepted file type .png. Less than 1MB</p> <input asp-for="ImgOfTest" type="file" name="file" value="Add" onchange="show(this)">
                                         <img id="user_img" src="~/User/images/@tes.ImgOfTest" width="300" alt="Alternate Text" class="img" readonly />
 
                                     </div>
@@ -205,7 +211,7 @@
                                 <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                                 <!-- Submit Button-->
 
-                                <div class="d-grid"><a class="btn btn-success" asp-action="edit" asp-controller="detailcompetition" asp-route-id="@tes.IdTest"><i class="fas fa-check-circle"></i>Edit</a></div>
+                                <div class="d-grid btn btn-success "> <input class="btn-success " type="submit" value="Update" /></div>
 
 
                             </form>

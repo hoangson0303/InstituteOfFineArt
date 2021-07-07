@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 namespace InstituteOfFineArt.Controllers
 {
     [Route("DetailCompetition")]
+    
     public class DetailCompetitionController : Controller
     {
         private DetailComService DetailComService;
@@ -130,18 +131,19 @@ namespace InstituteOfFineArt.Controllers
         }
 
 
-        [HttpGet]
-        [Route("edit/{idtest}")]
-        public IActionResult Edit(string id)
-        {
-            string cookieIdacc = Request.Cookies["Idacc"];
-            ViewBag.test = DetailComService.FindTestById(cookieIdacc);
-            return View("edit", DetailComService.Find(id));
-        }
-        [Route("edit/{idtest}")]
+        //[HttpGet]
+        //[Route("edit/{idtest}")]
+        //public IActionResult Edit(string id)
+        //{
+        //    string cookieIdacc = Request.Cookies["Idacc"];
+        //    ViewBag.test = DetailComService.FindTestById(cookieIdacc);
+        //    return View("edit", DetailComService.Find(id));
+        //}
+        [Route("edit")]
         [HttpPost]
         public IActionResult Edit(Test test, IFormFile file)
         {
+
 
             var currentTest = DetailComService.Find(test.IdTest);
             if (file != null)
@@ -159,6 +161,8 @@ namespace InstituteOfFineArt.Controllers
             {
                 test.ImgOfTest = "aaa.png";
             }
+
+            currentTest.IdTest = test.IdTest;
             currentTest.NameTest = test.NameTest;
             currentTest.Desc = test.Desc;
             currentTest.Content = test.Content;
@@ -169,7 +173,6 @@ namespace InstituteOfFineArt.Controllers
             return RedirectToAction("student");
         }
 
-       
 
         [Route("schooldetail/{idCom}")]
 
