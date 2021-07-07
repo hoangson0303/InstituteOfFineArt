@@ -47,7 +47,16 @@
                 <td>@feed.Datesend</td>
                 <td>@feed.Datereply</td>
                 <td>@feed.IdAcc</td>
-                <td>@feed.Stat</td>
+                <td>
+                    @if (@feed.Stat == true)
+                    {
+                        <h6 style="color:green">Replied</h6>
+                    }
+                    else
+                    {
+                        <h6 style="color:orangered">Not reply yet</h6>
+                    }
+                </td>
                 <td>
                     @*<a class="btn btn-success" asp-action="accept" asp-controller="event" asp-route-id="@tes.IdTest"><i class="fas fa-check-circle"></i></a>*@
                     <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">

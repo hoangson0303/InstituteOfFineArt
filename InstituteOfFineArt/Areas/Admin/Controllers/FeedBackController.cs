@@ -70,6 +70,7 @@ namespace InstituteOfFineArt.Areas.Admin.Controllers
 
                     curentFeed.ReplyMail = desc;
                     curentFeed.Datereply = DateTime.Now;
+                    curentFeed.Stat = true;
                     feedBackService.Update(curentFeed);
                     return RedirectToAction("index");
                 }
