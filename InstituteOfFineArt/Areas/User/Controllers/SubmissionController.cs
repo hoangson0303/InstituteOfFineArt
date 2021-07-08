@@ -61,6 +61,13 @@ namespace InstituteOfFineArt.Areas.User.Controllers
             return RedirectToAction("index");
         }
 
+        [Route("delete/{idTest}")]
+        public IActionResult Delete(string idTest)
+        {
+            submissionService.Delete(idTest);
+            return RedirectToAction("index");
+        }
+
         [Route("search")]
 
         public IActionResult Search([FromQuery(Name = "keyword")] string keyword)

@@ -4,6 +4,8 @@ Author: Themedesigner
 Email: niravjoshi87@gmail.com
 File: js
 */
+$('#datetimepicker').data("DateTimePicker").FUNCTION()
+
 $(function() {
     "use strict";
     $(function() {

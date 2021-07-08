@@ -44,8 +44,8 @@
                                            aria-label="Search" aria-describedby="basic-addon2" required>
                                     <div class="input-group-append">
                                         @*<button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                    </button>*@
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>*@
                                         <input class="btn btn-primary" type="submit" name="idtest" value="Search" />
                                     </div>
                                 </div>
@@ -55,8 +55,6 @@
                                     <thead>
                                         <tr>
                                             <th>#ID Test</th>
-                                            <th>Fullname Student</th>
-                                            <th>#ID Comment</th>
                                             <th>#ID Competition</th>
                                             <th>Content</th>
                                             <th>Images</th>
@@ -74,9 +72,7 @@
                                         <tbody>
                                             <tr>
                                                 <td>@test.IdTest</td>
-                                                <td>@ViewBag.fullname</td>
-                                                <td>@test.IdComment</td>
-                                                <td>@test.IdComment</td>
+                                                <td>@test.IdCom</td>
                                                 <td>@test.Content</td>
                                                 <td><img src="~/User/images/@test.ImgOfTest" width="100" alt="Alternate Text" /></td>
                                                 <td>@test.NameTest</td>
@@ -94,7 +90,7 @@
                                                 }
                                                 <td>
                                                     <a class="btn btn-success" asp-action="accept" asp-controller="submission" asp-route-id="@test.IdTest">Accept</a>
-                                                    <a class="btn btn-danger" asp-controller="create" asp-action="delete" asp-route-id="@test.IdTest" onclick="return confirm('Are you sure?')">Delete</a>
+                                                    <a class="btn btn-danger" asp-controller="submission" asp-action="delete" asp-route-id="@test.IdTest" onclick="return confirm('Are you sure?')">Delete</a>
 
                                                 </td>
                                             </tr>
@@ -114,6 +110,37 @@
         <!-- ============================================================== -->
         <!-- End PAge Content -->
         <!-- ============================================================== -->
+    </div>
+
+    <!-- Feedback Modal-->
+    <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary-to-secondary p-4">
+
+                    <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">Send feedback</h5>
+
+
+                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body border-0 p-4">
+
+                    <form asp-controller="event" asp-action="delete"  id="contactForm" data-sb-form-api-token="API_TOKEN" method="post">
+
+                        <div class="form-floating mb-3">
+                            <textarea name="desc" class="form-control" id="message" type="text" placeholder="desc..." style="height: 10rem"></textarea>
+                            <label for="message">Description</label>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">Desc  is required.</div>
+                        </div>
+                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                        <!-- Submit Button-->
+                        <div class="d-grid"> <input type="submit" value="Submit" /></div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
     </div>
     <!-- ============================================================== -->
     <!-- End Container fluid  -->

@@ -43,55 +43,62 @@
 
 
                             <div class="form-group">
-                                <label class="col-md-12">Name</label>
+                                <label class="col-md-12">Name's Competition</label>
                                 <div class="col-md-12 ">
                                     <input type="text" asp-for="NameCom" name="NameCom" pattern="[A-z]{3,20}" title="NameCom must have at least 3-> 20 letters" placeholder="NameCom" required class="form-control form-control-line">
                                     @*<span asp-validation-for="NameCom"></span>*@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label class="col-md-12">Date Starting Of Competition</label>
+                                <div class='col-sm-12'>
+                                    <input asp-for="DateStart" type='text' placeholder="Date Starting" class="form-control form-control-line" id='datetimepicker1' />
+                                </div>
+                                <script type="text/javascript">
+                                    $(function () {
+                                        $('#datetimepicker4').datetimepicker();
+                                    });
+                                </script>
+                            </div>
 
                             <div class="form-group">
-                                <label class="col-md-12">date_start</label>
-                                <div class="col-md-12">
-                                    <input type="datetime" asp-for="DateStart" placeholder="date_start" required class="form-control form-control-line">
-                                    @*<span asp-validation-for="DateStart" class="text-danger"></span>*@
-                                   
+                                <label class="col-md-12">Date Ending Of Competition</label>
+                                <div class='col-sm-12'>
+                                    <input asp-for="DateEnd" type='text' placeholder="Date Ending" class="form-control form-control-line" id='datetimepicker2' />
                                 </div>
+                                <script type="text/javascript">
+                                    $(function () {
+                                        $('#datetimepicker4').datetimepicker();
+                                    });
+                                </script>
                             </div>
+
+
                             <div class="form-group">
-                                <label class="col-md-12">date_end</label>
+
+                                <label class="col-md-12">Description</label>
                                 <div class="col-md-12">
-                                    <input type="datetime" asp-for="DateEnd" placeholder="date end" required class="form-control form-control-line">
-                                    @*<span asp-validation-for="DateEnd" class="text-danger"></span>*@
-                                </div>
-                            </div>
-                           
-                 
-                            <div class="form-group">
-                           
-                                <label class="col-md-12">Desc</label>
-                                <div class="col-md-12">
-                                    <textarea rows="5" asp-for="Desc" class="form-control form-control-line" required ></textarea>
+                                    <textarea rows="5" asp-for="Desc" class="form-control form-control-line" required></textarea>
                                     @*<span asp-validation-for="Desc"></span>*@
                                 </div>
                             </div>
-                    <div class="form-group">
-                        <label class="col-md-12">Image</label>
-                        <div class="col-md-12">
-                            <input asp-for="ImgOfCom" type="file" name="file" value="Add" class="btn button border" onchange="show(this)" required>
-                            <img id = "user_img" src="" alt="Alternate Text" class="img" />
-                        </div>
-                    </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Image</label>
+                                <div class="col-md-12">
+                                    <input asp-for="ImgOfCom" type="file" name="file" value="Add" class="btn button border" onchange="show(this)" required>
+                                    <img id="user_img" src="" alt="Alternate Text" class="img" />
+                                </div>
+                            </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <input type="submit" class="btn btn-success" value="ADD Create" />
-                        </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="submit" class="btn btn-success" value="ADD Create" />
+                                </div>
 
+                            </div>
+                        </form>
                     </div>
-                    </form>
-                </div>
                 </div>
             </div>
             <!-- Column -->
@@ -116,16 +123,20 @@
 </div>
 
 
+
+
 <script type="text/javascript">
 
-   function show(input) {
-      if (input.files && input.files[0]) {
-          var filerdr = new FileReader();
-          filerdr.onload = function (e) {
-         $('#user_img').attr('src', e.target.result);
-      }
-      filerdr.readAsDataURL(input.files[0]);
-   }
-}
+    function show(input) {
+        if (input.files && input.files[0]) {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                $('#user_img').attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
 </script>
+
+
 

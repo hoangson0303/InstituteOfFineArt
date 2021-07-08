@@ -21,5 +21,7 @@ namespace InstituteOfFineArt.Areas.User.Services
         Test Update(Test test);
 
         List<Test> Search(string keyword);
+
+        public void Delete(string idTest);
     }
 }
