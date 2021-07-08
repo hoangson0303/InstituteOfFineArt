@@ -178,22 +178,22 @@
                                 </div>
                                 <!-- Name input-->
                                 <div class="form-floating mb-3">
-                                    <input asp-for="NameTest" class="form-control" value="@tes.NameTest" id="name" type="text" placeholder="Enter your name's test..." />
+                                    <input asp-for="NameTest" class="form-control" value="@tes.NameTest" id="name" type="text" placeholder="Enter your name's test..." required />
 
                                     <label for="name">Name's Test  </label>
                                     @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
                                 </div>
                                 <!-- Price -->
                                 <div class="form-floating mb-3">
-                                    <input asp-for="Price" class="form-control" value="@tes.Price" type="text" placeholder="Price" />
+                                    <input asp-for="Price" class="form-control" value="@tes.Price" type="text" placeholder="Price" required />
                                     <label for="price">Price</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input asp-for="Desc" class="form-control" value="@tes.Desc" id="message" type="text" placeholder="desc..." style="height: 10rem" />
+                                    <input asp-for="Desc" class="form-control" value="@tes.Desc" id="message" type="text" placeholder="desc..." style="height: 10rem" required />
                                     <label for="message">Desc</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input asp-for="Content" class="form-control" value="@tes.Content" id="message" type="text" placeholder="Content..." style="height: 10rem" />
+                                    <input asp-for="Content" class="form-control" value="@tes.Content" id="message" type="text" placeholder="Content..." style="height: 10rem" required />
                                     <label for="message">Content</label>
                                 </div>
 
@@ -202,7 +202,7 @@
 
                                         <b>Image Of Test</b>
                                         <p>Accepted file type .png. Less than 1MB</p> <input asp-for="ImgOfTest" type="file" name="file" value="Add" onchange="show(this)">
-                                        <img id="user_img" src="~/User/images/@tes.ImgOfTest" width="300" alt="Alternate Text" class="img" readonly />
+                                        <img id="user_img" src="~/User/images/@tes.ImgOfTest" width="300" alt="Alternate Text" class="img" required />
 
                                     </div>
                                 </div>

@@ -11,7 +11,7 @@
             <img id = "user_img" src="~/User/images/imagesUser/@Model.Avatar" class="img" alt="">
             <div class="pl-sm-4 pl-2" id="img-section">
                 <b>Profile Photo</b>
-                <p>Accepted file type .png. Less than 1MB</p> <input type="file" name="file" value="Upload" class="btn button border" onchange="show(this)">
+                <p>Accepted file type .png. Less than 1MB</p> <input type="file" name="file" value="Upload" class="btn button border" onchange="show(this)" required>
             </div>
         </div>
         <div class="py-2">
@@ -33,7 +33,7 @@
                 <div class="col-md-6 pt-md-0 pt-3" id="lang">
                     <label for="language">Gender</label>
                     <div class="arrow">
-                        <select name="language" id="selectGender" name="selectGender" class="bg-light" asp-for="Gender">
+                        <select name="language" id="selectGender" name="selectGender" class="bg-light" asp-for="Gender" required>
                             <option value="True" selected>Male</option>
                             <option value="False">Female</option>
                         </select>
